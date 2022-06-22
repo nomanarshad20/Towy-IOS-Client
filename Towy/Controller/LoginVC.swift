@@ -18,10 +18,8 @@ class LoginVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //setButtonAnimation(view: [self.viewPhone,self.viewFB,self.viewGmail])
     }
     override func viewWillAppear(_ animated: Bool) {
-       // viewPhone.springAnimation()
         startAnimation()
     }
     
