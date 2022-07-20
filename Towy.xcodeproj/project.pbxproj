@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D24CFADE4CDBE5DC97AC78D /* Pods_Towy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */; };
+		3D216678288496AE005A108B /* EnterEmailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D216677288496AE005A108B /* EnterEmailVM.swift */; };
+		3D21667A2884A295005A108B /* EnterPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2166792884A295005A108B /* EnterPasswordVM.swift */; };
+		3D21667C2884A89C005A108B /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21667B2884A89C005A108B /* RegisterModel.swift */; };
+		3D21667E288567DE005A108B /* SocialUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21667D288567DE005A108B /* SocialUserModel.swift */; };
+		3D2A638228757246007F7E29 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A638128757246007F7E29 /* CustomLoader.swift */; };
+		3D2A638B28759676007F7E29 /* EnterOTPVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A638A28759676007F7E29 /* EnterOTPVM.swift */; };
+		3D318BCD28631B62002E4960 /* UberMoveTextLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BC928631B62002E4960 /* UberMoveTextLight.otf */; };
+		3D318BCE28631B62002E4960 /* UberMoveTextRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BCA28631B62002E4960 /* UberMoveTextRegular.otf */; };
+		3D318BD028631B62002E4960 /* UberMoveTextMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BCC28631B62002E4960 /* UberMoveTextMedium.otf */; };
+		3D318BD228633113002E4960 /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BD128633113002E4960 /* Maps.storyboard */; };
+		3D318BD4286331D3002E4960 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D318BD3286331D3002E4960 /* Constans.swift */; };
+		3D318BD6286335B8002E4960 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D318BD5286335B8002E4960 /* CustomLabel.swift */; };
+		3D318BD8286341C0002E4960 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D318BD7286341C0002E4960 /* CustomButton.swift */; };
+		3D318BD928638C30002E4960 /* UberMoveTextBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BCB28631B62002E4960 /* UberMoveTextBold.otf */; };
+		3D523DA3287F5F760034D011 /* initialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D523DA2287F5F750034D011 /* initialVC.swift */; };
 		3D59818428607ADA0034AB47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59818328607ADA0034AB47 /* AppDelegate.swift */; };
 		3D59818828607ADA0034AB47 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D59818728607ADA0034AB47 /* LoginVC.swift */; };
 		3D59818B28607ADA0034AB47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D59818928607ADA0034AB47 /* Main.storyboard */; };
@@ -26,17 +42,44 @@
 		3D5981B1286087810034AB47 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D5981A5286087810034AB47 /* Roboto-Regular.ttf */; };
 		3D5981B4286090FB0034AB47 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981B3286090FB0034AB47 /* AnimationView.swift */; };
 		3D5981B82860D4A00034AB47 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981B72860D4A00034AB47 /* LoginVM.swift */; };
-		3D5981BA2860DB630034AB47 /* EnterPhoneNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981B92860DB630034AB47 /* EnterPhoneNumberVC.swift */; };
 		3D5981BC2860DB7D0034AB47 /* EnterOTPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981BB2860DB7D0034AB47 /* EnterOTPVC.swift */; };
 		3D5981BE2860DB900034AB47 /* EnterPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981BD2860DB900034AB47 /* EnterPasswordVC.swift */; };
 		3D5981C02860DBB40034AB47 /* EnterDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981BF2860DBB40034AB47 /* EnterDetailVC.swift */; };
 		3D5981C32860DD140034AB47 /* UtilitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C22860DD140034AB47 /* UtilitiesManager.swift */; };
 		3D5981C52860E1060034AB47 /* AllExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C42860E1060034AB47 /* AllExtensions.swift */; };
 		3D5981C72860E4B40034AB47 /* ControllerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C62860E4B40034AB47 /* ControllerNavigation.swift */; };
+		3D80BB6A28735D270083C363 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D80BB6928735D270083C363 /* GoogleService-Info.plist */; };
+		3D8635F6287839D3005BE92E /* EnterEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F5287839D3005BE92E /* EnterEmailVC.swift */; };
+		3D8635F928783DEF005BE92E /* TermAndCondtionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */; };
+		3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A1287442920003E87A /* NetworkCall.swift */; };
+		3DACB6A4287450E90003E87A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A3287450E90003E87A /* LoginModel.swift */; };
+		3DACB6A7287481820003E87A /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A6287481820003E87A /* URLConstants.swift */; };
+		3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3F4FC286A1CFE00A21FC2 /* BaseVM.swift */; };
+		3DB3F500286A1DAB00A21FC2 /* AIReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3F4FF286A1DAB00A21FC2 /* AIReachabilityManager.swift */; };
 		3DB569E42861AEB900391001 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB569E32861AEB900391001 /* Enums.swift */; };
+		3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */; };
+		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
+		3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */; };
+		3DEDC0FA288044E70051FAA0 /* EnterDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D0CDC7C286DCB5F00F4BC2A /* Towy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Towy.entitlements; sourceTree = "<group>"; };
+		3D216677288496AE005A108B /* EnterEmailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailVM.swift; sourceTree = "<group>"; };
+		3D2166792884A295005A108B /* EnterPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordVM.swift; sourceTree = "<group>"; };
+		3D21667B2884A89C005A108B /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		3D21667D288567DE005A108B /* SocialUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserModel.swift; sourceTree = "<group>"; };
+		3D2A638128757246007F7E29 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
+		3D2A638A28759676007F7E29 /* EnterOTPVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterOTPVM.swift; sourceTree = "<group>"; };
+		3D318BC928631B62002E4960 /* UberMoveTextLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextLight.otf; sourceTree = "<group>"; };
+		3D318BCA28631B62002E4960 /* UberMoveTextRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextRegular.otf; sourceTree = "<group>"; };
+		3D318BCB28631B62002E4960 /* UberMoveTextBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextBold.otf; sourceTree = "<group>"; };
+		3D318BCC28631B62002E4960 /* UberMoveTextMedium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextMedium.otf; sourceTree = "<group>"; };
+		3D318BD128633113002E4960 /* Maps.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
+		3D318BD3286331D3002E4960 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		3D318BD5286335B8002E4960 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		3D318BD7286341C0002E4960 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		3D523DA2287F5F750034D011 /* initialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialVC.swift; sourceTree = "<group>"; };
 		3D59818028607ADA0034AB47 /* Towy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Towy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D59818328607ADA0034AB47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D59818728607ADA0034AB47 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -58,14 +101,28 @@
 		3D5981A5286087810034AB47 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		3D5981B3286090FB0034AB47 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		3D5981B72860D4A00034AB47 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
-		3D5981B92860DB630034AB47 /* EnterPhoneNumberVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberVC.swift; sourceTree = "<group>"; };
 		3D5981BB2860DB7D0034AB47 /* EnterOTPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterOTPVC.swift; sourceTree = "<group>"; };
 		3D5981BD2860DB900034AB47 /* EnterPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPasswordVC.swift; sourceTree = "<group>"; };
 		3D5981BF2860DBB40034AB47 /* EnterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDetailVC.swift; sourceTree = "<group>"; };
 		3D5981C22860DD140034AB47 /* UtilitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesManager.swift; sourceTree = "<group>"; };
 		3D5981C42860E1060034AB47 /* AllExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtensions.swift; sourceTree = "<group>"; };
 		3D5981C62860E4B40034AB47 /* ControllerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerNavigation.swift; sourceTree = "<group>"; };
+		3D80BB6928735D270083C363 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D8635F5287839D3005BE92E /* EnterEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailVC.swift; sourceTree = "<group>"; };
+		3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermAndCondtionVC.swift; sourceTree = "<group>"; };
+		3DACB6A1287442920003E87A /* NetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCall.swift; sourceTree = "<group>"; };
+		3DACB6A3287450E90003E87A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		3DACB6A6287481820003E87A /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
+		3DB3F4FC286A1CFE00A21FC2 /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
+		3DB3F4FF286A1DAB00A21FC2 /* AIReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIReachabilityManager.swift; sourceTree = "<group>"; };
 		3DB569E32861AEB900391001 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameConfirmationPopUpVC.swift; sourceTree = "<group>"; };
+		3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendCodePopUpVC.swift; sourceTree = "<group>"; };
+		3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDetailVM.swift; sourceTree = "<group>"; };
+		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.release.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.release.xcconfig"; sourceTree = "<group>"; };
+		B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.debug.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,58 +130,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D24CFADE4CDBE5DC97AC78D /* Pods_Towy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3D59817728607ADA0034AB47 = {
+		3D2A638028757222007F7E29 /* CustomLoader */ = {
 			isa = PBXGroup;
 			children = (
-				3D59818228607ADA0034AB47 /* Towy */,
-				3D59818128607ADA0034AB47 /* Products */,
+				3D2A638128757246007F7E29 /* CustomLoader.swift */,
 			);
+			path = CustomLoader;
 			sourceTree = "<group>";
 		};
-		3D59818128607ADA0034AB47 /* Products */ = {
+		3D2A6383287595CD007F7E29 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				3D59818028607ADA0034AB47 /* Towy.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		3D59818228607ADA0034AB47 /* Towy */ = {
-			isa = PBXGroup;
-			children = (
-				3D5981C12860DCBD0034AB47 /* HelperClasses */,
-				3D5981B6286092440034AB47 /* Model */,
-				3D5981B52860923D0034AB47 /* ViewModel */,
-				3D598197286087490034AB47 /* Controller */,
-				3D5981B2286090E00034AB47 /* CustomViews */,
-				3D598199286087570034AB47 /* Views */,
-				3D5981982860874F0034AB47 /* Font */,
-				3D59818328607ADA0034AB47 /* AppDelegate.swift */,
-				3D59818C28607ADB0034AB47 /* Assets.xcassets */,
-				3D59819128607ADB0034AB47 /* Info.plist */,
-			);
-			path = Towy;
-			sourceTree = "<group>";
-		};
-		3D598197286087490034AB47 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
+				3D5981B72860D4A00034AB47 /* LoginVM.swift */,
 				3D59818728607ADA0034AB47 /* LoginVC.swift */,
-				3D5981B92860DB630034AB47 /* EnterPhoneNumberVC.swift */,
-				3D5981BB2860DB7D0034AB47 /* EnterOTPVC.swift */,
-				3D5981BD2860DB900034AB47 /* EnterPasswordVC.swift */,
-				3D5981BF2860DBB40034AB47 /* EnterDetailVC.swift */,
 			);
-			path = Controller;
+			path = Login;
 			sourceTree = "<group>";
 		};
-		3D5981982860874F0034AB47 /* Font */ = {
+		3D2A6384287595F0007F7E29 /* EnterOTP */ = {
+			isa = PBXGroup;
+			children = (
+				3D5981BB2860DB7D0034AB47 /* EnterOTPVC.swift */,
+				3D2A638A28759676007F7E29 /* EnterOTPVM.swift */,
+			);
+			path = EnterOTP;
+			sourceTree = "<group>";
+		};
+		3D2A6385287595FF007F7E29 /* EnterPassword */ = {
+			isa = PBXGroup;
+			children = (
+				3D5981BD2860DB900034AB47 /* EnterPasswordVC.swift */,
+				3D2166792884A295005A108B /* EnterPasswordVM.swift */,
+			);
+			path = EnterPassword;
+			sourceTree = "<group>";
+		};
+		3D2A638628759614007F7E29 /* EnterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3D5981BF2860DBB40034AB47 /* EnterDetailVC.swift */,
+				3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */,
+			);
+			path = EnterDetail;
+			sourceTree = "<group>";
+		};
+		3D318BC3286318D5002E4960 /* Roboto */ = {
 			isa = PBXGroup;
 			children = (
 				3D59819E286087810034AB47 /* Roboto-Black.ttf */,
@@ -140,6 +197,86 @@
 				3D59819B286087810034AB47 /* Roboto-Thin.ttf */,
 				3D59819A286087810034AB47 /* Roboto-ThinItalic.ttf */,
 			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+		3D318BC4286318E6002E4960 /* Uber */ = {
+			isa = PBXGroup;
+			children = (
+				3D318BCB28631B62002E4960 /* UberMoveTextBold.otf */,
+				3D318BC928631B62002E4960 /* UberMoveTextLight.otf */,
+				3D318BCC28631B62002E4960 /* UberMoveTextMedium.otf */,
+				3D318BCA28631B62002E4960 /* UberMoveTextRegular.otf */,
+			);
+			path = Uber;
+			sourceTree = "<group>";
+		};
+		3D523DA1287F5F3D0034D011 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				3D523DA2287F5F750034D011 /* initialVC.swift */,
+				3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		3D59817728607ADA0034AB47 = {
+			isa = PBXGroup;
+			children = (
+				3D59818228607ADA0034AB47 /* Towy */,
+				3D59818128607ADA0034AB47 /* Products */,
+				48E59FBF8CBE301B3427FFC5 /* Pods */,
+				B8F2F1C266A56D1D3285DDA7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3D59818128607ADA0034AB47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D59818028607ADA0034AB47 /* Towy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D59818228607ADA0034AB47 /* Towy */ = {
+			isa = PBXGroup;
+			children = (
+				3D0CDC7C286DCB5F00F4BC2A /* Towy.entitlements */,
+				3D5981C12860DCBD0034AB47 /* HelperClasses */,
+				3D5981B6286092440034AB47 /* Model */,
+				3D598197286087490034AB47 /* Controller */,
+				3D5981B2286090E00034AB47 /* CustomClasses */,
+				3D598199286087570034AB47 /* Views */,
+				3D5981982860874F0034AB47 /* Font */,
+				3D59818328607ADA0034AB47 /* AppDelegate.swift */,
+				3D59818C28607ADB0034AB47 /* Assets.xcassets */,
+				3D80BB6928735D270083C363 /* GoogleService-Info.plist */,
+				3D59819128607ADB0034AB47 /* Info.plist */,
+			);
+			path = Towy;
+			sourceTree = "<group>";
+		};
+		3D598197286087490034AB47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3DEDC0F2287FE8AF0051FAA0 /* PopUp */,
+				3D523DA1287F5F3D0034D011 /* Welcome */,
+				3D8635F4287839B7005BE92E /* EnterEmail */,
+				3D2A6383287595CD007F7E29 /* Login */,
+				3D2A6384287595F0007F7E29 /* EnterOTP */,
+				3D2A638628759614007F7E29 /* EnterDetail */,
+				3D2A6385287595FF007F7E29 /* EnterPassword */,
+				3D8635F728783DC2005BE92E /* Term&Condition */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D5981982860874F0034AB47 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3D318BC4286318E6002E4960 /* Uber */,
+				3D318BC3286318D5002E4960 /* Roboto */,
+			);
 			path = Font;
 			sourceTree = "<group>";
 		};
@@ -147,30 +284,28 @@
 			isa = PBXGroup;
 			children = (
 				3D59818928607ADA0034AB47 /* Main.storyboard */,
+				3D318BD128633113002E4960 /* Maps.storyboard */,
 				3D59818E28607ADB0034AB47 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		3D5981B2286090E00034AB47 /* CustomViews */ = {
+		3D5981B2286090E00034AB47 /* CustomClasses */ = {
 			isa = PBXGroup;
 			children = (
 				3D5981B3286090FB0034AB47 /* AnimationView.swift */,
+				3D318BD5286335B8002E4960 /* CustomLabel.swift */,
+				3D318BD7286341C0002E4960 /* CustomButton.swift */,
 			);
-			path = CustomViews;
-			sourceTree = "<group>";
-		};
-		3D5981B52860923D0034AB47 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3D5981B72860D4A00034AB47 /* LoginVM.swift */,
-			);
-			path = ViewModel;
+			path = CustomClasses;
 			sourceTree = "<group>";
 		};
 		3D5981B6286092440034AB47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3DACB6A3287450E90003E87A /* LoginModel.swift */,
+				3D21667B2884A89C005A108B /* RegisterModel.swift */,
+				3D21667D288567DE005A108B /* SocialUserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,12 +313,85 @@
 		3D5981C12860DCBD0034AB47 /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				3D2A638028757222007F7E29 /* CustomLoader */,
+				3DACB6A52874816B0003E87A /* Constants */,
+				3DACB6A02874427C0003E87A /* NetworkServices */,
+				3DB3F4FE286A1D9500A21FC2 /* InternetReachabiility */,
 				3D5981C22860DD140034AB47 /* UtilitiesManager.swift */,
 				3D5981C62860E4B40034AB47 /* ControllerNavigation.swift */,
 				3D5981C42860E1060034AB47 /* AllExtensions.swift */,
 				3DB569E32861AEB900391001 /* Enums.swift */,
+				3DB3F4FC286A1CFE00A21FC2 /* BaseVM.swift */,
 			);
 			path = HelperClasses;
+			sourceTree = "<group>";
+		};
+		3D8635F4287839B7005BE92E /* EnterEmail */ = {
+			isa = PBXGroup;
+			children = (
+				3D8635F5287839D3005BE92E /* EnterEmailVC.swift */,
+				3D216677288496AE005A108B /* EnterEmailVM.swift */,
+			);
+			path = EnterEmail;
+			sourceTree = "<group>";
+		};
+		3D8635F728783DC2005BE92E /* Term&Condition */ = {
+			isa = PBXGroup;
+			children = (
+				3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */,
+			);
+			path = "Term&Condition";
+			sourceTree = "<group>";
+		};
+		3DACB6A02874427C0003E87A /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				3DACB6A1287442920003E87A /* NetworkCall.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		3DACB6A52874816B0003E87A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3D318BD3286331D3002E4960 /* Constans.swift */,
+				3DACB6A6287481820003E87A /* URLConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3DB3F4FE286A1D9500A21FC2 /* InternetReachabiility */ = {
+			isa = PBXGroup;
+			children = (
+				3DB3F4FF286A1DAB00A21FC2 /* AIReachabilityManager.swift */,
+			);
+			path = InternetReachabiility;
+			sourceTree = "<group>";
+		};
+		3DEDC0F2287FE8AF0051FAA0 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */,
+				3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		48E59FBF8CBE301B3427FFC5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */,
+				9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B8F2F1C266A56D1D3285DDA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +401,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D59819428607ADB0034AB47 /* Build configuration list for PBXNativeTarget "Towy" */;
 			buildPhases = (
+				E19B9BDAAE702CA80C10C10D /* [CP] Check Pods Manifest.lock */,
 				3D59817C28607ADA0034AB47 /* Sources */,
 				3D59817D28607ADA0034AB47 /* Frameworks */,
 				3D59817E28607ADA0034AB47 /* Resources */,
@@ -250,37 +459,88 @@
 				3D5981AA286087810034AB47 /* Roboto-Black.ttf in Resources */,
 				3D5981B0286087810034AB47 /* Roboto-MediumItalic.ttf in Resources */,
 				3D5981AD286087810034AB47 /* Roboto-Bold.ttf in Resources */,
+				3D318BD228633113002E4960 /* Maps.storyboard in Resources */,
 				3D59819028607ADB0034AB47 /* LaunchScreen.storyboard in Resources */,
 				3D59818D28607ADB0034AB47 /* Assets.xcassets in Resources */,
 				3D5981AE286087810034AB47 /* Roboto-BlackItalic.ttf in Resources */,
+				3D318BD928638C30002E4960 /* UberMoveTextBold.otf in Resources */,
 				3D5981A7286087810034AB47 /* Roboto-Thin.ttf in Resources */,
 				3D5981AF286087810034AB47 /* Roboto-Light.ttf in Resources */,
 				3D59818B28607ADA0034AB47 /* Main.storyboard in Resources */,
 				3D5981B1286087810034AB47 /* Roboto-Regular.ttf in Resources */,
+				3D318BCE28631B62002E4960 /* UberMoveTextRegular.otf in Resources */,
 				3D5981AC286087810034AB47 /* Roboto-BoldItalic.ttf in Resources */,
+				3D318BCD28631B62002E4960 /* UberMoveTextLight.otf in Resources */,
 				3D5981AB286087810034AB47 /* Roboto-Medium.ttf in Resources */,
+				3D318BD028631B62002E4960 /* UberMoveTextMedium.otf in Resources */,
+				3D80BB6A28735D270083C363 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E19B9BDAAE702CA80C10C10D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Towy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D59817C28607ADA0034AB47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D8635F928783DEF005BE92E /* TermAndCondtionVC.swift in Sources */,
 				3D5981C02860DBB40034AB47 /* EnterDetailVC.swift in Sources */,
-				3D5981BA2860DB630034AB47 /* EnterPhoneNumberVC.swift in Sources */,
+				3DACB6A4287450E90003E87A /* LoginModel.swift in Sources */,
+				3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */,
+				3D21667C2884A89C005A108B /* RegisterModel.swift in Sources */,
+				3D21667A2884A295005A108B /* EnterPasswordVM.swift in Sources */,
 				3D5981B82860D4A00034AB47 /* LoginVM.swift in Sources */,
+				3D2A638228757246007F7E29 /* CustomLoader.swift in Sources */,
+				3DACB6A7287481820003E87A /* URLConstants.swift in Sources */,
+				3D318BD6286335B8002E4960 /* CustomLabel.swift in Sources */,
 				3D5981C52860E1060034AB47 /* AllExtensions.swift in Sources */,
+				3DB3F500286A1DAB00A21FC2 /* AIReachabilityManager.swift in Sources */,
+				3DEDC0FA288044E70051FAA0 /* EnterDetailVM.swift in Sources */,
+				3D2A638B28759676007F7E29 /* EnterOTPVM.swift in Sources */,
 				3D5981BE2860DB900034AB47 /* EnterPasswordVC.swift in Sources */,
 				3D59818828607ADA0034AB47 /* LoginVC.swift in Sources */,
+				3D318BD4286331D3002E4960 /* Constans.swift in Sources */,
 				3D5981B4286090FB0034AB47 /* AnimationView.swift in Sources */,
+				3D523DA3287F5F760034D011 /* initialVC.swift in Sources */,
+				3D216678288496AE005A108B /* EnterEmailVM.swift in Sources */,
 				3D5981C32860DD140034AB47 /* UtilitiesManager.swift in Sources */,
 				3D59818428607ADA0034AB47 /* AppDelegate.swift in Sources */,
+				3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */,
+				3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */,
+				3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */,
 				3D5981C72860E4B40034AB47 /* ControllerNavigation.swift in Sources */,
+				3D8635F6287839D3005BE92E /* EnterEmailVC.swift in Sources */,
+				3D21667E288567DE005A108B /* SocialUserModel.swift in Sources */,
 				3DB569E42861AEB900391001 /* Enums.swift in Sources */,
 				3D5981BC2860DB7D0034AB47 /* EnterOTPVC.swift in Sources */,
+				3D318BD8286341C0002E4960 /* CustomButton.swift in Sources */,
+				3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -412,7 +672,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -424,11 +684,14 @@
 		};
 		3D59819528607ADB0034AB47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Towy/Towy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4769DJ9MMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Towy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -436,6 +699,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,17 +709,20 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		3D59819628607ADB0034AB47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Towy/Towy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4769DJ9MMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Towy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -463,6 +730,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +740,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
