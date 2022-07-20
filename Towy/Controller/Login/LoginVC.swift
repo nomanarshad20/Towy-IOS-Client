@@ -8,8 +8,8 @@
 import UIKit
 import AuthenticationServices
 import CountryPickerView
-import Firebase
-import Alamofire
+//import Firebase
+//import Alamofire
 
 class LoginVC: UIViewController{
    
@@ -75,7 +75,12 @@ class LoginVC: UIViewController{
         loginVM.fbLogin(vc: self)
     }
     @IBAction func btnAppleAction(_ sender:Any){
-        
+       // loginVM.appleLogin(vc: self)
+        if #available(iOS 13.0, *) {
+            handleAppleIdRequest()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     @IBAction func btnBackAction(_ sender:Any){
         self.navigationController?.popViewController(animated: true)
@@ -88,10 +93,34 @@ class LoginVC: UIViewController{
 extension LoginVC:ASAuthorizationControllerDelegate{
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
-            let userIdentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+            let apple = appleIDCredential
+//            let userIdentifier = appleIDCredential.user
+//            let fullName = appleIDCredential.fullName
+//            let email = appleIDCredential.email
+//            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+            
+            var userObj = [String:Any]()
+
+            let email = "\(appleIDCredential.email ?? "N/A")"
+            let lastName = "\(appleIDCredential.fullName?.familyName ?? "N/A")"
+            let firstName = "\(appleIDCredential.fullName?.givenName ?? "N/A")"
+            let id = "\(appleIDCredential.user)"
+            if let identityTokenData = appleIDCredential.identityToken,
+               let identityTokenString = String(data: identityTokenData, encoding: .utf8) {
+                print("Identity Token \(identityTokenString)")
+                
+                if email != "N/A"{
+                    userObj["firstName"] = firstName
+                    userObj["lastName"] = lastName
+                    userObj["email"] = email
+                    userObj["tokem"] = identityTokenString
+                    userObj["id"] = id
+
+                    UtilitiesManager.shared.saveAppleSignInSession(dict: userObj)
+                }
+            }
+
+
         }
     }
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
@@ -118,9 +147,3 @@ extension LoginVC:CountryPickerViewDelegate, CountryPickerViewDataSource{
     
 }
 
-extension LoginVC {
-    func googleSignIN(){
-        
-        
-    }
-}

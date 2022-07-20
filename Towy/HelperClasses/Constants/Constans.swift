@@ -109,8 +109,11 @@ struct Key {
         static let VALID_USER = "isUserValid"
         static let FCM = "fcmToken"
         static let USER_DATA = "userData"
+        static let SOCIAL_USER_DATA = "socialUserData"
 
+        static let APPLE_INFORMATION = "apple"
 
+//
     }
     
     struct notificationKey{

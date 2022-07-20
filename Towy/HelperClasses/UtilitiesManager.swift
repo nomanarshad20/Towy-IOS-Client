@@ -95,6 +95,21 @@ class UtilitiesManager{
         }
         return nil
     }
+    func retriveSocialUserData() -> SocialUser?{
+        do {
+            let getData = try defaults.getObject(forKey: Key.userDefaultKey.SOCIAL_USER_DATA, castTo: SocialUser.self)
+            return getData
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
+    func retriveAppleInformationSession() -> [String:Any]{
+        let defaults = UserDefaults.standard
+        let dict = defaults.dictionary(forKey: Key.userDefaultKey.APPLE_INFORMATION)
+        //let value = NewRideModel
+        return dict ?? [:]
+    }
     // MARK: - SAVE_IN_USERDEFAULT
 
     func saveOtpVerficationID(id:String)
@@ -125,6 +140,18 @@ class UtilitiesManager{
         } catch {
             print(error.localizedDescription)
         }
+    }
+    func saveSocialUserData(user:SocialUser){
+        do {
+            try defaults.setObjects(user, forKey: Key.userDefaultKey.SOCIAL_USER_DATA)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    func saveAppleSignInSession(dict:[String:Any])
+    {
+        let defaults = UserDefaults.standard
+        defaults.set(dict, forKey: Key.userDefaultKey.APPLE_INFORMATION)
     }
 }
 

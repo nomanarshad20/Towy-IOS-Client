@@ -1,12 +1,9 @@
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
+// To parse the JSON, add this file to your project and do:
 //
-//  SocialUserModel.swift
-//  Towy
-//
-//  Created by Usman on 18/07/2022.
-//
+//   let socialUser = try? newJSONDecoder().decode(SocialUser.self, from: jsonData)
 
 import Foundation
-
 
 // MARK: - SocialUser
 struct SocialUser: Codable {
@@ -17,21 +14,21 @@ struct SocialUser: Codable {
 // MARK: - DataClass
 struct socialDataClass: Codable {
     let userID: Int
-    let email: String
-    let mobileNo: JSONNull?
-    let fcmToken, userType: String
-    let isVerified: Int
+    let email: String?
+    let mobileNo: String?
+    let fcmToken: String
+    let userType, isVerified: Int
     let referralCode: String
     let steps: Int
     let provider: String
-    let image: socialJSONNull?
+    let image: String?
     let firstName, lastName: String
     let walletBalance: Int
     let accessToken: String
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
-        case email
+        case email = "email"
         case mobileNo = "mobile_no"
         case fcmToken = "fcm_token"
         case userType = "user_type"
@@ -45,29 +42,4 @@ struct socialDataClass: Codable {
     }
 }
 
-// MARK: - Encode/decode helpers
 
-class socialJSONNull: Codable, Hashable {
-
-    public static func == (lhs: socialJSONNull, rhs: socialJSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
-    }
-}

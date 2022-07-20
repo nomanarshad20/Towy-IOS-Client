@@ -6,16 +6,18 @@
 //
 
 import Foundation
+import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
 import GoogleSignIn
+import AuthenticationServices
 
 class LoginVM: BaseVM {
     
     var number : String = ""
     var code:String = ""
     var actualNumber : String = ""
-    
+    let vc : UIViewController? = nil
     /*
      if let token = AccessToken.current,
      !token.isExpired {
@@ -81,23 +83,27 @@ class LoginVM: BaseVM {
         
     }
     
-    func socialLoginAPI(email:String,provider:String,socialID:String){
+    func socialLoginAPI(email:String,provider:String,socialID:String,firstName:String,lastName:String){
         
         //email,user_type,fcm_token,provider,social_uid
-       // actualNumber = code+number
-       // guard !number.isEmpty  else{return UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: Key.ErrorMessage.PHONEFIELD)}
+        // actualNumber = code+number
+        // guard !number.isEmpty  else{return UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: Key.ErrorMessage.PHONEFIELD)}
         
-        let body = ["email":email,"fcm_token":UtilitiesManager.shared.getFcmToken(),"provider":provider,"social_uid":socialID,"user_type":"1"] as [String:Any]
+        let body = ["email":email,"fcm_token":UtilitiesManager.shared.getFcmToken(),"provider":provider,"last_name":lastName,"first_name":firstName,"social_uid":socialID,"user_type":"1"] as [String:Any]
         NetworkCall(data: body, url: nil, service: APPURL.services.passengerSocialLogin, method: .post).executeQuery(){
-            (result: Result<socialDataClass,Error>) in
+            (result: Result<SocialUser,Error>) in
             switch result{
             case .success(let response):
-                print("socialLogin",response.email)
-//                let isValidUser = response.data.userExist
-//                UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser)
-//                let usrDict = ["mobile_no":self.actualNumber]
-//                UtilitiesManager.shared.saveUserInformation(usr: usrDict)
-//                self.phoneVerification()
+                let res = response
+                UtilitiesManager.shared.saveSocialUserData(user: response)
+                ControllerNavigation.shared.pushVC(of: .welcomeVC)
+                
+                //                print("socialLogin",response.data.email)
+                ////                let isValidUser = response.data.userExist
+                ////                UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser)
+                ////                let usrDict = ["mobile_no":self.actualNumber]
+                ////                UtilitiesManager.shared.saveUserInformation(usr: usrDict)
+                ////                self.phoneVerification()
                 
             case .failure(let error):
                 print("errorzz",error)
@@ -117,11 +123,13 @@ class LoginVM: BaseVM {
             } else {
                 print("Logged In")
                 Profile.loadCurrentProfile { profile, error in
-                    if let firstName = profile?.firstName {
-                        print("Hello, \(firstName)")
-                        let pro = profile
-                        print("profile",profile)
-                    }
+                    
+                    self.socialLoginAPI(email: profile?.email ?? "", provider: "facebook", socialID: profile?.userID ?? "", firstName: profile?.firstName ?? "", lastName: profile?.lastName ?? "")
+//                    if let firstName = profile?.firstName {
+//                        print("Hello, \(firstName)")
+//                        let pro = profile
+//                        print("profile",profile)
+//                    }
                 }
                // print(Profile.)
             }
@@ -135,7 +143,10 @@ class LoginVM: BaseVM {
         let signInConfig = GIDConfiguration.init(clientID:Key.Google.clientID)
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: vc) { user, error in
             guard error == nil else { return }
-            guard let user = user else { return }
+            guard let usr = user else { return }
+            self.socialLoginAPI(email: usr.profile?.email ?? "", provider: "google", socialID: usr.userID ?? "", firstName: usr.profile?.givenName ?? "", lastName: usr.profile?.familyName ?? "")
+
+            //user.userID
             //print("user",user.profile?)
         
             /*
@@ -174,7 +185,9 @@ class LoginVM: BaseVM {
     
     // MARK: - APPLE_LOGIN
 
-    
+    func appleLogin(vc:UIViewController){
+        
+    }
     // MARK: - Alert
     
     func errorMsg(str: String) -> Valid {
@@ -197,5 +210,30 @@ class LoginVM: BaseVM {
   
     
 
+/*
+@available(iOS 13.0, *)
 
-
+extension LoginVM:ASAuthorizationControllerDelegate{
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
+        }
+    }
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        vc!.present(alert, animated: true, completion: nil)
+    }
+    func handleAppleIdRequest(appleIDProvider:ASAuthorizationAppleIDProvider) {
+       // let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = vc as! ASAuthorizationControllerDelegate
+        authorizationController.performRequests()
+    }
+}
+*/
