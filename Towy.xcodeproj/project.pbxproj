@@ -48,7 +48,6 @@
 		3D5981C32860DD140034AB47 /* UtilitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C22860DD140034AB47 /* UtilitiesManager.swift */; };
 		3D5981C52860E1060034AB47 /* AllExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C42860E1060034AB47 /* AllExtensions.swift */; };
 		3D5981C72860E4B40034AB47 /* ControllerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C62860E4B40034AB47 /* ControllerNavigation.swift */; };
-		3D80BB6A28735D270083C363 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D80BB6928735D270083C363 /* GoogleService-Info.plist */; };
 		3D8635F6287839D3005BE92E /* EnterEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F5287839D3005BE92E /* EnterEmailVC.swift */; };
 		3D8635F928783DEF005BE92E /* TermAndCondtionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */; };
 		3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A1287442920003E87A /* NetworkCall.swift */; };
@@ -57,6 +56,7 @@
 		3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3F4FC286A1CFE00A21FC2 /* BaseVM.swift */; };
 		3DB3F500286A1DAB00A21FC2 /* AIReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3F4FF286A1DAB00A21FC2 /* AIReachabilityManager.swift */; };
 		3DB569E42861AEB900391001 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB569E32861AEB900391001 /* Enums.swift */; };
+		3DE9B5EE288829BD00FDC9A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DE9B5ED288829BC00FDC9A2 /* GoogleService-Info.plist */; };
 		3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */; };
 		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
 		3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */; };
@@ -107,7 +107,6 @@
 		3D5981C22860DD140034AB47 /* UtilitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesManager.swift; sourceTree = "<group>"; };
 		3D5981C42860E1060034AB47 /* AllExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtensions.swift; sourceTree = "<group>"; };
 		3D5981C62860E4B40034AB47 /* ControllerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerNavigation.swift; sourceTree = "<group>"; };
-		3D80BB6928735D270083C363 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D8635F5287839D3005BE92E /* EnterEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailVC.swift; sourceTree = "<group>"; };
 		3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermAndCondtionVC.swift; sourceTree = "<group>"; };
 		3DACB6A1287442920003E87A /* NetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCall.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		3DB3F4FC286A1CFE00A21FC2 /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		3DB3F4FF286A1DAB00A21FC2 /* AIReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIReachabilityManager.swift; sourceTree = "<group>"; };
 		3DB569E32861AEB900391001 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3DE9B5ED288829BC00FDC9A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameConfirmationPopUpVC.swift; sourceTree = "<group>"; };
 		3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendCodePopUpVC.swift; sourceTree = "<group>"; };
 		3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 				3D5981982860874F0034AB47 /* Font */,
 				3D59818328607ADA0034AB47 /* AppDelegate.swift */,
 				3D59818C28607ADB0034AB47 /* Assets.xcassets */,
-				3D80BB6928735D270083C363 /* GoogleService-Info.plist */,
+				3DE9B5ED288829BC00FDC9A2 /* GoogleService-Info.plist */,
 				3D59819128607ADB0034AB47 /* Info.plist */,
 			);
 			path = Towy;
@@ -473,7 +473,7 @@
 				3D318BCD28631B62002E4960 /* UberMoveTextLight.otf in Resources */,
 				3D5981AB286087810034AB47 /* Roboto-Medium.ttf in Resources */,
 				3D318BD028631B62002E4960 /* UberMoveTextMedium.otf in Resources */,
-				3D80BB6A28735D270083C363 /* GoogleService-Info.plist in Resources */,
+				3DE9B5EE288829BD00FDC9A2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
