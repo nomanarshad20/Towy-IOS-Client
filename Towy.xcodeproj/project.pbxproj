@@ -61,6 +61,8 @@
 		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
 		3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */; };
 		3DEDC0FA288044E70051FAA0 /* EnterDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */; };
+		CE81FB962890620200D60649 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB952890620200D60649 /* HomeVC.swift */; };
+		CE81FB982890621A00D60649 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB972890621A00D60649 /* AccountVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +125,8 @@
 		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.release.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.release.xcconfig"; sourceTree = "<group>"; };
 		B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.debug.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.debug.xcconfig"; sourceTree = "<group>"; };
+		CE81FB952890620200D60649 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CE81FB972890621A00D60649 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,8 @@
 		3D598197286087490034AB47 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE81FB952890620200D60649 /* HomeVC.swift */,
+				CE81FB972890621A00D60649 /* AccountVC.swift */,
 				3DEDC0F2287FE8AF0051FAA0 /* PopUp */,
 				3D523DA1287F5F3D0034D011 /* Welcome */,
 				3D8635F4287839B7005BE92E /* EnterEmail */,
@@ -518,6 +524,7 @@
 				3D5981B82860D4A00034AB47 /* LoginVM.swift in Sources */,
 				3D2A638228757246007F7E29 /* CustomLoader.swift in Sources */,
 				3DACB6A7287481820003E87A /* URLConstants.swift in Sources */,
+				CE81FB962890620200D60649 /* HomeVC.swift in Sources */,
 				3D318BD6286335B8002E4960 /* CustomLabel.swift in Sources */,
 				3D5981C52860E1060034AB47 /* AllExtensions.swift in Sources */,
 				3DB3F500286A1DAB00A21FC2 /* AIReachabilityManager.swift in Sources */,
@@ -540,6 +547,7 @@
 				3DB569E42861AEB900391001 /* Enums.swift in Sources */,
 				3D5981BC2860DB7D0034AB47 /* EnterOTPVC.swift in Sources */,
 				3D318BD8286341C0002E4960 /* CustomButton.swift in Sources */,
+				CE81FB982890621A00D60649 /* AccountVC.swift in Sources */,
 				3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
