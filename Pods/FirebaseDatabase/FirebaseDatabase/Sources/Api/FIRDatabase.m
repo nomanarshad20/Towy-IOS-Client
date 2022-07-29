@@ -249,12 +249,10 @@
 }
 
 - (void)ensureRepo {
-    @synchronized(self) {
-        if (self.repo == nil) {
-            self.repo = [FRepoManager createRepo:self.repoInfo
-                                          config:self.config
-                                        database:self];
-        }
+    if (self.repo == nil) {
+        self.repo = [FRepoManager createRepo:self.repoInfo
+                                      config:self.config
+                                    database:self];
     }
 }
 

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <FBSDKCoreKit_Basics/FBSDKURLSessionProviding.h>
+#import <FBSDKCoreKit_Basics/FBSDKSessionProviding.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,7 +20,7 @@ NS_SWIFT_NAME(UrlSessionTaskBlock);
 NS_SWIFT_NAME(UrlSessionTask)
 @interface FBSDKURLSessionTask : NSObject
 
-@property (nonatomic, strong) id<FBSDKNetworkTask> task;
+@property (nonatomic, strong) id<FBSDKSessionDataTask> task;
 @property (atomic, readonly) NSURLSessionTaskState state;
 @property (nonatomic, readonly, strong) NSDate *requestStartDate;
 @property (nullable, nonatomic, copy) FBSDKURLSessionTaskBlock handler;
@@ -31,7 +31,7 @@ NS_SWIFT_NAME(UrlSessionTask)
 + (instancetype)new NS_UNAVAILABLE;
 
 - (nullable instancetype)initWithRequest:(NSURLRequest *)request
-                             fromSession:(id<FBSDKURLSessionProviding>)session
+                             fromSession:(id<FBSDKSessionProviding>)session
                        completionHandler:(nullable FBSDKURLSessionTaskBlock)handler;
 
 - (void)start;

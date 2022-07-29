@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Represent an AuthenticationToken used for a login attempt
 NS_SWIFT_NAME(AuthenticationToken)
-@interface FBSDKAuthenticationToken : NSObject <NSCopying, NSObject, NSSecureCoding, FBSDKAuthenticationTokenProviding>
+@interface FBSDKAuthenticationToken : NSObject <NSCopying, NSObject, NSSecureCoding, FBSDKAuthenticationTokenProviding, FBSDKAuthenticationTokenSetting>
 
 /**
  Internal init method exposed to facilitate transition to Swift.
