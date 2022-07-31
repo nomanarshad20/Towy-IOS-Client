@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="evO-eL-cZ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b7g-t9-edD">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -1413,7 +1413,7 @@
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwb-Xk-TMO">
                                                 <rect key="frame" x="15" y="323" width="360" height="300"/>
-                                                <color key="backgroundColor" red="0.83137254901960778" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="YPn-TW-Alb"/>
                                                 </constraints>
@@ -1467,12 +1467,14 @@
                     <size key="freeformSize" width="390" height="955"/>
                     <connections>
                         <outlet property="clcDashBoard" destination="ePb-JK-ua4" id="fmJ-KC-nMz"/>
+                        <outlet property="mainView" destination="Ms0-C5-RSL" id="g0K-Sa-weB"/>
+                        <outlet property="mapView" destination="uwb-Xk-TMO" id="wXZ-Gt-4nk"/>
                         <outlet property="photoSliderView" destination="WWU-1p-o3e" id="nFG-GN-XRf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Kw-CI-npd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6794" y="3447"/>
+            <point key="canvasLocation" x="6793.8461538461534" y="3446.8009478672984"/>
         </scene>
         <!--Account-->
         <scene sceneID="rUv-zY-CsW">
@@ -1771,6 +1773,21 @@
             </objects>
             <point key="canvasLocation" x="7717" y="3462"/>
         </scene>
+        <!--LocationVC-->
+        <scene sceneID="K5v-he-vxU">
+            <objects>
+                <viewController storyboardIdentifier="LocationVC" id="b7g-t9-edD" customClass="LocationVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ova-G6-jTC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="C7B-yA-12O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Fg-sv-yI4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8542" y="3479"/>
+        </scene>
         <!--Edit AccountVC-->
         <scene sceneID="tFA-tA-oY8">
             <objects>
@@ -1950,6 +1967,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="evO-eL-cZ0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ieb-Ma-hYL">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

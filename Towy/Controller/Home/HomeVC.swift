@@ -6,39 +6,65 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController , CLLocationManagerDelegate , GMSMapViewDelegate , UIGestureRecognizerDelegate{
     // MARK: Outlets
-
+    @IBOutlet weak var mainView: UIView!
+    
     @IBOutlet var photoSliderView: PhotoSliderView!
     @IBOutlet weak var clcDashBoard:UICollectionView!
     @IBOutlet weak var clcDashBoardHeight:NSLayoutConstraint?
 
+    @IBOutlet weak var mapView: GMSMapView!
     
+    var myMapView:GMSMapView!
+    var lat  = CLLocationDegrees()
+    var long = CLLocationDegrees()
+    
+    private let manager = CLLocationManager()
     
     let homeVM = HomeVM()
 
     // MARK: View Methods
     override func viewDidLoad() {
+        manager.delegate = self
+        manager.startUpdatingLocation()
+        
         registerXib()
     }
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        setUI()
-//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setUI()
     }
-
-    
-    func setUI(){
-
-        homeVM.setDashBoard(photoSliderView: photoSliderView)
-       // self.clcDashBoard.register(UINib(nibName: "DashboardCVCell", bundle: nil), forCellWithReuseIdentifier: "DashboardCVCell")
-
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last
+        lat  = (location?.coordinate.latitude)!
+        long = (location?.coordinate.longitude)!
     }
     
+    func setUI(){
+        setupMapView()
+        homeVM.setDashBoard(photoSliderView: photoSliderView)
+       // self.clcDashBoard.register(UINib(nibName: "DashboardCVCell", bundle: nil), forCellWithReuseIdentifier: "DashboardCVCell")
+    }
+    func setupMapView(){
+        let camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 10.0)
+        myMapView = GMSMapView.map(withFrame: mapView.frame, camera: camera)
+        myMapView.settings.myLocationButton = true
+        myMapView.settings.setAllGesturesEnabled(false)
+        myMapView.isUserInteractionEnabled  = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(triggerTouchAction))
+        myMapView.addGestureRecognizer(tapGesture)
+        self.mainView.addSubview(myMapView!)
+    }
+    @objc func triggerTouchAction(gestureReconizer: UITapGestureRecognizer) {
+        ControllerNavigation.shared.pushVC(of: .locationVC)
+    }
     func registerXib(){
         self.clcDashBoard.register(UINib(nibName: "DashboardCVCell", bundle: nil), forCellWithReuseIdentifier: "DashboardCVCell")
     }

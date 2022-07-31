@@ -73,6 +73,7 @@
 		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
 		3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */; };
 		3DEDC0FA288044E70051FAA0 /* EnterDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */; };
+		CE8123112896B2BF0042B1D6 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8123102896B2BF0042B1D6 /* LocationVC.swift */; };
 		CE81FB962890620200D60649 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB952890620200D60649 /* HomeVC.swift */; };
 		CE81FB982890621A00D60649 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB972890621A00D60649 /* AccountVC.swift */; };
 /* End PBXBuildFile section */
@@ -149,6 +150,7 @@
 		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.release.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.release.xcconfig"; sourceTree = "<group>"; };
 		B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.debug.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.debug.xcconfig"; sourceTree = "<group>"; };
+		CE8123102896B2BF0042B1D6 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		CE81FB952890620200D60649 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CE81FB972890621A00D60649 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,6 +344,7 @@
 		3D598197286087490034AB47 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE8123102896B2BF0042B1D6 /* LocationVC.swift */,
 				CE81FB972890621A00D60649 /* AccountVC.swift */,
 				3DB2BCCD28949545007D0619 /* EditAccountVC.swift */,
 				3DB2BCD3289498B6007D0619 /* HelpVC.swift */,
@@ -673,6 +676,7 @@
 				CE81FB982890621A00D60649 /* AccountVC.swift in Sources */,
 				3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */,
 				3D06497328940B5A00720F69 /* AccountTBCell.swift in Sources */,
+				CE8123112896B2BF0042B1D6 /* LocationVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,42 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb713699212996590</string>
-
-                <string>com.googleusercontent.apps.336988954949-6kn7d413lmsu33it24d7bb6h5lqd98hn</string>
-
-            </array>
-        </dict>
-    </array>
-    <key>UIAppFonts</key>
-    <array>
-        <string></string>
-    </array>
-    
-    
-    
-   
-    <key>FacebookAppID</key>
-    <string>713699212996590</string>
-    <key>FacebookClientToken</key>
-    <string>5b911ddc53207418aad22b6287bb2258</string>
-    <key>FacebookDisplayName</key>
-    <string>Towy</string>
-    
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>fbapi</string>
-      <string>fb-messenger-share-api</string>
-    </array>
-    
-    
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb713699212996590</string>
+				<string>com.googleusercontent.apps.336988954949-6kn7d413lmsu33it24d7bb6h5lqd98hn</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>YES</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
+	<key>FacebookAppID</key>
+	<string>713699212996590</string>
+	<key>FacebookClientToken</key>
+	<string>5b911ddc53207418aad22b6287bb2258</string>
+	<key>FacebookDisplayName</key>
+	<string>Towy</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+	</array>
 </dict>
 </plist>

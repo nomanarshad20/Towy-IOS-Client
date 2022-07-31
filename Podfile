@@ -16,6 +16,7 @@ target 'Towy' do
   pod 'SVPinView'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'PlacesPicker'
   pod 'GoogleSignIn'
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'

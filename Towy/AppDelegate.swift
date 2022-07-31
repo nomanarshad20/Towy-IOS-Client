@@ -12,21 +12,28 @@ import GoogleSignIn
 import FirebaseMessaging
 import UserNotifications
 import FBSDKCoreKit
+import GoogleMaps
+import GooglePlaces
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window: UIWindow?
+    var apiKey = "AIzaSyBsdpz4AX5T6uqLxqJXUgEDtoxd0TIiJ2w"
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
+        GMSPlacesClient.provideAPIKey(apiKey)
+        GMSServices.provideAPIKey(apiKey)
+        GMSPlacesClient.provideAPIKey(apiKey)
+        
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         
-        FirebaseApp.configure()
-        Messaging.messaging().delegate = self
+//        FirebaseApp.configure()
+//        Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self // add this
 //        // Initialize Facebook SDK
 //              FBSDKCoreKit.ApplicationDelegate.shared.application(

@@ -25,9 +25,10 @@ enum SViewController {
     case nameConfirmationPopup
     case welcomeVC
     case resendCodePopup
+    case locationVC
     var storyboardName: String {
         switch self {
-        case  .loginVC , .enterOTPVC,.enterPhoneVC,.enterDetailVC,.enterPasswordVC,.resetOTPVC,.resetPasswordVC,.enterEmailVC,.termConditions,.nameConfirmationPopup,.welcomeVC,.resendCodePopup:
+        case  .loginVC , .enterOTPVC,.enterPhoneVC,.enterDetailVC,.enterPasswordVC,.resetOTPVC,.resetPasswordVC,.enterEmailVC,.termConditions,.nameConfirmationPopup,.welcomeVC,.resendCodePopup,.locationVC:
             return "Main"
         }
     }
@@ -58,6 +59,8 @@ enum SViewController {
             return "WelcomeVC"
         case .resendCodePopup:
             return "ResendCodePopUpVC"
+        case .locationVC:
+            return "LocationVC"
             //
 
         }
