@@ -9,34 +9,73 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-class LocationVC: UIViewController , CLLocationManagerDelegate{
-    var resultsViewController: GMSAutocompleteResultsViewController?
-    var searchController: UISearchController?
-    var resultView: UITextView?
+class LocationVC: UIViewController,GMSMapViewDelegate{
     
+    
+//    var resultsViewController: GMSAutocompleteResultsViewController?
+//    var searchController: UISearchController?
+//    var resultView: UITextView?
+//
+    @IBOutlet weak var mapView: GMSMapView!
+
     private let manager = CLLocationManager()
-    var currentLat  = CLLocationDegrees()
-    var currentLong = CLLocationDegrees()
     
-    var sourceLat  = CLLocationDegrees()
-    var sourceLong = CLLocationDegrees()
+//    var currentLat  = CLLocationDegrees()
+//    var currentLong = CLLocationDegrees()
+//
+//    var sourceLat  = CLLocationDegrees()
+//    var sourceLong = CLLocationDegrees()
+//
+//    var destinationLat  = CLLocationDegrees()
+//    var destinationLong = CLLocationDegrees()
     
-    var destinationLat  = CLLocationDegrees()
-    var destinationLong = CLLocationDegrees()
-    
-    var myMapView:GMSMapView!
+//    var myMapView:GMSMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manager.delegate = self
-        manager.startUpdatingLocation()
+        setupMap()
+        self.tabBarController?.tabBar.isHidden = true
+
+//        manager.delegate = self
+//        manager.startUpdatingLocation()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupMapView()
+       // setupMapView()
      //   autocompleteClicked()
     }
     
+    func setupMap(){
+        // 1
+        manager.delegate = self
+
+         // 2
+         if CLLocationManager.locationServicesEnabled() {
+           // 3
+             manager.requestLocation()
+
+           // 4
+           mapView.isMyLocationEnabled = true
+           mapView.settings.myLocationButton = true
+           //mapView.isUserInteractionEnabled  = true
+//           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(triggerTouchAction))
+             //mapView.addGestureRecognizer(tapGesture)
+
+         } else {
+           // 5
+             manager.requestWhenInUseAuthorization()
+         }
+    }
+    
+    
+    @IBAction func btnBackAction(_ sender:Any){
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func btnSearchAction(_ sender:Any){
+        //self.navigationController?.popViewController(animated: true)
+        ControllerNavigation.shared.pushVC(of: .searchLocationVC,isAnimate: false)
+    }
+    /*
     func setupMapView(){
         let camera = GMSCameraPosition.camera(withLatitude: currentLat, longitude: currentLong, zoom: 10.0)
         myMapView = GMSMapView.map(withFrame: self.view.frame, camera: camera)
@@ -105,8 +144,9 @@ class LocationVC: UIViewController , CLLocationManagerDelegate{
         // Display the autocomplete view controller.
         present(autocompleteController, animated: true, completion: nil)
       }
+    */
     }
-
+/*
     extension LocationVC: GMSAutocompleteViewControllerDelegate {
       // Handle the user's selection.
       func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
@@ -143,7 +183,8 @@ class LocationVC: UIViewController , CLLocationManagerDelegate{
       }
 
     }
-
+*/
+/*
 extension LocationVC: GMSAutocompleteResultsViewControllerDelegate {
   func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                          didAutocompleteWith place: GMSPlace) {
@@ -163,5 +204,53 @@ extension LocationVC: GMSAutocompleteResultsViewControllerDelegate {
                          didFailAutocompleteWithError error: Error){
     // TODO: handle the error.
     print("Error: ", error.localizedDescription)
+  }
+}
+*/
+
+// MARK: - CLLocationManagerDelegate
+
+//1
+extension LocationVC: CLLocationManagerDelegate {
+  // 2
+  func locationManager(
+    _ manager: CLLocationManager,
+    didChangeAuthorization status: CLAuthorizationStatus
+  ) {
+    // 3
+    guard status == .authorizedWhenInUse else {
+      return
+    }
+    // 4
+    manager.requestLocation()
+
+    //5
+    mapView.isMyLocationEnabled = true
+    mapView.settings.myLocationButton = true
+  }
+
+  // 6
+  func locationManager(
+    _ manager: CLLocationManager,
+    didUpdateLocations locations: [CLLocation]) {
+    guard let location = locations.first else {
+      return
+    }
+
+    // 7
+    mapView.camera = GMSCameraPosition(
+      target: location.coordinate,
+      zoom: 15,
+      bearing: 0,
+      viewingAngle: 0)
+    mapView.delegate = self
+  }
+
+  // 8
+  func locationManager(
+    _ manager: CLLocationManager,
+    didFailWithError error: Error
+  ) {
+    print(error)
   }
 }

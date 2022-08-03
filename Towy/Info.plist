@@ -15,7 +15,7 @@
 		</dict>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>YES</string>
+	<string>Allow Towy to find your location  so user can easily find nearby tow </string>
 	<key>UIAppFonts</key>
 	<array>
 		<string></string>

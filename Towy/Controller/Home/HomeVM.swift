@@ -37,6 +37,10 @@ class HomeVM: BaseVM {
 
     }
     
+    func setDashBoardData() -> [String]{
+        return ["Towy Ride","Tire","Fuel","Battery Send","Lock","others"]
+    }
+    
     // MARK: - API_Handling
     
     

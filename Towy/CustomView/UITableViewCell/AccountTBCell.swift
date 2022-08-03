@@ -9,6 +9,15 @@ import UIKit
 
 class AccountTBCell: UITableViewCell {
 
+    @IBOutlet weak var lblTitle:UILabel!
+    @IBOutlet weak var img:UIImageView!
+    var obj : AccountDataModel?{
+        didSet{
+            self.lblTitle.text = obj?.title ?? ""
+            self.img.image = UIImage(named: obj?.img ?? "")
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

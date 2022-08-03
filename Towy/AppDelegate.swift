@@ -27,13 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
         GMSPlacesClient.provideAPIKey(apiKey)
         GMSServices.provideAPIKey(apiKey)
-        GMSPlacesClient.provideAPIKey(apiKey)
+       // GMSPlacesClient.provideAPIKey(apiKey)
         
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
         
-//        FirebaseApp.configure()
-//        Messaging.messaging().delegate = self
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self // add this
 //        // Initialize Facebook SDK
 //              FBSDKCoreKit.ApplicationDelegate.shared.application(
