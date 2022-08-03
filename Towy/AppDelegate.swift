@@ -19,27 +19,27 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window: UIWindow?
+    var navigationontroller : UINavigationController?
     var apiKey = "AIzaSyBsdpz4AX5T6uqLxqJXUgEDtoxd0TIiJ2w"
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
-
+        
         GMSPlacesClient.provideAPIKey(apiKey)
         GMSServices.provideAPIKey(apiKey)
         GMSPlacesClient.provideAPIKey(apiKey)
         
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
-        
-//        FirebaseApp.configure()
-//        Messaging.messaging().delegate = self
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
         UNUserNotificationCenter.current().delegate = self // add this
-//        // Initialize Facebook SDK
-//              FBSDKCoreKit.ApplicationDelegate.shared.application(
-//                  application,
-//                  didFinishLaunchingWithOptions: launchOptions
-//              )
+        //        // Initialize Facebook SDK
+        //              FBSDKCoreKit.ApplicationDelegate.shared.application(
+        //                  application,
+        //                  didFinishLaunchingWithOptions: launchOptions
+        //              )
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -49,11 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 completionHandler: {_, _ in })
         } else {
             let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             application.registerUserNotificationSettings(settings)
         }
         application.registerForRemoteNotifications()
-
+        
         //registerForPushNotifications()
         if #available(iOS 13.0, *) {
             window?.overrideUserInterfaceStyle = .light
@@ -68,10 +68,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 
             }
         }
-        
+        // by DAIR added temporary check to bypass login screen is user already login
+        if UserDefaults.standard.bool(forKey: "loginSuccess"){
+            byPassLoginVC()
+        }
         return true
     }
-    
+    func byPassLoginVC(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let VC = storyBoard.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+        self.navigationontroller = UINavigationController(rootViewController: VC)
+        self.navigationontroller?.navigationBar.isHidden = true
+        self.window?.rootViewController = self.navigationontroller
+        self.window?.makeKeyAndVisible()
+    }
     
     func application(
            _ app: UIApplication,

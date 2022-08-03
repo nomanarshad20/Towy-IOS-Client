@@ -120,10 +120,10 @@ class LoginVM: BaseVM {
                 print("Encountered Erorr: \(error)")
             } else if let result = result, result.isCancelled {
                 print("Cancelled")
-            } else {
+            }
+            else {
                 print("Logged In")
                 Profile.loadCurrentProfile { profile, error in
-                    
                     self.socialLoginAPI(email: profile?.email ?? "", provider: "facebook", socialID: profile?.userID ?? "", firstName: profile?.firstName ?? "", lastName: profile?.lastName ?? "")
 //                    if let firstName = profile?.firstName {
 //                        print("Hello, \(firstName)")

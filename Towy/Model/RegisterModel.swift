@@ -11,11 +11,11 @@ import Foundation
 // MARK: - RegisterUser
 struct RegisterUser: Codable {
     let result, message: String
-    let data: RegiaterDataClass
+    let data: RegisterDataClass
 }
 
 // MARK: - DataClass
-struct RegiaterDataClass: Codable {
+struct RegisterDataClass: Codable {
     let userID: Int
     let email, mobileNo, fcmToken, userType: String
     let isVerified: Int
