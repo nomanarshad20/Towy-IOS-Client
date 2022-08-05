@@ -67,8 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
                 
             }
         }
-        // by DAIR added temporary check to bypass login screen is user already login
-        if UserDefaults.standard.bool(forKey: "loginSuccess"){
+        // by DAIR added check to bypass login screen is user already login
+        if (UtilitiesManager.shared.retriveSocialUserData() != nil){
             byPassLoginVC()
         }
         return true

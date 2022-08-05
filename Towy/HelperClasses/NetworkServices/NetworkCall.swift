@@ -47,11 +47,6 @@ class NetworkCall : NSObject{
                     let r = response
                     switch code {
                     case 200...299:
-                        //by DAIR temporary changes directing to home screen just beacuse of invalid json response
-                        UserDefaults.standard.set(true, forKey: "loginSuccess")
-                        ControllerNavigation.shared.pushVC(of: .homeVC)
-                        return
-                        
                         do {
                             completion(.success(try JSONDecoder().decode(T.self, from: res)))
                         } catch let error {

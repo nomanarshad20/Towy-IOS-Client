@@ -39,22 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "16BEF48F-FADD-4568-9FDA-849320D49B35"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Towy/Controller/UserSignIn/Login/LoginVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "socialLoginAPI(email:provider:socialID:firstName:lastName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5A71C315-8776-47D2-BF91-D0C8FE2BBAFC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -65,38 +49,6 @@
             startingLineNumber = "146"
             endingLineNumber = "146"
             landmarkName = "saveSocialUserData(user:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A548C7CE-A03E-430F-9C50-950A9DC1B608"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Towy/Controller/UserSignIn/Login/LoginVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "gmailLogin(vc:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D000A242-27AF-42A2-8366-73FD6B4CA471"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Towy/Controller/UserSignIn/Login/LoginVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "socialLoginAPI(email:provider:socialID:firstName:lastName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -167,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9A6D9725-9132-4391-90E4-A2E63BF89A1A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Towy/Controller/UserSignIn/Login/LoginVM.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "socialLoginAPI(email:provider:socialID:firstName:lastName:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D829D754-E25C-4650-A162-8239C4589D55"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -199,17 +135,193 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D072FD13-08E1-47C4-9EF1-82BB2C1BF456"
-            shouldBeEnabled = "No"
+            uuid = "AE55BC1E-B140-4814-846B-CCF480A1F4A4"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Towy/Controller/UserSignIn/Login/LoginVM.swift"
+            filePath = "Towy/Model/RegisterModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "socialLoginAPI(email:provider:socialID:firstName:lastName:)"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "RegisterUser"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C566042-3939-43AD-A5F6-8AF1CA031CF9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Model/LoginModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "LoginModel"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04C2E4C8-021B-4E4C-B6CC-B6BA904B6FC9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Model/LoginModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "DataClass"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "04C2E4C8-021B-4E4C-B6CC-B6BA904B6FC9 - 2547cff7471e8933"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Towy.DataClass.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;Towy.DataClass.CodingKeys&gt;"
+                  moduleName = "Towy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/LoginModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "73">
+               </Location>
+               <Location
+                  uuid = "04C2E4C8-021B-4E4C-B6CC-B6BA904B6FC9 - cd8d21dffb5b165a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Towy.DataClass.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "Towy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/LoginModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "6">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2ADA252E-EDFB-4B4A-A1AA-88A0B6E8AF36"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Model/RegisterModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "RegiaterDataClass"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "2ADA252E-EDFB-4B4A-A1AA-88A0B6E8AF36 - 687c13fe9e221feb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Towy.RegiaterDataClass.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;Towy.RegiaterDataClass.CodingKeys&gt;"
+                  moduleName = "Towy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/RegisterModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "2ADA252E-EDFB-4B4A-A1AA-88A0B6E8AF36 - 9b2759fa9e4e9c0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Towy.RegiaterDataClass.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "Towy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/RegisterModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8182D645-F283-4D27-B26E-53A8C704DE20"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Model/SocialUserModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "init(coder:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "601D472F-A046-44FB-B50F-802E2D77C492"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Model/SocialUserModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "socialDataClass"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE0C8977-D157-43D4-A371-4799A970757A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/HelperClasses/NetworkServices/NetworkCall.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "executeQuery(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8A77309B-CFCA-4FE7-A5E1-E7B9C0F7C72E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Model/SocialUserModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "SocialUser"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
