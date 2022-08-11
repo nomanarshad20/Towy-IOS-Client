@@ -142,8 +142,8 @@
             filePath = "Towy/Model/RegisterModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "RegisterUser"
             landmarkType = "14">
          </BreakpointContent>
@@ -208,54 +208,6 @@
                   startingLineNumber = "24"
                   endingLineNumber = "24"
                   offsetFromSymbolStart = "6">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2ADA252E-EDFB-4B4A-A1AA-88A0B6E8AF36"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Towy/Model/RegisterModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "RegiaterDataClass"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "2ADA252E-EDFB-4B4A-A1AA-88A0B6E8AF36 - 687c13fe9e221feb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Towy.RegiaterDataClass.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;Towy.RegiaterDataClass.CodingKeys&gt;"
-                  moduleName = "Towy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/RegisterModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "76">
-               </Location>
-               <Location
-                  uuid = "2ADA252E-EDFB-4B4A-A1AA-88A0B6E8AF36 - 9b2759fa9e4e9c0e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Towy.RegiaterDataClass.CodingKeys.rawValue.getter : Swift.String"
-                  moduleName = "Towy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/RegisterModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "47">
                </Location>
             </Locations>
          </BreakpointContent>
