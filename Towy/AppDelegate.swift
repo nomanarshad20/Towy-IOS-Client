@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     }
     func byPassLoginVC(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let VC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        let VC = storyBoard.instantiateViewController(withIdentifier: "PaymentVC") as! PaymentVC
         self.navigationontroller = UINavigationController(rootViewController: VC)
         self.navigationontroller?.navigationBar.isHidden = true
         self.window?.rootViewController = self.navigationontroller

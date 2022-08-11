@@ -26,5 +26,7 @@ target 'Towy' do
   pod 'NVActivityIndicatorView'
   pod 'FBSDKLoginKit'
   pod 'FBSDKCoreKit'
+  
+  pod "MFCard"
 
 end
