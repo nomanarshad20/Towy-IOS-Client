@@ -8,11 +8,18 @@
 import UIKit
 import MFCard
 
-
 class PaymentVC: UIViewController , MFCardDelegate {
-    func cardDoneButtonClicked(_ card: Card?, error: String?) {
-        print("")
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        var myCard : MFCardView
+        myCard  = MFCardView(withViewController: self)
+        myCard.delegate = self
+        myCard.autoDismiss = true
+        myCard.toast = true
+        myCard.showCard()
     }
+    
     
     func cardTypeDidIdentify(_ cardType: String) {
         print("")
@@ -22,18 +29,16 @@ class PaymentVC: UIViewController , MFCardDelegate {
         print("")
     }
     
-    
-    @IBOutlet weak var NumberTF: UITextField!
-    @IBOutlet weak var NameTF: UITextField!
-    @IBOutlet weak var ValidityTF: UITextField!
-    @IBOutlet weak var cryptoTF: UITextField!
-    
-    override func viewDidLoad() {
-        var myCard : MFCardView
-        myCard  = MFCardView(withViewController: self)
-        myCard.delegate = self
-        myCard.autoDismiss = true
-        myCard.toast = true
-        myCard.showCard()
+    func cardDoneButtonClicked(_ card: Card?, error: String?) {
+    if error == nil{
+        print(card?.number)
+        print(card?.name)
+        print(card?.cvc)
+    }else{
+    print(error!)
     }
+    }
+
 }
+
+

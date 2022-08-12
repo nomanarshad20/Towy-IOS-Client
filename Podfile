@@ -27,6 +27,6 @@ target 'Towy' do
   pod 'FBSDKLoginKit'
   pod 'FBSDKCoreKit'
   
-  pod "MFCard"
+  pod 'MFCard'
 
 end
