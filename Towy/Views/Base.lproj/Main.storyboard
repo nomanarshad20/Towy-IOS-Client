@@ -2297,6 +2297,22 @@
             </objects>
             <point key="canvasLocation" x="6791" y="4224"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="3Rz-le-y9m">
+            <objects>
+                <viewController storyboardIdentifier="PaymentVC" id="KGS-E7-szX" customClass="PaymentVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5q9-x3-rp9">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="MdU-ah-51m"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="nP9-Bc-uKm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Sw-UH-GxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11247.692307692307" y="3407.345971563981"/>
+        </scene>
     </scenes>
     <resources>
         <image name="apple" width="50" height="50"/>

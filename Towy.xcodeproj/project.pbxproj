@@ -86,6 +86,7 @@
 		CE8123112896B2BF0042B1D6 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8123102896B2BF0042B1D6 /* LocationVC.swift */; };
 		CE81FB962890620200D60649 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB952890620200D60649 /* HomeVC.swift */; };
 		CE81FB982890621A00D60649 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB972890621A00D60649 /* AccountVC.swift */; };
+		CE89018228A522D0004D9BAB /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89018128A522D0004D9BAB /* PaymentVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,7 @@
 		CE8123102896B2BF0042B1D6 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		CE81FB952890620200D60649 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CE81FB972890621A00D60649 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
+		CE89018128A522D0004D9BAB /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -429,6 +431,7 @@
 		3D598197286087490034AB47 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CE89018028A522A9004D9BAB /* Payment */,
 				3D4B116D289A773D0034FEF8 /* User */,
 				3D10AF862899442F005EE541 /* Maps */,
 				3D06496F2893F33A00720F69 /* Home */,
@@ -565,6 +568,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE89018028A522A9004D9BAB /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				CE89018128A522D0004D9BAB /* PaymentVC.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -577,7 +588,7 @@
 				3D59817D28607ADA0034AB47 /* Frameworks */,
 				3D59817E28607ADA0034AB47 /* Resources */,
 				31E411CFD9708EDBBC60DF23 /* [CP] Embed Pods Frameworks */,
-				8D54180AD8A2C235EDE83938 /* [CP] Copy Pods Resources */,
+				608A91D4E7CD5FC252C51AA8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -676,7 +687,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Towy/Pods-Towy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8D54180AD8A2C235EDE83938 /* [CP] Copy Pods Resources */ = {
+		608A91D4E7CD5FC252C51AA8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -757,6 +768,7 @@
 				3D10AF90289952AA005EE541 /* GoogleApiHelper.swift in Sources */,
 				3D7D912F28A6C0DA0089D4F8 /* LoginUserModel.swift in Sources */,
 				3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */,
+				CE89018228A522D0004D9BAB /* PaymentVC.swift in Sources */,
 				3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */,
 				3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */,
 				3D5981C72860E4B40034AB47 /* ControllerNavigation.swift in Sources */,
