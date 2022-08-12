@@ -10,14 +10,15 @@ import MFCard
 
 class PaymentVC: UIViewController , MFCardDelegate {
     
+    @IBOutlet weak var myCard : MFCardView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        var myCard : MFCardView
-        myCard  = MFCardView(withViewController: self)
+//        var myCard : MFCardView
+//        myCard  = MFCardView(withViewController: self)
         myCard.delegate = self
-        myCard.autoDismiss = true
-        myCard.toast = true
-        myCard.showCard()
+//        myCard.autoDismiss = true
+//        myCard.toast = true
+//        myCard.showCard()
     }
     
     
@@ -27,6 +28,7 @@ class PaymentVC: UIViewController , MFCardDelegate {
     
     func cardDidClose() {
         print("")
+        self.navigationController?.popViewController(animated: true)
     }
     
     func cardDoneButtonClicked(_ card: Card?, error: String?) {
@@ -38,6 +40,11 @@ class PaymentVC: UIViewController , MFCardDelegate {
     print(error!)
     }
     }
+    
+    @IBAction func btnBackAction(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
 }
 

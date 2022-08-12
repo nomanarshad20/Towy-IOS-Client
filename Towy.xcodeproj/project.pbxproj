@@ -83,6 +83,7 @@
 		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
 		3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */; };
 		3DEDC0FA288044E70051FAA0 /* EnterDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */; };
+		CE7CA17B28A6E2A100F96152 /* WalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CA17A28A6E2A100F96152 /* WalletVC.swift */; };
 		CE8123112896B2BF0042B1D6 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8123102896B2BF0042B1D6 /* LocationVC.swift */; };
 		CE81FB962890620200D60649 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB952890620200D60649 /* HomeVC.swift */; };
 		CE81FB982890621A00D60649 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB972890621A00D60649 /* AccountVC.swift */; };
@@ -171,6 +172,7 @@
 		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.release.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.release.xcconfig"; sourceTree = "<group>"; };
 		B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.debug.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.debug.xcconfig"; sourceTree = "<group>"; };
+		CE7CA17A28A6E2A100F96152 /* WalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletVC.swift; sourceTree = "<group>"; };
 		CE8123102896B2BF0042B1D6 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		CE81FB952890620200D60649 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CE81FB972890621A00D60649 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				CE89018128A522D0004D9BAB /* PaymentVC.swift */,
+				CE7CA17A28A6E2A100F96152 /* WalletVC.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				3D0649642893EEFB00720F69 /* PhotoSliderView.swift in Sources */,
 				3D21667E288567DE005A108B /* SocialUserModel.swift in Sources */,
 				3DB569E42861AEB900391001 /* Enums.swift in Sources */,
+				CE7CA17B28A6E2A100F96152 /* WalletVC.swift in Sources */,
 				3D5981BC2860DB7D0034AB47 /* EnterOTPVC.swift in Sources */,
 				3D4B1170289A77900034FEF8 /* AccountVM.swift in Sources */,
 				3D318BD8286341C0002E4960 /* CustomButton.swift in Sources */,

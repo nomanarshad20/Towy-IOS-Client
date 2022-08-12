@@ -37,10 +37,38 @@ class HomeVM: BaseVM {
 
     }
     
-    func setDashBoardData() -> [String]{
-        return ["Towy Ride","Tire","Fuel","Battery Send","Lock","others"]
-    }
+//    func setDashBoardData() -> [String]{
+//        return ["Towy Ride","Tire","Fuel","Battery Send","Lock","others"]
+//    }
+
     
+    func setDashBoardData() -> [AccountDataModel]{
+        var arr = [AccountDataModel]()
+        let obj_1 = AccountDataModel(title: "Towy Ride", img: "car")
+        let obj_2 = AccountDataModel(title: "Tire", img: "tire")
+        let obj_3 = AccountDataModel(title: "Fuel", img: "fuel")
+        let obj_4 = AccountDataModel(title: "Battery Send", img: "battery")
+        let obj_5 = AccountDataModel(title: "Lock", img: "lock")
+        let obj_6 = AccountDataModel(title: "others", img: "other")
+
+        arr.append(obj_1)
+        arr.append(obj_2)
+        arr.append(obj_3)
+        arr.append(obj_4)
+        arr.append(obj_5)
+        arr.append(obj_6)
+
+        return arr
+//        let images: [UIImage] = [UIImage(named: "image1")!,
+//                                 UIImage(named: "image2")!,
+//                                 UIImage(named: "image3")!,
+//                                 UIImage(named: "image1")!,
+//                                 UIImage(named: "image2")!,
+//                                 UIImage(named: "image3")!]
+//
+//        photoSliderView.configure(with: images)
+
+    }
     // MARK: - API_Handling
     
     

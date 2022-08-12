@@ -1474,7 +1474,7 @@
             </objects>
             <point key="canvasLocation" x="7723.0769230769229" y="3446.8009478672984"/>
         </scene>
-        <!--AccountVC-->
+        <!--Account-->
         <scene sceneID="rUv-zY-CsW">
             <objects>
                 <viewController storyboardIdentifier="AccountVC" id="f5M-fV-WIs" customClass="AccountVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1814,6 +1814,7 @@
                             <constraint firstItem="TCX-ZN-Tgh" firstAttribute="trailing" secondItem="VFW-Zc-CFt" secondAttribute="trailing" id="hYe-hN-EYr"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="oKJ-aj-fQV"/>
                     <navigationItem key="navigationItem" id="uCC-Uv-RVu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Crk-Cx-0cx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2252,12 +2253,104 @@
                     </tabBar>
                     <connections>
                         <segue destination="faa-ER-S2I" kind="relationship" relationship="viewControllers" id="Rda-ZB-nFw"/>
-                        <segue destination="K26-l4-iVA" kind="relationship" relationship="viewControllers" id="nhN-dB-YJm"/>
+                        <segue destination="zen-tn-jiV" kind="relationship" relationship="viewControllers" id="Wzo-JA-Bm3"/>
+                        <segue destination="f5M-fV-WIs" kind="relationship" relationship="viewControllers" id="q3j-sK-fdq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxy-iT-P3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6792.3076923076924" y="2640.2843601895734"/>
+        </scene>
+        <!--Wallet-->
+        <scene sceneID="0LK-iE-ZWx">
+            <objects>
+                <viewController storyboardIdentifier="WalletVC" id="zen-tn-jiV" customClass="WalletVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zAh-hc-EQx">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSN-aX-cTv">
+                                <rect key="frame" x="15" y="69" width="360" height="36"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-Xq-SNu">
+                                <rect key="frame" x="15" y="130" width="360" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Towy cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gya-ef-q3I">
+                                        <rect key="frame" x="15" y="20" width="330" height="18"/>
+                                        <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RS 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bv6-8P-SHm">
+                                        <rect key="frame" x="15" y="63" width="330" height="36"/>
+                                        <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83529411764705885" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Gya-ef-q3I" firstAttribute="leading" secondItem="Dho-Xq-SNu" secondAttribute="leading" constant="15" id="2ay-Td-r4m"/>
+                                    <constraint firstAttribute="height" constant="200" id="745-Sy-W0a"/>
+                                    <constraint firstItem="bv6-8P-SHm" firstAttribute="leading" secondItem="Dho-Xq-SNu" secondAttribute="leading" constant="15" id="7nf-Kl-yIa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gya-ef-q3I" secondAttribute="trailing" constant="15" id="Hgw-dZ-Hyf"/>
+                                    <constraint firstAttribute="trailing" secondItem="bv6-8P-SHm" secondAttribute="trailing" constant="15" id="VO8-r1-XcM"/>
+                                    <constraint firstItem="Gya-ef-q3I" firstAttribute="top" secondItem="Dho-Xq-SNu" secondAttribute="top" constant="20" id="ZYi-Y6-dLA"/>
+                                    <constraint firstItem="bv6-8P-SHm" firstAttribute="top" secondItem="Gya-ef-q3I" secondAttribute="bottom" constant="25" id="zf5-wz-C01"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIO-8f-rRt">
+                                <rect key="frame" x="15" y="345" width="360" height="24"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFx-MX-Psv">
+                                <rect key="frame" x="15" y="369" width="360" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="smE-KI-TXO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="  Add payment method" image="plus" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnAddPaymentAction:" destination="zen-tn-jiV" eventType="touchUpInside" id="Fgl-Eu-8C8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HqO-yy-XoI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RIO-8f-rRt" firstAttribute="top" secondItem="Dho-Xq-SNu" secondAttribute="bottom" constant="15" id="9LC-9h-yLg"/>
+                            <constraint firstItem="RIO-8f-rRt" firstAttribute="leading" secondItem="zAh-hc-EQx" secondAttribute="leading" constant="15" id="CvD-Zp-J4U"/>
+                            <constraint firstItem="mFx-MX-Psv" firstAttribute="top" secondItem="RIO-8f-rRt" secondAttribute="bottom" id="Jra-fr-IGB"/>
+                            <constraint firstItem="SSN-aX-cTv" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="NGm-kO-e7p"/>
+                            <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="Dho-Xq-SNu" secondAttribute="trailing" constant="15" id="bDZ-IF-MDX"/>
+                            <constraint firstItem="Dho-Xq-SNu" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="cxz-7K-3UV"/>
+                            <constraint firstItem="SSN-aX-cTv" firstAttribute="top" secondItem="HqO-yy-XoI" secondAttribute="top" constant="25" id="eo0-Ps-8EG"/>
+                            <constraint firstAttribute="trailing" secondItem="SSN-aX-cTv" secondAttribute="trailing" constant="15" id="lQj-5F-SNv"/>
+                            <constraint firstItem="Dho-Xq-SNu" firstAttribute="top" secondItem="SSN-aX-cTv" secondAttribute="bottom" constant="25" id="oPP-CI-2v9"/>
+                            <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="RIO-8f-rRt" secondAttribute="trailing" constant="15" id="qHR-H6-8mh"/>
+                            <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="mFx-MX-Psv" secondAttribute="trailing" constant="15" id="xbA-GK-11k"/>
+                            <constraint firstItem="mFx-MX-Psv" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="zcZ-oS-lbx"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Wallet" image="archivebox.circle.fill" catalog="system" id="Nox-YV-FBJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HVD-d5-9dU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7707" y="2645"/>
         </scene>
         <!--Home-->
         <scene sceneID="l02-3B-gA6">
@@ -2304,16 +2397,53 @@
                     <view key="view" contentMode="scaleToFill" id="5q9-x3-rp9">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2M-Ky-XiF" customClass="MFCardView" customModule="MFCard">
+                                <rect key="frame" x="15" y="272" width="360" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="fBP-Uk-bAh"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idb-id-17d">
+                                <rect key="frame" x="170" y="598" width="50" height="48.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="V4A-xG-mk6"/>
+                                    <constraint firstAttribute="height" constant="50" id="g59-np-xlr"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" backgroundImage="arrow.left.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="btnBackAction" destination="KGS-E7-szX" eventType="touchUpInside" id="7hs-Kx-2Dv"/>
+                                    <action selector="btnBackAction:" destination="b7g-t9-edD" eventType="touchUpInside" id="e78-zI-wbs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MdU-ah-51m"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="idb-id-17d" firstAttribute="centerX" secondItem="5q9-x3-rp9" secondAttribute="centerX" id="NJU-Hh-Wt0"/>
+                            <constraint firstItem="M2M-Ky-XiF" firstAttribute="centerX" secondItem="5q9-x3-rp9" secondAttribute="centerX" id="VKq-Ed-Z9T"/>
+                            <constraint firstItem="idb-id-17d" firstAttribute="top" secondItem="M2M-Ky-XiF" secondAttribute="bottom" constant="25" id="bWJ-IX-lpf"/>
+                            <constraint firstItem="MdU-ah-51m" firstAttribute="trailing" secondItem="M2M-Ky-XiF" secondAttribute="trailing" constant="15" id="mO4-Vy-WmC"/>
+                            <constraint firstItem="M2M-Ky-XiF" firstAttribute="centerY" secondItem="5q9-x3-rp9" secondAttribute="centerY" id="r1h-hj-3bM"/>
+                            <constraint firstItem="M2M-Ky-XiF" firstAttribute="leading" secondItem="MdU-ah-51m" secondAttribute="leading" constant="15" id="wXC-Bq-Ebv"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="nP9-Bc-uKm"/>
+                    <connections>
+                        <outlet property="myCard" destination="M2M-Ky-XiF" id="bqR-0M-NB2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Sw-UH-GxR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="11247.692307692307" y="3407.345971563981"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="q3j-sK-fdq"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="apple" width="50" height="50"/>
         <image name="archivebox.circle.fill" catalog="system" width="128" height="121"/>
@@ -2336,6 +2466,7 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="terms" width="32" height="32"/>
         <image name="unCheck" width="16" height="16"/>

@@ -86,7 +86,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewDashBoardCVCell", for: indexPath as IndexPath) as! NewDashBoardCVCell
-        cell.lblTitle.text = self.homeVM.setDashBoardData()[indexPath.row]
+        cell.lblTitle.text = self.homeVM.setDashBoardData()[indexPath.row].title
+        cell.img.image = UIImage(named: self.homeVM.setDashBoardData()[indexPath.row].img) 
+
         //cell.obj = self.dashBoardVM.dashBoard?.data.dashboardContent[indexPath.row]
         return cell
     }
