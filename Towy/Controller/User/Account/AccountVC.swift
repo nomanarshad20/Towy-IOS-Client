@@ -58,5 +58,13 @@ extension AccountVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 3 {
+            UtilitiesManager.shared.removeData()
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.moveToHomeVC()
+
+        }
+    }
     
 }

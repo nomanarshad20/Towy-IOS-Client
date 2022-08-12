@@ -104,6 +104,15 @@ class UtilitiesManager{
         }
         return nil
     }
+    func retriveUserLoginData() -> UserLogin?{
+        do {
+            let getData = try defaults.getObject(forKey: Key.userDefaultKey.USER_LOGIN_DATA, castTo: UserLogin.self)
+            return getData
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
     func retriveAppleInformationSession() -> [String:Any]{
         let defaults = UserDefaults.standard
         let dict = defaults.dictionary(forKey: Key.userDefaultKey.APPLE_INFORMATION)
@@ -134,16 +143,23 @@ class UtilitiesManager{
         defaults.set(isValid, forKey: Key.userDefaultKey.VALID_USER)
 
     }
-    func saveUserData(user:RegisterUser){
+    func saveUserData(user:RegisterUser?){
         do {
             try defaults.setObjects(user, forKey: Key.userDefaultKey.USER_DATA)
         } catch {
             print(error.localizedDescription)
         }
     }
-    func saveSocialUserData(user:SocialUser){
+    func saveSocialUserData(user:SocialUser?){
         do {
             try defaults.setObjects(user, forKey: Key.userDefaultKey.SOCIAL_USER_DATA)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    func saveLoginUserData(user:UserLogin?){
+        do {
+            try defaults.setObjects(user, forKey: Key.userDefaultKey.USER_LOGIN_DATA)
         } catch {
             print(error.localizedDescription)
         }
@@ -152,6 +168,13 @@ class UtilitiesManager{
     {
         let defaults = UserDefaults.standard
         defaults.set(dict, forKey: Key.userDefaultKey.APPLE_INFORMATION)
+    }
+    
+    
+    func removeData(){
+        saveUserData(user: nil)
+        saveLoginUserData(user: nil)
+        saveSocialUserData(user: nil)
     }
 }
 

@@ -14,6 +14,9 @@ class TermAndCondtionVC: UIViewController {
     @IBOutlet  var btnNext : UIButton!
     @IBOutlet  var imgCheck : UIImageView!
 
+    var data : RegisterUser? = nil
+    
+    
     enum state {
         case check
         case uncheck
@@ -63,7 +66,12 @@ class TermAndCondtionVC: UIViewController {
        // passwordVM.tfPassword = self.tfPassword
         //passwordVM.MoveNext()
         //if currentState == .check{
-            ControllerNavigation.shared.pushVC(of: .welcomeVC)
+//            ControllerNavigation.shared.pushVC(of: .welcomeVC)
+        guard let usr = data else{return}
+        UtilitiesManager.shared.saveUserData(user: usr)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.moveToTabbarVC()
+
         //}
         //ControllerNavigation
     }

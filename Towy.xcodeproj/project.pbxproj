@@ -62,8 +62,10 @@
 		3D5981C32860DD140034AB47 /* UtilitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C22860DD140034AB47 /* UtilitiesManager.swift */; };
 		3D5981C52860E1060034AB47 /* AllExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C42860E1060034AB47 /* AllExtensions.swift */; };
 		3D5981C72860E4B40034AB47 /* ControllerNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5981C62860E4B40034AB47 /* ControllerNavigation.swift */; };
+		3D7D912F28A6C0DA0089D4F8 /* LoginUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D912E28A6C0DA0089D4F8 /* LoginUserModel.swift */; };
 		3D8635F6287839D3005BE92E /* EnterEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F5287839D3005BE92E /* EnterEmailVC.swift */; };
 		3D8635F928783DEF005BE92E /* TermAndCondtionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */; };
+		3D892FFC28A634FE006ACA03 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FFB28A634FE006ACA03 /* MainTabBarController.swift */; };
 		3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A1287442920003E87A /* NetworkCall.swift */; };
 		3DACB6A4287450E90003E87A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A3287450E90003E87A /* LoginModel.swift */; };
 		3DACB6A7287481820003E87A /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A6287481820003E87A /* URLConstants.swift */; };
@@ -144,8 +146,10 @@
 		3D5981C22860DD140034AB47 /* UtilitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesManager.swift; sourceTree = "<group>"; };
 		3D5981C42860E1060034AB47 /* AllExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtensions.swift; sourceTree = "<group>"; };
 		3D5981C62860E4B40034AB47 /* ControllerNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerNavigation.swift; sourceTree = "<group>"; };
+		3D7D912E28A6C0DA0089D4F8 /* LoginUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserModel.swift; sourceTree = "<group>"; };
 		3D8635F5287839D3005BE92E /* EnterEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailVC.swift; sourceTree = "<group>"; };
 		3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermAndCondtionVC.swift; sourceTree = "<group>"; };
+		3D892FFB28A634FE006ACA03 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3DACB6A1287442920003E87A /* NetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCall.swift; sourceTree = "<group>"; };
 		3DACB6A3287450E90003E87A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		3DACB6A6287481820003E87A /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 			children = (
 				CE81FB952890620200D60649 /* HomeVC.swift */,
 				3D0649702893F36100720F69 /* HomeVM.swift */,
+				3D892FFB28A634FE006ACA03 /* MainTabBarController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				3DACB6A3287450E90003E87A /* LoginModel.swift */,
+				3D7D912E28A6C0DA0089D4F8 /* LoginUserModel.swift */,
 				3D21667B2884A89C005A108B /* RegisterModel.swift */,
 				3D21667D288567DE005A108B /* SocialUserModel.swift */,
 				3D4B116B289A77000034FEF8 /* AccountModel.swift */,
@@ -718,6 +724,7 @@
 			files = (
 				3D8635F928783DEF005BE92E /* TermAndCondtionVC.swift in Sources */,
 				3D10AF8928994491005EE541 /* SearchLocationVC.swift in Sources */,
+				3D892FFC28A634FE006ACA03 /* MainTabBarController.swift in Sources */,
 				3DB2BCCB289493B2007D0619 /* AccountSettingTBCell.swift in Sources */,
 				3D06496D2893F2F900720F69 /* DashboardCVCell.swift in Sources */,
 				3D5981C02860DBB40034AB47 /* EnterDetailVC.swift in Sources */,
@@ -748,6 +755,7 @@
 				3D5981C32860DD140034AB47 /* UtilitiesManager.swift in Sources */,
 				3D59818428607ADA0034AB47 /* AppDelegate.swift in Sources */,
 				3D10AF90289952AA005EE541 /* GoogleApiHelper.swift in Sources */,
+				3D7D912F28A6C0DA0089D4F8 /* LoginUserModel.swift in Sources */,
 				3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */,
 				3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */,
 				3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */,

@@ -64,7 +64,11 @@ class EnterDetailVC: UIViewController {
         
         detailVM.firstName = self.tfName.text!
         detailVM.lastName = self.tfLastName.text!
-        detailVM.signUpAPI()
+        detailVM.signUpAPI { data in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "TermAndCondtionVC") as! TermAndCondtionVC
+            vc.data = data
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
        // ControllerNavigation.shared.pushVC(of: .termConditions)
 
     }

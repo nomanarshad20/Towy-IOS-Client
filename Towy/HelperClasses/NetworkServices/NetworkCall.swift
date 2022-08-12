@@ -43,7 +43,7 @@ class NetworkCall : NSObject{
             case .success(let res):
                 if let code = response.response?.statusCode{
                     print("responseData",String(data: res, encoding: .utf8) ?? "nothing received")
-                    
+                    let a = res
                     let r = response
                     switch code {
                     case 200...299:

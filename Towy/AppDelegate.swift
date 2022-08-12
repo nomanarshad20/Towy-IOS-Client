@@ -68,20 +68,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             }
         }
         // by DAIR added check to bypass login screen is user already login
-        if (UtilitiesManager.shared.retriveSocialUserData() != nil){
-            byPassLoginVC()
+        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) {
+            //let data = UtilitiesManager.shared.retriveSocialUserData() 
+            moveToTabbarVC()
         }
         return true
     }
-    func byPassLoginVC(){
+    func moveToTabbarVC(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let VC = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        let VC = storyBoard.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
         self.navigationontroller = UINavigationController(rootViewController: VC)
         self.navigationontroller?.navigationBar.isHidden = true
         self.window?.rootViewController = self.navigationontroller
         self.window?.makeKeyAndVisible()
     }
     
+    
+    func moveToHomeVC(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let VC = storyBoard.instantiateViewController(withIdentifier: "initialVC") as! initialVC
+        self.navigationontroller = UINavigationController(rootViewController: VC)
+        self.navigationontroller?.navigationBar.isHidden = true
+        self.window?.rootViewController = self.navigationontroller
+        self.window?.makeKeyAndVisible()
+
+    }
     func application(
            _ app: UIApplication,
            open url: URL,

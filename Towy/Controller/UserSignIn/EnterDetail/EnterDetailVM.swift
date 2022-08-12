@@ -26,7 +26,7 @@ class EnterDetailVM: BaseVM {
     
     // MARK: - API_Handling
     
-    func signUpAPI(){
+    func signUpAPI( completion : @escaping(RegisterUser) -> ()){
         
         
 //        actualNumber = code+number
@@ -57,10 +57,12 @@ class EnterDetailVM: BaseVM {
             (result: Result<RegisterUser,Error>) in
             switch result{
             case .success(let response):
+                completion(response)
                 //let isValidUser = response.data.email
                 
-                ControllerNavigation.shared.pushVC(of: .termConditions)
+                //ControllerNavigation.shared.pushVC(of: .termConditions)
 
+                
                // UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser)
 //                let usrDict = ["number":self.actualNumber]
 //                UtilitiesManager.shared.saveUserInformation(usr: usrDict)

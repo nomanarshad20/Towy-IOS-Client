@@ -94,9 +94,10 @@ class LoginVM: BaseVM {
             (result: Result<SocialUser,Error>) in
             switch result{
             case .success(let response):
-                let res = response
                 UtilitiesManager.shared.saveSocialUserData(user: response)
-                ControllerNavigation.shared.pushVC(of: .welcomeVC)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.moveToTabbarVC()
+//                ControllerNavigation.shared.pushVC(of: .welcomeVC)
                 
                 //                print("socialLogin",response.data.email)
                 ////                let isValidUser = response.data.userExist

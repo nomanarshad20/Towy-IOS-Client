@@ -109,7 +109,9 @@ class EnterOTPVM: BaseVM {
             //print("User is signed in",authResult?.user.phoneNumber)
             
             if UtilitiesManager.shared.isUserExist(){
-                ControllerNavigation.shared.pushVC(of: .welcomeVC)
+
+               // ControllerNavigation.shared.pushVC(of: .welcomeVC)
+                self.loginAPI()
             }else{
                 ControllerNavigation.shared.pushVC(of: .enterEmailVC)
             }
@@ -142,6 +144,38 @@ class EnterOTPVM: BaseVM {
 //
 //    }
     
+    // MARK: - API_Handling
+    
+    func loginAPI(){
+//        actualNumber = code+number
+        let usr = UtilitiesManager.shared.getUserInformation()
+        let number = usr["mobile_no"]
+
+        guard  let number = number  else{return UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: Key.ErrorMessage.PHONEFIELD)}
+        
+        let body = ["mobile_no":number,"user_type":"1","fcm_token":UtilitiesManager.shared.getFcmToken()] as [String:Any]
+        NetworkCall(data: body, url: nil, service: APPURL.services.passengerLogin, method: .post).executeQuery(){
+            (result: Result<UserLogin,Error>) in
+            switch result{
+            case .success(let response):
+                
+                print("UserLogin",response.data.firstName)
+                UtilitiesManager.shared.saveLoginUserData(user: response)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.moveToTabbarVC()
+
+//                let isValidUser = response.data.userExist
+//                UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser)
+//                let usrDict = ["mobile_no":self.actualNumber]
+//                UtilitiesManager.shared.saveUserInformation(usr: usrDict)
+//                self.phoneVerification()
+                
+            case .failure(let error):
+                print("errorzz",error)
+            }
+        }
+        
+    }
     
     // MARK: - Alert
     
