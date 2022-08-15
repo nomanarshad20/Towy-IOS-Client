@@ -9,13 +9,14 @@ import UIKit
 
 class AccountVC: UIViewController {
 
-    
+    @IBOutlet weak var lblName:UILabel!
     
     let accountVM = AccountVM()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,7 +24,17 @@ class AccountVC: UIViewController {
 
     }
 
-    
+    func setUI(){
+        if let social = UtilitiesManager.shared.retriveSocialUserData(){
+            self.lblName.text = social.data.firstName
+        }
+        else if let login = UtilitiesManager.shared.retriveUserLoginData(){
+            self.lblName.text = login.data.firstName
+        }
+        else if let register = UtilitiesManager.shared.retriveUserData(){
+            self.lblName.text = register.data.firstName
+        }
+    }
     
     // MARK: - Navigation
 

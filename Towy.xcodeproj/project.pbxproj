@@ -88,6 +88,10 @@
 		CE81FB962890620200D60649 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB952890620200D60649 /* HomeVC.swift */; };
 		CE81FB982890621A00D60649 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE81FB972890621A00D60649 /* AccountVC.swift */; };
 		CE89018228A522D0004D9BAB /* PaymentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89018128A522D0004D9BAB /* PaymentVC.swift */; };
+		CE9CE39728A7B53200866884 /* TowListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE39528A7B53200866884 /* TowListTableViewCell.swift */; };
+		CE9CE39828A7B53200866884 /* TowListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9CE39628A7B53200866884 /* TowListTableViewCell.xib */; };
+		CE9CE39A28A7B91500866884 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE39928A7B91500866884 /* ProfileModel.swift */; };
+		CE9CE39C28A7B95900866884 /* EditAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE39B28A7B95900866884 /* EditAccountVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +181,10 @@
 		CE81FB952890620200D60649 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CE81FB972890621A00D60649 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		CE89018128A522D0004D9BAB /* PaymentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVC.swift; sourceTree = "<group>"; };
+		CE9CE39528A7B53200866884 /* TowListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowListTableViewCell.swift; sourceTree = "<group>"; };
+		CE9CE39628A7B53200866884 /* TowListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TowListTableViewCell.xib; sourceTree = "<group>"; };
+		CE9CE39928A7B91500866884 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		CE9CE39B28A7B95900866884 /* EditAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +244,8 @@
 				3DB2BCD0289497D9007D0619 /* HelpTBCell.xib */,
 				3D10AF8A28994BFE005EE541 /* PlacesTBCell.swift */,
 				3D10AF8B28994BFE005EE541 /* PlacesTBCell.xib */,
+				CE9CE39528A7B53200866884 /* TowListTableViewCell.swift */,
+				CE9CE39628A7B53200866884 /* TowListTableViewCell.xib */,
 			);
 			path = UITableViewCell;
 			sourceTree = "<group>";
@@ -364,6 +374,7 @@
 				CE81FB972890621A00D60649 /* AccountVC.swift */,
 				3D4B116F289A77900034FEF8 /* AccountVM.swift */,
 				3DB2BCCD28949545007D0619 /* EditAccountVC.swift */,
+				CE9CE39B28A7B95900866884 /* EditAccountVM.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -481,6 +492,7 @@
 				3D21667B2884A89C005A108B /* RegisterModel.swift */,
 				3D21667D288567DE005A108B /* SocialUserModel.swift */,
 				3D4B116B289A77000034FEF8 /* AccountModel.swift */,
+				CE9CE39928A7B91500866884 /* ProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -642,6 +654,7 @@
 			files = (
 				3D5981A6286087810034AB47 /* Roboto-ThinItalic.ttf in Resources */,
 				3D5981A8286087810034AB47 /* Roboto-Italic.ttf in Resources */,
+				CE9CE39828A7B53200866884 /* TowListTableViewCell.xib in Resources */,
 				3DB2BCCC289493B2007D0619 /* AccountSettingTBCell.xib in Resources */,
 				3D0649682893EF3F00720F69 /* PhotoSliderView.xib in Resources */,
 				3D5981A9286087810034AB47 /* Roboto-LightItalic.ttf in Resources */,
@@ -761,6 +774,7 @@
 				3D5981BE2860DB900034AB47 /* EnterPasswordVC.swift in Sources */,
 				3D59818828607ADA0034AB47 /* LoginVC.swift in Sources */,
 				3D318BD4286331D3002E4960 /* Constans.swift in Sources */,
+				CE9CE39A28A7B91500866884 /* ProfileModel.swift in Sources */,
 				3D10AF8C28994BFE005EE541 /* PlacesTBCell.swift in Sources */,
 				3D5981B4286090FB0034AB47 /* AnimationView.swift in Sources */,
 				3DB2BCD1289497D9007D0619 /* HelpTBCell.swift in Sources */,
@@ -771,6 +785,7 @@
 				3D10AF90289952AA005EE541 /* GoogleApiHelper.swift in Sources */,
 				3D7D912F28A6C0DA0089D4F8 /* LoginUserModel.swift in Sources */,
 				3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */,
+				CE9CE39C28A7B95900866884 /* EditAccountVM.swift in Sources */,
 				CE89018228A522D0004D9BAB /* PaymentVC.swift in Sources */,
 				3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */,
 				3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */,
@@ -782,6 +797,7 @@
 				CE7CA17B28A6E2A100F96152 /* WalletVC.swift in Sources */,
 				3D5981BC2860DB7D0034AB47 /* EnterOTPVC.swift in Sources */,
 				3D4B1170289A77900034FEF8 /* AccountVM.swift in Sources */,
+				CE9CE39728A7B53200866884 /* TowListTableViewCell.swift in Sources */,
 				3D318BD8286341C0002E4960 /* CustomButton.swift in Sources */,
 				CE81FB982890621A00D60649 /* AccountVC.swift in Sources */,
 				3D4B116C289A77000034FEF8 /* AccountModel.swift in Sources */,

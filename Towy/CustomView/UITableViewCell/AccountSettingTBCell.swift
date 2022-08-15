@@ -9,6 +9,15 @@ import UIKit
 
 class AccountSettingTBCell: UITableViewCell {
 
+    @IBOutlet weak var lblTitle : UILabel!
+    @IBOutlet weak var lblSubtitle : UILabel!
+
+    var obj : ProfileModel?{
+        didSet{
+            self.lblTitle.text = obj?.title ?? ""
+            self.lblSubtitle.text = obj?.subTitle ?? ""
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

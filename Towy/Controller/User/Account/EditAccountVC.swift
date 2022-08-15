@@ -11,6 +11,9 @@ class EditAccountVC: UIViewController {
 
     
     @IBOutlet weak var tblAccountSettings : UITableView!
+    
+    let editVM = EditAccountVM()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,11 +38,12 @@ class EditAccountVC: UIViewController {
 
 extension EditAccountVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return editVM.setTableData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountSettingTBCell", for: indexPath) as! AccountSettingTBCell
+        cell.obj = self.editVM.setTableData()[indexPath.row]
         return cell
     }
     

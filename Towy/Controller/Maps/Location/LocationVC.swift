@@ -16,8 +16,14 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
 //    var searchController: UISearchController?
 //    var resultView: UITextView?
 //
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var tblTowList:UITableView!
 
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var bottomViewTowConstraint: NSLayoutConstraint!
+
+    
+    var currentLocation = CLLocationCoordinate2D()
+    var destinationLocation = CLLocationCoordinate2D()
     private let manager = CLLocationManager()
     
 //    var currentLat  = CLLocationDegrees()
@@ -34,7 +40,9 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
+        registerTableXib()
         self.tabBarController?.tabBar.isHidden = true
+   
 
 //        manager.delegate = self
 //        manager.startUpdatingLocation()
@@ -145,6 +153,117 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
         present(autocompleteController, animated: true, completion: nil)
       }
     */
+    
+    
+    func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
+
+        let session = URLSession.shared
+
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=false&mode=driving&key=\(Key.Google.googleApiKey)")!
+
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+
+            guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any] else {
+
+                print("error in JSONSerialization")
+                return
+
+            }
+
+
+
+            guard let routes = jsonResult["routes"] as? [Any] else {
+                return
+            }
+
+            guard let route = routes[0] as? [String: Any] else {
+                return
+            }
+
+            guard let legs = route["legs"] as? [Any] else {
+                return
+            }
+
+            guard let leg = legs[0] as? [String: Any] else {
+                return
+            }
+
+            guard let steps = leg["steps"] as? [Any] else {
+                return
+            }
+              for item in steps {
+
+                guard let step = item as? [String: Any] else {
+                    return
+                }
+
+                guard let polyline = step["polyline"] as? [String: Any] else {
+                    return
+                }
+
+                guard let polyLineString = polyline["points"] as? String else {
+                    return
+                }
+
+                //Call this method to draw path on map
+                DispatchQueue.main.async {
+                    self.drawPath(from: polyLineString)
+                }
+
+            }
+        })
+        task.resume()
+    }
+    
+    
+    //MARK:- Draw Path line
+    func drawPath(from polyStr: String){
+        let path = GMSPath(fromEncodedPath: polyStr)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 3.0
+        polyline.strokeColor = .black
+        polyline.map = mapView // Google MapView
+        let sourceMarker = GMSMarker()
+        sourceMarker.position = currentLocation
+//        sourceMarker.title = "Delhi"
+//        sourceMarker.snippet = "The Capital of INDIA"
+        sourceMarker.map = self.mapView
+        
+        
+        // MARK: Marker for destination location
+        let destinationMarker = GMSMarker()
+        destinationMarker.position = destinationLocation
+//        destinationMarker.title = "Gurugram"
+//        destinationMarker.snippet = "The hub of industries"
+        destinationMarker.map = self.mapView
+
+
+        let cameraUpdate = GMSCameraUpdate.fit(GMSCoordinateBounds(coordinate: currentLocation, coordinate: destinationLocation))
+        mapView.moveCamera(cameraUpdate)
+//        let camera = GMSCameraPosition(target: currentLocation, zoom: 10)
+//        self.mapView.animate(to: camera)
+//        mapView.camera = GMSCameraPosition(
+//          target: location.coordinate,
+//          zoom: 15,
+//          bearing: 0,
+//          viewingAngle: 0)
+        
+        let currentZoom = mapView.camera.zoom
+        mapView.animate(toZoom: currentZoom - 1.4)
+    }
+    
+    
+    func registerTableXib(){
+        //self.tblAccountSettings.register(UINib(nibName: "AccountSettingTBCell", bundle: nil), forCellWithReuseIdentifier: "AccountSettingTBCell")
+        self.tblTowList.register(UINib(nibName: "TowListTableViewCell", bundle: nil), forCellReuseIdentifier: "TowListTableViewCell")
+
+    }
     }
 /*
     extension LocationVC: GMSAutocompleteViewControllerDelegate {
@@ -236,7 +355,7 @@ extension LocationVC: CLLocationManagerDelegate {
     guard let location = locations.first else {
       return
     }
-
+//31.497844954125746, 74.26779974759725
     // 7
     mapView.camera = GMSCameraPosition(
       target: location.coordinate,
@@ -244,6 +363,12 @@ extension LocationVC: CLLocationManagerDelegate {
       bearing: 0,
       viewingAngle: 0)
     mapView.delegate = self
+        self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {
+            self.bottomViewTowConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
+       self.getRouteSteps(from: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), to: destinationLocation)
   }
 
   // 8
@@ -253,4 +378,17 @@ extension LocationVC: CLLocationManagerDelegate {
   ) {
     print(error)
   }
+}
+extension LocationVC:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TowListTableViewCell", for: indexPath) as! TowListTableViewCell
+//        cell.lblTitle.text = "Lahore"
+//        cell.lblSubTitle.text = autocompleteResults[indexPath.row].formattedAddress
+
+        return cell
+    }
 }

@@ -91,6 +91,8 @@ struct Key {
 //        static let placesKey = "some key here"//for photos
 //        static let serverKey = "some key here"
         static let clientID = "336988954949-6kn7d413lmsu33it24d7bb6h5lqd98hn.apps.googleusercontent.com"
+        static let googleApiKey = "AIzaSyBVe-9o7ukhkUBl8hhdNo150Z0eip4EFbw"
+
     }
     
     struct ErrorMessage{

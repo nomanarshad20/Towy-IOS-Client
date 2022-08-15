@@ -15,6 +15,7 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     
     @IBOutlet var photoSliderView: PhotoSliderView!
     @IBOutlet weak var clcDashBoard:UICollectionView!
+
     @IBOutlet weak var clcDashBoardHeight:NSLayoutConstraint?
 
     @IBOutlet weak var mapView: GMSMapView!
@@ -71,6 +72,7 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     func registerXib(){
         self.clcDashBoard.register(UINib(nibName: "NewDashBoardCVCell", bundle: nil), forCellWithReuseIdentifier: "NewDashBoardCVCell")
     }
+  
     //DashboardCVCell
 }
 
@@ -195,3 +197,4 @@ extension HomeVC{
 
     }
 }
+

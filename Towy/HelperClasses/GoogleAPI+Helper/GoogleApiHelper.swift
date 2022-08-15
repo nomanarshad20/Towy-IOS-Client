@@ -174,7 +174,7 @@ class GoogleApi : NSObject {
     
     var session : URLSessionDataTask?
     var searchResultsCache : Results = [:]
-    var googleApiKey = "AIzaSyBsdpz4AX5T6uqLxqJXUgEDtoxd0TIiJ2w"
+    var googleApiKey = "AIzaSyBVe-9o7ukhkUBl8hhdNo150Z0eip4EFbw"
     
     enum GoogleCallback : String {
         case notFound = "NOT_FOUND"
