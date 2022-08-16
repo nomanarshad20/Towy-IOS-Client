@@ -117,6 +117,9 @@ extension LoginVC:ASAuthorizationControllerDelegate{
                     userObj["id"] = id
 
                     UtilitiesManager.shared.saveAppleSignInSession(dict: userObj)
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.moveToTabbarVC()
+
                 }
             }
 

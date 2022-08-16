@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "saveSocialUserData(user:)"
+            landmarkName = "saveUserData(user:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -96,7 +96,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
                   endingLineNumber = "70"
-                  offsetFromSymbolStart = "124">
+                  offsetFromSymbolStart = "120">
                </Location>
                <Location
                   uuid = "80EBAB19-E785-41E6-A7C2-26AEC9BB9F35 - 8896cd736b42340b"
@@ -178,6 +178,38 @@
             endingLineNumber = "15"
             landmarkName = "LoginModel"
             landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "2C566042-3939-43AD-A5F6-8AF1CA031CF9 - 2547cff7471e8933"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Towy.DataClass.CodingKeys.init(rawValue: Swift.String) -&gt; Swift.Optional&lt;Towy.DataClass.CodingKeys&gt;"
+                  moduleName = "Towy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/LoginModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "2C566042-3939-43AD-A5F6-8AF1CA031CF9 - cd8d21dffb5b165a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Towy.DataClass.CodingKeys.rawValue.getter : Swift.String"
+                  moduleName = "Towy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user/Documents/towyApp/towy_clieny_app_ios/Towy/Model/LoginModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,7 +240,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
                   endingLineNumber = "24"
-                  offsetFromSymbolStart = "73">
+                  offsetFromSymbolStart = "76">
                </Location>
                <Location
                   uuid = "04C2E4C8-021B-4E4C-B6CC-B6BA904B6FC9 - cd8d21dffb5b165a"
@@ -223,7 +255,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
                   endingLineNumber = "24"
-                  offsetFromSymbolStart = "6">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -289,6 +321,38 @@
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "socialLoginAPI(email:provider:socialID:firstName:lastName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C5178BAE-DE77-49A5-B285-F63378F99C6D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Controller/UserSignIn/Login/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "authorizationController(controller:didCompleteWithAuthorization:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4179BB3A-F4E1-4707-BA36-C3E92F72E1B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Towy/Controller/UserSignIn/Login/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "authorizationController(controller:didCompleteWithError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
