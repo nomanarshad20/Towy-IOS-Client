@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             }
         }
         // by DAIR added check to bypass login screen is user already login
-        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) || UtilitiesManager.shared.retriveAppleInformationSession().count > 0{
+        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) || UtilitiesManager.shared.receivedAppleData().count > 0{
             //let data = UtilitiesManager.shared.retriveSocialUserData() 
             moveToTabbarVC()
         }
@@ -93,6 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         self.window?.makeKeyAndVisible()
 
     }
+    
     func application(
            _ app: UIApplication,
            open url: URL,
