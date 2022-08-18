@@ -169,6 +169,7 @@ class UtilitiesManager{
         let defaults = UserDefaults.standard
         defaults.set(dict, forKey: Key.userDefaultKey.APPLE_INFORMATION)
         
+        // save data to keyChain
         let data = Data(from: dict)
         let status = saveinKeyChain(key: "AppLoginInfo", data: data)
         print("status: ", status)
@@ -178,18 +179,38 @@ class UtilitiesManager{
             kSecClass as String       : kSecClassGenericPassword as String,
             kSecAttrAccount as String : key,
             kSecValueData as String   : data ] as [String : Any]
+
         SecItemDelete(query as CFDictionary)
+
         return SecItemAdd(query as CFDictionary, nil)
     }
-    func receivedAppleData() -> [String:Any]{
-        if let receivedData = loadAppleLoginDataKeyChain(key: "AppLoginInfo") {
-            let result = receivedData.to(type: [String:Any].self)
-            print("result: ", result)
-            return result
-        }else{
-            return [:]
+
+    func retriveAppleLoginData() -> Data?{
+        let query = [
+            kSecClass as String       : kSecClassGenericPassword,
+            kSecAttrAccount as String : "AppLoginInfo",
+            kSecReturnData as String  : kCFBooleanTrue!,
+            kSecMatchLimit as String  : kSecMatchLimitOne ] as [String : Any]
+
+        var dataTypeRef: AnyObject? = nil
+
+        let status: OSStatus = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
+
+        if status == noErr {
+            return dataTypeRef as! Data?
+        } else {
+            return nil
         }
     }
+
+    class func createUniqueID() -> String {
+        let uuid: CFUUID = CFUUIDCreate(nil)
+        let cfStr: CFString = CFUUIDCreateString(nil, uuid)
+
+        let swiftString: String = cfStr as String
+        return swiftString
+    }
+
     func loadAppleLoginDataKeyChain(key: String) -> Data? {
         let query = [
             kSecClass as String       : kSecClassGenericPassword,
