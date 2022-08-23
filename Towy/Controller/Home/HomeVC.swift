@@ -103,8 +103,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            ControllerNavigation.shared.pushVC(of: .searchLocationVC)
-
+            let vc = ControllerNavigation.shared.getVC(of: .searchLocationVC) as! SearchLocationVC
+            vc.CurrentLat   = lat
+            vc.CurrentLong = long
+            self.navigationController?.pushViewController(vc, animated: true)
+//            ControllerNavigation.shared.pushVC(of: .searchLocationVC)
         }
 
     }
@@ -168,6 +171,8 @@ extension HomeVC: CLLocationManagerDelegate {
       return
     }
 
+        lat = location.coordinate.latitude
+        long = location.coordinate.longitude
     // 7
     mapView.camera = GMSCameraPosition(
       target: location.coordinate,

@@ -7,7 +7,7 @@
 
 import UIKit
 import CoreLocation
-//import GoogleMaps
+import GoogleMaps
 
 class SearchLocationVC: UIViewController {
 
@@ -16,7 +16,10 @@ class SearchLocationVC: UIViewController {
 
     @IBOutlet weak var tbSearch:UITableView!
     var autocompleteResults :[GApiResponse.Autocomplete] = []
-
+    
+    var CurrentLat  = CLLocationDegrees()
+    var CurrentLong = CLLocationDegrees()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +29,7 @@ class SearchLocationVC: UIViewController {
         // Do any additional setup after loading the view.
         setUI()
         registerXib()
+        getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -74,65 +78,95 @@ class SearchLocationVC: UIViewController {
             } else { print(response.error ?? "ERROR") }
         }
     }
+    
+    func getAddressFromlatLong(lat: Double, long: Double) {
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let geocoder = GMSGeocoder()
+        var add = ""
+        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
+          if let address = response?.firstResult() {
+            
+            guard let arrAddress = address.lines else {return}
+            if arrAddress.count > 1 {
+                add =  (arrAddress[1])
+        
+            }else if arrAddress.count == 1 {
+                add =  (arrAddress[0])
+            }
+              self.tfPickup.text = add
+          }
+        }
+      }
 }
 
 
 extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return autocompleteResults.count
+        return autocompleteResults.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlacesTBCell", for: indexPath) as! PlacesTBCell
-        cell.lblTitle.text = "Lahore"
-        cell.lblSubTitle.text = autocompleteResults[indexPath.row].formattedAddress
-
+        if indexPath.row == autocompleteResults.count {
+            cell.lblTitle.text = ""
+            cell.lblSubTitle.text = "Set location on map"
+        }else {
+            cell.lblTitle.text = "Lahore"
+            cell.lblSubTitle.text = autocompleteResults[indexPath.row].formattedAddress
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        tfLocation?.text = autocompleteResults[indexPath.row].formattedAddress
-//        tfLocation?.resignFirstResponder()
-        var input = GInput()
-        input.keyword = autocompleteResults[indexPath.row].placeId
-        GoogleApi.shared.callApi(.placeInformation,input: input) { (response) in
-            if let place =  response.data as? GApiResponse.PlaceInfo, response.isValidFor(.placeInformation) {
-                DispatchQueue.main.async {
-                    // self.searchTableView.isHidden = true
-                    if let lat = place.latitude, let lng = place.longitude{
-                        let center  = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-//                        self.selected_lat = center.latitude
-//                        self.selected_lang = center.longitude
-                        let dataToBeSent = ["lat":center.latitude,"lng":center.longitude] as [String : Any]
-                        
-                        
-                        //                  NotificationCenter.default.post(name: NSNotification.Name("setMap"), object: nil)
-//                        NotificationCenter.default.post(name: NSNotification.Name("pickLocation"), object: dataToBeSent)
-                        
-                        
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
-                        vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
-                        self.navigationController?.pushViewController(vc, animated: true)
-                        // self.delegate?.sendDataToMapVC(myData: dataToBeSent)
-                        //self.navigationController?.popViewController(animated: true)
-                        
-                        //
-                        //                        if self.delegate != nil && self.selected_lat != 0.0 && self.selected_lang != 0.0 {
-                        //
-                        //                            let dataToBeSent = ["lat":self.selected_lat,"lng":self.selected_lang]
-                        //                            self.delegate?.sendDataToMapVC(myData: dataToBeSent)
-                        //                            self.navigationController?.popViewController(animated: true)
-                        //                        }
-                        //self.mapView.animate(to: GMSCameraPosition.camera(withLatitude:center.latitude, longitude: center.longitude, zoom: 15.0))
+        //        tfLocation?.text = autocompleteResults[indexPath.row].formattedAddress
+        //        tfLocation?.resignFirstResponder()
+        if indexPath.row == autocompleteResults.count{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "selectLocationVC") as! selectLocationVC
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else {
+            var input = GInput()
+            input.keyword = autocompleteResults[indexPath.row].placeId
+            GoogleApi.shared.callApi(.placeInformation,input: input) { (response) in
+                if let place =  response.data as? GApiResponse.PlaceInfo, response.isValidFor(.placeInformation) {
+                    DispatchQueue.main.async {
+                        // self.searchTableView.isHidden = true
+                        if let lat = place.latitude, let lng = place.longitude{
+                            let center  = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+                            //                        self.selected_lat = center.latitude
+                            //                        self.selected_lang = center.longitude
+                            let dataToBeSent = ["lat":center.latitude,"lng":center.longitude] as [String : Any]
+                            
+                            
+                            //                  NotificationCenter.default.post(name: NSNotification.Name("setMap"), object: nil)
+                            //                        NotificationCenter.default.post(name: NSNotification.Name("pickLocation"), object: dataToBeSent)
+                            
+                            
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+                            vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
+                            self.navigationController?.pushViewController(vc, animated: true)
+                            
+                            
+                            
+                            // self.delegate?.sendDataToMapVC(myData: dataToBeSent)
+                            //self.navigationController?.popViewController(animated: true)
+                            
+                            //
+                            //                        if self.delegate != nil && self.selected_lat != 0.0 && self.selected_lang != 0.0 {
+                            //
+                            //                            let dataToBeSent = ["lat":self.selected_lat,"lng":self.selected_lang]
+                            //                            self.delegate?.sendDataToMapVC(myData: dataToBeSent)
+                            //                            self.navigationController?.popViewController(animated: true)
+                            //                        }
+                            //self.mapView.animate(to: GMSCameraPosition.camera(withLatitude:center.latitude, longitude: center.longitude, zoom: 15.0))
+                        }
+                        //                    self.searchTableView.reloadData()
                     }
-//                    self.searchTableView.reloadData()
-                }
-            } else { print(response.error ?? "ERROR") }
+                } else { print(response.error ?? "ERROR") }
+            }
+            
         }
         
     }
-    
-    
     
     
 }
@@ -157,9 +191,15 @@ extension SearchLocationVC:UITextFieldDelegate{
         return true
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        self.tfPickup?.text = textField.text ?? ""
-        self.tfDestination?.text = textField.text ?? ""
-
+        if textField.tag == 0{
+            self.tfPickup?.text = textField.text ?? ""
+            textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+        }else{
+            if tfPickup.text == ""{
+                getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
+            }
+            self.tfDestination?.text = textField.text ?? ""
+        }
         return true
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
