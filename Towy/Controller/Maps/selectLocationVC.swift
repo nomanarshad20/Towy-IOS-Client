@@ -13,6 +13,8 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
 
     @IBOutlet weak var MapView: GMSMapView!
     
+    @IBOutlet weak var currentAddressLbl: UILabel!
+    
     var currentLocation = CLLocationCoordinate2D()
     var destinationLocation = CLLocationCoordinate2D()
     private let manager = CLLocationManager()
@@ -44,6 +46,13 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
 
     @IBAction func backBtnAction(_ sender: Any) {
         
+    }
+    
+    @IBAction func searchBtnAction(_ sender: Any) {
+        
+    }
+    
+    @IBAction func confirmBtnAction(_ sender: Any) {
     }
 }
 
@@ -100,7 +109,8 @@ extension selectLocationVC: CLLocationManagerDelegate {
          selectedLat = mapView.camera.target.latitude
          selectedLong = mapView.camera.target.longitude
         centerMapCoordinate = CLLocationCoordinate2D(latitude: selectedLat, longitude: selectedLong)
-        self.placeMarkerOnCenter(centerMapCoordinate:centerMapCoordinate)
+        getAddressFromlatLong(lat: selectedLat, long: selectedLong)
+ //       self.placeMarkerOnCenter(centerMapCoordinate:centerMapCoordinate)
     }
     func placeMarkerOnCenter(centerMapCoordinate:CLLocationCoordinate2D) {
         if marker == nil {
@@ -109,4 +119,22 @@ extension selectLocationVC: CLLocationManagerDelegate {
         marker.position = centerMapCoordinate
         marker.map = self.MapView
     }
+    func getAddressFromlatLong(lat: Double, long: Double) {
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let geocoder = GMSGeocoder()
+        var add = ""
+        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
+          if let address = response?.firstResult() {
+            
+            guard let arrAddress = address.lines else {return}
+            if arrAddress.count > 1 {
+                add =  (arrAddress[1])
+        
+            }else if arrAddress.count == 1 {
+                add =  (arrAddress[0])
+            }
+              self.currentAddressLbl.text = add
+          }
+        }
+      }
 }
