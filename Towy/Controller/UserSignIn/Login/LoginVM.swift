@@ -43,9 +43,10 @@ class LoginVM: BaseVM {
     
     
     func phoneVerification(){
-        
+        SHOW_CUSTOM_LOADER()
         PhoneAuthProvider.provider()
             .verifyPhoneNumber(actualNumber, uiDelegate: nil) { verificationID, error in
+                HIDE_CUSTOM_LOADER()
                 if let error = error {
                     print("verifyNumber",error.localizedDescription)
                     UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
