@@ -113,7 +113,7 @@ extension LoginVC:ASAuthorizationControllerDelegate{
                     userObj["firstName"] = firstName
                     userObj["lastName"] = lastName
                     userObj["email"] = email
-                    userObj["tokem"] = identityTokenString
+             //       userObj["tokem"] = identityTokenString
                     userObj["id"] = id
 
                     UtilitiesManager.shared.saveAppleSignInSession(dict: userObj)
