@@ -7,7 +7,9 @@
 
 import UIKit
 import GoogleMaps
-
+public protocol LocationDelagates{
+    func OnUpdate(Lat: CLLocationDegrees, Long: CLLocationDegrees,tag:Int)
+}
 
 class selectLocationVC: UIViewController ,GMSMapViewDelegate{
 
@@ -15,6 +17,7 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     
     @IBOutlet weak var currentAddressLbl: UILabel!
     
+    public var delegate:LocationDelagates!
     var currentLocation = CLLocationCoordinate2D()
     var destinationLocation = CLLocationCoordinate2D()
     private let manager = CLLocationManager()
@@ -23,6 +26,8 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     
     var selectedLat  = CLLocationDegrees()
     var selectedLong = CLLocationDegrees()
+    
+    var currentTFTag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +50,17 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     }
 
     @IBAction func backBtnAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
         
     }
     
     @IBAction func searchBtnAction(_ sender: Any) {
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func confirmBtnAction(_ sender: Any) {
+        delegate.OnUpdate(Lat: selectedLat, Long: selectedLong , tag:currentTFTag)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
