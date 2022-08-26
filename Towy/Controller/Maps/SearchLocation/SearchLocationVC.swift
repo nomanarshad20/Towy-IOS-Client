@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 
-class SearchLocationVC: UIViewController {
+class SearchLocationVC: UIViewController ,LocationDelagates{
 
     @IBOutlet weak var tfPickup:UITextField!
     @IBOutlet weak var tfDestination:UITextField!
@@ -19,17 +19,13 @@ class SearchLocationVC: UIViewController {
     
     var CurrentLat  = CLLocationDegrees()
     var CurrentLong = CLLocationDegrees()
+    var currentTFTag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
-        
         // Do any additional setup after loading the view.
         setUI()
         registerXib()
-        getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -39,14 +35,19 @@ class SearchLocationVC: UIViewController {
     
     func setUI(){
         self.tabBarController?.tabBar.isHidden = true
-        tfPickup.clearButtonMode = .always
-        tfPickup.clearButtonMode = .whileEditing
-        tfDestination.clearButtonMode = .always
-        tfDestination.clearButtonMode = .whileEditing
+//        tfPickup.clearButtonMode = .always
+//        tfPickup.clearButtonMode = .whileEditing
+//        tfDestination.clearButtonMode = .always
+//        tfDestination.clearButtonMode = .whileEditing
         self.tfPickup.delegate = self
         self.tfDestination.delegate = self
+        getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
     }
-    
+    func OnUpdate(Lat: CLLocationDegrees, Long: CLLocationDegrees , tag: Int) {
+        currentTFTag = tag
+        getAddressFromlatLong(lat: Lat, long: Long)
+        getAddressFromlatLong(lat: Lat, long: Long)
+    }
 
     
     // MARK: - Navigation
@@ -83,19 +84,24 @@ class SearchLocationVC: UIViewController {
         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let geocoder = GMSGeocoder()
         var add = ""
-        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
+        geocoder.reverseGeocodeCoordinate(coordinate) { [self] (response, error) in
           if let address = response?.firstResult() {
             
             guard let arrAddress = address.lines else {return}
             if arrAddress.count > 1 {
                 add =  (arrAddress[1])
-        
             }else if arrAddress.count == 1 {
                 add =  (arrAddress[0])
+                if self.currentTFTag == 0{
+                    self.tfPickup.text = add
+                }else{
+                    self.tfDestination.text = add
+                }
             }
-              self.tfPickup.text = add
           }
         }
+        
+        
       }
 }
 
@@ -122,6 +128,8 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
         //        tfLocation?.resignFirstResponder()
         if indexPath.row == autocompleteResults.count{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "selectLocationVC") as! selectLocationVC
+            vc.currentTFTag = currentTFTag
+            vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
         }else {
             var input = GInput()
@@ -191,6 +199,7 @@ extension SearchLocationVC:UITextFieldDelegate{
         return true
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        currentTFTag = textField.tag
         if textField.tag == 0{
             self.tfPickup?.text = textField.text ?? ""
             textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
