@@ -23,7 +23,9 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
 
     
     var currentLocation = CLLocationCoordinate2D()
+    var sourceLocation  = CLLocationCoordinate2D()
     var destinationLocation = CLLocationCoordinate2D()
+    
     private let manager = CLLocationManager()
     
 //    var currentLat  = CLLocationDegrees()

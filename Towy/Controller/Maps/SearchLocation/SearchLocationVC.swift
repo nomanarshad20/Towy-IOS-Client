@@ -19,7 +19,13 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
     
     var CurrentLat  = CLLocationDegrees()
     var CurrentLong = CLLocationDegrees()
+    
+    var sourceLocation  = CLLocationCoordinate2D()
+    var destinationLocation = CLLocationCoordinate2D()
+    
     var currentTFTag = 0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +48,7 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
         self.tfPickup.delegate = self
         self.tfDestination.delegate = self
         getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
+        sourceLocation = CLLocationCoordinate2D(latitude: CurrentLat, longitude: CurrentLong)
     }
     func OnUpdate(Lat: CLLocationDegrees, Long: CLLocationDegrees , tag: Int) {
         currentTFTag = tag
@@ -128,6 +135,11 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
         //        tfLocation?.resignFirstResponder()
         if indexPath.row == autocompleteResults.count{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "selectLocationVC") as! selectLocationVC
+            if currentTFTag == 0{
+                
+            }else{
+                vc.sourceLocation = sourceLocation
+            }
             vc.currentTFTag = currentTFTag
             vc.delegate = self
             self.navigationController?.pushViewController(vc, animated: true)
@@ -144,14 +156,15 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
                             //                        self.selected_lang = center.longitude
                             let dataToBeSent = ["lat":center.latitude,"lng":center.longitude] as [String : Any]
                             
+                            if self.currentTFTag == 0{
+                                self.sourceLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
+                            }else {
+                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+                                vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
+                                self.navigationController?.pushViewController(vc, animated: true)
+                            }
                             
-                            //                  NotificationCenter.default.post(name: NSNotification.Name("setMap"), object: nil)
-                            //                        NotificationCenter.default.post(name: NSNotification.Name("pickLocation"), object: dataToBeSent)
                             
-                            
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
-                            vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
-                            self.navigationController?.pushViewController(vc, animated: true)
                             
                             
                             
@@ -206,6 +219,7 @@ extension SearchLocationVC:UITextFieldDelegate{
         }else{
             if tfPickup.text == ""{
                 getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
+                self.sourceLocation = CLLocationCoordinate2D(latitude: CurrentLat, longitude: CurrentLong)
             }
             self.tfDestination?.text = textField.text ?? ""
         }

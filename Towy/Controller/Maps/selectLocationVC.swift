@@ -19,6 +19,7 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     
     public var delegate:LocationDelagates!
     var currentLocation = CLLocationCoordinate2D()
+    var sourceLocation = CLLocationCoordinate2D()
     var destinationLocation = CLLocationCoordinate2D()
     private let manager = CLLocationManager()
     var centerMapCoordinate:CLLocationCoordinate2D!
@@ -50,7 +51,7 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     }
 
     @IBAction func backBtnAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToSpecificController(ofClass: HomeVC.self, animated: true)
         
     }
     
@@ -59,8 +60,16 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     }
     
     @IBAction func confirmBtnAction(_ sender: Any) {
-        delegate.OnUpdate(Lat: selectedLat, Long: selectedLong , tag:currentTFTag)
-        self.navigationController?.popViewController(animated: true)
+        if currentTFTag == 0{
+            delegate.OnUpdate(Lat: selectedLat, Long: selectedLong , tag:currentTFTag)
+            self.navigationController?.popViewController(animated: true)
+        }else {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+            vc.sourceLocation = sourceLocation
+            vc.destinationLocation = destinationLocation
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
 }
 
@@ -99,6 +108,7 @@ extension selectLocationVC: CLLocationManagerDelegate {
       viewingAngle: 0)
         MapView.delegate = self
         self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        self.sourceLocation = currentLocation
         UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {
             self.view.layoutIfNeeded()
         }
@@ -118,6 +128,11 @@ extension selectLocationVC: CLLocationManagerDelegate {
          selectedLong = mapView.camera.target.longitude
         centerMapCoordinate = CLLocationCoordinate2D(latitude: selectedLat, longitude: selectedLong)
         getAddressFromlatLong(lat: selectedLat, long: selectedLong)
+        if currentTFTag == 0{
+            sourceLocation = centerMapCoordinate
+        }else{
+            destinationLocation = centerMapCoordinate
+        }
  //       self.placeMarkerOnCenter(centerMapCoordinate:centerMapCoordinate)
     }
     func placeMarkerOnCenter(centerMapCoordinate:CLLocationCoordinate2D) {
