@@ -14,8 +14,8 @@ public protocol LocationDelagates{
 class selectLocationVC: UIViewController ,GMSMapViewDelegate{
 
     @IBOutlet weak var MapView: GMSMapView!
-    
     @IBOutlet weak var currentAddressLbl: UILabel!
+    @IBOutlet weak var confirmBtnOutlet: UIButton!
     
     public var delegate:LocationDelagates!
     var currentLocation = CLLocationCoordinate2D()
@@ -33,6 +33,11 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setCurrentLocation()
+        if currentTFTag == 0{
+            confirmBtnOutlet.setTitle("Confirm Pickup", for: .normal)
+        }else{
+            confirmBtnOutlet.setTitle("Confirm Destination", for: .normal)
+        }
     }
     
     func setCurrentLocation(){

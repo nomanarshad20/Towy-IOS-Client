@@ -2633,6 +2633,7 @@
                     </view>
                     <connections>
                         <outlet property="MapView" destination="cer-Ma-26H" id="UB3-py-JXp"/>
+                        <outlet property="confirmBtnOutlet" destination="6Qg-79-fuw" id="ea6-3U-XVM"/>
                         <outlet property="currentAddressLbl" destination="sv1-Oz-aQe" id="g1a-Al-TiO"/>
                     </connections>
                 </viewController>

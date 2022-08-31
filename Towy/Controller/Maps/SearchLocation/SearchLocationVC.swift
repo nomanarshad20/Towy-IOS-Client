@@ -32,7 +32,6 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
         // Do any additional setup after loading the view.
         setUI()
         registerXib()
-
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tfDestination.becomeFirstResponder()
@@ -41,19 +40,22 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
     
     func setUI(){
         self.tabBarController?.tabBar.isHidden = true
-//        tfPickup.clearButtonMode = .always
-//        tfPickup.clearButtonMode = .whileEditing
-//        tfDestination.clearButtonMode = .always
-//        tfDestination.clearButtonMode = .whileEditing
-        self.tfPickup.delegate = self
+        tfPickup.clearButtonMode = .always
+        tfPickup.clearButtonMode = .whileEditing
+        tfDestination.clearButtonMode = .always
+        tfDestination.clearButtonMode = .whileEditing
+        self.tfPickup.delegate      = self
         self.tfDestination.delegate = self
-        getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
+        getAddressFromlatLong(lat: CurrentLat, long: CurrentLong, point: "Source")
         sourceLocation = CLLocationCoordinate2D(latitude: CurrentLat, longitude: CurrentLong)
     }
     func OnUpdate(Lat: CLLocationDegrees, Long: CLLocationDegrees , tag: Int) {
         currentTFTag = tag
-        getAddressFromlatLong(lat: Lat, long: Long)
-        getAddressFromlatLong(lat: Lat, long: Long)
+        if currentTFTag == 0{
+            getAddressFromlatLong(lat: Lat, long: Long, point: "Source")
+        }else{
+            getAddressFromlatLong(lat: Lat, long: Long, point: "Destination")
+        }
     }
 
     
@@ -87,7 +89,7 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
         }
     }
     
-    func getAddressFromlatLong(lat: Double, long: Double) {
+    func getAddressFromlatLong(lat: Double, long: Double,point:String) {
         let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         let geocoder = GMSGeocoder()
         var add = ""
@@ -99,7 +101,7 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
                 add =  (arrAddress[1])
             }else if arrAddress.count == 1 {
                 add =  (arrAddress[0])
-                if self.currentTFTag == 0{
+                if point == "Source"{
                     self.tfPickup.text = add
                 }else{
                     self.tfDestination.text = add
@@ -218,7 +220,7 @@ extension SearchLocationVC:UITextFieldDelegate{
             textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
         }else{
             if tfPickup.text == ""{
-                getAddressFromlatLong(lat: CurrentLat, long: CurrentLong)
+                getAddressFromlatLong(lat: CurrentLat, long: CurrentLong, point: "Source")
                 self.sourceLocation = CLLocationCoordinate2D(latitude: CurrentLat, longitude: CurrentLong)
             }
             self.tfDestination?.text = textField.text ?? ""
