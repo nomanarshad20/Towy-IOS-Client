@@ -263,4 +263,13 @@ extension AppDelegate{
             print("")
         }
     }
+    
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        SocketIOManager.sharedInstance.closeConnection()
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        SocketIOManager.sharedInstance.establishConnection()
+    }
 }

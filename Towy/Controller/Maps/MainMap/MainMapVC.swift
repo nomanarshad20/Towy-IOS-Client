@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import SocketIO
 
 class MainMapVC: UIViewController,GMSMapViewDelegate {
 
@@ -26,6 +27,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     var objTow :TowDatum? = nil
 
     var mainMapVm = MainMapVM()
+    let socket = SocketIOManager.sharedInstance.socket
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,16 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         
 
     }
+    
+    func socketInit(){
+        if socket?.status == .disconnected{
+            SocketIOManager.sharedInstance.establishConnection()
+        }
+        socket!.on("passenger_id-driverCoordinate") { (data, ack) in
+            guard let dataInfo = data.first else { return }
+        }
+    }
+    
     
     func registerTableXib(){
         self.tblTowList.register(UINib(nibName: "TowListTableViewCell", bundle: nil), forCellReuseIdentifier: "TowListTableViewCell")

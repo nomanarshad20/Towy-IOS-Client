@@ -108,6 +108,7 @@
 		CE9CE39828A7B53200866884 /* TowListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9CE39628A7B53200866884 /* TowListTableViewCell.xib */; };
 		CE9CE39A28A7B91500866884 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE39928A7B91500866884 /* ProfileModel.swift */; };
 		CE9CE39C28A7B95900866884 /* EditAccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CE39B28A7B95900866884 /* EditAccountVM.swift */; };
+		CED6116928C792420047DEBC /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED6116828C792420047DEBC /* SocketManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +218,7 @@
 		CE9CE39628A7B53200866884 /* TowListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TowListTableViewCell.xib; sourceTree = "<group>"; };
 		CE9CE39928A7B91500866884 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		CE9CE39B28A7B95900866884 /* EditAccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountVM.swift; sourceTree = "<group>"; };
+		CED6116828C792420047DEBC /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -490,6 +492,7 @@
 		3D598197286087490034AB47 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CED6116728C7921B0047DEBC /* Managers */,
 				3D2AE71628C732E9001B8254 /* Chat */,
 				CE89018028A522A9004D9BAB /* Payment */,
 				3D4B116D289A773D0034FEF8 /* User */,
@@ -661,6 +664,14 @@
 				CE7CA17A28A6E2A100F96152 /* WalletVC.swift */,
 			);
 			path = Payment;
+			sourceTree = "<group>";
+		};
+		CED6116728C7921B0047DEBC /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CED6116828C792420047DEBC /* SocketManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -835,6 +846,7 @@
 				3D21667C2884A89C005A108B /* RegisterModel.swift in Sources */,
 				3D0649712893F36100720F69 /* HomeVM.swift in Sources */,
 				CE23215F28B531DE00041CEC /* selectLocationVC.swift in Sources */,
+				CED6116928C792420047DEBC /* SocketManager.swift in Sources */,
 				3D21667A2884A295005A108B /* EnterPasswordVM.swift in Sources */,
 				3D5981B82860D4A00034AB47 /* LoginVM.swift in Sources */,
 				3D2A638228757246007F7E29 /* CustomLoader.swift in Sources */,
