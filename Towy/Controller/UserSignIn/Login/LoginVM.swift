@@ -98,15 +98,6 @@ class LoginVM: BaseVM {
                 UtilitiesManager.shared.saveSocialUserData(user: response)
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.moveToTabbarVC()
-//                ControllerNavigation.shared.pushVC(of: .welcomeVC)
-                
-                //                print("socialLogin",response.data.email)
-                ////                let isValidUser = response.data.userExist
-                ////                UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser)
-                ////                let usrDict = ["mobile_no":self.actualNumber]
-                ////                UtilitiesManager.shared.saveUserInformation(usr: usrDict)
-                ////                self.phoneVerification()
-                
             case .failure(let error):
                 print("errorzz",error)
             }
@@ -127,13 +118,7 @@ class LoginVM: BaseVM {
                 Profile.loadCurrentProfile { profile, error in
                     
                     self.socialLoginAPI(email: profile?.email ?? "", provider: "facebook", socialID: profile?.userID ?? "", firstName: profile?.firstName ?? "", lastName: profile?.lastName ?? "")
-//                    if let firstName = profile?.firstName {
-//                        print("Hello, \(firstName)")
-//                        let pro = profile
-//                        print("profile",profile)
-//                    }
                 }
-               // print(Profile.)
             }
         }
     }

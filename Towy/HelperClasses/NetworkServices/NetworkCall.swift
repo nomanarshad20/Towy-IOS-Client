@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-
+import SwiftyJSON
 class NetworkCall : NSObject{
     
     
@@ -18,7 +18,7 @@ class NetworkCall : NSObject{
     var url :String! = APPURL.BaseURL
     var encoding: ParameterEncoding! = JSONEncoding.default
     var showLoader = true
-    init(data: [String:Any],headers: [String:String] = [:],url :String?,service :APPURL.services? = nil, method: HTTPMethod = .post, isJSONRequest: Bool = true,showLoader:Bool = true){
+    init(data: [String:Any] = [:],headers: [String:String] = [:],url :String?,service :APPURL.services? = nil, method: HTTPMethod = .post, isJSONRequest: Bool = true,showLoader:Bool = true){
         super.init()
         data.forEach{parameters.updateValue($0.value, forKey: $0.key)}
         headers.forEach({self.headers.add(name: $0.key, value: $0.value)})
@@ -37,10 +37,14 @@ class NetworkCall : NSObject{
     
     func executeQuery<T>(completion: @escaping (Result<T, Error>) -> Void) where T: Codable {
         if showLoader {SHOW_CUSTOM_LOADER()}
+        
+        
         AF.request(url,method: method,parameters: parameters,encoding: encoding, headers: headers).responseData(completionHandler: {response in
             if self.showLoader {HIDE_CUSTOM_LOADER()}
             switch response.result{
+                
             case .success(let res):
+                
                 if let code = response.response?.statusCode{
                     print("responseData",String(data: res, encoding: .utf8) ?? "nothing received")
                     let a = res
@@ -64,6 +68,12 @@ class NetworkCall : NSObject{
                             completion(.failure(error))
                         }
                         
+                    case 404:
+                        let error = JSON(response.result)
+                        print("error")
+                        //{"result":"error","message":"Driver Not Found","data":null}
+                        
+                        
                     case 422:
 //                        print("alert message",response.data)
                         UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "mobile number or email has already been taken.")
@@ -73,7 +83,10 @@ class NetworkCall : NSObject{
                     }
                 }
             case .failure(let error):
+                
+                
                 completion(.failure(error))
+                
             }
         })
     }

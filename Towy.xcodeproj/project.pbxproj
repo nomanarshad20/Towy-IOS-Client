@@ -24,6 +24,16 @@
 		3D21667E288567DE005A108B /* SocialUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D21667D288567DE005A108B /* SocialUserModel.swift */; };
 		3D2A638228757246007F7E29 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A638128757246007F7E29 /* CustomLoader.swift */; };
 		3D2A638B28759676007F7E29 /* EnterOTPVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A638A28759676007F7E29 /* EnterOTPVM.swift */; };
+		3D2AE70F28C719F7001B8254 /* StripeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE70E28C719F6001B8254 /* StripeModel.swift */; };
+		3D2AE71128C721FE001B8254 /* BookingCreatedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE71028C721FD001B8254 /* BookingCreatedModel.swift */; };
+		3D2AE71328C72FF3001B8254 /* NewRideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE71228C72FF3001B8254 /* NewRideModel.swift */; };
+		3D2AE71528C73093001B8254 /* NotificationsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE71428C73093001B8254 /* NotificationsModel.swift */; };
+		3D2AE71828C732F9001B8254 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE71728C732F9001B8254 /* ChatViewController.swift */; };
+		3D2AE71A28C73345001B8254 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE71928C73345001B8254 /* ChatModel.swift */; };
+		3D2AE72128C7596E001B8254 /* SenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2AE71D28C7596D001B8254 /* SenderTableViewCell.xib */; };
+		3D2AE72228C7596E001B8254 /* ReceiverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE71E28C7596D001B8254 /* ReceiverTableViewCell.swift */; };
+		3D2AE72328C7596E001B8254 /* ReceiverTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2AE71F28C7596E001B8254 /* ReceiverTableViewCell.xib */; };
+		3D2AE72428C7596E001B8254 /* SenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2AE72028C7596E001B8254 /* SenderTableViewCell.swift */; };
 		3D318BCD28631B62002E4960 /* UberMoveTextLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BC928631B62002E4960 /* UberMoveTextLight.otf */; };
 		3D318BCE28631B62002E4960 /* UberMoveTextRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BCA28631B62002E4960 /* UberMoveTextRegular.otf */; };
 		3D318BD028631B62002E4960 /* UberMoveTextMedium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BCC28631B62002E4960 /* UberMoveTextMedium.otf */; };
@@ -66,6 +76,9 @@
 		3D8635F6287839D3005BE92E /* EnterEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F5287839D3005BE92E /* EnterEmailVC.swift */; };
 		3D8635F928783DEF005BE92E /* TermAndCondtionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */; };
 		3D892FFC28A634FE006ACA03 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D892FFB28A634FE006ACA03 /* MainTabBarController.swift */; };
+		3DA2828B28C655D400A2933F /* MainMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2828A28C655D400A2933F /* MainMapVC.swift */; };
+		3DA2828D28C669D200A2933F /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2828C28C669D200A2933F /* DashboardModel.swift */; };
+		3DA2828F28C685D800A2933F /* NearestDriverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA2828E28C685D800A2933F /* NearestDriverModel.swift */; };
 		3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A1287442920003E87A /* NetworkCall.swift */; };
 		3DACB6A4287450E90003E87A /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A3287450E90003E87A /* LoginModel.swift */; };
 		3DACB6A7287481820003E87A /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DACB6A6287481820003E87A /* URLConstants.swift */; };
@@ -78,6 +91,8 @@
 		3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3F4FC286A1CFE00A21FC2 /* BaseVM.swift */; };
 		3DB3F500286A1DAB00A21FC2 /* AIReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB3F4FF286A1DAB00A21FC2 /* AIReachabilityManager.swift */; };
 		3DB569E42861AEB900391001 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB569E32861AEB900391001 /* Enums.swift */; };
+		3DB7236728C6C3CE00503802 /* TowListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7236628C6C3CD00503802 /* TowListModel.swift */; };
+		3DB7236928C6C4B600503802 /* MainMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB7236828C6C4B600503802 /* MainMapVM.swift */; };
 		3DE9B5EE288829BD00FDC9A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DE9B5ED288829BC00FDC9A2 /* GoogleService-Info.plist */; };
 		3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */; };
 		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
@@ -113,6 +128,16 @@
 		3D21667D288567DE005A108B /* SocialUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserModel.swift; sourceTree = "<group>"; };
 		3D2A638128757246007F7E29 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		3D2A638A28759676007F7E29 /* EnterOTPVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterOTPVM.swift; sourceTree = "<group>"; };
+		3D2AE70E28C719F6001B8254 /* StripeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeModel.swift; sourceTree = "<group>"; };
+		3D2AE71028C721FD001B8254 /* BookingCreatedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingCreatedModel.swift; sourceTree = "<group>"; };
+		3D2AE71228C72FF3001B8254 /* NewRideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRideModel.swift; sourceTree = "<group>"; };
+		3D2AE71428C73093001B8254 /* NotificationsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsModel.swift; sourceTree = "<group>"; };
+		3D2AE71728C732F9001B8254 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		3D2AE71928C73345001B8254 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		3D2AE71D28C7596D001B8254 /* SenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SenderTableViewCell.xib; sourceTree = "<group>"; };
+		3D2AE71E28C7596D001B8254 /* ReceiverTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiverTableViewCell.swift; sourceTree = "<group>"; };
+		3D2AE71F28C7596E001B8254 /* ReceiverTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReceiverTableViewCell.xib; sourceTree = "<group>"; };
+		3D2AE72028C7596E001B8254 /* SenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SenderTableViewCell.swift; sourceTree = "<group>"; };
 		3D318BC928631B62002E4960 /* UberMoveTextLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextLight.otf; sourceTree = "<group>"; };
 		3D318BCA28631B62002E4960 /* UberMoveTextRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextRegular.otf; sourceTree = "<group>"; };
 		3D318BCB28631B62002E4960 /* UberMoveTextBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UberMoveTextBold.otf; sourceTree = "<group>"; };
@@ -157,6 +182,9 @@
 		3D8635F5287839D3005BE92E /* EnterEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailVC.swift; sourceTree = "<group>"; };
 		3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermAndCondtionVC.swift; sourceTree = "<group>"; };
 		3D892FFB28A634FE006ACA03 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3DA2828A28C655D400A2933F /* MainMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapVC.swift; sourceTree = "<group>"; };
+		3DA2828C28C669D200A2933F /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		3DA2828E28C685D800A2933F /* NearestDriverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestDriverModel.swift; sourceTree = "<group>"; };
 		3DACB6A1287442920003E87A /* NetworkCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCall.swift; sourceTree = "<group>"; };
 		3DACB6A3287450E90003E87A /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		3DACB6A6287481820003E87A /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
@@ -169,6 +197,8 @@
 		3DB3F4FC286A1CFE00A21FC2 /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		3DB3F4FF286A1DAB00A21FC2 /* AIReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIReachabilityManager.swift; sourceTree = "<group>"; };
 		3DB569E32861AEB900391001 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3DB7236628C6C3CD00503802 /* TowListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TowListModel.swift; sourceTree = "<group>"; };
+		3DB7236828C6C4B600503802 /* MainMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapVM.swift; sourceTree = "<group>"; };
 		3DE9B5ED288829BC00FDC9A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameConfirmationPopUpVC.swift; sourceTree = "<group>"; };
 		3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendCodePopUpVC.swift; sourceTree = "<group>"; };
@@ -177,7 +207,7 @@
 		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.release.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.release.xcconfig"; sourceTree = "<group>"; };
 		B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.debug.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.debug.xcconfig"; sourceTree = "<group>"; };
-		CE23215E28B531DE00041CEC /* selectLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = selectLocationVC.swift; path = Towy/Controller/Maps/selectLocationVC.swift; sourceTree = SOURCE_ROOT; };
+		CE23215E28B531DE00041CEC /* selectLocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = selectLocationVC.swift; path = Towy/Controller/Maps/SelectLocation/selectLocationVC.swift; sourceTree = SOURCE_ROOT; };
 		CE7CA17A28A6E2A100F96152 /* WalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletVC.swift; sourceTree = "<group>"; };
 		CE8123102896B2BF0042B1D6 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		CE81FB952890620200D60649 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -239,6 +269,10 @@
 		3D06496A2893F2AE00720F69 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				3D2AE71E28C7596D001B8254 /* ReceiverTableViewCell.swift */,
+				3D2AE71F28C7596E001B8254 /* ReceiverTableViewCell.xib */,
+				3D2AE72028C7596E001B8254 /* SenderTableViewCell.swift */,
+				3D2AE71D28C7596D001B8254 /* SenderTableViewCell.xib */,
 				3D06497228940B5A00720F69 /* AccountTBCell.swift */,
 				3DB2BCC9289493B2007D0619 /* AccountSettingTBCell.swift */,
 				3DB2BCCA289493B2007D0619 /* AccountSettingTBCell.xib */,
@@ -265,7 +299,8 @@
 		3D10AF862899442F005EE541 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				CE23215E28B531DE00041CEC /* selectLocationVC.swift */,
+				3DA2828928C655A800A2933F /* SelectLocation */,
+				3DA2828828C655A000A2933F /* MainMap */,
 				3D4B1172289A99EE0034FEF8 /* Location */,
 				3D10AF8728994461005EE541 /* SearchLocation */,
 			);
@@ -330,6 +365,14 @@
 				3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */,
 			);
 			path = EnterDetail;
+			sourceTree = "<group>";
+		};
+		3D2AE71628C732E9001B8254 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				3D2AE71728C732F9001B8254 /* ChatViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		3D318BC3286318D5002E4960 /* Roboto */ = {
@@ -447,6 +490,7 @@
 		3D598197286087490034AB47 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3D2AE71628C732E9001B8254 /* Chat */,
 				CE89018028A522A9004D9BAB /* Payment */,
 				3D4B116D289A773D0034FEF8 /* User */,
 				3D10AF862899442F005EE541 /* Maps */,
@@ -496,6 +540,14 @@
 				3D21667D288567DE005A108B /* SocialUserModel.swift */,
 				3D4B116B289A77000034FEF8 /* AccountModel.swift */,
 				CE9CE39928A7B91500866884 /* ProfileModel.swift */,
+				3DA2828C28C669D200A2933F /* DashboardModel.swift */,
+				3DA2828E28C685D800A2933F /* NearestDriverModel.swift */,
+				3DB7236628C6C3CD00503802 /* TowListModel.swift */,
+				3D2AE70E28C719F6001B8254 /* StripeModel.swift */,
+				3D2AE71028C721FD001B8254 /* BookingCreatedModel.swift */,
+				3D2AE71228C72FF3001B8254 /* NewRideModel.swift */,
+				3D2AE71428C73093001B8254 /* NotificationsModel.swift */,
+				3D2AE71928C73345001B8254 /* ChatModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -532,6 +584,23 @@
 				3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */,
 			);
 			path = "Term&Condition";
+			sourceTree = "<group>";
+		};
+		3DA2828828C655A000A2933F /* MainMap */ = {
+			isa = PBXGroup;
+			children = (
+				3DA2828A28C655D400A2933F /* MainMapVC.swift */,
+				3DB7236828C6C4B600503802 /* MainMapVM.swift */,
+			);
+			path = MainMap;
+			sourceTree = "<group>";
+		};
+		3DA2828928C655A800A2933F /* SelectLocation */ = {
+			isa = PBXGroup;
+			children = (
+				CE23215E28B531DE00041CEC /* selectLocationVC.swift */,
+			);
+			path = SelectLocation;
 			sourceTree = "<group>";
 		};
 		3DACB6A02874427C0003E87A /* NetworkServices */ = {
@@ -655,6 +724,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D2AE72328C7596E001B8254 /* ReceiverTableViewCell.xib in Resources */,
 				3D5981A6286087810034AB47 /* Roboto-ThinItalic.ttf in Resources */,
 				3D5981A8286087810034AB47 /* Roboto-Italic.ttf in Resources */,
 				CE9CE39828A7B53200866884 /* TowListTableViewCell.xib in Resources */,
@@ -664,6 +734,7 @@
 				3D5981AA286087810034AB47 /* Roboto-Black.ttf in Resources */,
 				3D5981B0286087810034AB47 /* Roboto-MediumItalic.ttf in Resources */,
 				3D10AF8D28994BFE005EE541 /* PlacesTBCell.xib in Resources */,
+				3D2AE72128C7596E001B8254 /* SenderTableViewCell.xib in Resources */,
 				3D5981AD286087810034AB47 /* Roboto-Bold.ttf in Resources */,
 				3D318BD228633113002E4960 /* Maps.storyboard in Resources */,
 				3D06496E2893F2F900720F69 /* DashboardCVCell.xib in Resources */,
@@ -758,6 +829,7 @@
 				3DB2BCCB289493B2007D0619 /* AccountSettingTBCell.swift in Sources */,
 				3D06496D2893F2F900720F69 /* DashboardCVCell.swift in Sources */,
 				3D5981C02860DBB40034AB47 /* EnterDetailVC.swift in Sources */,
+				3DA2828F28C685D800A2933F /* NearestDriverModel.swift in Sources */,
 				3DACB6A4287450E90003E87A /* LoginModel.swift in Sources */,
 				3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */,
 				3D21667C2884A89C005A108B /* RegisterModel.swift in Sources */,
@@ -779,29 +851,41 @@
 				3D59818828607ADA0034AB47 /* LoginVC.swift in Sources */,
 				3D318BD4286331D3002E4960 /* Constans.swift in Sources */,
 				CE9CE39A28A7B91500866884 /* ProfileModel.swift in Sources */,
+				3DB7236728C6C3CE00503802 /* TowListModel.swift in Sources */,
 				3D10AF8C28994BFE005EE541 /* PlacesTBCell.swift in Sources */,
 				3D5981B4286090FB0034AB47 /* AnimationView.swift in Sources */,
 				3DB2BCD1289497D9007D0619 /* HelpTBCell.swift in Sources */,
 				3D523DA3287F5F760034D011 /* initialVC.swift in Sources */,
 				3D216678288496AE005A108B /* EnterEmailVM.swift in Sources */,
+				3D2AE71328C72FF3001B8254 /* NewRideModel.swift in Sources */,
+				3DA2828B28C655D400A2933F /* MainMapVC.swift in Sources */,
 				3D5981C32860DD140034AB47 /* UtilitiesManager.swift in Sources */,
 				3D59818428607ADA0034AB47 /* AppDelegate.swift in Sources */,
+				3D2AE72428C7596E001B8254 /* SenderTableViewCell.swift in Sources */,
 				3D10AF90289952AA005EE541 /* GoogleApiHelper.swift in Sources */,
+				3D2AE71128C721FE001B8254 /* BookingCreatedModel.swift in Sources */,
 				3D7D912F28A6C0DA0089D4F8 /* LoginUserModel.swift in Sources */,
 				3DACB6A2287442920003E87A /* NetworkCall.swift in Sources */,
 				CE9CE39C28A7B95900866884 /* EditAccountVM.swift in Sources */,
 				CE89018228A522D0004D9BAB /* PaymentVC.swift in Sources */,
+				3D2AE71828C732F9001B8254 /* ChatViewController.swift in Sources */,
 				3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */,
 				3DB3F4FD286A1CFE00A21FC2 /* BaseVM.swift in Sources */,
 				3D5981C72860E4B40034AB47 /* ControllerNavigation.swift in Sources */,
 				3D8635F6287839D3005BE92E /* EnterEmailVC.swift in Sources */,
+				3DB7236928C6C4B600503802 /* MainMapVM.swift in Sources */,
 				3D0649642893EEFB00720F69 /* PhotoSliderView.swift in Sources */,
 				3D21667E288567DE005A108B /* SocialUserModel.swift in Sources */,
+				3D2AE72228C7596E001B8254 /* ReceiverTableViewCell.swift in Sources */,
 				3DB569E42861AEB900391001 /* Enums.swift in Sources */,
 				CE7CA17B28A6E2A100F96152 /* WalletVC.swift in Sources */,
 				3D5981BC2860DB7D0034AB47 /* EnterOTPVC.swift in Sources */,
+				3D2AE71A28C73345001B8254 /* ChatModel.swift in Sources */,
+				3D2AE71528C73093001B8254 /* NotificationsModel.swift in Sources */,
 				3D4B1170289A77900034FEF8 /* AccountVM.swift in Sources */,
 				CE9CE39728A7B53200866884 /* TowListTableViewCell.swift in Sources */,
+				3D2AE70F28C719F7001B8254 /* StripeModel.swift in Sources */,
+				3DA2828D28C669D200A2933F /* DashboardModel.swift in Sources */,
 				3D318BD8286341C0002E4960 /* CustomButton.swift in Sources */,
 				CE81FB982890621A00D60649 /* AccountVC.swift in Sources */,
 				3D4B116C289A77000034FEF8 /* AccountModel.swift in Sources */,

@@ -159,7 +159,6 @@ class EnterOTPVM: BaseVM {
             switch result{
             case .success(let response):
                 
-                print("UserLogin",response.data.firstName)
                 UtilitiesManager.shared.saveLoginUserData(user: response)
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.moveToTabbarVC()

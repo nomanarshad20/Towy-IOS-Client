@@ -9,6 +9,24 @@ import UIKit
 
 class TowListTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var img:UIImageView!
+    @IBOutlet weak var lblTitle:UILabel!
+    @IBOutlet weak var lblSubtitle:UILabel!
+    @IBOutlet weak var lblPrice:UILabel!
+    @IBOutlet weak var lblTime:UILabel!
+
+    
+    var obj : TowDatum?{
+        didSet{
+            //UtilitiesManager.shared.setImage(url: obj., img: <#T##UIImageView#>)
+            self.lblTitle.text = obj?.name ?? ""
+//            self.lblTitle.text = obj?.name ?? ""
+//            self.lblTitle.text = obj?.name ?? ""
+            self.lblPrice.text = "\(obj?.estimatedFare ?? 0)"
+
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

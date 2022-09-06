@@ -136,7 +136,8 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
         //        tfLocation?.text = autocompleteResults[indexPath.row].formattedAddress
         //        tfLocation?.resignFirstResponder()
         if indexPath.row == autocompleteResults.count{
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "selectLocationVC") as! selectLocationVC
+            
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "selectLocationVC") as! selectLocationVC
             if currentTFTag == 0{
                 
             }else{
@@ -161,8 +162,10 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
                             if self.currentTFTag == 0{
                                 self.sourceLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
                             }else {
-                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+                                let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
                                 vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
+                                vc.sourceLocation = self.sourceLocation
+
                                 self.navigationController?.pushViewController(vc, animated: true)
                             }
                             

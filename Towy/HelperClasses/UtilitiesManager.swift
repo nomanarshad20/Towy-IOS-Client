@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 
 // MARK: - INTERNET CHECK
 
@@ -59,6 +59,30 @@ class UtilitiesManager{
         vc.present(alertController, animated: true, completion: nil)
     }
  
+    
+    func setImage(url:String,img:UIImageView){
+        let newUrl = APPURL.Domain+"/"+url
+        img.sd_setShowActivityIndicatorView(true)
+        img.sd_setIndicatorStyle(.gray)
+        img.sd_setImage(with: URL(string:newUrl), placeholderImage: UIImage(named: "user"))
+
+    }
+    // MARK: - GETSTORYBOARD
+    func getMapStoryboard() -> UIStoryboard
+    {
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad
+        {
+            let storyboard = UIStoryboard.init(name: "Maps_iPad", bundle: nil)
+            return storyboard
+        }
+        
+        let storyboard = UIStoryboard.init(name: "Maps", bundle: nil)
+        return storyboard
+    }
+    
+
+    
+    
     // MARK: - RETRIVE_FROM_USERDEFAULT
     func getOtpVerficationID() -> String
     {
@@ -79,7 +103,40 @@ class UtilitiesManager{
         let result = "\(defaults.value(forKey: Key.userDefaultKey.FCM) ?? "")"
         return result
     }
+    func getAuthToken() -> String
+    {
+//        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) || (UtilitiesManager.shared.retriveAppleLoginData() != nil){
+        if (UtilitiesManager.shared.retriveSocialUserData() != nil){
+            return UtilitiesManager.shared.retriveSocialUserData()?.data.accessToken ?? ""
+        }
+        else if (UtilitiesManager.shared.retriveUserLoginData() != nil){
+            return UtilitiesManager.shared.retriveUserLoginData()?.data.accessToken ?? ""
+
+        }
+        else if (UtilitiesManager.shared.retriveUserData() != nil){
+            return UtilitiesManager.shared.retriveUserData()?.data.accessToken ?? ""
+
+        }
+        else{
+            return ""
+        }
+//        else{
+//            return UtilitiesManager.shared.retriveAppleLoginData()?.data.accessToken ?? ""
+//
+//        }
+            
+//        let result = UserDefaults.standard.value(forKey: Key.userDefaultKey.SERVER_ACCESS_TOKEN) as? String
+//        return result ?? "0"
+    }
     
+    func getAuthHeader() -> [String:String]
+    {
+        let headers = [
+            "Authorization": "Bearer \(self.getAuthToken())",
+            "Accept": "application/json",
+            "Content-Type": "application/json" ]
+        return headers
+    }
     
     func isUserExist() -> Bool{
         let result = defaults.value(forKey: Key.userDefaultKey.VALID_USER) as? Bool
@@ -171,7 +228,7 @@ class UtilitiesManager{
         
         // save data to keyChain
         let data = Data(from: dict)
-        let status = saveinKeyChain(key: "AppLoginInfo", data: data)
+        let status = saveinKeyChain(key: Key.userDefaultKey.APPLE_INFORMATION, data: data)
         print("status: ", status)
     }
     func saveinKeyChain(key: String, data: Data) -> OSStatus {
@@ -181,14 +238,22 @@ class UtilitiesManager{
             kSecValueData as String   : data ] as [String : Any]
 
         SecItemDelete(query as CFDictionary)
-
         return SecItemAdd(query as CFDictionary, nil)
     }
-
+    
+    func saveNotificationSession(userDict:NewRideModel,msg:String)
+    {
+        let defaults = UserDefaults.standard
+        let array = ["booking_id":"\(userDict.booking_id ?? "")","driver_name":"\(userDict.driver_name ?? "")","driver_id":"\(userDict.driver_id ?? "")","driver_long":"\(userDict.driver_long ?? "")","contact_no":"\(userDict.contact_no ?? 0)","vehicle_number":"\(userDict.vehicle_number ?? "")","vehicle_model_year":"\(userDict.vehicle_model_year ?? "")","driver_ratings":"\(userDict.driver_ratings ?? "")","driver_lat":"\(userDict.driver_lat ?? "")","profile_picture":"\(userDict.profile_picture ?? "")","driver_status":"\(userDict.driver_status ?? "")","vehicle_name":"\(userDict.vehicle_name ?? "")","msg":"\(msg)","final_amount":"\(userDict.final_amount ?? "")","final_time":"\(userDict.final_time ?? "")","final_distance":"\(userDict.final_distance ?? "")"]
+        defaults.set(array, forKey: Key.userDefaultKey.SAVE_NOTIFICATION)
+        print("dicNotification Data save")
+        
+    }
+    
     func retriveAppleLoginData() -> Data?{
         let query = [
             kSecClass as String       : kSecClassGenericPassword,
-            kSecAttrAccount as String : "AppLoginInfo",
+            kSecAttrAccount as String : Key.userDefaultKey.APPLE_INFORMATION,
             kSecReturnData as String  : kCFBooleanTrue!,
             kSecMatchLimit as String  : kSecMatchLimitOne ] as [String : Any]
 

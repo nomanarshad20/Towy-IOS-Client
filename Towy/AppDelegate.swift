@@ -68,7 +68,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             }
         }
         // by DAIR added check to bypass login screen is user already login
-        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) || (UtilitiesManager.shared.retriveAppleLoginData() != nil) {
+        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) //|| (UtilitiesManager.shared.retriveAppleLoginData() != nil)
+        {
             //let data = UtilitiesManager.shared.retriveSocialUserData() 
             moveToTabbarVC()
         }
@@ -159,36 +160,107 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
         let token = tokenParts.joined()
         print("Device Token: \(token)")
     }
-    /*
-    func registerForRemoteNotifications(){
-        if #available(iOS 10.0, *) {
-          // For iOS 10 display notification (sent via APNS)
-          UNUserNotificationCenter.current().delegate = self
-
-          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-          UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: { _, _ in }
-          )
-        } else {
-          let settings: UIUserNotificationSettings =
-            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-          application.registerUserNotificationSettings(settings)
-        }
-
-        application.registerForRemoteNotifications()
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("willPresent")
 
     }
-    */
-//
-//    func registerForPushNotifications() {
-//      //1
-//      UNUserNotificationCenter.current()
-//        //2
-//        .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-//          //3
-//          print("Permission granted: \(granted)")
-//        }
-//    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("didReceive")
+    }
+    /*
+     func registerForRemoteNotifications(){
+     if #available(iOS 10.0, *) {
+     // For iOS 10 display notification (sent via APNS)
+     UNUserNotificationCenter.current().delegate = self
+     
+     let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+     UNUserNotificationCenter.current().requestAuthorization(
+     options: authOptions,
+     completionHandler: { _, _ in }
+     )
+     } else {
+     let settings: UIUserNotificationSettings =
+     UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+     application.registerUserNotificationSettings(settings)
+     }
+     
+     application.registerForRemoteNotifications()
+     
+     }
+     */
+    //
+    //    func registerForPushNotifications() {
+    //      //1
+    //      UNUserNotificationCenter.current()
+    //        //2
+    //        .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+    //          //3
+    //          print("Permission granted: \(granted)")
+    //        }
+    //    }
     
+}
+
+
+extension AppDelegate{
+    
+    func DismissVCOne() {
+        self.window!.rootViewController?.dismiss(animated: false, completion: nil)
+    }
+    
+    func showPopup(noti:NotificationsModel,msg:String){
+        print("NotificationType",noti.type)
+        print("statusRider",noti.newRide?.driver_status ?? "")
+        
+        switch noti.type {
+        case .RIDE_ACCEPT:
+            print("ACCEPTED")
+            switch noti.newRide?.driver_status{
+            case "0":
+                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
+                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
+                DismissVCOne()
+                print("Rider Reach")
+                print("0")
+            case "1":
+                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
+                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
+                
+                print("Driver Reach")
+                print("1")
+            case "2":
+                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
+                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
+                
+                print("Start Ride")
+                
+                print("2")
+            case "3":
+                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
+                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
+                
+                print("Ride Complete")
+                
+                print("3")
+            default:
+                print("default")
+            }
+        //rider?.driver_status
+        //            let storyBoard = UIStoryboard(name: "Popup", bundle: nil)
+        //            navigateToVC(identifier: "FindRiderVC", storyBoard: storyBoard, noti: noti)
+        case .RIDE_REJECT:
+            print("REJECTED")
+           // UtilitiesManager.shared.showToaster(MsgText: msg)
+            NotificationCenter.default.post(name: NSNotification.Name("rideCancel"), object:msg)
+            
+            DismissVCOne()
+            
+        //            let storyBoard = UIStoryboard(name: "Popup", bundle: nil)
+        //            navigateToVC(identifier: "FindRiderVC", storyBoard: storyBoard, noti: noti)
+        
+        default:
+            print("")
+        }
+    }
 }

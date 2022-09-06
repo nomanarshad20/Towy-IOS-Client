@@ -201,7 +201,7 @@
 		<key>MFCard.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>37</integer>
+			<integer>39</integer>
 		</dict>
 		<key>NVActivityIndicatorView.xcscheme</key>
 		<dict>
@@ -213,7 +213,7 @@
 		<key>PlacesPicker.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>39</integer>
+			<integer>37</integer>
 		</dict>
 		<key>Pods-Towy.xcscheme</key>
 		<dict>

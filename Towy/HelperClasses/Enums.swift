@@ -34,8 +34,11 @@ enum SViewController {
     case walletVC
     var storyboardName: String {
         switch self {
-        case  .loginVC , .enterOTPVC,.enterPhoneVC,.enterDetailVC,.enterPasswordVC,.resetOTPVC,.resetPasswordVC,.enterEmailVC,.termConditions,.nameConfirmationPopup,.welcomeVC,.resendCodePopup,.locationVC,.searchLocationVC,.helpVC,.editAccountVC,.homeVC,.paymentVC,.walletVC:
+        case  .loginVC , .enterOTPVC,.enterPhoneVC,.enterDetailVC,.enterPasswordVC,.resetOTPVC,.resetPasswordVC,.enterEmailVC,.termConditions,.nameConfirmationPopup,.welcomeVC,.resendCodePopup,.helpVC,.editAccountVC,.homeVC,.paymentVC,.walletVC:
             return "Main"
+        case .locationVC,.searchLocationVC:
+            return "Maps"
+
         }
     }
     

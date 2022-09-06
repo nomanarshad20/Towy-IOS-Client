@@ -42,7 +42,6 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
-        registerTableXib()
         self.tabBarController?.tabBar.isHidden = true
    
 
@@ -156,7 +155,7 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
       }
     */
     
-    
+    /*
     func getRouteSteps(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D) {
 
         let session = URLSession.shared
@@ -223,8 +222,9 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
         task.resume()
     }
     
-    
+    */
     //MARK:- Draw Path line
+    /*
     func drawPath(from polyStr: String){
         let path = GMSPath(fromEncodedPath: polyStr)
         let polyline = GMSPolyline(path: path)
@@ -259,13 +259,9 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
         let currentZoom = mapView.camera.zoom
         mapView.animate(toZoom: currentZoom - 1.4)
     }
+    */
     
-    
-    func registerTableXib(){
-        //self.tblAccountSettings.register(UINib(nibName: "AccountSettingTBCell", bundle: nil), forCellWithReuseIdentifier: "AccountSettingTBCell")
-        self.tblTowList.register(UINib(nibName: "TowListTableViewCell", bundle: nil), forCellReuseIdentifier: "TowListTableViewCell")
 
-    }
     }
 /*
     extension LocationVC: GMSAutocompleteViewControllerDelegate {
@@ -365,12 +361,14 @@ extension LocationVC: CLLocationManagerDelegate {
       bearing: 0,
       viewingAngle: 0)
     mapView.delegate = self
+        /*
         self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {
             self.bottomViewTowConstraint.constant = 0
             self.view.layoutIfNeeded()
         }
        self.getRouteSteps(from: CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude), to: destinationLocation)
+        */
   }
 
   // 8

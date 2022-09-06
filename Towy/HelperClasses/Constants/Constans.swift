@@ -113,7 +113,11 @@ struct Key {
         static let USER_DATA = "userData"
         static let SOCIAL_USER_DATA = "socialUserData"
         static let USER_LOGIN_DATA = "userLogin"
+        static let SERVER_ACCESS_TOKEN = "accessToken"
+        static let SAVE_NOTIFICATION = "saveNotificationData"
 
+//SAVE_NOTIFICATION
+//
         static let APPLE_INFORMATION = "apple"
 
 //
@@ -121,8 +125,21 @@ struct Key {
     
     struct notificationKey{
         static let DISMISS_CONTROLLER = "dismiss"
-
+        public enum NotificationType:String{
+            case RIDE_ACCEPT     = "1"
+            case RIDE_REJECT = "0"
+            case NONE = ""
+            
+        }
+        public enum NotificationStatus:String{
+            case RIDE_ACCEPT     = "0"
+            case RIDER_REACH = "1"
+            case RIDE_START = "2"
+            case RIDE_COMPLETE = "3"
+            case NONE = ""
+        }
     }
+    
     
     
 }

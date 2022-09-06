@@ -29,7 +29,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="368" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kG5-rZ-BOT">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kG5-rZ-BOT">
                         <rect key="frame" x="5" y="5" width="358" height="79"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="9mG-Hk-vzy">
@@ -70,15 +70,88 @@
                             <constraint firstItem="Dl5-2G-2u8" firstAttribute="top" secondItem="kG5-rZ-BOT" secondAttribute="top" constant="15" id="zk2-JN-09P"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AuQ-kK-qSn">
+                        <rect key="frame" x="0.0" y="0.0" width="368" height="89"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNp-0V-gwG">
+                        <rect key="frame" x="10" y="10" width="348" height="69"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPu-Iw-btz">
+                                <rect key="frame" x="60" y="10" width="20.5" height="18"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="15"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="FRq-dj-9u9">
+                                <rect key="frame" x="60" y="33" width="213" height="29"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="12"/>
+                                <color key="textColor" red="0.3921568627" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKR 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DXf-pj-a2c">
+                                <rect key="frame" x="278" y="10" width="60" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="4st-Jm-Ife"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="11"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 min" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Kmr-59-0tP">
+                                <rect key="frame" x="278" y="28" width="60" height="11"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="9"/>
+                                <color key="textColor" red="0.3921568627" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="p0g-KW-NNb">
+                                <rect key="frame" x="10" y="0.0" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="00Z-Tt-Yuf"/>
+                                    <constraint firstAttribute="height" constant="40" id="Hto-LS-EhX"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dPu-Iw-btz" firstAttribute="leading" secondItem="p0g-KW-NNb" secondAttribute="trailing" constant="10" id="0Ew-gM-7Pj"/>
+                            <constraint firstItem="FRq-dj-9u9" firstAttribute="leading" secondItem="dPu-Iw-btz" secondAttribute="leading" id="Rph-mZ-YfI"/>
+                            <constraint firstItem="p0g-KW-NNb" firstAttribute="top" secondItem="YNp-0V-gwG" secondAttribute="top" id="Sy1-EM-CvU"/>
+                            <constraint firstItem="Kmr-59-0tP" firstAttribute="leading" secondItem="FRq-dj-9u9" secondAttribute="trailing" constant="5" id="Umu-Kv-RSh"/>
+                            <constraint firstItem="dPu-Iw-btz" firstAttribute="top" secondItem="YNp-0V-gwG" secondAttribute="top" constant="10" id="Wwt-cg-Yzo"/>
+                            <constraint firstItem="FRq-dj-9u9" firstAttribute="top" secondItem="dPu-Iw-btz" secondAttribute="bottom" constant="5" id="XUE-lf-owJ"/>
+                            <constraint firstItem="Kmr-59-0tP" firstAttribute="trailing" secondItem="DXf-pj-a2c" secondAttribute="trailing" id="huV-JN-4k8"/>
+                            <constraint firstItem="Kmr-59-0tP" firstAttribute="leading" secondItem="DXf-pj-a2c" secondAttribute="leading" id="kpy-2N-FNA"/>
+                            <constraint firstItem="p0g-KW-NNb" firstAttribute="leading" secondItem="YNp-0V-gwG" secondAttribute="leading" constant="10" id="kuj-cW-2UO"/>
+                            <constraint firstAttribute="trailing" secondItem="DXf-pj-a2c" secondAttribute="trailing" constant="10" id="mUu-0X-kJQ"/>
+                            <constraint firstItem="DXf-pj-a2c" firstAttribute="top" secondItem="YNp-0V-gwG" secondAttribute="top" constant="10" id="q2U-NQ-R9r"/>
+                            <constraint firstItem="Kmr-59-0tP" firstAttribute="top" secondItem="DXf-pj-a2c" secondAttribute="bottom" constant="5" id="z6h-td-Q2b"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="YNp-0V-gwG" secondAttribute="bottom" constant="10" id="Bb8-vX-ivZ"/>
+                    <constraint firstItem="YNp-0V-gwG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="JSP-bs-nzF"/>
                     <constraint firstAttribute="bottom" secondItem="kG5-rZ-BOT" secondAttribute="bottom" constant="5" id="Po6-2X-bv5"/>
+                    <constraint firstItem="AuQ-kK-qSn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="QG2-Bo-pVG"/>
+                    <constraint firstAttribute="trailing" secondItem="YNp-0V-gwG" secondAttribute="trailing" constant="10" id="Rp7-hb-wj3"/>
                     <constraint firstItem="kG5-rZ-BOT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="TRU-EU-TZb"/>
+                    <constraint firstItem="YNp-0V-gwG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dBD-N6-WJn"/>
+                    <constraint firstAttribute="trailing" secondItem="AuQ-kK-qSn" secondAttribute="trailing" id="dGD-Bs-gpT"/>
+                    <constraint firstAttribute="bottom" secondItem="AuQ-kK-qSn" secondAttribute="bottom" id="eb3-g9-VdC"/>
+                    <constraint firstItem="AuQ-kK-qSn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fwr-8x-mkD"/>
                     <constraint firstAttribute="trailing" secondItem="kG5-rZ-BOT" secondAttribute="trailing" constant="5" id="t03-vJ-rn0"/>
                     <constraint firstItem="kG5-rZ-BOT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="yfc-q3-ZwP"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="img" destination="p0g-KW-NNb" id="EC2-8D-TgA"/>
+                <outlet property="lblPrice" destination="DXf-pj-a2c" id="xFD-KT-5YA"/>
+                <outlet property="lblSubtitle" destination="FRq-dj-9u9" id="cbC-fv-iHA"/>
+                <outlet property="lblTime" destination="Kmr-59-0tP" id="F56-ml-wbe"/>
+                <outlet property="lblTitle" destination="dPu-Iw-btz" id="iB2-af-0jG"/>
+            </connections>
             <point key="canvasLocation" x="169.56521739130437" y="65.959821428571431"/>
         </tableViewCell>
     </objects>

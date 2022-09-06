@@ -19,11 +19,14 @@ struct APPURL {
         static let Api = "/api/"
     }
 
-    private  static let Domain = Domains.Dev
+    static let Domain = Domains.Dev
     private  static let Route = Routes.Api
     static let BaseURL = Domain + Route
 
     enum services :String{
+        
+        // MARK: - USERAUTHENTICATION_ENDPOINT
+
         case checkPhoneNumber = "passenger-check-phone-number"
         case passengerLogin = "passenger-login" // mobile_no,user_type,fcm_token
         case passengerRegister = "passenger-register" // mobile_no,user_type,fcm_token,first_name,email,password,last_name
@@ -32,6 +35,22 @@ struct APPURL {
         case passengerForgetPassword = "passenger-forget-password" //mobile_no,password
         case passengerUpdatePassword = "passenger-update-password" //old_password,password
         case passengerLogout = "passenger-logout"//
+        
+        // MARK: - DASHBOARD_ENDPOINT
+        case PassengerDashboard = "passenger-dashboard"//
+        case saveRating = "save-rating"//
+        case tripHistory = "passenger/trip-history"//
+        case passengerStatus = "passenger/get-passenger-status"//
+
+        case getNotification = "passenger/get-notifications"//
+        case cancelRide = "passenger-cancel-ride"//
+        case findDriver = "passenger-find-near-drivers"//
+        case createBookingWithAllParam = "passenger-create-booking"//
+        case calculateDistanceAndFare = "passenger-calculating-distance-and-fare"//
+
+//passenger-create-booking
+        ///passenger-calculating-distance-and-fare
+        
     }
     
 }

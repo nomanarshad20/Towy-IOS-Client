@@ -47,20 +47,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Ride" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6X-XO-rPY">
+                                <rect key="frame" x="5" y="106.5" width="134" height="13.5"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IQv-PK-bKE" firstAttribute="width" secondItem="gbn-cu-X4y" secondAttribute="width" multiplier="0.6" id="0DH-vX-8Ph"/>
                             <constraint firstItem="IQv-PK-bKE" firstAttribute="centerX" secondItem="gbn-cu-X4y" secondAttribute="centerX" id="Zhb-P3-DiZ"/>
+                            <constraint firstItem="b6X-XO-rPY" firstAttribute="top" secondItem="IQv-PK-bKE" secondAttribute="bottom" constant="15" id="bFL-vd-yb0"/>
+                            <constraint firstAttribute="trailing" secondItem="b6X-XO-rPY" secondAttribute="trailing" constant="5" id="c1W-na-7Tm"/>
                             <constraint firstItem="IQv-PK-bKE" firstAttribute="top" secondItem="gbn-cu-X4y" secondAttribute="top" constant="5" id="cqo-8V-1lq"/>
+                            <constraint firstItem="b6X-XO-rPY" firstAttribute="leading" secondItem="gbn-cu-X4y" secondAttribute="leading" constant="5" id="taS-Of-B3O"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Ride" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="b6X-XO-rPY">
-                        <rect key="frame" x="5" y="100.5" width="134" height="13.5"/>
-                        <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="11"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -69,10 +72,6 @@
                 <constraint firstAttribute="bottom" secondItem="gbn-cu-X4y" secondAttribute="bottom" id="5i5-cm-QQt"/>
                 <constraint firstAttribute="trailing" secondItem="gbn-cu-X4y" secondAttribute="trailing" id="9GS-wQ-n69"/>
                 <constraint firstItem="gbn-cu-X4y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IYu-gQ-gFJ"/>
-                <constraint firstItem="b6X-XO-rPY" firstAttribute="top" secondItem="IQv-PK-bKE" secondAttribute="bottom" constant="9" id="LYd-9Z-B9z"/>
-                <constraint firstItem="b6X-XO-rPY" firstAttribute="centerX" secondItem="IQv-PK-bKE" secondAttribute="centerX" id="gBO-8h-3xw"/>
-                <constraint firstAttribute="trailing" secondItem="b6X-XO-rPY" secondAttribute="trailing" constant="5" id="pkR-1f-3Z0"/>
-                <constraint firstItem="b6X-XO-rPY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="qbD-6Z-DFA"/>
             </constraints>
             <size key="customSize" width="144" height="145"/>
             <connections>
@@ -83,7 +82,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="car" width="656" height="448.5"/>
+        <image name="car" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

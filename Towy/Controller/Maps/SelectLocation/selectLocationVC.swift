@@ -69,7 +69,7 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
             delegate.OnUpdate(Lat: selectedLat, Long: selectedLong , tag:currentTFTag)
             self.navigationController?.popViewController(animated: true)
         }else {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
             vc.sourceLocation = sourceLocation
             vc.destinationLocation = destinationLocation
             self.navigationController?.pushViewController(vc, animated: true)

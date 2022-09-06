@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 class HomeVM: BaseVM {
     
 //    var firstName : String = ""
@@ -70,6 +71,46 @@ class HomeVM: BaseVM {
 
     }
     // MARK: - API_Handling
+    
+    
+    func fetchDashBoardData(completion:@escaping (DashBoardModel) -> ()){
+        let h = UtilitiesManager.shared.getAuthHeader()
+        
+        //let body = ["mobile_no":"actualNumber","user_type":"1"] as [String:Any]
+        NetworkCall(data: [:], headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.PassengerDashboard, method: .get,isJSONRequest: false).executeQuery(){
+            (result: Result<DashBoardModel,Error>) in
+            
+            switch result{
+            case .success(let response):
+                completion(response)
+                print("response",response)
+            case .failure(let error):
+                //completion(nil,error)
+                UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
+                print("errorzz",error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func fetchNearestDrivers(location:CLLocationCoordinate2D,completion:@escaping (NearestDriverModel) -> ()){
+        let h = UtilitiesManager.shared.getAuthHeader()
+        let body = ["pick_up_latitude":"\(location.latitude)","pick_up_longitude":"\(location.longitude)"] as [String:Any]
+
+        NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.findDriver, method: .post,showLoader: false).executeQuery(){
+            (result: Result<NearestDriverModel,Error>) in
+            switch result{
+            case .success(let response):
+                //completion(response)
+                print("response",response)
+                completion(response)
+            case .failure(let error):
+                //completion(nil,error)
+                UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
+                print("errorzz",error.localizedDescription)
+            }
+        }
+    }
     
     
     

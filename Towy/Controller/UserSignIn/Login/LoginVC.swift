@@ -65,7 +65,6 @@ class LoginVC: UIViewController{
     @IBAction func btnNextAction(_ sender:Any){
         loginVM.number = self.tfNumber.text!
         loginVM.code = self.lblCountryCode.text!
-       // ControllerNavigation.shared.pushVC(of: .enterOTPVC)
         loginVM.loginAPI()
     }
     @IBAction func btnGmailAction(_ sender:Any){
@@ -75,12 +74,13 @@ class LoginVC: UIViewController{
         loginVM.fbLogin(vc: self)
     }
     @IBAction func btnAppleAction(_ sender:Any){
-       // loginVM.appleLogin(vc: self)
+        /*
         if #available(iOS 13.0, *) {
             handleAppleIdRequest()
         } else {
             // Fallback on earlier versions
         }
+        */
     }
     @IBAction func btnBackAction(_ sender:Any){
         self.navigationController?.popViewController(animated: true)
@@ -93,11 +93,8 @@ class LoginVC: UIViewController{
 extension LoginVC:ASAuthorizationControllerDelegate{
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as?  ASAuthorizationAppleIDCredential {
-            let apple = appleIDCredential
+//            let apple = appleIDCredential
 //            let userIdentifier = appleIDCredential.user
-//            let fullName = appleIDCredential.fullName
-//            let email = appleIDCredential.email
-//            print("User id is \(userIdentifier) \n Full Name is \(String(describing: fullName)) \n Email id is \(String(describing: email))")
             
             var userObj = [String:Any]()
 
@@ -113,7 +110,6 @@ extension LoginVC:ASAuthorizationControllerDelegate{
                     userObj["firstName"] = firstName
                     userObj["lastName"] = lastName
                     userObj["email"] = email
-             //       userObj["tokem"] = identityTokenString
                     userObj["id"] = id
 
                     UtilitiesManager.shared.saveAppleSignInSession(dict: userObj)
