@@ -11,11 +11,11 @@ import Foundation
 // MARK: - StripeModel
 struct StripeModel: Codable {
     let result, message: String
-    let data: JSONNull?
+    let data: String? 
 }
 
 // MARK: - Encode/decode helpers
-
+/*
 class StripeJSONNull: Codable, Hashable {
 
     public static func == (lhs: StripeJSONNull, rhs: StripeJSONNull) -> Bool {
@@ -40,3 +40,4 @@ class StripeJSONNull: Codable, Hashable {
         try container.encodeNil()
     }
 }
+*/

@@ -91,11 +91,11 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
              manager.requestWhenInUseAuthorization()
          }
         */
+     
         UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {
             self.bottomViewTowConstraint.constant = 0
             self.view.layoutIfNeeded()
         }
-        
         self.getRouteSteps(from: self.sourceLocation, to: self.destinationLocation)
     }
     
@@ -104,6 +104,16 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btnConfirmAction(_ sender:Any){
+        
+        guard let obj = objTow else{return}
+        mainMapVm.sendRequestForBooking(obj: obj) { success in
+            print("sucess")
+            UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {
+                self.bottomViewTowConstraint.constant = -400
+                self.view.layoutIfNeeded()
+            }
+            ShowLoaderWithMessage(message: "Finding available Tow")
+        }
         //self.navigationController?.popViewController(animated: true)
        // ControllerNavigation.shared.pushVC(of: .searchLocationVC,isAnimate: false)
     }

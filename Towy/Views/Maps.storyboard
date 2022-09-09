@@ -133,6 +133,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomViewTowConstraint" destination="2bK-hF-t9y" id="lkA-Jh-jBA"/>
+                        <outlet property="btnConfirm" destination="uOI-8I-xo6" id="LJn-gA-EkK"/>
                         <outlet property="mapView" destination="YFU-qj-328" id="Evp-PF-XNg"/>
                         <outlet property="tblTowList" destination="Vr3-AR-0bs" id="Mfx-Es-nBV"/>
                     </connections>

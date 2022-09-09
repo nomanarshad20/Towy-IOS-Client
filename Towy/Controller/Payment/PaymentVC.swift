@@ -11,6 +11,8 @@ import MFCard
 class PaymentVC: UIViewController , MFCardDelegate {
     
     @IBOutlet weak var myCard : MFCardView!
+    
+    var paymentVm = PaymentVM()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        var myCard : MFCardView
@@ -36,6 +38,18 @@ class PaymentVC: UIViewController , MFCardDelegate {
         print(card?.number)
         print(card?.name)
         print(card?.cvc)
+        print(card?.month)
+        print(card?.year)
+        paymentVm.cvc = card?.cvc ?? ""
+        paymentVm.number = card?.number ?? ""
+        paymentVm.name = card?.name ?? ""
+        paymentVm.month = card?.month?.rawValue ?? ""
+        paymentVm.year = card?.year ?? ""
+        paymentVm.callStripApi() { data in
+            UtilitiesManager.shared.showAlertWithAction(self, message: data.message, title: data.result, buttons: ["OK"]) { index in
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }else{
     print(error!)
     }

@@ -17,31 +17,31 @@ struct BookingCreatedModel: Codable {
 // MARK: - DataClass
 struct BookingCreatedDataClass: Codable {
     let id: Int
-    let bookingUniqueID: String
+    let bookingUniqueID: String?
     let passengerID: Int
-    let franchiseID: String
+    let franchiseID: String?
     let vehicleTypeID: Int
-    let bookingType, pickUpArea, pickUpLatitude, pickUpLongitude: String
-    let pickUpDate, pickUpTime, dropOffArea, dropOffLatitude: String
-    let dropOffLongitude, totalDistance, paymentType, estimatedFare: String
-    let actualFare: String
+    let bookingType, pickUpArea, pickUpLatitude, pickUpLongitude: String?
+    let pickUpDate, pickUpTime, dropOffArea, dropOffLatitude: String?
+    let dropOffLongitude, totalDistance, paymentType, estimatedFare: String?
+    let actualFare: String?
     let rideStatus: Int
-    let createdAt, createdAgo: String
+    let createdAt, createdAgo: String?
     let bookingDetailID, waitingPricePerMin, vehicleTax, vehiclePerKMRate: Int
     let vehiclePerMinRate, minVehicleFare: Int
-    let passengerFirstName, passengerLastName, driverFirstName, driverLastName: String
+    let passengerFirstName, passengerLastName, driverFirstName, driverLastName: String?
     let driverStatus: Int
-    let driverID, peakFactorRate, driverWaitingTime, ridePickUpTime: String
-    let rideStartTime, rideEndTime, totalMinutesToReachPickUpPoint, totalRideMinutes: String
-    let initialDistanceRate, initialTimeRate, totalCalculatedDistance, p2PBeforePickUpDistance: String
-    let p2PAfterPickUpDistance: String
+    let driverID, peakFactorRate, driverWaitingTime, ridePickUpTime: String?
+    let rideStartTime, rideEndTime, totalMinutesToReachPickUpPoint, totalRideMinutes: String?
+    let initialDistanceRate, initialTimeRate, totalCalculatedDistance, p2PBeforePickUpDistance: String?
+    let p2PAfterPickUpDistance: String?
     let isPassengerRatingGiven, isDriverRatingGiven: Int
-    let passengerImage, passengerMobileNo: String
+    let passengerImage, passengerMobileNo: String?
     let passengerRating: Int
-    let driverImage, driverMobileNo: String
+    let driverImage, driverMobileNo: String?
     let driverRating: Int
-    let vehicleName, vehicleRegistrationNumber, driverRatingFromPassenger, driverCommentFromPassenger: String
-    let passengerRatingFromDriver, passengerCommentFromDriver, otp: String
+    let vehicleName, vehicleRegistrationNumber, driverRatingFromPassenger, driverCommentFromPassenger: String?
+    let passengerRatingFromDriver, passengerCommentFromDriver, otp: String?
 
     enum CodingKeys: String, CodingKey {
         case id

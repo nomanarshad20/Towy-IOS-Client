@@ -94,6 +94,9 @@ struct Key {
         static let googleApiKey = "AIzaSyBVe-9o7ukhkUBl8hhdNo150Z0eip4EFbw"
 
     }
+    struct Firebase{
+        public static var FIREBASE_PUSH_NOTIFICATION_SERVER_KEY = "AAAATnYbYUU:APA91bFPouiB4Wr1NMHrQYuZvUS3RfcAAzGPNWMgrKjfiTEPr1qhjDgGPKDBTbsMGH8TH0zYIoNg_nBIP5QIpwW8UEvqQNx0STgXwXfmnpPA8fUte10MvCtN79q0AcrUHyztP4NBSSUy"
+    }
     
     struct ErrorMessage{
         static let INTERNET_ALERT = "Please check your internet connection and try again."
@@ -102,6 +105,7 @@ struct Key {
         static let FIRSTNAMEFIELD = "First name field required"
         static let LASTNAMEFIELD = "Last name field required"
         static let VALID_EMAIL = "Valid email required"
+        static let LOCATION_PERMISSION   = "Please enable Location Services"
 
     }
     
@@ -115,6 +119,11 @@ struct Key {
         static let USER_LOGIN_DATA = "userLogin"
         static let SERVER_ACCESS_TOKEN = "accessToken"
         static let SAVE_NOTIFICATION = "saveNotificationData"
+        static let IS_LOGIN = "isLogin"
+        static let SERVER_DRIVER_STATUS = "status"
+        static let SERVER_USER_SID = "id";
+        static let SERVER_USER_NAME = "first_name";
+
 
 //SAVE_NOTIFICATION
 //
@@ -125,18 +134,52 @@ struct Key {
     
     struct notificationKey{
         static let DISMISS_CONTROLLER = "dismiss"
-        public enum NotificationType:String{
-            case RIDE_ACCEPT     = "1"
-            case RIDE_REJECT = "0"
-            case NONE = ""
-            
-        }
+//        public enum NotificationType:String{
+//            case RIDE_ACCEPT     = "1"
+//            case RIDE_REJECT = "0"
+//            case NONE = ""
+//
+//        }
         public enum NotificationStatus:String{
             case RIDE_ACCEPT     = "0"
             case RIDER_REACH = "1"
             case RIDE_START = "2"
             case RIDE_COMPLETE = "3"
             case NONE = ""
+        }
+        public enum NotificationType:String{
+            case RIDE_LOCATION_CHANGED      = "3";
+            case NEW_RIDE_REQUEST           = "11"
+            case RIDE_CANCELED              = "14";
+            case SCHEDULE_RIDE              = "7";
+            case LOGOUT_USER                = "8";
+            case OFFLINE_PARTNER            = "2";
+            case RIDE_CANCEL_ON_RECEIVE     = "15";
+            case MESSAGE_RECEIVE            = "20";
+            case NONE                       = "0";
+            case WARNING                    = "21"
+            case BOUNS                      = "22"
+            case LOCATION_ERROR_NOTIFICATION = "23"
+            
+            
+        }
+        
+        public enum NotificationObservers:String{
+            
+            case RIDE_COMPLETED             = "ride_Completed";
+            case DRIVER_RATED_THE_CUSTOMER    = "reting_Completed";
+            case RIDE_CANCEL_BY_DRIVER      = "ride_Cancelled";
+            case RIDE_CANCEL_BY_USER        = "ride_Cancelled_By_User";
+            case RIDE_CANCEL_BY_USER_ON_RECEIVE = "ride_Cancelled_By_User_ON_RECEIVE";
+            case RIDE_ACCEPTED              = "ride_Accepted";
+            case RIDE_DESTINATION_CHANGED   = "ride_Destination_changed"
+            case LUNCH_BY_NOTIFICATION      = "lunchByNotification"
+            case APP_BECOME_ACTIVE          = "applicationBecomeActive"
+            case APP_ENTER_BACKGROUND       = "applicationEnterBackground"
+            case UPDATE_AVAILABLE           = "updateIsAvailable"
+            case OFFLINE_USER               = "offlineUser"
+            case CHECK_BANNER               = "checkBanner"
+            case RESET_BANNER               = "resetBanner"
         }
     }
     

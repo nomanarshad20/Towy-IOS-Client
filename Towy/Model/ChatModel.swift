@@ -10,7 +10,7 @@ import Foundation
 import SwiftyJSON
 
 
-class ChatModel:Codable{
+class Message:Codable{
     
     
     
@@ -35,10 +35,16 @@ class ChatModel:Codable{
     }
     
     
-    class func getJsonFromMessages(messages:[ChatModel])-> [Any]?{
+    class func getJsonFromMessages(messages:[Message])-> String?{
         do {
+            
+            
             let encoded = try JSONEncoder().encode(messages)
-            return (JSON(encoded).arrayObject)
+            let jsonString = String(data: encoded, encoding: .utf8)
+            return jsonString ?? nil
+//
+//            let encoded = try JSONEncoder().encode(messages)
+//            return (JSON(encoded).arrayObject)
         } catch {
             print(error)
         }

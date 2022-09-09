@@ -24,6 +24,7 @@ class TowListTableViewCell: UITableViewCell {
 //            self.lblTitle.text = obj?.name ?? ""
 //            self.lblTitle.text = obj?.name ?? ""
             self.lblPrice.text = "\(obj?.estimatedFare ?? 0)"
+            //self.lblTime.text = "\(obj?. ?? 0)"
 
         }
     }

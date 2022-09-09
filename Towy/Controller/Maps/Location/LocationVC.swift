@@ -56,26 +56,90 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
     
     func setupMap(){
         // 1
+//        manager.delegate = self
+//
+//         // 2
+//         if CLLocationManager.locationServicesEnabled() {
+//           // 3
+//             manager.requestLocation()
+//
+//           // 4
+//           mapView.isMyLocationEnabled = true
+//           mapView.settings.myLocationButton = true
+//           //mapView.isUserInteractionEnabled  = true
+////           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(triggerTouchAction))
+//             //mapView.addGestureRecognizer(tapGesture)
+//
+//         } else {
+//           // 5
+//             manager.requestWhenInUseAuthorization()
+//         }
+        
         manager.delegate = self
+        self.mapView.isMyLocationEnabled = false
+        mapView.settings.allowScrollGesturesDuringRotateOrZoom = false
+        mapView.isUserInteractionEnabled  = true
+        setupUserCurrentLocation()
 
-         // 2
-         if CLLocationManager.locationServicesEnabled() {
-           // 3
-             manager.requestLocation()
-
-           // 4
-           mapView.isMyLocationEnabled = true
-           mapView.settings.myLocationButton = true
-           //mapView.isUserInteractionEnabled  = true
-//           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(triggerTouchAction))
-             //mapView.addGestureRecognizer(tapGesture)
-
-         } else {
-           // 5
-             manager.requestWhenInUseAuthorization()
-         }
     }
     
+    func setupUserCurrentLocation()
+    {
+        checkLocationPermission()
+        locationManagerInitilize()
+        manager.startUpdatingLocation()
+        manager.startUpdatingHeading()
+        
+        
+    }
+    
+    
+    func checkLocationPermission(){
+        var status:CLAuthorizationStatus!
+        if #available(iOS 14.0, *) {
+            status = CLLocationManager().authorizationStatus
+        } else {
+            status = CLLocationManager.authorizationStatus()
+        }
+        
+        switch status {
+        case .notDetermined:
+            manager.requestAlwaysAuthorization()
+            return
+            
+        case .denied, .restricted:
+            
+            UtilitiesManager.shared.showAlertWithAction(self, message: Key.ErrorMessage.LOCATION_PERMISSION, title: Key.APP_NAME, buttons: ["Enable","Cancel"]) { index in
+                if index == 0{
+                    if let BUNDLE_IDENTIFIER = Bundle.main.bundleIdentifier,
+                       let url = URL(string: "\(UIApplication.openSettingsURLString)&path=LOCATION/\(BUNDLE_IDENTIFIER)") {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Location permission is granted")
+            
+        default:
+            print("unknow staus")
+        }
+    }
+    
+    
+    func locationManagerInitilize(){
+        if CLLocationManager.locationServicesEnabled(){
+            manager.delegate = self
+            manager.allowsBackgroundLocationUpdates = false
+            manager.showsBackgroundLocationIndicator = true
+            manager.requestAlwaysAuthorization()
+            manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            if #available(iOS 14.0, *) {
+                manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "Tracking")
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
     
     @IBAction func btnBackAction(_ sender:Any){
         self.navigationController?.popViewController(animated: true)
@@ -330,6 +394,7 @@ extension LocationVC: GMSAutocompleteResultsViewControllerDelegate {
 //1
 extension LocationVC: CLLocationManagerDelegate {
   // 2
+    /*
   func locationManager(
     _ manager: CLLocationManager,
     didChangeAuthorization status: CLAuthorizationStatus
@@ -345,7 +410,7 @@ extension LocationVC: CLLocationManagerDelegate {
     mapView.isMyLocationEnabled = true
     mapView.settings.myLocationButton = true
   }
-
+*/
   // 6
   func locationManager(
     _ manager: CLLocationManager,
@@ -360,7 +425,7 @@ extension LocationVC: CLLocationManagerDelegate {
       zoom: 15,
       bearing: 0,
       viewingAngle: 0)
-    mapView.delegate = self
+//    mapView.delegate = self
         /*
         self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {

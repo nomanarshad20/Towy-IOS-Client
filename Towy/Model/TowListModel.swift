@@ -16,7 +16,7 @@ struct TowListModel: Codable {
 struct TowDatum: Codable {
     let minFare, perKMRate, perMinRate, taxRate: Int
     let waitingPricePerMin, vehicleTypeID, totalDistance, peakFactorApplied: Int
-    let peakFactorRate: TowJSONNull?
+    let peakFactorRate: String?
     let estimatedFare: Int
     let name: String
 
@@ -36,7 +36,7 @@ struct TowDatum: Codable {
 }
 
 // MARK: - Encode/decode helpers
-
+/*
 class TowJSONNull: Codable, Hashable {
  
 
@@ -62,3 +62,4 @@ class TowJSONNull: Codable, Hashable {
         try container.encodeNil()
     }
 }
+*/

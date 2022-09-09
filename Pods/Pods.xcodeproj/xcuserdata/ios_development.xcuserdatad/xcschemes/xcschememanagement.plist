@@ -193,10 +193,20 @@
 			<key>orderHint</key>
 			<integer>26</integer>
 		</dict>
+		<key>MFCard-MFCard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>38</integer>
+		</dict>
 		<key>MFCard-MFCard.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>38</integer>
+		</dict>
+		<key>MFCard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>37</integer>
 		</dict>
 		<key>MFCard.xcscheme_^#shared#^_</key>
 		<dict>
@@ -209,6 +219,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>29</integer>
+		</dict>
+		<key>PlacesPicker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>39</integer>
 		</dict>
 		<key>PlacesPicker.xcscheme_^#shared#^_</key>
 		<dict>
@@ -249,6 +264,16 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>34</integer>
+		</dict>
+		<key>Socket.IO-Client-Swift.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>41</integer>
+		</dict>
+		<key>Starscream.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>40</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>

@@ -67,6 +67,14 @@ class UtilitiesManager{
         img.sd_setImage(with: URL(string:newUrl), placeholderImage: UIImage(named: "user"))
 
     }
+    
+    func moveBack(_ vc:UIViewController,_ animate:Bool = true){
+        if vc.navigationController != nil{
+            vc.navigationController?.popViewController(animated: animate)
+        }else{
+            vc.dismiss(animated: animate, completion: nil)
+        }
+    }
     // MARK: - GETSTORYBOARD
     func getMapStoryboard() -> UIStoryboard
     {
@@ -80,10 +88,33 @@ class UtilitiesManager{
         return storyboard
     }
     
+    func getId() -> Int
+    {
+        let result = UserDefaults.standard.value(forKey: Key.userDefaultKey.SERVER_USER_SID) as? Int
+        return result ?? 0
+    }
+    func getUserName() -> String
+    {
+        let result = UserDefaults.standard.value(forKey: Key.userDefaultKey.SERVER_USER_NAME) as? String
+        return result ?? "iOS_Driver"
+    }
 
     
     
     // MARK: - RETRIVE_FROM_USERDEFAULT
+    
+    func getDriverStatus() -> Int
+       {
+           let result = UserDefaults.standard.value(forKey: Key.userDefaultKey.SERVER_DRIVER_STATUS) as? Int
+           return result ?? 0
+       }
+    func saveDriverStatus(status:Int)
+       {
+         UserDefaults.standard.setValue(status, forKey: Key.userDefaultKey.SERVER_DRIVER_STATUS)
+        UserDefaults.standard.synchronize()
+       }
+    
+    
     func getOtpVerficationID() -> String
     {
         let result = "\(defaults.value(forKey: Key.userDefaultKey.AUTH_VERIFICATION_ID) ?? "")"
@@ -240,7 +271,7 @@ class UtilitiesManager{
         SecItemDelete(query as CFDictionary)
         return SecItemAdd(query as CFDictionary, nil)
     }
-    
+    /*
     func saveNotificationSession(userDict:NewRideModel,msg:String)
     {
         let defaults = UserDefaults.standard
@@ -249,7 +280,7 @@ class UtilitiesManager{
         print("dicNotification Data save")
         
     }
-    
+    */
     func retriveAppleLoginData() -> Data?{
         let query = [
             kSecClass as String       : kSecClassGenericPassword,

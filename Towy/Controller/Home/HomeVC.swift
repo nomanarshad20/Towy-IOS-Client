@@ -43,6 +43,7 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     }
     func setUI(){
         homeVM.setDashBoard(photoSliderView: photoSliderView)
+        
 //        homeVM.fetchDashBoardData { data  in
 //            self.objDashboard = data
 //            self.clcDashBoard.reloadData()
@@ -51,28 +52,111 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     
     func setupMap(){
         // 1
-        manager.delegate = self
+        //manager.delegate = self
         
         // 2
-        if CLLocationManager.locationServicesEnabled() {
+        //if CLLocationManager.locationServicesEnabled() {
             // 3
-            manager.requestLocation()
+            //manager.requestLocation()
             
             // 4
-            mapView.isMyLocationEnabled = true
-            mapView.settings.myLocationButton = true
+//            mapView.isMyLocationEnabled = true
+//            mapView.settings.myLocationButton = true
+            mapView.delegate = self
+            self.mapView.isMyLocationEnabled = false
+            mapView.settings.allowScrollGesturesDuringRotateOrZoom = false
             mapView.isUserInteractionEnabled  = true
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(triggerTouchAction))
-            mapView.addGestureRecognizer(tapGesture)
+            setupUserCurrentLocation()
+
+//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(triggerTouchAction))
+//            mapView.addGestureRecognizer(tapGesture)
             
+//        } else {
+//            // 5
+//            manager.requestWhenInUseAuthorization()
+//        }
+    }
+//    func loadGoogleMapLayer()
+//    {
+//
+//        let camera = GMSCameraPosition.camera(withLatitude:Constants.DEFAULT_LAT, longitude: Constants.DEFAULT_LONG, zoom: 14.0)
+//
+//        let screenRect = UIScreen.main.bounds
+//        let screenWidth = screenRect.size.width
+//        let screenHeight = screenRect.size.height
+//        mapView = GMSMapView.map(withFrame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight), camera: camera)
+//
+//        //        self.lblMarker?.isHidden = true
+//        //        self.bearing = "\(camera.bearing)"
+//        self.mainMapView.addSubview(mapView)
+//        setupUserCurrentLocation()
+//
+//    }
+    
+    func setupUserCurrentLocation()
+    {
+        checkLocationPermission()
+        locationManagerInitilize()
+        manager.startUpdatingLocation()
+        manager.startUpdatingHeading()
+        
+        
+    }
+    
+    
+    func checkLocationPermission(){
+        var status:CLAuthorizationStatus!
+        if #available(iOS 14.0, *) {
+            status = CLLocationManager().authorizationStatus
         } else {
-            // 5
-            manager.requestWhenInUseAuthorization()
+            status = CLLocationManager.authorizationStatus()
+        }
+        
+        switch status {
+        case .notDetermined:
+            manager.requestAlwaysAuthorization()
+            return
+            
+        case .denied, .restricted:
+            
+            UtilitiesManager.shared.showAlertWithAction(self, message: Key.ErrorMessage.LOCATION_PERMISSION, title: Key.APP_NAME, buttons: ["Enable","Cancel"]) { index in
+                if index == 0{
+                    if let BUNDLE_IDENTIFIER = Bundle.main.bundleIdentifier,
+                       let url = URL(string: "\(UIApplication.openSettingsURLString)&path=LOCATION/\(BUNDLE_IDENTIFIER)") {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            }
+        case .authorizedAlways, .authorizedWhenInUse:
+            print("Location permission is granted")
+            
+        default:
+            print("unknow staus")
         }
     }
-    @objc func triggerTouchAction(gestureReconizer: UITapGestureRecognizer) {
-        ControllerNavigation.shared.pushVC(of: .locationVC)
+    
+    
+    func locationManagerInitilize(){
+        if CLLocationManager.locationServicesEnabled(){
+            manager.delegate = self
+            manager.allowsBackgroundLocationUpdates = false
+            manager.showsBackgroundLocationIndicator = true
+            manager.requestAlwaysAuthorization()
+            manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            if #available(iOS 14.0, *) {
+                manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "Tracking")
+            } else {
+                // Fallback on earlier versions
+            }
+        }
     }
+    
+    
+    
+    
+//    @objc func triggerTouchAction(gestureReconizer: UITapGestureRecognizer) {
+//        ControllerNavigation.shared.pushVC(of: .locationVC)
+//    }
     func registerXib(){
         self.clcDashBoard.register(UINib(nibName: "NewDashBoardCVCell", bundle: nil), forCellWithReuseIdentifier: "NewDashBoardCVCell")
     }
@@ -99,16 +183,17 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
     // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        LocalData.sharedIntance.dasboardArray.count
-        return self.objDashboard?.data.vehicleTypes.count ?? 0
+        
+        return homeVM.setDashBoardData().count
+      //  return self.objDashboard?.data.vehicleTypes.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewDashBoardCVCell", for: indexPath as IndexPath) as! NewDashBoardCVCell
-        guard let obj = self.objDashboard else{return cell}
-        cell.obj = obj.data.vehicleTypes[indexPath.row]
-//        cell.lblTitle.text = self.homeVM.setDashBoardData()[indexPath.row].title
-//        cell.img.image = UIImage(named: self.homeVM.setDashBoardData()[indexPath.row].img)
+//        guard let obj = self.objDashboard else{return cell}
+//        cell.obj = obj.data.vehicleTypes[indexPath.row]
+        cell.lblTitle.text = self.homeVM.setDashBoardData()[indexPath.row].title
+        cell.img.image = UIImage(named: self.homeVM.setDashBoardData()[indexPath.row].img)
 
         //cell.obj = self.dashBoardVM.dashBoard?.data.dashboardContent[indexPath.row]
         return cell
@@ -164,8 +249,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
 // MARK: - CLLocationManagerDelegate
 
 //1
+
+
 extension HomeVC: CLLocationManagerDelegate {
   // 2
+    /*
   func locationManager(
     _ manager: CLLocationManager,
     didChangeAuthorization status: CLAuthorizationStatus
@@ -181,7 +269,10 @@ extension HomeVC: CLLocationManagerDelegate {
     mapView.isMyLocationEnabled = true
     mapView.settings.myLocationButton = true
   }
+    */
 
+    
+    
   // 6
   func locationManager(
     _ manager: CLLocationManager,
@@ -199,16 +290,16 @@ extension HomeVC: CLLocationManagerDelegate {
             bearing: 0,
             viewingAngle: 0)
         mapView.delegate = self
-        self.homeVM.fetchDashBoardData { data  in
-            self.objDashboard = data
-            self.clcDashBoard.reloadData()
+//        self.homeVM.fetchDashBoardData { data  in
+//            self.objDashboard = data
+//            self.clcDashBoard.reloadData()
             self.homeVM.fetchNearestDrivers(location: CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)){ data in
                 
                 for marker in data.data{
                     self.addDriverMarker(location: CLLocationCoordinate2D(latitude: marker.latitude, longitude: marker.longitude), markerImg: "car_map")
                 }
             }
-        }
+       // }
        
         //self.loadGoogleMapLayer(currentLocation: currentLocation)
         self.manager.stopUpdatingLocation()

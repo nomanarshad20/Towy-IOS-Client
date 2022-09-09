@@ -142,6 +142,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 
 extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        if UserDefaults.standard.bool(forKey: Key.userDefaultKey.IS_LOGIN){
+            if let _ = userInfo["aps"] as? [String: AnyObject],
+               let obj = NotificationModel.getNotificationType(dict: userInfo) {
+                print("notificationDict",obj)
+//                if UtilitiesManager.shared.getDriverStatus() > 0 {
+//                    showPopup(noti: noti)
+//                }
+            }
+        }
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+        fetchCompletionHandler completionHandler:
+            @escaping (UIBackgroundFetchResult) -> Void
+    ) {
+
+        
+        
+        
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+//        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UIApplication.shared.applicationIconBadgeNumber += 1
+        if UserDefaults.standard.bool(forKey: Key.userDefaultKey.IS_LOGIN){
+            if let _ = userInfo["aps"] as? [String: AnyObject],
+               let noti = NotificationModel.getNotificationType(dict: userInfo) {
+                if UtilitiesManager.shared.getDriverStatus() > 0 {
+                    showPopup(noti: noti)
+                }
+            }
+        }
+    }
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                    willPresent notification: UNNotification,
+                                    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+//        center.removeAllPendingNotificationRequests()
+//        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        
+        let userInfo = notification.request.content.userInfo
+        let state : UIApplication.State = UIApplication.shared.applicationState
+               if (state == .inactive || state == .background) {
+                if #available(iOS 14.0, *) {
+                    completionHandler([.alert,.badge,.banner,.sound,.list])
+                } else {
+                    completionHandler([.alert,.badge,.sound])
+                }
+               } else {
+                if let _ = userInfo["aps"] as? [String: AnyObject],
+                   let noti = NotificationModel.getNotificationType(dict: userInfo) {
+                    if UtilitiesManager.shared.getDriverStatus() > 0 {
+                        completionHandler([.sound])
+                        showPopup(noti: noti)
+                    }
+                }else{
+                    
+                }
+            }
+        }
+    
+    /*
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         //UtilityManager().saveObject(obj: fcmToken ?? "", forKey: strToken)
         UtilitiesManager.shared.saveFCM_Token(token: fcmToken ?? "")
@@ -168,6 +234,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("didReceive")
     }
+    */
     /*
      func registerForRemoteNotifications(){
      if #available(iOS 10.0, *) {
@@ -209,60 +276,128 @@ extension AppDelegate{
         self.window!.rootViewController?.dismiss(animated: false, completion: nil)
     }
     
-    func showPopup(noti:NotificationsModel,msg:String){
-        print("NotificationType",noti.type)
-        print("statusRider",noti.newRide?.driver_status ?? "")
+    func showPopup(noti:NotificationModel){
         
         switch noti.type {
-        case .RIDE_ACCEPT:
-            print("ACCEPTED")
-            switch noti.newRide?.driver_status{
-            case "0":
-                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
-                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
-                DismissVCOne()
-                print("Rider Reach")
-                print("0")
-            case "1":
-                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
-                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
-                
-                print("Driver Reach")
-                print("1")
-            case "2":
-                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
-                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
-                
-                print("Start Ride")
-                
-                print("2")
-            case "3":
-                UtilitiesManager.shared.saveNotificationSession(userDict: noti.newRide ?? NewRideModel(), msg: msg)
-                NotificationCenter.default.post(name: NSNotification.Name("notification"), object:msg)
-                
-                print("Ride Complete")
-                
-                print("3")
-            default:
-                print("default")
+        case .NEW_RIDE_REQUEST:
+            print("NEW_RIDE_REQUEST")
+/*
+            if UserDefaults.standard.bool(forKey: Constants.IS_HAPTIC_FEEDBACK){
+                if #available(iOS 13.0, *) {
+                    UtilityManager.manager.addHapticFeedback(.rigid)
+                } else {
+                    if #available(iOS 13.0, *) {
+                        UtilityManager.manager.addHapticFeedback(.soft)
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                }
             }
-        //rider?.driver_status
-        //            let storyBoard = UIStoryboard(name: "Popup", bundle: nil)
-        //            navigateToVC(identifier: "FindRiderVC", storyBoard: storyBoard, noti: noti)
-        case .RIDE_REJECT:
-            print("REJECTED")
-           // UtilitiesManager.shared.showToaster(MsgText: msg)
-            NotificationCenter.default.post(name: NSNotification.Name("rideCancel"), object:msg)
             
-            DismissVCOne()
+            if !Constants.IS_RIDE_POPUP_VISIBLE{
+//                navigateToVC(identifier: "NewRideRequestViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+            }else{
+//                let params = ["temp_id":noti.newRide?.temp_id ?? "","user_id":UtilityManager.manager.getId(),"driver_action":2,"pre_book":false] as [String : Any]
+//                cancelRide(params: params)
+            }
             
-        //            let storyBoard = UIStoryboard(name: "Popup", bundle: nil)
-        //            navigateToVC(identifier: "FindRiderVC", storyBoard: storyBoard, noti: noti)
-        
+        case .SCHEDULE_RIDE:
+            if UserDefaults.standard.bool(forKey: Constants.IS_HAPTIC_FEEDBACK){
+                if #available(iOS 13.0, *) {
+//                    UtilityManager.manager.addHapticFeedback(.rigid)
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+//            guard let ride = UtilityManager.manager.getModelFromUserDefalts(key: Constants.CURRENT_RIDE)else{return}
+//            if UtilityManager.manager.getDriverStatus() == 2 && ride["driver_status"] as? Int ?? 1 >= 2{
+//                navigateToVC(identifier: "NewRideRequestViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+            }
+        */
+        case .RIDE_LOCATION_CHANGED:
+        print("RIDE_LOCATION_CHANGED")
+
+//            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+        case .RIDE_CANCELED:
+        print("RIDE_CANCELED")
+
+//            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+        case .LOGOUT_USER:
+        print("LOGOUT_USER")
+
+//            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+        case .OFFLINE_PARTNER:
+        print("OFFLINE_PARTNER")
+
+//            NotificationCenter.default.post(name: NSNotification.Name(Constants.NotificationObservers.OFFLINE_USER.rawValue), object: noti)
+        case .RIDE_CANCEL_ON_RECEIVE:
+        print("RIDE_CANCEL_ON_RECEIVE")
+
+//                NotificationCenter.default.post(name: NSNotification.Name(Constants.NotificationObservers.RIDE_CANCEL_BY_USER_ON_RECEIVE.rawValue), object: noti)
+            
+        case .MESSAGE_RECEIVE:
+        print("MESSAGE_RECEIVE")
+
+//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+//            let banner = FloatingNotificationBanner(title: "New Message", subtitle: noti.message?.message,rightView: rightView, style: .success)
+//            banner.backgroundColor = UIColor.init(named: Constants.AssetsColor.ThemeBtnColor.rawValue)
+//            banner.clipsToBounds = true
+//            banner.autoDismiss = true
+//            banner.haptic = .medium
+//            banner.dismissOnSwipeUp = true
+//            self.addBadge()
+//            banner.onTap = {
+//                self.moveToChat()
+//            }
+//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
+        case .BOUNS :
+        print("BOUNS")
+
+//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+//            let banner = FloatingNotificationBanner(title: "Got Bouns", subtitle: noti.message?.message,rightView: rightView, style: .success)
+//            banner.backgroundColor = UIColor.systemGreen
+//            banner.clipsToBounds = true
+//            banner.autoDismiss = true
+//            banner.haptic = .medium
+//            banner.dismissOnSwipeUp = true
+//            banner.onTap = {
+//
+//            }
+//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
+        case .WARNING :
+        print("WARNING")
+
+//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+//            let banner = FloatingNotificationBanner(title: "Warning", subtitle: noti.message?.message,rightView: rightView, style: .success)
+//            banner.backgroundColor = UIColor.init(named: Constants.AssetsColor.ThemeBtnColor.rawValue)
+//            banner.clipsToBounds = true
+//            banner.autoDismiss = true
+//            banner.haptic = .medium
+//            banner.dismissOnSwipeUp = true
+//            banner.onTap = {
+//
+//            }
+//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
+        case .LOCATION_ERROR_NOTIFICATION :
+        print("LOCATION_ERROR_NOTIFICATION")
+
+//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+//            let banner = FloatingNotificationBanner(title: "Location Error", subtitle: noti.message?.message,rightView: rightView, style: .success)
+//            banner.backgroundColor = UIColor.systemRed
+//            banner.clipsToBounds = true
+//            banner.autoDismiss = true
+//            banner.haptic = .medium
+//            banner.dismissOnSwipeUp = true
+//            banner.onTap = {
+//
+//            }
+//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
         default:
             print("")
         }
+        
     }
+   
     
     
     func applicationDidEnterBackground(_ application: UIApplication) {

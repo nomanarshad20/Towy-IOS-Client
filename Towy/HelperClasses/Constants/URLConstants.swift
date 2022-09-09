@@ -47,6 +47,7 @@ struct APPURL {
         case findDriver = "passenger-find-near-drivers"//
         case createBookingWithAllParam = "passenger-create-booking"//
         case calculateDistanceAndFare = "passenger-calculating-distance-and-fare"//
+        case createStrip = "passenger-create-stripe-customer"//
 
 //passenger-create-booking
         ///passenger-calculating-distance-and-fare
