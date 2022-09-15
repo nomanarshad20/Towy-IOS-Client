@@ -121,6 +121,7 @@ struct Key {
         static let SAVE_NOTIFICATION = "saveNotificationData"
         static let IS_LOGIN = "isLogin"
         static let SERVER_DRIVER_STATUS = "status"
+        static let termsAndConditions = "TermsAndConditions"
         static let SERVER_USER_SID = "id";
         static let SERVER_USER_NAME = "first_name";
 

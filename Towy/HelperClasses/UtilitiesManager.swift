@@ -102,6 +102,11 @@ class UtilitiesManager{
     
     
     // MARK: - RETRIVE_FROM_USERDEFAULT
+    func isTermsAndConditionsPending() -> Bool
+       {
+           let result = defaults.value(forKey: Key.userDefaultKey.termsAndConditions) as? Bool
+           return result ?? false
+       }
     
     func getDriverStatus() -> Int
        {
@@ -226,6 +231,9 @@ class UtilitiesManager{
         
     }
     
+    func saveTermsAndConditionsState(pending:Bool){
+        defaults.set(pending, forKey: Key.userDefaultKey.termsAndConditions)
+    }
     
     func saveNumberValidation(isValid:Bool){
         defaults.set(isValid, forKey: Key.userDefaultKey.VALID_USER)

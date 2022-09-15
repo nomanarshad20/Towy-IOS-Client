@@ -9,7 +9,7 @@ import Foundation
 struct APPURL {
 
     private struct Domains {
-        static let Dev = "http://3.101.101.16"
+        static let Dev = "http://54.183.143.65"
 //        static let UAT = "http://test-UAT.com"
 //        static let Local = "192.145.1.1"
 //        static let QA = "testAddress.qa.com"

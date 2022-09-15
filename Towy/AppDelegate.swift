@@ -68,7 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
             }
         }
         // by DAIR added check to bypass login screen is user already login
-        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) //|| (UtilitiesManager.shared.retriveAppleLoginData() != nil)
+        if UtilitiesManager.shared.isTermsAndConditionsPending(){
+            moveToTermsVC()
+        }
+        else if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) //|| (UtilitiesManager.shared.retriveAppleLoginData() != nil)
         {
             //let data = UtilitiesManager.shared.retriveSocialUserData() 
             moveToTabbarVC()
@@ -88,6 +91,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func moveToHomeVC(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let VC = storyBoard.instantiateViewController(withIdentifier: "initialVC") as! initialVC
+        self.navigationontroller = UINavigationController(rootViewController: VC)
+        self.navigationontroller?.navigationBar.isHidden = true
+        self.window?.rootViewController = self.navigationontroller
+        self.window?.makeKeyAndVisible()
+
+    }
+    func moveToTermsVC(){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let VC = storyBoard.instantiateViewController(withIdentifier: "TermAndCondtionVC") as! TermAndCondtionVC
         self.navigationontroller = UINavigationController(rootViewController: VC)
         self.navigationontroller?.navigationBar.isHidden = true
         self.window?.rootViewController = self.navigationontroller
