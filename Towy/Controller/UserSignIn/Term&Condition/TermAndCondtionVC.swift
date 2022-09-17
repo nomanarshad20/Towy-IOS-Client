@@ -54,6 +54,8 @@ class TermAndCondtionVC: UIViewController {
         self.lblSubtitle.font = UIFont.myMediumSystemFont(ofSize: 16)
         self.lblAccept.font = UIFont.myMediumSystemFont(ofSize: 14)
 
+        UtilitiesManager.shared.saveTermsAndConditionsState(pending: true)
+        
 //        self.tfPassword.font = UIFont.myMediumSystemFont(ofSize: 18)
 //        self.tfConfirmPassword.font = UIFont.myMediumSystemFont(ofSize: 18)
     
@@ -87,6 +89,7 @@ class TermAndCondtionVC: UIViewController {
         if currentState == .check{
             currentState = .uncheck
 
+            UtilitiesManager.shared.saveTermsAndConditionsState(pending: true)
             self.btnNext.backgroundColor = AppColor.appPrimaryColor
             self.btnNext.titleLabel?.textColor = .lightGray
             self.btnNext.isUserInteractionEnabled = false
@@ -94,6 +97,7 @@ class TermAndCondtionVC: UIViewController {
         }
         else{
             currentState = .check
+            UtilitiesManager.shared.saveTermsAndConditionsState(pending: false)
 
             self.btnNext.backgroundColor = .black
             self.btnNext.titleLabel?.textColor = .white

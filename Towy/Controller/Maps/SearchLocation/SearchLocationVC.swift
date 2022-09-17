@@ -161,12 +161,18 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
                             
                             if self.currentTFTag == 0{
                                 self.sourceLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
-                            }else {
-                                let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
-                                vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
-                                vc.sourceLocation = self.sourceLocation
-
-                                self.navigationController?.pushViewController(vc, animated: true)
+                                self.getAddressFromlatLong(lat: center.latitude, long: center.longitude, point: "Source")
+                            }else{
+                                if self.tfPickup.text == ""{
+                                    self.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
+                                    self.getAddressFromlatLong(lat: center.latitude, long: center.longitude, point: "Destination")
+                                }else{
+                                    let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
+                                    vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
+                                    vc.sourceLocation = self.sourceLocation
+                                    
+                                    self.navigationController?.pushViewController(vc, animated: true)
+                                }
                             }
                             
                             
