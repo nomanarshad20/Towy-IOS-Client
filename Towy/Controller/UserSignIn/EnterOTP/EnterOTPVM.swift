@@ -160,6 +160,9 @@ class EnterOTPVM: BaseVM {
             case .success(let response):
                 
                 UtilitiesManager.shared.saveLoginUserData(user: response)
+                UtilitiesManager.shared.saveUserId(id: response.data.userID)
+                UtilitiesManager.shared.saveUserName(name: response.data.firstName)
+
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.moveToTabbarVC()
 

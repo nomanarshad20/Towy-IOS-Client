@@ -142,11 +142,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
 
 
 extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        //UtilityManager().saveObject(obj: fcmToken ?? "", forKey: strToken)
+        UtilitiesManager.shared.saveFCM_Token(token: fcmToken ?? "")
+        print("FCM registration token: \(fcmToken ?? "")")
+        
+    }
     
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("APNs token retrieved: \(deviceToken)")
+        
+        Messaging.messaging().apnsToken = deviceToken
+        
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         if UserDefaults.standard.bool(forKey: Key.userDefaultKey.IS_LOGIN){
             if let _ = userInfo["aps"] as? [String: AnyObject],
                let obj = NotificationModel.getNotificationType(dict: userInfo) {
+                
                 print("notificationDict",obj)
 //                if UtilitiesManager.shared.getDriverStatus() > 0 {
 //                    showPopup(noti: noti)
@@ -208,24 +227,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
         }
     
     /*
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        //UtilityManager().saveObject(obj: fcmToken ?? "", forKey: strToken)
-        UtilitiesManager.shared.saveFCM_Token(token: fcmToken ?? "")
-        print("FCM registration token: \(fcmToken ?? "")")
-        
-    }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("APNs token retrieved: \(deviceToken)")
-        Messaging.messaging().apnsToken = deviceToken
-        
-        let tokenParts = deviceToken.map { data -> String in
-            return String(format: "%02.2hhx", data)
-        }
-        
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
-    }
+
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("willPresent")
@@ -401,10 +403,12 @@ extension AppDelegate{
     
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        SocketIOManager.sharedInstance.closeConnection()
+        //SocketIOManager.sharedInstance.closeConnection()
+        SocketHelper.shared.disconnectSocket()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        SocketIOManager.sharedInstance.establishConnection()
+       // SocketIOManager.sharedInstance.establishConnection()
+        
     }
 }

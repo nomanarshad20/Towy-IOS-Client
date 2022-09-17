@@ -40,9 +40,9 @@ class UtilitiesManager{
         
         for index in 0..<buttons.count    {
             
-            alertController.setValue(NSAttributedString(string: title, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)]), forKey: "attributedTitle")
+            alertController.setValue(NSAttributedString(string: title, attributes: [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16),NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]), forKey: "attributedTitle")
             
-            alertController.setValue(NSAttributedString(string: message, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)]), forKey: "attributedMessage")
+            alertController.setValue(NSAttributedString(string: message, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14),NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]), forKey: "attributedMessage")
             
             
             let action = UIAlertAction(title: buttons[index], style: .default, handler: {
@@ -87,7 +87,17 @@ class UtilitiesManager{
         let storyboard = UIStoryboard.init(name: "Maps", bundle: nil)
         return storyboard
     }
-    
+    func getMainStoryboard() -> UIStoryboard
+    {
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad
+        {
+            let storyboard = UIStoryboard.init(name: "Main_iPad", bundle: nil)
+            return storyboard
+        }
+        
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        return storyboard
+    }
     func getId() -> Int
     {
         let result = UserDefaults.standard.value(forKey: Key.userDefaultKey.SERVER_USER_SID) as? Int
@@ -99,7 +109,12 @@ class UtilitiesManager{
         return result ?? "iOS_Driver"
     }
 
-    
+    func saveUserId(id:Int){
+        defaults.set(id, forKey: Key.userDefaultKey.SERVER_USER_SID)
+    }
+    func saveUserName(name:String){
+        defaults.set(name, forKey: Key.userDefaultKey.SERVER_USER_NAME)
+    }
     
     // MARK: - RETRIVE_FROM_USERDEFAULT
     

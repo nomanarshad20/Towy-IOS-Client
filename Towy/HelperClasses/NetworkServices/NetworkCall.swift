@@ -60,24 +60,34 @@ class NetworkCall : NSObject{
                         
                     case 401:
                         print("user not exist")
-                        
+                        let error = JSON(response.value)
+
                         do {
                             completion(.success(try JSONDecoder().decode(T.self, from: res)))
                         } catch let error {
                             print("catch error",String(data: res, encoding: .utf8) ?? "nothing received")
+                            
                             completion(.failure(error))
                         }
                         
                     case 404:
-                        let error = JSON(response.result)
-                        print("error")
+                        
+                        let error = JSON(response.value)
+                        print("error",error.dictionaryObject?["message"] as? String ?? "")
+                        UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.dictionaryObject?["message"] as? String ?? "")
+
+                        
                         //{"result":"error","message":"Driver Not Found","data":null}
                         
                         
                     case 422:
 //                        print("alert message",response.data)
-                        UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "mobile number or email has already been taken.")
+                        let error = JSON(response.value)
+
+                        UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.dictionaryObject?["message"] as? String ?? "")
                     default:
+                        let errorss = JSON(response.result)
+
                      let error = NSError(domain: response.debugDescription, code: code, userInfo: response.response?.allHeaderFields as? [String: Any])
                         completion(.failure(error))
                     }

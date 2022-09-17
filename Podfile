@@ -28,6 +28,13 @@ target 'Towy' do
   pod 'FBSDKCoreKit'
   
   pod 'MFCard'
+  #pod 'Socket.IO-Client-Swift', '~> 2.4.1'
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'
+
+  pod 'NotificationBannerSwift', '2.5.0'
+  pod "Pulsator"
+  
+  pod 'Cosmos', '~> 23.0'
+
 
 end

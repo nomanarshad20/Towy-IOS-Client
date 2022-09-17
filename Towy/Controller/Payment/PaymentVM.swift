@@ -50,4 +50,9 @@ class PaymentVM : BaseVM{
     // MARK: - Validation
     
     
+    func checkValidation(){
+        
+    }
+    
+    
 }

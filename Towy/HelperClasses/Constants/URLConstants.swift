@@ -9,7 +9,8 @@ import Foundation
 struct APPURL {
 
     private struct Domains {
-        static let Dev = "http://3.101.101.16"
+        static let Dev = "http://54.183.143.65"
+        static var socketURL = "http://54.183.143.65:8081"
 //        static let UAT = "http://test-UAT.com"
 //        static let Local = "192.145.1.1"
 //        static let QA = "testAddress.qa.com"
@@ -20,6 +21,8 @@ struct APPURL {
     }
 
     static let Domain = Domains.Dev
+    static let SocketUrl = Domains.socketURL
+
     private  static let Route = Routes.Api
     static let BaseURL = Domain + Route
 
@@ -38,9 +41,9 @@ struct APPURL {
         
         // MARK: - DASHBOARD_ENDPOINT
         case PassengerDashboard = "passenger-dashboard"//
-        case saveRating = "save-rating"//
+        case saveRating = "passenger-save-rating"//
         case tripHistory = "passenger/trip-history"//
-        case passengerStatus = "passenger/get-passenger-status"//
+        case passengerStatus = "get-passenger-status"//
 
         case getNotification = "passenger/get-notifications"//
         case cancelRide = "passenger-cancel-ride"//
@@ -48,6 +51,7 @@ struct APPURL {
         case createBookingWithAllParam = "passenger-create-booking"//
         case calculateDistanceAndFare = "passenger-calculating-distance-and-fare"//
         case createStrip = "passenger-create-stripe-customer"//
+        case getCancelReason = "get-cancel-reason"//
 
 //passenger-create-booking
         ///passenger-calculating-distance-and-fare

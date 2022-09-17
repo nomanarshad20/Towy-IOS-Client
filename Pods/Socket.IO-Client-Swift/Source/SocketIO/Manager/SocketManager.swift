@@ -406,10 +406,11 @@ open class SocketManager : NSObject, SocketManagerSpec, SocketParsable, SocketDa
     }
 
     private func _parseEngineMessage(_ msg: String) {
+        
         guard let packet = parseSocketMessage(msg) else { return }
+        
         guard !packet.type.isBinary else {
             waitingPackets.append(packet)
-
             return
         }
 

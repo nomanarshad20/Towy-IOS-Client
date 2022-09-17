@@ -134,6 +134,9 @@ struct Key {
     
     struct notificationKey{
         static let DISMISS_CONTROLLER = "dismiss"
+        static let CALLAPIFORBOOKING = "booking"
+        static let UPDATE_UI_FOR_CANCEL = "cancelRequest"
+
 //        public enum NotificationType:String{
 //            case RIDE_ACCEPT     = "1"
 //            case RIDE_REJECT = "0"

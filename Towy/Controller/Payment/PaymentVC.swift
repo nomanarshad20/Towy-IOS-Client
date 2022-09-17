@@ -6,33 +6,56 @@
 //
 
 import UIKit
-import MFCard
 
-class PaymentVC: UIViewController , MFCardDelegate {
+class PaymentVC: UIViewController {
     
-    @IBOutlet weak var myCard : MFCardView!
     
+    
+    @IBOutlet weak var tfName:UITextField!
+    @IBOutlet weak var tfCardNumber:UITextField!
+    @IBOutlet weak var tfCVC:UITextField!
+    @IBOutlet weak var tfMonth:UITextField!
+    @IBOutlet weak var tfYear:UITextField!
+
+//    @IBOutlet weak var myCard : MFCardView!
+//
     var paymentVm = PaymentVM()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        var myCard : MFCardView
 //        myCard  = MFCardView(withViewController: self)
-        myCard.delegate = self
+        //myCard.delegate = self
 //        myCard.autoDismiss = true
 //        myCard.toast = true
 //        myCard.showCard()
     }
     
     
-    func cardTypeDidIdentify(_ cardType: String) {
-        print("")
+    @IBAction func btnSubmitAction(_ sender:Any){
+        paymentVm.name = self.tfName.text ?? ""
+        paymentVm.cvc = self.tfCVC.text ?? ""
+        paymentVm.number = self.tfCardNumber.text ?? ""
+        paymentVm.month = self.tfMonth.text ?? ""
+        paymentVm.year = self.tfYear.text ?? ""
+
+        paymentVm.callStripApi() { data in
+            UtilitiesManager.shared.showAlertWithAction(self, message: data.message, title: data.result, buttons: ["OK"]) { index in
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
-    
-    func cardDidClose() {
-        print("")
+    @IBAction func btnBackAction(_ sender:Any){
         self.navigationController?.popViewController(animated: true)
     }
-    
+//    func cardTypeDidIdentify(_ cardType: String) {
+//        print("")
+//    }
+//
+//    func cardDidClose() {
+//        print("")
+//        self.navigationController?.popViewController(animated: true)
+//    }
+    /*
     func cardDoneButtonClicked(_ card: Card?, error: String?) {
     if error == nil{
         print(card?.number)
@@ -54,10 +77,10 @@ class PaymentVC: UIViewController , MFCardDelegate {
     print(error!)
     }
     }
-    
-    @IBAction func btnBackAction(){
-        self.navigationController?.popViewController(animated: true)
-    }
+    */
+//    @IBAction func btnBackAction(){
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
 
 }

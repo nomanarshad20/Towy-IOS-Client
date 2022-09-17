@@ -7,76 +7,71 @@
 
 import Foundation
 class BookingInfo{
-    
-    
-//        var pickup_longitude:String?
-//        var temp_id:Int?
-//        var passenger_id:Int?
-//        var vehicle_type:String?
-//        var oyla_pay:String?
-//        var dropoff_latitude:String?
-//        var user_id:String?
-//        var distance_kilomiters:Double?
-//        var pickup_latitude:String?
-//        var estimate_minutes:String?
-//        var dropoff_longitude:String?
-//        var booking_id:Int?
-//        var driver_status:Int?
-//
-//        init() {
-//
-//            self.pickup_longitude = nil
-//            self.temp_id = nil
-//            self.passenger_id = nil
-//            self.vehicle_type = nil
-//            self.oyla_pay = nil
-//            self.dropoff_latitude = nil
-//            self.user_id = nil
-//            self.distance_kilomiters = nil
-//            self.pickup_latitude = nil
-//            self.estimate_minutes = nil
-//            self.dropoff_longitude = nil
-//            self.booking_id = nil
-//            self.driver_status = nil
-//        }
-//
-//        class func getRideInfo(dict:[String: Any])->BookingInfo1{
-//           let r = BookingInfo1()
-//            r.pickup_longitude = dict["pickup_longitude"] as? String ?? nil
-//            r.temp_id = dict["temp_id"] as? Int ?? nil
-//            r.passenger_id = dict["passenger_id"] as? Int ?? nil
-//            r.vehicle_type = dict["vehicle_type"] as? String ?? ""
-//            r.oyla_pay = dict["oyla_pay"] as? String ?? ""
-//            r.dropoff_latitude = dict["dropoff_latitude"] as? String ?? nil
-//            r.user_id = dict["user_id"] as? String ?? ""
-//            r.distance_kilomiters = dict["distance_kilomiters"] as? Double ?? nil
-//            r.pickup_latitude = dict["pickup_latitude"] as? String ?? nil
-//            r.estimate_minutes = dict["estimate_minutes"] as? String ?? ""
-//            r.dropoff_longitude = dict["dropoff_longitude"] as? String ?? nil
-//            r.booking_id = dict["booking_id"] as? Int ?? nil
-//            r.driver_status = dict["driver_status"] as? Int ?? nil
-//            return r
-//        }
-//
-//    class func getBookinDict(r:BookingInfo1)->[String:Any]{
-//        var dict = [String:Any]()
-//        dict["pickup_longitude"]  = r.pickup_longitude
-//        r.temp_id = dict["temp_id"] as? Int ?? nil
-//        dict["passenger_id"] = r.passenger_id
-//        dict["vehicle_type"] = r.vehicle_type
-//        dict["oyla_pay"] = r.oyla_pay
-//        dict["dropoff_latitude"] = r.dropoff_latitude
-//        dict["user_id"] = r.user_id
-//        dict["distance_kilomiters"] = r.distance_kilomiters
-//        dict["pickup_latitude"] =  r.pickup_latitude
-//        dict["estimate_minutes"] = r.estimate_minutes
-//        dict["dropoff_longitude"] = r.dropoff_longitude
-//        dict["booking_id"] = r.booking_id
-//        dict["driver_status"] = r.driver_status
-//
-//        return dict
-//    }
-//
+
+    /*
+     {
+       "id" : 221,
+       "vehicle_tax" : 12,
+       "booking_type" : "book_now",
+       "waiting_price_per_min" : 2,
+       "vehicle_per_min_rate" : 8,
+       "driver_image" : "upload\/driver\/43\/1662400561-5212.jpg",
+       "driver_id" : 43,
+       "created_ago" : "19 minutes ago",
+       "pick_up_time" : null,
+       "passenger_id" : 40,
+       "actual_fare" : 1199,
+       "estimated_fare" : "518.00",
+       "passenger_mobile_no" : "+923127310357",
+       "initial_time_rate" : "5",
+       "p2p_after_pick_up_distance" : 0,
+       "passenger_comment_from_driver" : null,
+       "pick_up_longitude" : "74.26787574990702",
+       "driver_mobile_no" : "1234567890",
+       "pick_up_area" : "Lahore",
+       "is_passenger_rating_given" : 0,
+       "is_driver_rating_given" : 0,
+       "passenger_image" : null,
+       "vehicle_per_km_rate" : 10,
+       "driver_rating" : 0,
+       "passenger_rating_from_driver" : null,
+       "drop_off_area" : "Lahore",
+       "driver_last_name" : "driver",
+       "peak_factor_rate" : null,
+       "created_at" : "2022-09-16T23:39:01.000000Z",
+       "initial_distance_rate" : "8",
+       "passenger_last_name" : "iOS",
+       "total_ride_minutes" : 4,
+       "vehicle_type_id" : 1,
+       "vehicle_registration_number" : null,
+       "total_minutes_to_reach_pick_up_point" : "10",
+       "ride_pick_up_time" : "2022-09-16 23:50:16",
+       "ride_end_time" : "2022-09-16 23:58:52",
+       "ride_start_time" : "2022-09-16 23:54:27",
+       "min_vehicle_fare" : 500,
+       "driver_comment_from_passenger" : null,
+       "pick_up_latitude" : "31.497707979142376",
+       "total_calculated_distance" : "50",
+       "passenger_first_name" : "usman",
+       "booking_unique_id" : "TOWY-63250915a6fa2",
+       "p2p_before_pick_up_distance" : 0,
+       "total_distance" : "1",
+       "payment_type" : "payment_gateway",
+       "driver_status" : 3,
+       "passenger_rating" : 0,
+       "drop_off_latitude" : "31.5084705",
+       "franchise_id" : null,
+       "booking_detail_id" : 221,
+       "drop_off_longitude" : "74.26787574990702",
+       "driver_rating_from_passenger" : null,
+       "driver_waiting_time" : "4",
+       "otp" : "3731",
+       "pick_up_date" : null,
+       "vehicle_name" : null,
+       "driver_first_name" : "testing",
+       "ride_status" : 1
+     }
+     */
     
     
     

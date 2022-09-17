@@ -8,6 +8,7 @@
 import UIKit
 import GoogleMaps
 import CoreLocation
+import SwiftyJSON
 
 class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegate{
     // MARK: Outlets
@@ -28,14 +29,50 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     
     let homeVM = HomeVM()
     var objDashboard : DashBoardModel? = nil
+    var objBooking : BookingInfo? = nil
+
+    var mainMapVm = MainMapVM()
+
     // MARK: View Methods
     override func viewDidLoad() {
         setupMap()
         registerXib()
+        print("AuthHeader",UtilitiesManager.shared.getAuthHeader())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        mainMapVm.getBookingStatus { bookingData,error  in
+            guard error == nil else{return}
+
+            let dictionary = try! DictionaryEncoder().encode(bookingData)
+            let dict = JSON(dictionary).dictionaryObject
+            
+            guard let data = dict?["data"] as? [String:Any] else{return}
+            
+            guard let booking = data["booking"] as? [String:Any] else{
+                
+                return
+                
+            }
+            
+            let b = BookingInfo.getRideInfo(dict: booking)
+            self.objBooking = b
+
+
+//            do{
+//            let dict = try JSONDecoder().decode([String: Any].self, from: JSONEncoder().encode(bookingData))
+//            }
+//            catch{
+//                
+//            }
+//            guard error == nil else{return}
+//            guard let booking = bookingData?.data.booking else{
+//                return
+//            }
+//
+//            guard let bookingDetail = bookingData else{return}
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -43,11 +80,7 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     }
     func setUI(){
         homeVM.setDashBoard(photoSliderView: photoSliderView)
-        
-//        homeVM.fetchDashBoardData { data  in
-//            self.objDashboard = data
-//            self.clcDashBoard.reloadData()
-//        }
+
     }
     
     func setupMap(){
@@ -207,11 +240,22 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0{
-            let vc = ControllerNavigation.shared.getVC(of: .searchLocationVC) as! SearchLocationVC
-            vc.CurrentLat   = lat
-            vc.CurrentLong = long
+            
+            
+           // guard let data = self.objBooking else{return}
+            guard let data = self.objBooking else{
+                let vc = ControllerNavigation.shared.getVC(of: .searchLocationVC) as! SearchLocationVC
+                vc.CurrentLat   = lat
+                vc.CurrentLong = long
+                self.navigationController?.pushViewController(vc, animated: true)
+                return
+            }
+            
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
+            vc.objSocket = data
             self.navigationController?.pushViewController(vc, animated: true)
-//            ControllerNavigation.shared.pushVC(of: .searchLocationVC)
+            
+            
         }
 
     }
@@ -293,12 +337,15 @@ extension HomeVC: CLLocationManagerDelegate {
 //        self.homeVM.fetchDashBoardData { data  in
 //            self.objDashboard = data
 //            self.clcDashBoard.reloadData()
+        
             self.homeVM.fetchNearestDrivers(location: CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)){ data in
-                
                 for marker in data.data{
                     self.addDriverMarker(location: CLLocationCoordinate2D(latitude: marker.latitude, longitude: marker.longitude), markerImg: "car_map")
                 }
             }
+        
+        
+        
        // }
        
         //self.loadGoogleMapLayer(currentLocation: currentLocation)

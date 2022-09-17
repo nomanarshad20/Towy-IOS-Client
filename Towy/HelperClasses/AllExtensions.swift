@@ -169,3 +169,69 @@ extension UIButton {
     }
     
 }
+
+extension UIView {
+    /// animate the border width
+    func animateBorderWidth(toValue: CGFloat, duration: Double) -> CABasicAnimation {
+        let widthAnimation = CABasicAnimation(keyPath: "borderWidth")
+        widthAnimation.fromValue = layer.borderWidth
+        widthAnimation.toValue = toValue
+        widthAnimation.duration = duration
+        return widthAnimation
+    }
+    
+    /// animate the scale
+    func animateScale(toValue: CGFloat, duration: Double) -> CABasicAnimation {
+        let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
+        scaleAnimation.fromValue = 1.0
+        scaleAnimation.toValue = toValue
+        scaleAnimation.duration = duration
+        scaleAnimation.repeatCount = .infinity
+        scaleAnimation.isRemovedOnCompletion = false
+        scaleAnimation.timingFunction = CAMediaTimingFunction(name: .easeOut)
+        return scaleAnimation
+    }
+    
+    func pulsate(animationDuration: CGFloat) {
+        
+        var animationGroup = CAAnimationGroup()
+        animationGroup = CAAnimationGroup()
+        animationGroup.duration = animationDuration
+        animationGroup.repeatCount = Float.infinity
+        
+        let newLayer = CALayer()
+        newLayer.bounds = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
+        newLayer.cornerRadius = self.frame.width/2
+        newLayer.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+        newLayer.cornerRadius = self.frame.width/2
+        
+        animationGroup.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.default)
+        
+        animationGroup.animations = [animateScale(toValue: 6.0, duration: 2.0),
+                                     animateBorderWidth(toValue: 1.2, duration: animationDuration)]
+        newLayer.add(animationGroup, forKey: "pulse")
+        self.layer.cornerRadius = self.frame.width/2
+        self.layer.insertSublayer(newLayer, at: 0)
+    }
+}
+
+
+class DictionaryEncoder {
+    private let jsonEncoder = JSONEncoder()
+
+    /// Encodes given Encodable value into an array or dictionary
+    func encode<T>(_ value: T) throws -> Any where T: Encodable {
+        let jsonData = try jsonEncoder.encode(value)
+        return try JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
+    }
+}
+
+class DictionaryDecoder {
+    private let jsonDecoder = JSONDecoder()
+
+    /// Decodes given Decodable type from given array or dictionary
+    func decode<T>(_ type: T.Type, from json: Any) throws -> T where T: Decodable {
+        let jsonData = try JSONSerialization.data(withJSONObject: json, options: [])
+        return try jsonDecoder.decode(type, from: jsonData)
+    }
+}

@@ -369,9 +369,12 @@ open class SocketIOClient : NSObject, SocketIOClientSpec {
 
         anyHandler?(SocketAnyEvent(event: event, items: data))
 
-        for handler in handlers where handler.event == event {
+       // for handler in handlers where handler.event == event {
+        for handler in handlers {
             handler.executeCallback(with: data, withAck: ack, withSocket: self)
         }
+            
+        //}
     }
 
     /// Causes a client to handle a socket.io packet. The namespace for the packet must match the namespace of the
@@ -473,6 +476,7 @@ open class SocketIOClient : NSObject, SocketIOClientSpec {
     /// - returns: A unique id for the handler that can be used to remove it.
     @discardableResult
     open func on(clientEvent event: SocketClientEvent, callback: @escaping NormalCallback) -> UUID {
+        
         return on(event.rawValue, callback: callback)
     }
 
