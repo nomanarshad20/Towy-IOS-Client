@@ -44,7 +44,8 @@ class AccountVC: UIViewController {
     }
     
     @IBAction func btnWalletAction(_ sender:Any){
-        
+        let vc = UtilitiesManager.shared.getMainStoryboard().instantiateViewController(withIdentifier: "WalletVC") as! WalletVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func btnTripAction(_ sender:Any){
@@ -70,12 +71,19 @@ extension AccountVC:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 3 {
+        if indexPath.row == 1 {
             UtilitiesManager.shared.removeData()
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.moveToHomeVC()
 
+        }else{
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MessagesVC") as! MessagesVC
+            self.navigationController?.pushViewController(vc, animated: true)
+
         }
+        
+        
+        
     }
     
 }

@@ -221,6 +221,15 @@ class UtilitiesManager{
         }
         return nil
     }
+    func retriveTripLocation() -> UserTripLocationModel?{
+        do {
+            let getData = try defaults.getObject(forKey: Key.userDefaultKey.USER_TRIP_LOCATION, castTo: UserTripLocationModel.self)
+            return getData
+        } catch {
+            print(error.localizedDescription)
+        }
+        return nil
+    }
     func retriveAppleInformationSession() -> [String:Any]{
         let defaults = UserDefaults.standard
         let dict = defaults.dictionary(forKey: Key.userDefaultKey.APPLE_INFORMATION)
@@ -257,6 +266,13 @@ class UtilitiesManager{
     func saveUserData(user:RegisterUser?){
         do {
             try defaults.setObjects(user, forKey: Key.userDefaultKey.USER_DATA)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    func saveUserTripLocation(user:UserTripLocationModel){
+        do {
+            try defaults.setObjects(user, forKey: Key.userDefaultKey.USER_TRIP_LOCATION)
         } catch {
             print(error.localizedDescription)
         }

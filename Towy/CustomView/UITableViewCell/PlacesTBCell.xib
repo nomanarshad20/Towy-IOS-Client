@@ -26,11 +26,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="397" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IV3-rL-Mzs">
-                        <rect key="frame" x="0.0" y="0.0" width="397" height="65"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IV3-rL-Mzs">
+                        <rect key="frame" x="0.0" y="0.0" width="397" height="64"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gV-6e-PP3">
-                                <rect key="frame" x="55" y="17" width="327" height="16"/>
+                                <rect key="frame" x="55" y="24" width="327" height="16"/>
                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,8 +43,8 @@
                                     <constraint firstAttribute="width" constant="30" id="pUd-tB-fJb"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-Uz-DB5">
-                                <rect key="frame" x="55" y="38" width="327" height="13.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location.." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrs-Uz-DB5">
+                                <rect key="frame" x="55" y="45" width="327" height="13.5"/>
                                 <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,8 +58,8 @@
                             <constraint firstItem="9gV-6e-PP3" firstAttribute="leading" secondItem="nkd-yf-KDc" secondAttribute="trailing" constant="5" id="X4Y-5X-IkW"/>
                             <constraint firstItem="nrs-Uz-DB5" firstAttribute="leading" secondItem="9gV-6e-PP3" secondAttribute="leading" id="YGy-Ev-ueY"/>
                             <constraint firstAttribute="trailing" secondItem="9gV-6e-PP3" secondAttribute="trailing" constant="15" id="ZV9-vw-h7T"/>
-                            <constraint firstItem="9gV-6e-PP3" firstAttribute="top" secondItem="nkd-yf-KDc" secondAttribute="top" id="k07-T5-cRx"/>
                             <constraint firstItem="nkd-yf-KDc" firstAttribute="centerY" secondItem="IV3-rL-Mzs" secondAttribute="centerY" id="wFw-06-FfS"/>
+                            <constraint firstItem="9gV-6e-PP3" firstAttribute="centerY" secondItem="IV3-rL-Mzs" secondAttribute="centerY" id="xeM-Ku-11N"/>
                         </constraints>
                     </view>
                 </subviews>

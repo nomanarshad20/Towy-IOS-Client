@@ -39,9 +39,9 @@ class EditAccountVM: BaseVM {
 
         }
         else if let login = UtilitiesManager.shared.retriveUserLoginData(){
-            let obj_1 = ProfileModel(title: "First name", subTitle: login.data.firstName )
-            let obj_2 = ProfileModel(title: "Last name", subTitle: login.data.lastName)
-            let obj_3 = ProfileModel(title: "Email", subTitle: login.data.email )
+            let obj_1 = ProfileModel(title: "First name", subTitle: login.data.firstName ?? "" )
+            let obj_2 = ProfileModel(title: "Last name", subTitle: login.data.lastName ?? "")
+            let obj_3 = ProfileModel(title: "Email", subTitle: login.data.email ?? "")
             let obj_4 = ProfileModel(title: "Phone", subTitle: login.data.mobileNo ?? "")
             arr.append(obj_1)
             arr.append(obj_2)

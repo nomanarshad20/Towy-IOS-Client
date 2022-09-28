@@ -13,7 +13,7 @@ class ReasonVM:BaseVM{
     var reasonId = 0
 
     func getReasonsData(completion:@escaping (ReasonListModel) -> ()){
-       // let h = UtilitiesManager.shared.getAuthHeader()
+        // let h = UtilitiesManager.shared.getAuthHeader()
         
         //let body = ["mobile_no":"actualNumber","user_type":"1"] as [String:Any]
         NetworkCall(data: [:], headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.getCancelReason, method: .get,isJSONRequest: false).executeQuery(){
@@ -36,6 +36,7 @@ class ReasonVM:BaseVM{
         //let h = UtilitiesManager.shared.getAuthHeader()
         let body = ["other_reason":reason,"cancel_reason_id":reasonId,"booking_id":bookingId] as [String:Any]
         
+        print("paramForCancel",body)
         NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.cancelRide, method: .post,showLoader: true).executeQuery(){
             (result: Result<CancelRideModel,Error>) in
             switch result{

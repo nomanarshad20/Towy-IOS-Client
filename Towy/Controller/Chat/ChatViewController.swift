@@ -134,7 +134,7 @@ class ChatViewController: UIViewController {
         if txtMessage.text != ""{
             if booking?.id != nil{
 //                \(UtilityManager.manager.getId())
-                let paramas = ["booking_id":"\(booking!.id!)","receiver_id":booking?.driver_id ?? 0,"sender_id":"40","message":txtMessage.text!,"messageTime":Date.init().timeIntervalSince1970,"type":"2"] as [String : Any]
+                let paramas = ["booking_id":"\(booking!.id!)","receiver_id":booking?.driver_id ?? 0,"sender_id":UtilitiesManager.shared.getId(),"message":txtMessage.text!,"messageTime":Date.init().timeIntervalSince1970,"type":"1"] as [String : Any]
                 
                 ref.child("\(booking!.id!)").child("messages").childByAutoId().setValue(paramas) { err, refer in
                     if err == nil{
@@ -214,7 +214,7 @@ extension ChatViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let ds = messages[indexPath.row]
-        if ds.type == "1"{
+        if ds.type == "2"{
              let cell = tableView.dequeueReusableCell(withIdentifier: "ReceiverTableViewCell", for: indexPath) as! ReceiverTableViewCell
             cell.lblMessage.text = ds.message ?? ""
             return cell
@@ -227,7 +227,7 @@ extension ChatViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let ds = messages[indexPath.row]
-        if ds.type == "1"{
+        if ds.type == "2"{
              let cel = cell as! ReceiverTableViewCell
             cel.lblMessage.text = ds.message ?? ""
         }else{

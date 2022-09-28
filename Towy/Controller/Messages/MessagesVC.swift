@@ -1,29 +1,28 @@
 //
-//  WalletVC.swift
+//  MessagesVC.swift
 //  Towy
 //
-//  Created by user on 13/08/2022.
+//  Created by Usman on 20/09/2022.
 //
 
 import UIKit
 
-class WalletVC: UIViewController {
-
+class MessagesVC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.tabBarController?.tabBar.isHidden = true
+
     }
     
 
     
     // MARK: - Navigation
-    @IBAction func btnAddPaymentAction(_ sender:Any){
-        ControllerNavigation.shared.pushVC(of: .paymentVC)
-    }
+
     @IBAction func btnBackAction(_ sender:Any){
         self.navigationController?.popViewController(animated: true)
     }
-    
 
 }

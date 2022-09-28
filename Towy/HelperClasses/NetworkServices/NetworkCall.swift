@@ -18,11 +18,13 @@ class NetworkCall : NSObject{
     var url :String! = APPURL.BaseURL
     var encoding: ParameterEncoding! = JSONEncoding.default
     var showLoader = true
-    init(data: [String:Any] = [:],headers: [String:String] = [:],url :String?,service :APPURL.services? = nil, method: HTTPMethod = .post, isJSONRequest: Bool = true,showLoader:Bool = true){
+    var showAlert = true
+    init(data: [String:Any] = [:],headers: [String:String] = [:],url :String?,service :APPURL.services? = nil, method: HTTPMethod = .post, isJSONRequest: Bool = true,showLoader:Bool = true,showAlert:Bool = true){
         super.init()
         data.forEach{parameters.updateValue($0.value, forKey: $0.key)}
         headers.forEach({self.headers.add(name: $0.key, value: $0.value)})
         self.showLoader = showLoader
+        self.showAlert = showAlert
         if url == nil, service != nil{
             self.url += service!.rawValue
         }else{
@@ -47,8 +49,8 @@ class NetworkCall : NSObject{
                 
                 if let code = response.response?.statusCode{
                     print("responseData",String(data: res, encoding: .utf8) ?? "nothing received")
-                    let a = res
-                    let r = response
+//                    let a = res
+//                    let r = response
                     switch code {
                     case 200...299:
                         do {
@@ -60,7 +62,7 @@ class NetworkCall : NSObject{
                         
                     case 401:
                         print("user not exist")
-                        let error = JSON(response.value)
+//                        let error = JSON(response.value)
 
                         do {
                             completion(.success(try JSONDecoder().decode(T.self, from: res)))
@@ -74,17 +76,19 @@ class NetworkCall : NSObject{
                         
                         let error = JSON(response.value)
                         print("error",error.dictionaryObject?["message"] as? String ?? "")
+                        if self.showAlert{
                         UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.dictionaryObject?["message"] as? String ?? "")
-
+                        }
                         
                         //{"result":"error","message":"Driver Not Found","data":null}
-                        
+                        //print("")
                         
                     case 422:
 //                        print("alert message",response.data)
                         let error = JSON(response.value)
-
+                        if self.showAlert{
                         UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.dictionaryObject?["message"] as? String ?? "")
+                        }
                     default:
                         let errorss = JSON(response.result)
 

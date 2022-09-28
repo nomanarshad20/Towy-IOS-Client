@@ -10,22 +10,22 @@ import Foundation
 
 // MARK: - UserLogin
 struct UserLogin: Codable {
-    let result, message: String
+    let result, message: String?
     let data: LoginDataClass
 }
 
 // MARK: - DataClass
 struct LoginDataClass: Codable {
-    let userID: Int
-    let email, mobileNo, fcmToken: String
-    let userType, isVerified: Int
-    let referralCode: String
-    let steps: Int
+    let userID: Int?
+    let email, mobileNo, fcmToken: String?
+    let userType, isVerified: Int?
+    let referralCode: String?
+    let steps: Int?
     let provider : String? = nil
     let image: String? = nil
-    let firstName, lastName: String
-    let walletBalance, rating: Int
-    let accessToken: String
+    let firstName, lastName: String?
+    let walletBalance, rating: Int?
+    let accessToken: String?
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"

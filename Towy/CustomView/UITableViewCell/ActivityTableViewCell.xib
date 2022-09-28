@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="UberMoveTextMedium.otf">
+            <string>UberMoveText-Medium</string>
+        </array>
+        <array key="UberMoveTextRegular.otf">
+            <string>UberMoveText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="85" id="KGk-i7-Jjw" customClass="ActivityTableViewCell" customModule="Towy" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="85"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="364" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8Z-jK-NEv">
+                        <rect key="frame" x="0.0" y="0.0" width="364" height="85"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2r-ey-dmW">
+                                <rect key="frame" x="15" y="12.5" width="60" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="Jh5-2y-f2r">
+                                        <rect key="frame" x="15" y="15" width="30" height="30"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83529411760000005" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Jh5-2y-f2r" firstAttribute="top" secondItem="d2r-ey-dmW" secondAttribute="top" constant="15" id="UOo-9H-AXc"/>
+                                    <constraint firstAttribute="width" constant="60" id="Uk9-WN-q3a"/>
+                                    <constraint firstItem="Jh5-2y-f2r" firstAttribute="leading" secondItem="d2r-ey-dmW" secondAttribute="leading" constant="15" id="bCm-3S-noe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jh5-2y-f2r" secondAttribute="bottom" constant="15" id="dmj-dW-mBW"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jh5-2y-f2r" secondAttribute="trailing" constant="15" id="jWz-IL-uZs"/>
+                                    <constraint firstAttribute="height" constant="60" id="zTh-pD-7e1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBa-CE-lxe">
+                                <rect key="frame" x="85" y="12.5" width="34.5" height="18"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 Sep . 6:52 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmU-K9-pYb">
+                                <rect key="frame" x="85" y="33" width="74.5" height="13.5"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKR0 . Cancelled" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLe-Qt-5ND">
+                                <rect key="frame" x="85" y="51.5" width="85" height="13.5"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forward" translatesAutoresizingMaskIntoConstraints="NO" id="bVq-mf-pbW">
+                                <rect key="frame" x="324" y="30" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Ty3-ad-ayx"/>
+                                    <constraint firstAttribute="height" constant="25" id="xdT-7d-w7B"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4f-1w-EZ8">
+                                <rect key="frame" x="85" y="84" width="279" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Tge-Rr-dfz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UBa-CE-lxe" firstAttribute="leading" secondItem="d2r-ey-dmW" secondAttribute="trailing" constant="10" id="276-fx-duQ"/>
+                            <constraint firstItem="bVq-mf-pbW" firstAttribute="centerY" secondItem="e8Z-jK-NEv" secondAttribute="centerY" id="2Wp-cf-F3D"/>
+                            <constraint firstAttribute="bottom" secondItem="z4f-1w-EZ8" secondAttribute="bottom" id="Dzx-Ox-sRf"/>
+                            <constraint firstItem="z4f-1w-EZ8" firstAttribute="leading" secondItem="cLe-Qt-5ND" secondAttribute="leading" id="NhZ-8t-6vG"/>
+                            <constraint firstItem="cLe-Qt-5ND" firstAttribute="leading" secondItem="ZmU-K9-pYb" secondAttribute="leading" id="PTw-fA-pjW"/>
+                            <constraint firstItem="cLe-Qt-5ND" firstAttribute="top" secondItem="ZmU-K9-pYb" secondAttribute="bottom" constant="5" id="QJd-DF-MXZ"/>
+                            <constraint firstItem="ZmU-K9-pYb" firstAttribute="leading" secondItem="UBa-CE-lxe" secondAttribute="leading" id="Ud5-35-94d"/>
+                            <constraint firstAttribute="trailing" secondItem="z4f-1w-EZ8" secondAttribute="trailing" id="W9U-q1-gCB"/>
+                            <constraint firstItem="d2r-ey-dmW" firstAttribute="leading" secondItem="e8Z-jK-NEv" secondAttribute="leading" constant="15" id="XE8-hn-Aba"/>
+                            <constraint firstAttribute="trailing" secondItem="bVq-mf-pbW" secondAttribute="trailing" constant="15" id="YYY-CD-Vmi"/>
+                            <constraint firstItem="ZmU-K9-pYb" firstAttribute="top" secondItem="UBa-CE-lxe" secondAttribute="bottom" constant="2.5" id="elu-v4-8Fl"/>
+                            <constraint firstItem="d2r-ey-dmW" firstAttribute="centerY" secondItem="e8Z-jK-NEv" secondAttribute="centerY" id="xK3-Gp-9O0"/>
+                            <constraint firstItem="UBa-CE-lxe" firstAttribute="top" secondItem="d2r-ey-dmW" secondAttribute="top" id="yAp-a0-VNz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="e8Z-jK-NEv" secondAttribute="trailing" id="05O-z6-IVt"/>
+                    <constraint firstItem="e8Z-jK-NEv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6UW-hu-Hzb"/>
+                    <constraint firstAttribute="bottom" secondItem="e8Z-jK-NEv" secondAttribute="bottom" id="Gjx-dP-8xA"/>
+                    <constraint firstItem="e8Z-jK-NEv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="kWM-BF-H9d"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="169.56521739130437" y="109.48660714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="car" width="256" height="256"/>
+        <image name="forward" width="50" height="50"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -74,11 +74,11 @@ class HomeVM: BaseVM {
     
     
     func fetchDashBoardData(completion:@escaping (DashBoardModel) -> ()){
-        let h = UtilitiesManager.shared.getAuthHeader()
+        //let h = UtilitiesManager.shared.getAuthHeader()
         
         //let body = ["mobile_no":"actualNumber","user_type":"1"] as [String:Any]
         NetworkCall(data: [:], headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.PassengerDashboard, method: .get,isJSONRequest: false).executeQuery(){
-            (result: Result<DashBoardModel,Error>) in
+            (result: Result<DashBoardModel,Error>)  in
             
             switch result{
             case .success(let response):
@@ -94,10 +94,10 @@ class HomeVM: BaseVM {
     }
     
     func fetchNearestDrivers(location:CLLocationCoordinate2D,completion:@escaping (NearestDriverModel) -> ()){
-        let h = UtilitiesManager.shared.getAuthHeader()
+        //let h = UtilitiesManager.shared.getAuthHeader()
         let body = ["pick_up_latitude":"\(location.latitude)","pick_up_longitude":"\(location.longitude)"] as [String:Any]
 
-        NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.findDriver, method: .post,showLoader: false).executeQuery(){
+        NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.findDriver, method: .post,showLoader: false,showAlert: false).executeQuery(){
             (result: Result<NearestDriverModel,Error>) in
             switch result{
             case .success(let response):

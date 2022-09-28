@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@IBDesignable class LBZSpinner : UIView, UITableViewDelegate, UITableViewDataSource {
+@IBDesignable  class LBZSpinner : UIView, UITableViewDelegate, UITableViewDataSource {
 
     fileprivate var firstDraw:Bool = true
     

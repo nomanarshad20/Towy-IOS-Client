@@ -146,7 +146,13 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
     }
     @IBAction func btnSearchAction(_ sender:Any){
         //self.navigationController?.popViewController(animated: true)
-        ControllerNavigation.shared.pushVC(of: .searchLocationVC,isAnimate: false)
+//        ControllerNavigation.shared.pushVC(of: .searchLocationVC,isAnimate: false)
+        let vc = ControllerNavigation.shared.getVC(of: .searchLocationVC) as! SearchLocationVC
+        vc.CurrentLat   = self.currentLocation.latitude
+        vc.CurrentLong = self.currentLocation.longitude
+        self.navigationController?.pushViewController(vc, animated: true)
+
+        
     }
     /*
     func setupMapView(){
@@ -425,7 +431,9 @@ extension LocationVC: CLLocationManagerDelegate {
       zoom: 15,
       bearing: 0,
       viewingAngle: 0)
-//    mapView.delegate = self
+    mapView.delegate = self
+        self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+
         /*
         self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {

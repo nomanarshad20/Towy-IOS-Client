@@ -154,14 +154,15 @@ class EnterOTPVM: BaseVM {
         guard  let number = number  else{return UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: Key.ErrorMessage.PHONEFIELD)}
         
         let body = ["mobile_no":number,"user_type":"1","fcm_token":UtilitiesManager.shared.getFcmToken()] as [String:Any]
+        
         NetworkCall(data: body, url: nil, service: APPURL.services.passengerLogin, method: .post).executeQuery(){
-            (result: Result<UserLogin,Error>) in
+            (result: Result<UserLogin,Error>)  in
             switch result{
             case .success(let response):
                 
                 UtilitiesManager.shared.saveLoginUserData(user: response)
-                UtilitiesManager.shared.saveUserId(id: response.data.userID)
-                UtilitiesManager.shared.saveUserName(name: response.data.firstName)
+                UtilitiesManager.shared.saveUserId(id: response.data.userID ?? 0)
+                UtilitiesManager.shared.saveUserName(name: response.data.firstName ?? "")
 
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.moveToTabbarVC()

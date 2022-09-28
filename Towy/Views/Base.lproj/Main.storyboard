@@ -1475,6 +1475,49 @@
             </objects>
             <point key="canvasLocation" x="7723.0769230769229" y="3446.8009478672984"/>
         </scene>
+        <!--Activity-->
+        <scene sceneID="fuQ-FZ-UEZ">
+            <objects>
+                <viewController storyboardIdentifier="ActivityVC" id="8Hw-qK-M6H" customClass="ActivityVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Y1-Vy-4jG">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-Ct-mun">
+                                <rect key="frame" x="0.0" y="116" width="390" height="645"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Hw-qK-M6H" id="Lfa-JD-hgk"/>
+                                    <outlet property="delegate" destination="8Hw-qK-M6H" id="qZ3-WZ-9hX"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-gv-lO0">
+                                <rect key="frame" x="15.000000000000007" y="65" width="112.66666666666669" height="36"/>
+                                <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m7R-4t-VC5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hOG-gv-lO0" firstAttribute="top" secondItem="4Y1-Vy-4jG" secondAttribute="top" constant="65" id="1BR-tv-5Uw"/>
+                            <constraint firstItem="mlg-Ct-mun" firstAttribute="leading" secondItem="m7R-4t-VC5" secondAttribute="leading" id="8Im-Y8-rMp"/>
+                            <constraint firstItem="hOG-gv-lO0" firstAttribute="leading" secondItem="m7R-4t-VC5" secondAttribute="leading" constant="15" id="8ia-5M-4Jl"/>
+                            <constraint firstItem="mlg-Ct-mun" firstAttribute="top" secondItem="hOG-gv-lO0" secondAttribute="bottom" constant="15" id="DQT-CX-eQt"/>
+                            <constraint firstItem="m7R-4t-VC5" firstAttribute="trailing" secondItem="mlg-Ct-mun" secondAttribute="trailing" id="kwD-DA-SYH"/>
+                            <constraint firstItem="m7R-4t-VC5" firstAttribute="bottom" secondItem="mlg-Ct-mun" secondAttribute="bottom" id="lqH-aU-J0k"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Activity" image="list.bullet.rectangle" catalog="system" id="g2b-18-4kM"/>
+                    <connections>
+                        <outlet property="tblList" destination="mlg-Ct-mun" id="2sj-tC-sPY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Hz-Sb-y0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9158" y="3458"/>
+        </scene>
         <!--Account-->
         <scene sceneID="rUv-zY-CsW">
             <objects>
@@ -2021,8 +2064,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="faa-ER-S2I" kind="relationship" relationship="viewControllers" id="Rda-ZB-nFw"/>
-                        <segue destination="zen-tn-jiV" kind="relationship" relationship="viewControllers" id="Wzo-JA-Bm3"/>
-                        <segue destination="f5M-fV-WIs" kind="relationship" relationship="viewControllers" id="q3j-sK-fdq"/>
+                        <segue destination="8Hw-qK-M6H" kind="relationship" relationship="viewControllers" id="ytN-fa-ahR"/>
+                        <segue destination="f5M-fV-WIs" kind="relationship" relationship="viewControllers" id="xuR-bR-BqE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxy-iT-P3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2037,14 +2080,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCu-LW-mOd">
+                                <rect key="frame" x="15" y="62.666666666666657" width="45" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="udh-dt-aD6"/>
+                                    <constraint firstAttribute="height" constant="45" id="yBl-J2-tSU"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" backgroundImage="multiply" catalog="system"/>
+                                <connections>
+                                    <action selector="btnBackAction:" destination="zen-tn-jiV" eventType="touchUpInside" id="86t-V8-6YY"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSN-aX-cTv">
-                                <rect key="frame" x="15" y="69" width="360" height="36"/>
+                                <rect key="frame" x="15" y="119" width="360" height="36"/>
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-Xq-SNu">
-                                <rect key="frame" x="15" y="130" width="360" height="200"/>
+                                <rect key="frame" x="15" y="180" width="360" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Towy cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gya-ef-q3I">
                                         <rect key="frame" x="15" y="20" width="330" height="18"/>
@@ -2076,13 +2132,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIO-8f-rRt">
-                                <rect key="frame" x="15" y="345" width="360" height="24"/>
+                                <rect key="frame" x="15" y="395" width="360" height="24"/>
                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFx-MX-Psv">
-                                <rect key="frame" x="15" y="369" width="360" height="70"/>
+                                <rect key="frame" x="15" y="419" width="360" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="smE-KI-TXO"/>
                                 </constraints>
@@ -2101,15 +2157,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RIO-8f-rRt" firstAttribute="top" secondItem="Dho-Xq-SNu" secondAttribute="bottom" constant="15" id="9LC-9h-yLg"/>
+                            <constraint firstItem="SSN-aX-cTv" firstAttribute="top" secondItem="oCu-LW-mOd" secondAttribute="bottom" constant="15" id="9ba-HB-sB9"/>
                             <constraint firstItem="RIO-8f-rRt" firstAttribute="leading" secondItem="zAh-hc-EQx" secondAttribute="leading" constant="15" id="CvD-Zp-J4U"/>
+                            <constraint firstItem="oCu-LW-mOd" firstAttribute="top" secondItem="HqO-yy-XoI" secondAttribute="top" constant="15" id="Hc0-Eq-OgV"/>
                             <constraint firstItem="mFx-MX-Psv" firstAttribute="top" secondItem="RIO-8f-rRt" secondAttribute="bottom" id="Jra-fr-IGB"/>
                             <constraint firstItem="SSN-aX-cTv" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="NGm-kO-e7p"/>
                             <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="Dho-Xq-SNu" secondAttribute="trailing" constant="15" id="bDZ-IF-MDX"/>
                             <constraint firstItem="Dho-Xq-SNu" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="cxz-7K-3UV"/>
-                            <constraint firstItem="SSN-aX-cTv" firstAttribute="top" secondItem="HqO-yy-XoI" secondAttribute="top" constant="25" id="eo0-Ps-8EG"/>
                             <constraint firstAttribute="trailing" secondItem="SSN-aX-cTv" secondAttribute="trailing" constant="15" id="lQj-5F-SNv"/>
                             <constraint firstItem="Dho-Xq-SNu" firstAttribute="top" secondItem="SSN-aX-cTv" secondAttribute="bottom" constant="25" id="oPP-CI-2v9"/>
                             <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="RIO-8f-rRt" secondAttribute="trailing" constant="15" id="qHR-H6-8mh"/>
+                            <constraint firstItem="oCu-LW-mOd" firstAttribute="leading" secondItem="zAh-hc-EQx" secondAttribute="leading" constant="15" id="utp-XA-lrt"/>
                             <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="mFx-MX-Psv" secondAttribute="trailing" constant="15" id="xbA-GK-11k"/>
                             <constraint firstItem="mFx-MX-Psv" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="zcZ-oS-lbx"/>
                         </constraints>
@@ -2288,12 +2346,6 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="25"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="ThemeBtnColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -2536,7 +2588,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="q3j-sK-fdq"/>
+        <segue reference="xuR-bR-BqE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="apple" width="50" height="50"/>
@@ -2556,6 +2608,7 @@
         <image name="flag" width="37" height="20"/>
         <image name="google" width="48" height="48"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>

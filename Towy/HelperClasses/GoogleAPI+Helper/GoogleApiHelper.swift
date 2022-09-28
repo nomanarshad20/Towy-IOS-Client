@@ -270,6 +270,8 @@ class GoogleApi : NSObject {
             return
         }
         let isAlreadySearched = (searchResultsCache[covertedInput] != nil) && api == UsedFor.autocomplete
+//        let isAlreadySearched = (searchResultsCache[covertedInput] != nil) && api == UsedFor.placeInformation
+
         var haveResults = false
         if isAlreadySearched {
             if let  pastResult = searchResultsCache[covertedInput] as? [Results] {
@@ -286,6 +288,7 @@ class GoogleApi : NSObject {
             completion(response)
             return;
         } else {
+            
             let urlString = getUrl(api, input: covertedInput)
             print("Google api request - \(urlString)")
             let url =  URL(string: urlString.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!)!

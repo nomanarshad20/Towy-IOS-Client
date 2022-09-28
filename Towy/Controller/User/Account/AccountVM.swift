@@ -27,12 +27,12 @@ class AccountVM: BaseVM {
     func setTableData() -> [AccountDataModel]{
         var arr = [AccountDataModel]()
         let obj_1 = AccountDataModel(title: "Messages", img: "letter")
-        let obj_2 = AccountDataModel(title: "Settings", img: "settings")
-        let obj_3 = AccountDataModel(title: "Legal", img: "info")
+//        let obj_2 = AccountDataModel(title: "Settings", img: "settings")
+//        let obj_3 = AccountDataModel(title: "Legal", img: "info")
         let obj_4 = AccountDataModel(title: "Logout", img: "logout")
         arr.append(obj_1)
-        arr.append(obj_2)
-        arr.append(obj_3)
+//        arr.append(obj_2)
+//        arr.append(obj_3)
         arr.append(obj_4)
 
         return arr

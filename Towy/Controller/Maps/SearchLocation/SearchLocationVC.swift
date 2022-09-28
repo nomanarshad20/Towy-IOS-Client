@@ -15,8 +15,9 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
     @IBOutlet weak var tfDestination:UITextField!
 
     @IBOutlet weak var tbSearch:UITableView!
+//    var autocompleteResults :[GApiResponse.Autocomplete] = []
     var autocompleteResults :[GApiResponse.Autocomplete] = []
-    
+
     var CurrentLat  = CLLocationDegrees()
     var CurrentLong = CLLocationDegrees()
     
@@ -77,6 +78,20 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
     func showResults(string:String){
         var input = GInput()
         input.keyword = string
+        
+        GoogleApi.shared.callApi(.autocomplete,input: input) { (response) in
+            if response.isValidFor(.autocomplete) {
+                
+                DispatchQueue.main.async {
+                    //                    self.searchTableView.isHidden = false
+                    print("responseSearch",response.data)
+                    self.autocompleteResults = response.data as! [GApiResponse.Autocomplete]
+                    self.tbSearch.reloadData()
+                }
+            } else { print(response.error ?? "ERROR") }
+        }
+        
+        /*
         GoogleApi.shared.callApi(.autocomplete,input: input) { (response) in
             if response.isValidFor(.autocomplete) {
                 DispatchQueue.main.async {
@@ -87,6 +102,7 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
                 }
             } else { print(response.error ?? "ERROR") }
         }
+        */
     }
     
     func getAddressFromlatLong(lat: Double, long: Double,point:String) {
@@ -123,11 +139,13 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlacesTBCell", for: indexPath) as! PlacesTBCell
         if indexPath.row == autocompleteResults.count {
-            cell.lblTitle.text = ""
-            cell.lblSubTitle.text = "Set location on map"
+            //cell.lblTitle.text = ""
+            cell.lblTitle.text = "Set location on map"
         }else {
-            cell.lblTitle.text = "Lahore"
-            cell.lblSubTitle.text = autocompleteResults[indexPath.row].formattedAddress
+//            cell.lblTitle.text = autocompleteResults[indexPath.row].title
+            cell.lblTitle.text = autocompleteResults[indexPath.row].formattedAddress
+            //cell.lblSubTitle.text = autocompleteResults[indexPath.row].title
+
         }
         return cell
     }
@@ -170,7 +188,7 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
                                     let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
                                     vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
                                     vc.sourceLocation = self.sourceLocation
-                                    
+                                    vc.strDestination = self.autocompleteResults[indexPath.row].formattedAddress
                                     self.navigationController?.pushViewController(vc, animated: true)
                                 }
                             }

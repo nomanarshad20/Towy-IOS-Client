@@ -124,6 +124,7 @@ struct Key {
         static let termsAndConditions = "TermsAndConditions"
         static let SERVER_USER_SID = "id";
         static let SERVER_USER_NAME = "first_name";
+        static let USER_TRIP_LOCATION = "tripLocation"
 
 
 //SAVE_NOTIFICATION

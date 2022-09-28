@@ -95,6 +95,7 @@ class LoginVM: BaseVM {
             (result: Result<SocialUser,Error>) in
             switch result{
             case .success(let response):
+                
                 UtilitiesManager.shared.saveSocialUserData(user: response)
                 UtilitiesManager.shared.saveUserId(id: response.data.userID)
                 UtilitiesManager.shared.saveUserName(name: response.data.firstName)

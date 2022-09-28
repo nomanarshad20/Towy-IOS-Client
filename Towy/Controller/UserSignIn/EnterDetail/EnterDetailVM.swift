@@ -54,7 +54,7 @@ class EnterDetailVM: BaseVM {
         print("body",usr)
         //let body = ["user_type":"1"] as [String:Any]
         NetworkCall(data: usr, url: nil, service: APPURL.services.passengerRegister, method: .post).executeQuery(){
-            (result: Result<RegisterUser,Error>) in
+            (result: Result<RegisterUser,Error>)  in
             switch result{
             case .success(let response):
                 completion(response)

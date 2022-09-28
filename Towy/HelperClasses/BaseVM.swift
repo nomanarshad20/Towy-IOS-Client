@@ -8,6 +8,7 @@
 import Foundation
 
 import UIKit
+
 enum AlertType {
     case normal
     case warning

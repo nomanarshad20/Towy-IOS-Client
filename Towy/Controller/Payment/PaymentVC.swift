@@ -16,6 +16,8 @@ class PaymentVC: UIViewController {
     @IBOutlet weak var tfCVC:UITextField!
     @IBOutlet weak var tfMonth:UITextField!
     @IBOutlet weak var tfYear:UITextField!
+//    @IBOutlet weak fileprivate var viewExpiryMonth: LBZSpinner!
+//    @IBOutlet weak fileprivate var viewExpiryYear: LBZSpinner!
 
 //    @IBOutlet weak var myCard : MFCardView!
 //

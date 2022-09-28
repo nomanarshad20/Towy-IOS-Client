@@ -284,7 +284,9 @@ class BookingInfo{
         r.total_distance = dict["total_distance"] as? String ?? nil
         r.payment_type = dict["payment_type"] as? String ?? nil
         r.estimated_fare = dict["estimated_fare"] as? String ?? nil
-        r.actual_fare = dict["actual_fare"] as? String ?? nil
+        //r.actual_fare = dict["actual_fare"] as? String ?? nil
+        r.actual_fare = "\(dict["actual_fare"]!)"
+
         r.ride_status = dict["ride_status"] as? Int ?? nil
         r.created_at = dict["created_at"] as? String ?? nil
         r.created_ago = dict["created_ago"] as? String ?? nil

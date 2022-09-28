@@ -45,7 +45,6 @@ public struct SocketEventHandler {
     /// - parameter withAck: The ack number that this event expects. Pass -1 to say this event doesn't expect an ack.
     /// - parameter withSocket: The socket that is calling this event.
     public func executeCallback(with items: [Any], withAck ack: Int, withSocket socket: SocketIOClient) {
-        
         callback(items, SocketAckEmitter(socket: socket, ackNum: ack))
     }
 }

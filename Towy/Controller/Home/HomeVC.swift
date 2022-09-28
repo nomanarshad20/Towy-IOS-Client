@@ -38,6 +38,8 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
         setupMap()
         registerXib()
         print("AuthHeader",UtilitiesManager.shared.getAuthHeader())
+        print("USER_Header",UtilitiesManager.shared.getId())
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,20 +53,17 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
             guard let data = dict?["data"] as? [String:Any] else{return}
             
             guard let booking = data["booking"] as? [String:Any] else{
-                
                 return
-                
             }
+        
             
             let b = BookingInfo.getRideInfo(dict: booking)
             self.objBooking = b
-
-
 //            do{
 //            let dict = try JSONDecoder().decode([String: Any].self, from: JSONEncoder().encode(bookingData))
 //            }
 //            catch{
-//                
+//
 //            }
 //            guard error == nil else{return}
 //            guard let booking = bookingData?.data.booking else{
@@ -257,6 +256,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
             
             
         }
+        else{
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ComingSoonVC") as! ComingSoonVC
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        }
 
     }
     
@@ -368,7 +372,19 @@ extension HomeVC: CLLocationManagerDelegate {
 extension HomeVC{
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         print("didTapAt")
-        ControllerNavigation.shared.pushVC(of: .locationVC)
+        guard let data = self.objBooking else{
+//             ControllerNavigation.shared.pushVC(of: .locationVC)
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+            
+//            vc.CurrentLat   = lat
+//            vc.CurrentLong = long
+            self.navigationController?.pushViewController(vc, animated: true)
+             return
+        }
+        let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
+        vc.objSocket = data
+        self.navigationController?.pushViewController(vc, animated: true)
+
 
     }
 }
