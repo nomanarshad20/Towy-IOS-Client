@@ -54,7 +54,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     var getLocation = false
     
-    var strDestination = ""
+//    var strDestination = ""
     private let manager = CLLocationManager()
     
     var objTowList :TowListModel? = nil
@@ -86,7 +86,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var lblDriverTowType:UILabel!
     
     @IBOutlet weak var lblDestination:UILabel!
-    
+    @IBOutlet weak var lblSource:UILabel!
+
     //    @IBOutlet weak var tblTowList:UITableView!
     //    @IBOutlet weak var tblTowList:UITableView!
     //    @IBOutlet weak var tblTowList:UITableView!
@@ -105,8 +106,9 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             let obj = UserTripLocationModel(sourceLat: source.latitude, sourceLng: source.longitude, destinationLat: destination.latitude, destinationLng: destination.longitude)
             UtilitiesManager.shared.saveUserTripLocation(user: obj)
         }
-        self.lblDestination.text = self.strDestination
+//        self.lblDestination.text = self.strDestination
         setupMap()
+        setUIForTowFinder()
         //        SocketHelper.shared.connectSocket { (success) in
         //        }
         if socket?.status == .disconnected{
@@ -142,6 +144,14 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         self.lblDriverName.text = obj.driver_first_name ?? ""
         self.lblDriverTowType.text = obj.vehicle_name ?? ""
         UtilitiesManager.shared.setImage(url: obj.driver_image ?? "", img: self.imgDriver)
+    }
+    func setUIForTowFinder(){
+        guard let source = self.sourceLocation else{return}
+        guard let destination = self.destinationLocation else{return}
+
+        self.getAddressFromlatLong(lat: source.latitude, long: source.longitude, lbl: self.lblSource)
+        self.getAddressFromlatLong(lat: destination.latitude, long: destination.longitude, lbl: self.lblDestination)
+
     }
     func addSocketListerForDriverLastLocation(){
         //listener: passeger_id-driverLastLocation
@@ -970,6 +980,32 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             print("data successfully sent")
         }
     }
+    
+    
+    
+    func getAddressFromlatLong(lat: Double, long: Double ,lbl:UILabel){
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let geocoder = GMSGeocoder()
+        var add = ""
+        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
+          if let address = response?.firstResult() {
+            
+            guard let arrAddress = address.lines else {return}
+            if arrAddress.count > 1 {
+                add =  (arrAddress[1])
+        
+            }else if arrAddress.count == 1 {
+                add =  (arrAddress[0])
+            }
+              lbl.text = add
+             // self.currentAddressLbl.text = add
+              
+          }
+        }
+        //return add
+
+      }
+    
 }
 
 extension MainMapVC:UITableViewDelegate,UITableViewDataSource{

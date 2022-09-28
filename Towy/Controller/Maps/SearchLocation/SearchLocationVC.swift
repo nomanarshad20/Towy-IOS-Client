@@ -188,7 +188,7 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
                                     let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
                                     vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
                                     vc.sourceLocation = self.sourceLocation
-                                    vc.strDestination = self.autocompleteResults[indexPath.row].formattedAddress
+//                                    vc.strDestination = self.autocompleteResults[indexPath.row].formattedAddress
                                     self.navigationController?.pushViewController(vc, animated: true)
                                 }
                             }
