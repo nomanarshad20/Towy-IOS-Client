@@ -21,6 +21,7 @@ class TowListTableViewCell: UITableViewCell {
         didSet{
             //UtilitiesManager.shared.setImage(url: obj., img: <#T##UIImageView#>)
             self.lblTitle.text = obj?.name ?? ""
+            self.lblTime.text = "\(obj?.driverReachTimeInMinutes ?? "") min"
 //            self.lblTitle.text = obj?.name ?? ""
 //            self.lblTitle.text = obj?.name ?? ""
             self.lblPrice.text = "\(obj?.estimatedFare ?? 0)"

@@ -1024,7 +1024,7 @@ extension MainMapVC:UITableViewDelegate,UITableViewDataSource{
         print("didSelect")
         guard let obj = self.objTowList else{return}
         self.objTow = obj.data[indexPath.row]
-        self.btnConfirm.setTitle("Confirm \(obj.data[indexPath.row].name)", for: .normal)
+        self.btnConfirm.setTitle("Confirm \(obj.data[indexPath.row].name ?? "")", for: .normal)
         
     }
 }

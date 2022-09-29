@@ -7,6 +7,7 @@
 
 import Foundation
 // MARK: - TowListModel
+/*
 struct TowListModel: Codable {
     let result, message: String
     let data: [TowDatum]
@@ -19,7 +20,7 @@ struct TowDatum: Codable {
     let peakFactorRate: String?
     let estimatedFare: Int
     let name: String
-
+    let distanceInMinutes:String?
     enum CodingKeys: String, CodingKey {
         case minFare = "min_fare"
         case perKMRate = "per_km_rate"
@@ -31,10 +32,45 @@ struct TowDatum: Codable {
         case peakFactorApplied = "peak_factor_applied"
         case peakFactorRate = "peak_factor_rate"
         case estimatedFare = "estimated_fare"
+        case distanceInMinutes = "driver_reach_time_in_minutes"
         case name
     }
 }
+*/
 
+
+// MARK: - SaveOrderModel
+struct TowListModel: Codable {
+    let result, message: String
+    let data: [TowDatum]
+}
+
+// MARK: - Datum
+struct TowDatum: Codable {
+    let minFare, perKMRate, perMinRate, taxRate: Int?
+    let waitingPricePerMin, vehicleTypeID: Int?
+    let totalDistance: Double?
+    let peakFactorApplied: Int?
+    let peakFactorRate, driverReachTimeInMinutes: String?
+    let driverID, estimatedFare: Int?
+    let name: String?
+
+    enum CodingKeys: String, CodingKey {
+        case minFare = "min_fare"
+        case perKMRate = "per_km_rate"
+        case perMinRate = "per_min_rate"
+        case taxRate = "tax_rate"
+        case waitingPricePerMin = "waiting_price_per_min"
+        case vehicleTypeID = "vehicle_type_id"
+        case totalDistance = "total_distance"
+        case peakFactorApplied = "peak_factor_applied"
+        case peakFactorRate = "peak_factor_rate"
+        case driverReachTimeInMinutes = "driver_reach_time_in_minutes"
+        case driverID = "driver_id"
+        case estimatedFare = "estimated_fare"
+        case name
+    }
+}
 // MARK: - Encode/decode helpers
 /*
 class TowJSONNull: Codable, Hashable {
