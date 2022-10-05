@@ -37,7 +37,7 @@ class MainMapVM: BaseVM {
     
     
     
-    func fetchTowList(completion:@escaping (TowListModel) -> ()){
+    func fetchTowList(completion:@escaping (TowListModel?,Error?) -> ()){
         let h = UtilitiesManager.shared.getAuthHeader()
         let body = ["pick_up_area":"Lahore","pick_up_latitude":"\(self.sourceLocation.latitude)","pick_up_longitude":"\(self.sourceLocation.longitude)","drop_off_area":"Lahore","drop_off_latitude":"\(self.destinationLocation.latitude)","drop_off_longitude":"\(self.destinationLocation.longitude)"] as [String:Any]
         
@@ -47,11 +47,12 @@ class MainMapVM: BaseVM {
             case .success(let response):
                 //completion(response)
                 print("response",response)
-                completion(response)
+                completion(response,nil)
             case .failure(let error):
-                //completion(nil,error)
+                completion(nil,error)
                 UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
                 print("errorzz",error.localizedDescription)
+                
             }
         }
     }

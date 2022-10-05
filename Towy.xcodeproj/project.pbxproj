@@ -88,6 +88,7 @@
 		3D79B89528E3640B002A2C71 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79B89328E3640B002A2C71 /* ActivityTableViewCell.swift */; };
 		3D79B89628E3640B002A2C71 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D79B89428E3640B002A2C71 /* ActivityTableViewCell.xib */; };
 		3D79CBC228C8B1710092BF95 /* PaymentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D79CBC128C8B1710092BF95 /* PaymentVM.swift */; };
+		3D7D097428EDCA6700DBEE4E /* TripHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D097328EDCA6700DBEE4E /* TripHistoryModel.swift */; };
 		3D7D912F28A6C0DA0089D4F8 /* LoginUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7D912E28A6C0DA0089D4F8 /* LoginUserModel.swift */; };
 		3D8635F6287839D3005BE92E /* EnterEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F5287839D3005BE92E /* EnterEmailVC.swift */; };
 		3D8635F928783DEF005BE92E /* TermAndCondtionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */; };
@@ -223,6 +224,7 @@
 		3D79B89328E3640B002A2C71 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		3D79B89428E3640B002A2C71 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		3D79CBC128C8B1710092BF95 /* PaymentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentVM.swift; sourceTree = "<group>"; };
+		3D7D097328EDCA6700DBEE4E /* TripHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripHistoryModel.swift; sourceTree = "<group>"; };
 		3D7D912E28A6C0DA0089D4F8 /* LoginUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserModel.swift; sourceTree = "<group>"; };
 		3D8635F5287839D3005BE92E /* EnterEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailVC.swift; sourceTree = "<group>"; };
 		3D8635F828783DEF005BE92E /* TermAndCondtionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermAndCondtionVC.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				3DD65CD828D5372100BE7380 /* SocketBookingModel.swift */,
 				3DD65CDA28D5683500BE7380 /* cancelRideModel.swift */,
 				3D73B2C128D9995A000CDB4D /* UserTripLocationModel.swift */,
+				3D7D097328EDCA6700DBEE4E /* TripHistoryModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1002,6 +1005,7 @@
 				3D2AE71328C72FF3001B8254 /* NewRideModel.swift in Sources */,
 				3DA2828B28C655D400A2933F /* MainMapVC.swift in Sources */,
 				3D5981C32860DD140034AB47 /* UtilitiesManager.swift in Sources */,
+				3D7D097428EDCA6700DBEE4E /* TripHistoryModel.swift in Sources */,
 				3D59818428607ADA0034AB47 /* AppDelegate.swift in Sources */,
 				3DBA5AA828D0FB2B00E6036E /* TripTotalTableViewCell.swift in Sources */,
 				3D2AE72428C7596E001B8254 /* SenderTableViewCell.swift in Sources */,

@@ -433,7 +433,7 @@ extension LocationVC: CLLocationManagerDelegate {
       viewingAngle: 0)
     mapView.delegate = self
         self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-
+        self.manager.stopUpdatingLocation()
         /*
         self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {

@@ -174,16 +174,18 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
         print("Device Token: \(token)")
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        if UserDefaults.standard.bool(forKey: Key.userDefaultKey.IS_LOGIN){
+//        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil)
+//        {
             if let _ = userInfo["aps"] as? [String: AnyObject],
                let obj = NotificationModel.getNotificationType(dict: userInfo) {
-                
+              showPopup(noti: obj)
+
                 print("notificationDict",obj)
 //                if UtilitiesManager.shared.getDriverStatus() > 0 {
 //                    showPopup(noti: noti)
 //                }
             }
-        }
+       // }
     }
     
     func application(
@@ -199,14 +201,16 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 //        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UIApplication.shared.applicationIconBadgeNumber += 1
-        if UserDefaults.standard.bool(forKey: Key.userDefaultKey.IS_LOGIN){
+//        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil){
             if let _ = userInfo["aps"] as? [String: AnyObject],
                let noti = NotificationModel.getNotificationType(dict: userInfo) {
-                if UtilitiesManager.shared.getDriverStatus() > 0 {
-                    showPopup(noti: noti)
-                }
+                showPopup(noti: noti)
+
+//                if UtilitiesManager.shared.getDriverStatus() > 0 {
+//                    showPopup(noti: noti)
+//                }
             }
-        }
+        //}
     }
     
     
@@ -228,10 +232,10 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
                } else {
                 if let _ = userInfo["aps"] as? [String: AnyObject],
                    let noti = NotificationModel.getNotificationType(dict: userInfo) {
-                    if UtilitiesManager.shared.getDriverStatus() > 0 {
+                    //if UtilitiesManager.shared.getDriverStatus() > 0 {
                         completionHandler([.sound])
                         showPopup(noti: noti)
-                    }
+                    //}
                 }else{
                     
                 }

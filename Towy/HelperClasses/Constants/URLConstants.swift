@@ -42,7 +42,7 @@ struct APPURL {
         // MARK: - DASHBOARD_ENDPOINT
         case PassengerDashboard = "passenger-dashboard"//
         case saveRating = "passenger-save-rating"//
-        case tripHistory = "passenger/trip-history"//
+        case tripHistory = "passenger-trip-history"//
         case passengerStatus = "get-passenger-status"//
 
         case getNotification = "passenger/get-notifications"//

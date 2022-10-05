@@ -53,8 +53,11 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
     func OnUpdate(Lat: CLLocationDegrees, Long: CLLocationDegrees , tag: Int) {
         currentTFTag = tag
         if currentTFTag == 0{
+            self.sourceLocation = CLLocationCoordinate2D(latitude: Lat, longitude: Long)
+
             getAddressFromlatLong(lat: Lat, long: Long, point: "Source")
         }else{
+            self.destinationLocation = CLLocationCoordinate2D(latitude: Lat, longitude: Long)
             getAddressFromlatLong(lat: Lat, long: Long, point: "Destination")
         }
     }
@@ -113,14 +116,18 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
           if let address = response?.firstResult() {
             
             guard let arrAddress = address.lines else {return}
+              
             if arrAddress.count > 1 {
                 add =  (arrAddress[1])
             }else if arrAddress.count == 1 {
                 add =  (arrAddress[0])
                 if point == "Source"{
                     self.tfPickup.text = add
+//                    self.sourceLocation = coordinate
+
                 }else{
                     self.tfDestination.text = add
+//                    self.destinationLocation = coordinate
                 }
             }
           }
@@ -157,9 +164,8 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
             
             let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "selectLocationVC") as! selectLocationVC
             if currentTFTag == 0{
-                
             }else{
-                vc.sourceLocation = sourceLocation
+                vc.sourceLocation = self.sourceLocation
             }
             vc.currentTFTag = currentTFTag
             vc.delegate = self
@@ -240,20 +246,24 @@ extension SearchLocationVC:UITextFieldDelegate{
         }
         return true
     }
+    
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
         currentTFTag = textField.tag
-        if textField.tag == 0{
-            self.tfPickup?.text = textField.text ?? ""
-            textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
-        }else{
-            if tfPickup.text == ""{
-                getAddressFromlatLong(lat: CurrentLat, long: CurrentLong, point: "Source")
-                self.sourceLocation = CLLocationCoordinate2D(latitude: CurrentLat, longitude: CurrentLong)
-            }
-            self.tfDestination?.text = textField.text ?? ""
-        }
+//        if textField.tag == 0{
+//            self.tfPickup?.text = textField.text ?? ""
+//            textField.selectedTextRange = textField.textRange(from: textField.beginningOfDocument, to: textField.endOfDocument)
+//        }
+//        else{
+//            if tfPickup.text == ""{
+//                getAddressFromlatLong(lat: CurrentLat, long: CurrentLong, point: "Source")
+//                self.sourceLocation = CLLocationCoordinate2D(latitude: CurrentLat, longitude: CurrentLong)
+//            }
+//            self.tfDestination?.text = textField.text ?? ""
+//        }
         return true
     }
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true
     }

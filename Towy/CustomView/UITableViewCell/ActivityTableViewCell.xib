@@ -110,6 +110,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgTitle" destination="Jh5-2y-f2r" id="pfO-WV-dK7"/>
+                <outlet property="lblDate" destination="ZmU-K9-pYb" id="lxb-EE-hZW"/>
+                <outlet property="lblStatus" destination="cLe-Qt-5ND" id="XHB-Yd-swi"/>
+                <outlet property="lblTitle" destination="UBa-CE-lxe" id="5EM-ht-Ovp"/>
+            </connections>
             <point key="canvasLocation" x="169.56521739130437" y="109.48660714285714"/>
         </tableViewCell>
     </objects>

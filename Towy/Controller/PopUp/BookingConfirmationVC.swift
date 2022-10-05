@@ -30,7 +30,6 @@ class BookingConfirmationVC: UIViewController {
         let nc = NotificationCenter.default
         nc.post(name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)
         self.dismiss(animated: false)
-
     }
     @IBAction func btnCancelAction(_ sender:Any){
         self.dismiss(animated: false)

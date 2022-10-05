@@ -18,7 +18,7 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     @IBOutlet weak var confirmBtnOutlet: UIButton!
     
     public var delegate:LocationDelagates!
-    var currentLocation = CLLocationCoordinate2D()
+//    var currentLocation = CLLocationCoordinate2D()
     var sourceLocation = CLLocationCoordinate2D()
     var destinationLocation = CLLocationCoordinate2D()
     private let manager = CLLocationManager()
@@ -247,11 +247,12 @@ extension selectLocationVC: CLLocationManagerDelegate {
           bearing: 0,
           viewingAngle: 0)
             MapView.delegate = self
-            self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            self.sourceLocation = currentLocation
+//            self.currentLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//            self.sourceLocation = currentLocation
             UIView.animate(withDuration: 0.5, delay: 1, options: .curveEaseIn) {
                 self.view.layoutIfNeeded()
             }
+        self.manager.stopUpdatingLocation()
       }
 
   // 8
