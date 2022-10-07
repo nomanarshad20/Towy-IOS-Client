@@ -75,6 +75,6 @@ class ActivityTableViewCell: UITableViewCell {
         
         let date: Date? = dateFormatterGet.date(from: strDate) as Date?
         //        print(dateFormatterPrint.string(from: date! as Date))
-        return dateFormatterPrint.string(from: date!)
+        return dateFormatterPrint.string(from: date ?? Date())
     }
 }

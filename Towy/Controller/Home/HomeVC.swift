@@ -30,7 +30,7 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     let homeVM = HomeVM()
     var objDashboard : DashBoardModel? = nil
     var objBooking : BookingInfo? = nil
-
+    var bookingData: BookingStatusCheckModel? = nil
     var mainMapVm = MainMapVM()
 
     // MARK: View Methods
@@ -49,6 +49,8 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
 
             let dictionary = try! DictionaryEncoder().encode(bookingData)
             let dict = JSON(dictionary).dictionaryObject
+            self.bookingData = bookingData
+            
             
             guard let data = dict?["data"] as? [String:Any] else{return}
             
@@ -241,6 +243,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
         if indexPath.row == 0{
             
             
+            
+            guard let _ = self.bookingData?.data.passenger?.stripeCustomerID else {
+                UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "Please add payment method for using tow services")
+                return}
+//            guard let id = passengerDetail.stripeCustomerID else
            // guard let data = self.objBooking else{return}
             guard let data = self.objBooking else{
                 let vc = ControllerNavigation.shared.getVC(of: .searchLocationVC) as! SearchLocationVC

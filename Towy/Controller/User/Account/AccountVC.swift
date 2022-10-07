@@ -49,7 +49,9 @@ class AccountVC: UIViewController {
     }
     
     @IBAction func btnTripAction(_ sender:Any){
-        
+        let vc = UtilitiesManager.shared.getMainStoryboard().instantiateViewController(withIdentifier: "ActivityVC") as! ActivityVC
+        vc.isFromTrip = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func btnProfileAction(_ sender:Any){

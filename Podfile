@@ -26,7 +26,8 @@ target 'Towy' do
   pod 'NVActivityIndicatorView'
   pod 'FBSDKLoginKit'
   pod 'FBSDKCoreKit'
-  
+  pod 'DropDown', '2.3.2'
+
   pod 'MFCard'
   #pod 'Socket.IO-Client-Swift', '~> 2.4.1'
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'

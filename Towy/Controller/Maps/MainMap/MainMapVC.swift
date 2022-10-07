@@ -129,7 +129,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         
         // self.checkRideStatus(status: .notFound)
         //socketInit()
-        
+        /*
         guard objSocket != nil else{
             self.checkRideStatus(status: .notFound)
             return
@@ -140,6 +140,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         }
         self.driverStatus =  self.objSocket?.driver_status ?? 4
         setUI()
+        */
     }
     
 
@@ -175,7 +176,37 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         }
         */
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        mainMapVm.getBookingStatus { bookingData,error  in
+            guard error == nil else{return}
+            
+            let dictionary = try! DictionaryEncoder().encode(bookingData)
+            let dict = JSON(dictionary).dictionaryObject
+            print("jsonData",dict)
+            guard let data = dict?["data"] as? [String:Any] else{return}
+            
+            guard let booking = data["booking"] as? [String:Any] else{
+                print("bookingMilinhi osy")
+                self.checkRideStatus(status: .notFound)
+                return
+            }
+            let b = BookingInfo.getRideInfo(dict: booking)
+            self.objSocket = b
+            guard self.objSocket != nil else{
+                print("notFoundWalaKam")
+                self.checkRideStatus(status: .notFound)
+                return
+            }
+            self.checkDriverStatus(driverStatus: self.objSocket?.driver_status ?? 4)
+            delay(seconds: 2) {
+                self.getDriverLastLocation()
+            }
+            self.driverStatus =  self.objSocket?.driver_status ?? 4
+            self.setUI()
+            
+        }
+    }
     @objc func updateViewTimer() {
         self.stopTimer()
         self.cancelRide()
@@ -440,13 +471,13 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             case 1:
                 print("drawLine")
                 let pickUp = CLLocationCoordinate2D(latitude: Double(self.objSocket?.pick_up_latitude ?? "0.0") ?? 0.0, longitude: Double(self.objSocket?.pick_up_longitude ?? "0.0") ?? 0.0)
-                self.getRouteSteps(from: pickUp, to: self.driverLocation,markerStart: "circle",markerEnd: "car_map")
+                self.getRouteSteps(from: pickUp, to: self.driverLocation,markerStart: "circle",markerEnd: "pin")
             case 2:
                 print("add marker")
                 self.mapView.clear()
                 
                 let pickUp = CLLocationCoordinate2D(latitude: Double(self.objSocket?.pick_up_latitude ?? "0.0") ?? 0.0, longitude: Double(self.objSocket?.pick_up_longitude ?? "0.0") ?? 0.0)
-                self.addDriverMarker(location: self.driverLocation, markerImg: "car_map")
+                self.addDriverMarker(location: self.driverLocation, markerImg: "pin")
                 self.addMarker(location: pickUp, markerImg: "circle")
                 //                completion()
                 
@@ -472,12 +503,12 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             case 1:
                 print("drawLine")
                 let dropOff = CLLocationCoordinate2D(latitude: Double(self.objSocket?.drop_off_latitude ?? "0.0") ?? 0.0, longitude: Double(self.objSocket?.drop_off_longitude ?? "0.0") ?? 0.0)
-                self.getRouteSteps(from: self.driverLocation, to: dropOff,markerStart: "car_map",markerEnd: "square")
+                self.getRouteSteps(from: self.driverLocation, to: dropOff,markerStart: "pin",markerEnd: "square")
             case 2:
                 print("add marker")
                 self.mapView.clear()
                 let dropOff = CLLocationCoordinate2D(latitude: Double(self.objSocket?.drop_off_latitude ?? "0.0") ?? 0.0, longitude: Double(self.objSocket?.drop_off_longitude ?? "0.0") ?? 0.0)
-                self.addDriverMarker(location: self.driverLocation, markerImg: "car_map")
+                self.addDriverMarker(location: self.driverLocation, markerImg: "pin")
                 self.addMarker(location: dropOff, markerImg: "square")
                 //                completion()
                 
@@ -517,12 +548,12 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             case 1:
                 print("drawLine")
                 let dropOff = CLLocationCoordinate2D(latitude: Double(self.objSocket?.drop_off_latitude ?? "0.0") ?? 0.0, longitude: Double(self.objSocket?.drop_off_longitude ?? "0.0") ?? 0.0)
-                self.getRouteSteps(from: self.driverLocation, to: dropOff,markerStart: "car_map",markerEnd: "square")
+                self.getRouteSteps(from: self.driverLocation, to: dropOff,markerStart: "pin",markerEnd: "square")
             case 2:
                 print("add marker")
                 self.mapView.clear()
                 let dropOff = CLLocationCoordinate2D(latitude: Double(self.objSocket?.drop_off_latitude ?? "0.0") ?? 0.0, longitude: Double(self.objSocket?.drop_off_longitude ?? "0.0") ?? 0.0)
-                self.addDriverMarker(location: self.driverLocation, markerImg: "car_map")
+                self.addDriverMarker(location: self.driverLocation, markerImg: "pin")
                 self.addMarker(location: dropOff, markerImg: "square")
                 
             case 3:

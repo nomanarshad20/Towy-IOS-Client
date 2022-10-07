@@ -106,6 +106,14 @@ struct Key {
         static let LASTNAMEFIELD = "Last name field required"
         static let VALID_EMAIL = "Valid email required"
         static let LOCATION_PERMISSION   = "Please enable Location Services"
+        
+        
+        static let NAMEFIELD = "Name  field required"
+        static let CARDNUMBERFIELD = "Card number  field required"
+        static let CVCFIELD = "CVC  field required"
+        static let MONTHFIELD = "Month  field required"
+        static let YEARFIELD = "Year  field required"
+
 
     }
     

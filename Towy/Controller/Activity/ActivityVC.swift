@@ -10,14 +10,30 @@ import UIKit
 class ActivityVC: UIViewController {
 
     @IBOutlet weak var tblList : UITableView!
-    
+    @IBOutlet weak var btnBack : UIButton!
+    @IBOutlet weak var lblActivityWithBack : UILabel!
+    @IBOutlet weak var lblActivity : UILabel!
+
     var activityVm = ActivityVM()
     var objTripHistory : TripHistoryModel? = nil
+    
+    var isFromTrip = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         registerTableXib()
+        if isFromTrip{
+            btnBack.isHidden = false
+            lblActivityWithBack.isHidden = false
+            lblActivity.isHidden = true
+
+        }else{
+            btnBack.isHidden = true
+            lblActivityWithBack.isHidden = true
+            lblActivity.isHidden = false
+
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         callApi()
@@ -41,6 +57,10 @@ class ActivityVC: UIViewController {
         }
     }
    
+    
+    @IBAction func btnBackAction(_ sender:Any){
+        self.navigationController?.popViewController(animated: true)
+    }
 
 }
 

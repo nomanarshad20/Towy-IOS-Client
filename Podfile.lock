@@ -8,6 +8,7 @@ PODS:
     - AppAuth/Core
   - Cosmos (23.0.0)
   - CountryPickerView (3.3.0)
+  - DropDown (2.3.2)
   - FBAEMKit (14.1.0):
     - FBSDKCoreKit_Basics (= 14.1.0)
   - FBSDKCoreKit (14.1.0):
@@ -177,6 +178,7 @@ DEPENDENCIES:
   - Alamofire (~> 5.0)
   - Cosmos (~> 23.0)
   - CountryPickerView
+  - DropDown (= 2.3.2)
   - FBSDKCoreKit
   - FBSDKLoginKit
   - Firebase/Analytics
@@ -205,6 +207,7 @@ SPEC REPOS:
     - AppAuth
     - Cosmos
     - CountryPickerView
+    - DropDown
     - FBAEMKit
     - FBSDKCoreKit
     - FBSDKCoreKit_Basics
@@ -249,6 +252,7 @@ SPEC CHECKSUMS:
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
   CountryPickerView: 6322ada32a80b0cd721b0267282a5c24f406f263
+  DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
   FBAEMKit: a899515e45476027f73aef377b5cffadcd56ca3a
   FBSDKCoreKit: 24f8bc8d3b5b2a8c5c656a1329492a12e8efa792
   FBSDKCoreKit_Basics: 6e578c9bdc7aa1365dbbbde633c9ebb536bcaa98
@@ -288,6 +292,6 @@ SPEC CHECKSUMS:
   SVPinView: 9b538d0ba68cdb092afe4f0f67ec84cbed079466
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: c632906e0fd1016def3e8150c2f3962484fcf19d
+PODFILE CHECKSUM: 969f1e4a487dac11cd28db2ca05738437ae6601b
 
 COCOAPODS: 1.11.2
