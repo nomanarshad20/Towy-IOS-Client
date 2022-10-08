@@ -133,6 +133,7 @@ struct Key {
         static let SERVER_USER_SID = "id";
         static let SERVER_USER_NAME = "first_name";
         static let USER_TRIP_LOCATION = "tripLocation"
+        static let IS_USER_LOGIN = "isLogin"
 
 
 //SAVE_NOTIFICATION
@@ -146,6 +147,8 @@ struct Key {
         static let DISMISS_CONTROLLER = "dismiss"
         static let CALLAPIFORBOOKING = "bookingApiCall"
         static let UPDATE_UI_FOR_CANCEL = "cancelRequest"
+        static let APP_BECOME_ACTIVE          = "applicationBecomeActive"
+        static let RIDE_CANCEL_BY_DRIVER          = "rideCancel"
 
 //        public enum NotificationType:String{
 //            case RIDE_ACCEPT     = "1"

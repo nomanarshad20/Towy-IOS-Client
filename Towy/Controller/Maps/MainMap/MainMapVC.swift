@@ -102,8 +102,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.timerForRideRequest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateViewTimer), userInfo: nil, repeats: true)
-
+        //        self.timerForRideRequest = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateViewTimer), userInfo: nil, repeats: true)
+        
         // Do any additional setup after loading the view.
         registerTableXib()
         self.tabBarController?.tabBar.isHidden = true
@@ -111,10 +111,11 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         if let source = self.sourceLocation,let destination = self.destinationLocation{
             mainMapVm.sourceLocation = source
             mainMapVm.destinationLocation = destination
+            mainMapVm.getAddress(userLocation: CLLocation(latitude: destination.latitude, longitude: destination.longitude))
             let obj = UserTripLocationModel(sourceLat: source.latitude, sourceLng: source.longitude, destinationLat: destination.latitude, destinationLng: destination.longitude)
             UtilitiesManager.shared.saveUserTripLocation(user: obj)
         }
-//        self.lblDestination.text = self.strDestination
+        //        self.lblDestination.text = self.strDestination
         setupMap()
         setUIForTowFinder()
         //        SocketHelper.shared.connectSocket { (success) in
@@ -130,53 +131,21 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         // self.checkRideStatus(status: .notFound)
         //socketInit()
         /*
-        guard objSocket != nil else{
-            self.checkRideStatus(status: .notFound)
-            return
-        }
-        self.checkDriverStatus(driverStatus: self.objSocket?.driver_status ?? 4)
-        delay(seconds: 2) {
-            self.getDriverLastLocation()
-        }
-        self.driverStatus =  self.objSocket?.driver_status ?? 4
-        setUI()
-        */
+         guard objSocket != nil else{
+         self.checkRideStatus(status: .notFound)
+         return
+         }
+         self.checkDriverStatus(driverStatus: self.objSocket?.driver_status ?? 4)
+         delay(seconds: 2) {
+         self.getDriverLastLocation()
+         }
+         self.driverStatus =  self.objSocket?.driver_status ?? 4
+         setUI()
+         */
     }
     
 
     override func viewWillAppear(_ animated: Bool) {
-        /*
-        mainMapVm.getBookingStatus { bookingData,error  in
-            guard error == nil else{return}
-            
-            let dictionary = try! DictionaryEncoder().encode(bookingData)
-            let dict = JSON(dictionary).dictionaryObject
-            print("jsonData",dict)
-            guard let data = dict?["data"] as? [String:Any] else{return}
-            
-            guard let booking = data["booking"] as? [String:Any] else{
-                return
-            }
-            
-            
-            let b = BookingInfo.getRideInfo(dict: booking)
-            self.objSocket = b
-            guard self.objSocket != nil else{
-                print("notFoundWalaKam")
-                self.checkRideStatus(status: .notFound)
-                return
-            }
-            self.checkDriverStatus(driverStatus: self.objSocket?.driver_status ?? 4)
-            delay(seconds: 2) {
-                self.getDriverLastLocation()
-            }
-            self.driverStatus =  self.objSocket?.driver_status ?? 4
-            self.setUI()
-            
-        }
-        */
-    }
-    override func viewDidAppear(_ animated: Bool) {
         
         mainMapVm.getBookingStatus { bookingData,error  in
             guard error == nil else{return}
@@ -207,6 +176,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             
         }
     }
+    override func viewDidAppear(_ animated: Bool) {
+    }
     @objc func updateViewTimer() {
         self.stopTimer()
         self.cancelRide()
@@ -216,6 +187,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         self.lblDriverName.text = obj.driver_first_name ?? ""
         self.lblDriverTowType.text = obj.vehicle_name ?? ""
         UtilitiesManager.shared.setImage(url: obj.driver_image ?? "", img: self.imgDriver)
+        
     }
     func setUIForTowFinder(){
         guard let source = self.sourceLocation else{return}
@@ -576,11 +548,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         }
         
     }
-    
-    
-    func handlePointToPointLocation(){
-        
-    }
+
     func checkDriverStatus(driverStatus:Int){
         
         switch driverStatus{
@@ -649,7 +617,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                 self.bottomViewTowConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }completion: { _ in
-                self.timerForRideRequest = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(self.updateViewTimer), userInfo: nil, repeats: true)
+                self.timerForRideRequest = Timer.scheduledTimer(timeInterval: 90, target: self, selector: #selector(self.updateViewTimer), userInfo: nil, repeats: true)
 
                 //                delay(seconds: 5) {
                 //                    //self.checkRideStatus(status:.requestAccept)
@@ -901,10 +869,14 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     func notificationSetup(){
         NotificationCenter.default.addObserver(self, selector: #selector(popControllerObserver), name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(bookingCancelObserver), name: Notification.Name(Key.notificationKey.UPDATE_UI_FOR_CANCEL), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.appBecomeActive), name:NSNotification.Name(Key.notificationKey.APP_BECOME_ACTIVE) , object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.bookingCancelObserver), name:NSNotification.Name(Key.notificationKey.RIDE_CANCEL_BY_DRIVER) , object: nil)
+
         
     }
     
     func cancelRide(){
+        //stopTimer()
         self.reasonVm.bookingId = self.objSocket?.id ?? 0
         self.reasonVm.reasonId = 9
         self.reasonVm.reason = "rider not picked"
@@ -914,7 +886,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                 self.checkRideStatus(status: .notFound)
                 return
             }
-            self.checkRideStatus(status: .rideRejectDuringRide)
+            self.checkRideStatus(status: .requestReject)
             
         }
     }
@@ -949,7 +921,6 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         self.drawLineStatus = 0
         guard self.objSocket != nil else{
             self.checkRideStatus(status: .notFound)
-
             return
         }
         self.checkRideStatus(status: .rideRejectDuringRide)
@@ -964,6 +935,16 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         //            print("sucess")
         //            self.checkRideStatus(status: .findingTow)
         //        }
+    }
+    
+    
+    @objc func appBecomeActive(){
+        
+        viewWillAppear(false)
+    }
+    
+    @objc func rideCancelByUser(){
+        
     }
     // MARK: - MAPS_SETTING
     

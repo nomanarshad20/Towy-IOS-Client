@@ -50,8 +50,8 @@ class ActivityVC: UIViewController {
             guard error == nil else{return}
             self.objTripHistory = data
             if var d = self.objTripHistory?.data.pastBooking{
-                d.reverse()
-                self.objTripHistory?.data.pastBooking = d
+//                d.reverse()
+//                self.objTripHistory?.data.pastBooking = d
             }
             self.tblList.reloadData()
         }
@@ -81,6 +81,11 @@ extension ActivityVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect")
+        let vc = UtilitiesManager.shared.getMainStoryboard().instantiateViewController(withIdentifier: "TripDetailsVC") as! TripDetailsVC
+        guard let obj = self.objTripHistory?.data.pastBooking else{return}
+        vc.obj = obj[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
+
 //        guard let obj = self.objTowList else{return}
 //        self.objTow = obj.data[indexPath.row]
 //        self.btnConfirm.setTitle("Confirm \(obj.data[indexPath.row].name)", for: .normal)

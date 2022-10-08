@@ -99,6 +99,8 @@ class LoginVM: BaseVM {
                 UtilitiesManager.shared.saveSocialUserData(user: response)
                 UtilitiesManager.shared.saveUserId(id: response.data.userID)
                 UtilitiesManager.shared.saveUserName(name: response.data.firstName)
+                UtilitiesManager.shared.saveUserLoginState(isLogin: true)
+
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.moveToTabbarVC()
             case .failure(let error):

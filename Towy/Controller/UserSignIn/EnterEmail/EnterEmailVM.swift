@@ -60,6 +60,8 @@ class EnterEmailVM: BaseVM {
         usr["email"] = email
         
         UtilitiesManager.shared.saveUserInformation(usr: usr)
+//        UtilitiesManager.shared.saveUserLoginState(isLogin: true)
+
         //usr.
         
         ControllerNavigation.shared.pushVC(of: .enterPasswordVC)

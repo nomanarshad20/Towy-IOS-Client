@@ -76,6 +76,70 @@ class NotificationModel{
     
     class func getNotificationType(dict:[AnyHashable:Any])->NotificationModel?{
         let n = NotificationModel()
+        
+        switch dict["notification_type"] as? String{
+        case "11":
+            let data = dict["data"] as? String ?? ""
+            let str = self.convertStringToDictionary(text: data)
+            n.booking = BookingInfo.getRideInfo(dict: str ?? [:])
+            n.type = .NEW_RIDE_REQUEST
+            return n
+        case "3":
+            let data = dict["data"] as? String ?? ""
+            let str = self.convertStringToDictionary(text: data)
+            n.rideDropOffChange = NewRide.getRideInfo(dict: str?["booking_location_changed"] as? [String:Any] ?? [:])
+            n.type = .RIDE_LOCATION_CHANGED
+            return n
+        case "14":
+            n.type = .RIDE_CANCELED
+            return n
+        case "7":
+            let data = dict["data"] as? String ?? ""
+            let str = self.convertStringToDictionary(text: data)
+            n.newRide = NewRide.getRideInfo(dict: str?["bookingInfo"] as? [String:Any] ?? [:])
+            n.type = .SCHEDULE_RIDE
+            return n
+        case "8":
+            n.type = .LOGOUT_USER
+            return n
+        case "15":
+            n.type = .OFFLINE_PARTNER
+            return n
+        case "10":
+            n.type = .RIDE_CANCEL_ON_RECEIVE
+            return n
+        case "20":
+            
+            let dataDict = dict["aps"] as? [String:Any]
+            let data = dataDict?["alert"] as? [String:Any]
+            n.type = .MESSAGE_RECEIVE
+            n.message = Message.init(booking_id: nil, receiver_id: data?["title"] as? String, sender_id: nil, message: data?["body"] as? String, messageTime: nil, type: "1")
+            return n
+        case "21":
+            
+            let dataDict = dict["aps"] as? [String:Any]
+            let data = dataDict?["alert"] as? [String:Any]
+            n.type = .WARNING
+            n.message = Message.init(booking_id: nil, receiver_id: data?["title"] as? String, sender_id: nil, message: data?["body"] as? String, messageTime: nil, type: "1")
+            return n
+        case "22":
+            
+            let dataDict = dict["aps"] as? [String:Any]
+            let data = dataDict?["alert"] as? [String:Any]
+            n.type = .BOUNS
+            n.message = Message.init(booking_id: nil, receiver_id: data?["title"] as? String, sender_id: nil, message: data?["body"] as? String, messageTime: nil, type: "1")
+            return n
+        case "23":
+            
+            let dataDict = dict["aps"] as? [String:Any]
+            let data = dataDict?["alert"] as? [String:Any]
+            n.type = .LOCATION_ERROR_NOTIFICATION
+            n.message = Message.init(booking_id: nil, receiver_id: data?["title"] as? String, sender_id: nil, message: data?["body"] as? String, messageTime: nil, type: "1")
+            return n
+        default:
+            return NotificationModel.init()
+        }
+        /*
         switch dict["notification_type"] as! String{
         case "11":
             let data = dict["data"] as? String ?? ""
@@ -138,6 +202,7 @@ class NotificationModel{
         default:
             return NotificationModel.init()
         }
+        */
     }
     
     

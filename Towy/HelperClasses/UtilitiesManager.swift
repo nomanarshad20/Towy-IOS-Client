@@ -194,6 +194,12 @@ class UtilitiesManager{
         return result ?? false
 
     }
+    
+    func isLogin() -> Bool{
+        let result = defaults.value(forKey: Key.userDefaultKey.IS_USER_LOGIN) as? Bool
+        return result ?? false
+
+    }
     func retriveUserData() -> RegisterUser?{
         do {
             let getData = try defaults.getObject(forKey: Key.userDefaultKey.USER_DATA, castTo: RegisterUser.self)
@@ -262,6 +268,9 @@ class UtilitiesManager{
     func saveNumberValidation(isValid:Bool){
         defaults.set(isValid, forKey: Key.userDefaultKey.VALID_USER)
 
+    }
+    func saveUserLoginState(isLogin:Bool){
+        defaults.set(isLogin, forKey: Key.userDefaultKey.IS_USER_LOGIN)
     }
     func saveUserData(user:RegisterUser?){
         do {
@@ -365,6 +374,7 @@ class UtilitiesManager{
         saveUserData(user: nil)
         saveLoginUserData(user: nil)
         saveSocialUserData(user: nil)
+        saveUserLoginState(isLogin: false)
     }
 }
 

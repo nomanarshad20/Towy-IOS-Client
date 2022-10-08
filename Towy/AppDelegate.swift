@@ -71,11 +71,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         if UtilitiesManager.shared.isTermsAndConditionsPending(){
             moveToTermsVC()
         }
+        else if UtilitiesManager.shared.isLogin(){
+            
+                moveToTabbarVC()
+            
+        }
+        /*
         else if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) //|| (UtilitiesManager.shared.retriveAppleLoginData() != nil)
         {
             //let data = UtilitiesManager.shared.retriveSocialUserData() 
             moveToTabbarVC()
         }
+        */
         return true
     }
     func moveToTabbarVC(){
@@ -174,18 +181,17 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
         print("Device Token: \(token)")
     }
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-//        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil)
-//        {
+        if UtilitiesManager.shared.isLogin()
+        {
             if let _ = userInfo["aps"] as? [String: AnyObject],
                let obj = NotificationModel.getNotificationType(dict: userInfo) {
-              showPopup(noti: obj)
-
+                showPopup(noti: obj)
                 print("notificationDict",obj)
-//                if UtilitiesManager.shared.getDriverStatus() > 0 {
-//                    showPopup(noti: noti)
-//                }
+                //                if UtilitiesManager.shared.getDriverStatus() > 0 {
+                //                    showPopup(noti: noti)
+                //                }
             }
-       // }
+        }
     }
     
     func application(
@@ -201,46 +207,46 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
 //        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UIApplication.shared.applicationIconBadgeNumber += 1
-//        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil){
+        if UtilitiesManager.shared.isLogin(){
             if let _ = userInfo["aps"] as? [String: AnyObject],
                let noti = NotificationModel.getNotificationType(dict: userInfo) {
                 showPopup(noti: noti)
-
-//                if UtilitiesManager.shared.getDriverStatus() > 0 {
-//                    showPopup(noti: noti)
-//                }
+                
+                //                if UtilitiesManager.shared.getDriverStatus() > 0 {
+                //                    showPopup(noti: noti)
+                //                }
             }
-        //}
+        }
     }
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                     willPresent notification: UNNotification,
-                                    withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
-//        center.removeAllPendingNotificationRequests()
-//        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        //        center.removeAllPendingNotificationRequests()
+        //        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
         let userInfo = notification.request.content.userInfo
         let state : UIApplication.State = UIApplication.shared.applicationState
-               if (state == .inactive || state == .background) {
-                if #available(iOS 14.0, *) {
-                    completionHandler([.alert,.badge,.banner,.sound,.list])
-                } else {
-                    completionHandler([.alert,.badge,.sound])
-                }
-               } else {
-                if let _ = userInfo["aps"] as? [String: AnyObject],
-                   let noti = NotificationModel.getNotificationType(dict: userInfo) {
-                    //if UtilitiesManager.shared.getDriverStatus() > 0 {
-                        completionHandler([.sound])
-                        showPopup(noti: noti)
-                    //}
-                }else{
-                    
-                }
+        if (state == .inactive || state == .background) {
+            if #available(iOS 14.0, *) {
+                completionHandler([.alert,.badge,.banner,.sound,.list])
+            } else {
+                completionHandler([.alert,.badge,.sound])
+            }
+        } else {
+            if let _ = userInfo["aps"] as? [String: AnyObject],
+               let noti = NotificationModel.getNotificationType(dict: userInfo) {
+                //if UtilitiesManager.shared.getDriverStatus() > 0 {
+                completionHandler([.sound])
+                showPopup(noti: noti)
+                //}
+            }else{
+                
             }
         }
+    }
     
     /*
 
@@ -338,6 +344,7 @@ extension AppDelegate{
 //            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
         case .RIDE_CANCELED:
         print("RIDE_CANCELED")
+            NotificationCenter.default.post(name: NSNotification.Name(Key.notificationKey.RIDE_CANCEL_BY_DRIVER), object: noti)
 
 //            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
         case .LOGOUT_USER:
@@ -423,8 +430,15 @@ extension AppDelegate{
         SocketHelper.shared.disconnectSocket()
     }
 
+//    func applicationDidBecomeActive(_ application: UIApplication) {
+//       // SocketIOManager.sharedInstance.establishConnection()
+//
+//    }
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-       // SocketIOManager.sharedInstance.establishConnection()
-        
+
+        NotificationCenter.default.post(name: NSNotification.Name(Key.notificationKey.APP_BECOME_ACTIVE), object: nil)
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        SocketIOManager.sharedInstance.establishConnection()
     }
 }

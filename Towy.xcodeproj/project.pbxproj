@@ -120,6 +120,8 @@
 		3DD65CD928D5372100BE7380 /* SocketBookingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65CD828D5372100BE7380 /* SocketBookingModel.swift */; };
 		3DD65CDB28D5683500BE7380 /* cancelRideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65CDA28D5683500BE7380 /* cancelRideModel.swift */; };
 		3DD65CDD28D569A600BE7380 /* AmountToPayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD65CDC28D569A600BE7380 /* AmountToPayVC.swift */; };
+		3DDF653028F1FCB9009777F4 /* TripDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF652F28F1FCB9009777F4 /* TripDetailsVC.swift */; };
+		3DDF653228F1FCE6009777F4 /* ReceiptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDF653128F1FCE5009777F4 /* ReceiptVC.swift */; };
 		3DE9B5EE288829BD00FDC9A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DE9B5ED288829BC00FDC9A2 /* GoogleService-Info.plist */; };
 		3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */; };
 		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
@@ -256,6 +258,8 @@
 		3DD65CD828D5372100BE7380 /* SocketBookingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketBookingModel.swift; sourceTree = "<group>"; };
 		3DD65CDA28D5683500BE7380 /* cancelRideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cancelRideModel.swift; sourceTree = "<group>"; };
 		3DD65CDC28D569A600BE7380 /* AmountToPayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountToPayVC.swift; sourceTree = "<group>"; };
+		3DDF652F28F1FCB9009777F4 /* TripDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailsVC.swift; sourceTree = "<group>"; };
+		3DDF653128F1FCE5009777F4 /* ReceiptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptVC.swift; sourceTree = "<group>"; };
 		3DE9B5ED288829BC00FDC9A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DEDC0F3287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameConfirmationPopUpVC.swift; sourceTree = "<group>"; };
 		3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendCodePopUpVC.swift; sourceTree = "<group>"; };
@@ -674,6 +678,8 @@
 			children = (
 				3D79B88F28E363BF002A2C71 /* ActivityVC.swift */,
 				3D79B89128E363CE002A2C71 /* ActivityVM.swift */,
+				3DDF652F28F1FCB9009777F4 /* TripDetailsVC.swift */,
+				3DDF653128F1FCE5009777F4 /* ReceiptVC.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -966,6 +972,7 @@
 				3D06496D2893F2F900720F69 /* DashboardCVCell.swift in Sources */,
 				3D5981C02860DBB40034AB47 /* EnterDetailVC.swift in Sources */,
 				3DA2828F28C685D800A2933F /* NearestDriverModel.swift in Sources */,
+				3DDF653228F1FCE6009777F4 /* ReceiptVC.swift in Sources */,
 				3DACB6A4287450E90003E87A /* LoginModel.swift in Sources */,
 				3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */,
 				3D21667C2884A89C005A108B /* RegisterModel.swift in Sources */,
@@ -974,6 +981,7 @@
 				CED6116928C792420047DEBC /* SocketManager.swift in Sources */,
 				3D79B89228E363CE002A2C71 /* ActivityVM.swift in Sources */,
 				3D21667A2884A295005A108B /* EnterPasswordVM.swift in Sources */,
+				3DDF653028F1FCB9009777F4 /* TripDetailsVC.swift in Sources */,
 				3D5981B82860D4A00034AB47 /* LoginVM.swift in Sources */,
 				3D2A638228757246007F7E29 /* CustomLoader.swift in Sources */,
 				3DACB6A7287481820003E87A /* URLConstants.swift in Sources */,
