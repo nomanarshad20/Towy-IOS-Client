@@ -13,7 +13,7 @@ class ReasonVC: UIViewController {
     @IBOutlet weak var viewMain:UIView!
     //var dataSource = [Precaution]()
     var reasonVm = ReasonVM()
-    
+    var selectedIndex = -1
    // var dataSource : ReasonListModel? = nil
     var dataSource : [Precaution]? = nil
 
@@ -89,18 +89,32 @@ extension ReasonVC:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextWithCheckboxTableViewCell", for: indexPath) as! TextWithCheckboxTableViewCell
         guard let obj = self.dataSource else {return cell}
-        return cell.setData(data: obj[indexPath.row]) ?? UITableViewCell.init()
+        if selectedIndex == indexPath.row{
+            cell.imgStatus.image = UIImage.init(named: "check")
+        }
+        else{
+            cell.imgStatus.image = UIImage.init(named: "unCheck")
+        }
+        cell.setData(data: obj[indexPath.row])
+        return cell
+        // return cell.setData(data: obj[indexPath.row]) ?? UITableViewCell.init()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cel = tableView.cellForRow(at: indexPath) as! TextWithCheckboxTableViewCell
+        guard let obj = self.dataSource else {return }
+        self.reasonDict = obj[indexPath.row]
+        self.selectedIndex = indexPath.row
+        self.tblReasons.reloadData()
+        /*
+//        let cel = tableView.cellForRow(at: indexPath) as! TextWithCheckboxTableViewCell
         //SHOW_CUSTOM_LOADER()
         //self.viewTbl.isHidden = true
         guard let obj = self.dataSource else {return }
         self.reasonDict = obj[indexPath.row]
-        cel.data = obj[indexPath.row]
-        _ = cel.changeStatus()
+//        cel.data = obj[indexPath.row]
+//        _ = cel.changeStatus()
         
+        */
         //if let bookinginfo = UtilityManager.manager.getModelFromUserDefalts(key: Constants.CURRENT_RIDE){
 //            print("BookingInfo",bookinginfo)
            // let bookingModel = BookingInfo.getRideInfo(dict: bookinginfo)

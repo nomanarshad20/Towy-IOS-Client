@@ -49,7 +49,7 @@ class ActivityVC: UIViewController {
         activityVm.getTripHistory { data, error in
             guard error == nil else{return}
             self.objTripHistory = data
-            if var d = self.objTripHistory?.data.pastBooking{
+            if var d = self.objTripHistory?.data?.past_booking{
 //                d.reverse()
 //                self.objTripHistory?.data.pastBooking = d
             }
@@ -66,12 +66,12 @@ class ActivityVC: UIViewController {
 
 extension ActivityVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.objTripHistory?.data.pastBooking.count ?? 0
+        return self.objTripHistory?.data?.past_booking?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityTableViewCell", for: indexPath) as! ActivityTableViewCell
-        guard let obj = self.objTripHistory?.data.pastBooking else{return cell}
+        guard let obj = self.objTripHistory?.data?.past_booking else{return cell}
         cell.setData(obj: obj[indexPath.row])
         
 //        guard let obj = self.objTowList else{return cell}
@@ -82,7 +82,7 @@ extension ActivityVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect")
         let vc = UtilitiesManager.shared.getMainStoryboard().instantiateViewController(withIdentifier: "TripDetailsVC") as! TripDetailsVC
-        guard let obj = self.objTripHistory?.data.pastBooking else{return}
+        guard let obj = self.objTripHistory?.data?.past_booking else{return}
         vc.obj = obj[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
 

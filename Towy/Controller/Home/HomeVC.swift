@@ -243,8 +243,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
         if indexPath.row == 0{
             
             
-            
-            guard let _ = self.bookingData?.data.passenger?.stripeCustomerID else {
+            //guard let _ = self.bookingData?.data?.passenger?.stripe_customer_id
+
+            guard let _ = self.bookingData?.data?.passenger?.stripe_customer_id else {
                 UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "Please add payment method for using tow services")
                 return}
 //            guard let id = passengerDetail.stripeCustomerID else
@@ -348,10 +349,12 @@ extension HomeVC: CLLocationManagerDelegate {
 //        self.homeVM.fetchDashBoardData { data  in
 //            self.objDashboard = data
 //            self.clcDashBoard.reloadData()
-        
+        self.manager.stopUpdatingLocation()
+
             self.homeVM.fetchNearestDrivers(location: CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)){ data in
-                for marker in data.data{
-                    self.addDriverMarker(location: CLLocationCoordinate2D(latitude: marker.latitude, longitude: marker.longitude), markerImg: "car_map")
+                guard let d = data.data else{return}
+                for marker in d{
+                    self.addDriverMarker(location: CLLocationCoordinate2D(latitude: marker.latitude ?? 0.0, longitude: marker.longitude ?? 0.0), markerImg: "car_map")
                 }
             }
         
@@ -360,7 +363,7 @@ extension HomeVC: CLLocationManagerDelegate {
        // }
        
         //self.loadGoogleMapLayer(currentLocation: currentLocation)
-        self.manager.stopUpdatingLocation()
+        //self.manager.stopUpdatingLocation()
         
     }
 

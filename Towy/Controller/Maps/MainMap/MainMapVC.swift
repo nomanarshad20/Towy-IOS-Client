@@ -12,6 +12,7 @@ import SocketIO
 import SwiftyJSON
 import Alamofire
 import CoreLocation
+import FirebaseDatabase
 class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     enum rideStatus{
@@ -367,8 +368,14 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                 if self.objSocket?.driver_status ?? 0 == 0 && self.objSocket?.ride_status ?? 0 == 6{
                     self.checkRideStatus(status: .requestReject)
                 }else{
+//                    if let bookingId = self.objSocket?.id
+//                    {
+//                        Database.database().reference().child("\(bookingId)").child("fcm").child("fcm1").setValue(UtilitiesManager.shared.getFcmToken)
+//                    }
                     self.checkDriverStatus(driverStatus: self.objSocket?.driver_status ?? 0)
                     self.getDriverLastLocation()
+
+
                     
                 }
             }else{
@@ -555,6 +562,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         case 0:
             print("0")
             checkRideStatus(status: .requestAccept)
+            
         case 1:
             print("1")
             checkRideStatus(status: .reach)
@@ -568,6 +576,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             print("3")
             checkRideStatus(status: .end)
             //SocketIOManager.sharedInstance.closeConnection()
+        case 4:
+            checkRideStatus(status: .end)
             
         default:
             print("nothing")
@@ -636,10 +646,13 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         case .requestAccept:
             print("resetMap")
             self.drawLineStatus = 0
-            
             self.btnBack.isHidden = true
-            // if self.bottomViewTowConstraint.constant == 0{
-            
+          
+            let fcm = UtilitiesManager.shared.getFcmToken()
+            if let bookingId = self.objSocket?.id
+            {
+                Database.database().reference().child("\(bookingId)").child("fcm").setValue(["fcm1":"\(fcm)"])
+            }
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
                 self.bottomViewTowConstraint.constant = -400
                 self.view.layoutIfNeeded()
@@ -701,7 +714,11 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         case .reach:
             print("change dirction from driver to destination")
             self.drawLineStatus = 0
-            
+            let fcm = UtilitiesManager.shared.getFcmToken()
+            if let bookingId = self.objSocket?.id
+            {
+                Database.database().reference().child("\(bookingId)").child("fcm").setValue(["fcm1":"\(fcm)"])
+            }
             self.btnBack.isHidden = true
             self.lblDriverRideStatus.text = "Reached at pickup point"
             self.viewLoaderInFindingTow.isHidden = true
@@ -730,7 +747,11 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             self.viewDriverDetailTow.isHidden = false
             //            self.viewTowList.isHidden = false
             
-            
+            let fcm = UtilitiesManager.shared.getFcmToken()
+            if let bookingId = self.objSocket?.id
+            {
+                Database.database().reference().child("\(bookingId)").child("fcm").setValue(["fcm1":"\(fcm)"])
+            }
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
                 self.bottomViewTowConstraint.constant = -400
                 self.view.layoutIfNeeded()
@@ -816,7 +837,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1.0)
         carMarker.position =  coordinates
-        carMarker.rotation = bearing
+//        carMarker.rotation = bearing
         CATransaction.commit()
     }
     
@@ -1123,21 +1144,21 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
 
 extension MainMapVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.objTowList?.data.count ?? 0
+        return self.objTowList?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TowListTableViewCell", for: indexPath) as! TowListTableViewCell
-        guard let obj = self.objTowList else{return cell}
-        cell.obj = obj.data[indexPath.row]
+        guard let obj = self.objTowList?.data else{return cell}
+        cell.obj = obj[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect")
-        guard let obj = self.objTowList else{return}
-        self.objTow = obj.data[indexPath.row]
-        self.btnConfirm.setTitle("Confirm \(obj.data[indexPath.row].name ?? "")", for: .normal)
+        guard let obj = self.objTowList?.data else{return}
+        self.objTow = obj[indexPath.row]
+        self.btnConfirm.setTitle("Confirm \(obj[indexPath.row].name ?? "")", for: .normal)
         
     }
 }

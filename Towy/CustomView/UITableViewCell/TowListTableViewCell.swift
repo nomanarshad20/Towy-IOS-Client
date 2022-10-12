@@ -21,10 +21,10 @@ class TowListTableViewCell: UITableViewCell {
         didSet{
             //UtilitiesManager.shared.setImage(url: obj., img: <#T##UIImageView#>)
             self.lblTitle.text = obj?.name ?? ""
-            self.lblTime.text = "\(obj?.driverReachTimeInMinutes ?? "") min"
+            self.lblTime.text = "\("\(obj?.driver_reach_time_in_minutes ?? 0)") min"
 //            self.lblTitle.text = obj?.name ?? ""
 //            self.lblTitle.text = obj?.name ?? ""
-            self.lblPrice.text = "\(obj?.estimatedFare ?? 0)"
+            self.lblPrice.text = "\(obj?.estimated_fare ?? 0)"
             //self.lblTime.text = "\(obj?. ?? 0)"
 
         }

@@ -16,7 +16,7 @@ class ReasonVM:BaseVM{
         // let h = UtilitiesManager.shared.getAuthHeader()
         
         //let body = ["mobile_no":"actualNumber","user_type":"1"] as [String:Any]
-        NetworkCall(data: [:], headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.getCancelReason, method: .get,isJSONRequest: false).executeQuery(){
+        NetworkCall(data: [:], headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.getCancelReason, method: .get,isJSONRequest: false,showLoader: true).executeQuery(){
             (result: Result<ReasonListModel,Error>) in
             
             switch result{

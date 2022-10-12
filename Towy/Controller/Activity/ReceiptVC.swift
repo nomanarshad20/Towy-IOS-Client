@@ -24,9 +24,9 @@ class ReceiptVC: UIViewController {
     
     func setUI(){
         guard let obj = self.obj else{return}
-        self.lblDate.text = dateToShow(strDate: obj.createdAt ?? "")
-        self.lblPrice.text = "PKR \(obj.estimatedFare ?? "00.00")"
-        self.lblTitle.text = "Here's Your receipt for your ride with \(obj.driverFirstName ?? "testDriver")"
+        self.lblDate.text = dateToShow(strDate: obj.created_at ?? "")
+        self.lblPrice.text = "PKR \(obj.estimated_fare ?? "00.00")"
+        self.lblTitle.text = "Here's Your receipt for your ride with \(obj.driver_first_name ?? "testDriver")"
 
     }
     

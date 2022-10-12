@@ -36,7 +36,7 @@ class RateAndReviewVC: UIViewController {
             rateVm.message = self.txtDescription.text
             rateVm.rating = ratingView.rating
             rateVm.callRatingApi { dd in
-                UtilitiesManager.shared.showAlertWithAction(self, message: dd.message, title: Key.APP_NAME, buttons: ["OK"]) { index in
+                UtilitiesManager.shared.showAlertWithAction(self, message: dd.message ?? "Rating Save Successfully", title: Key.APP_NAME, buttons: ["OK"]) { index in
                     
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.moveToTabbarVC()

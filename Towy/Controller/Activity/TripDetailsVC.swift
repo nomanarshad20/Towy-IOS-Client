@@ -29,19 +29,19 @@ class TripDetailsVC: UIViewController {
     
     func setUI(){
         guard let obj = self.obj else{return}
-        self.lblDate.text = dateToShow(strDate: obj.createdAt ?? "")
-        self.lblPrice.text = "PKR \(obj.estimatedFare ?? "00.00")"
-        self.lblTrip.text = "Your trip with \(obj.driverFirstName ?? "testDriver")"
+        self.lblDate.text = dateToShow(strDate: obj.created_at ?? "")
+        self.lblPrice.text = "PKR \(obj.estimated_fare ?? "00.00")"
+        self.lblTrip.text = "Your trip with \(obj.driver_first_name ?? "testDriver")"
 
         setUIForTowFinder()
     }
     
     func setUIForTowFinder(){
         guard let obj = self.obj else{return}
-        let pickUpLat = Double(obj.pickUpLatitude ?? "0.0") ?? 0.0
-        let pickUpLong = Double(obj.pickUpLongitude ?? "0.0") ?? 0.0
-        let dropOffLat = Double(obj.dropOffLatitude ?? "0.0") ?? 0.0
-        let dropOffLong = Double(obj.dropOffLongitude ?? "0.0") ?? 0.0
+        let pickUpLat = Double(obj.pick_up_latitude ?? "0.0") ?? 0.0
+        let pickUpLong = Double(obj.pick_up_longitude ?? "0.0") ?? 0.0
+        let dropOffLat = Double(obj.drop_off_latitude ?? "0.0") ?? 0.0
+        let dropOffLong = Double(obj.drop_off_longitude ?? "0.0") ?? 0.0
 
         let sourceLocation = CLLocationCoordinate2D(latitude: pickUpLat, longitude: pickUpLong)
         let destinationLocation = CLLocationCoordinate2D(latitude: dropOffLat, longitude: dropOffLong)

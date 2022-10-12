@@ -78,19 +78,14 @@ class NotificationModel{
         let n = NotificationModel()
         
         switch dict["notification_type"] as? String{
-        case "11":
-            let data = dict["data"] as? String ?? ""
-            let str = self.convertStringToDictionary(text: data)
-            n.booking = BookingInfo.getRideInfo(dict: str ?? [:])
-            n.type = .NEW_RIDE_REQUEST
-            return n
+      
         case "3":
             let data = dict["data"] as? String ?? ""
             let str = self.convertStringToDictionary(text: data)
             n.rideDropOffChange = NewRide.getRideInfo(dict: str?["booking_location_changed"] as? [String:Any] ?? [:])
             n.type = .RIDE_LOCATION_CHANGED
             return n
-        case "14":
+        case "6":
             n.type = .RIDE_CANCELED
             return n
         case "7":
@@ -102,12 +97,22 @@ class NotificationModel{
         case "8":
             n.type = .LOGOUT_USER
             return n
-        case "15":
-            n.type = .OFFLINE_PARTNER
-            return n
         case "10":
             n.type = .RIDE_CANCEL_ON_RECEIVE
             return n
+        case "11":
+            let data = dict["data"] as? String ?? ""
+            let str = self.convertStringToDictionary(text: data)
+            n.booking = BookingInfo.getRideInfo(dict: str ?? [:])
+            n.type = .NEW_RIDE_REQUEST
+            return n
+        case "14":
+            n.type = .RIDE_CANCELED
+            return n
+        case "15":
+            n.type = .OFFLINE_PARTNER
+            return n
+   
         case "20":
             
             let dataDict = dict["aps"] as? [String:Any]

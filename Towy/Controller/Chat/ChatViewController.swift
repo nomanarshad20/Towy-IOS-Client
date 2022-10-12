@@ -17,7 +17,9 @@ class ChatViewController: UIViewController {
     
     
     var ref:DatabaseReference!
+    var driverFcm:String? = nil
     var pasengerFcm:String? = nil
+
     var messages = [Message]()
     var booking:BookingInfo? = nil
     
@@ -40,6 +42,7 @@ class ChatViewController: UIViewController {
         tblView.register(UINib.init(nibName: "ReceiverTableViewCell", bundle: .main), forCellReuseIdentifier: "ReceiverTableViewCell")
         
         tblView.estimatedRowHeight = 800
+        self.pasengerFcm = UtilitiesManager.shared.getFcmToken()
         self.getdata()
 
 //        SHOW_CUSTOM_LOADER()
@@ -58,9 +61,9 @@ class ChatViewController: UIViewController {
 //        txtMessage.leftViewMode = .always
 //        txtMessage.addSubview(leftView)
         
-        getPassengerFcm { fcm in
+        getDriverFcm{ fcm in
             if fcm != nil{
-                self.pasengerFcm = fcm
+                self.driverFcm = fcm
             }else{
                 
             }
@@ -136,10 +139,14 @@ class ChatViewController: UIViewController {
 //                \(UtilityManager.manager.getId())
                 let paramas = ["booking_id":"\(booking!.id!)","receiver_id":booking?.driver_id ?? 0,"sender_id":UtilitiesManager.shared.getId(),"message":txtMessage.text!,"messageTime":Date.init().timeIntervalSince1970,"type":"1"] as [String : Any]
                 
-                ref.child("\(booking!.id!)").child("messages").childByAutoId().setValue(paramas) { err, refer in
+                let refToSend =  ref.child("\(booking!.id!)").child("messages").childByAutoId()
+                refToSend.setValue(paramas) { err, refer in
                     if err == nil{
-                        if self.pasengerFcm != nil{
-                            PushNotificationSender().sendPushNotification(to: self.pasengerFcm!, title: "New message by" + " \(UtilitiesManager.shared.getUserName())", body: self.txtMessage.text!)
+                        if self.driverFcm != nil{
+                            PushNotificationSender().sendPushNotification(to: self.driverFcm!, title: "New message by" + " \(UtilitiesManager.shared.getUserName())", body: self.txtMessage.text!)
+//                            Database.database().reference().child("\(self.booking!.id!)").child("fcm").child("fcm1").setValue(self.pasengerFcm)
+
+                           // let ref = Database.database().reference()
                             //user name abhi get krna hai
                         }
                     }
@@ -173,10 +180,10 @@ class ChatViewController: UIViewController {
         UtilitiesManager.shared.moveBack(self)
     }
     
-    func getPassengerFcm(completionHandler:@escaping ( _ fcm:String?)-> Void){
+    func getDriverFcm(completionHandler:@escaping ( _ fcm:String?)-> Void){
         
         if booking?.id != nil{
-            self.ref.child("\(booking!.id!)").child("fcm").child("fcm1").observeSingleEvent(of: .value) { dataSnap in
+            self.ref.child("\(booking!.id!)").child("fcm").child("fcm2").observeSingleEvent(of: .value) { dataSnap in
                 if dataSnap.exists(){
                     if let fcmData = dataSnap.value as? String{
                         completionHandler(fcmData)
