@@ -38,12 +38,12 @@ class EditAccountVC: UIViewController {
 
 extension EditAccountVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return editVM.setTableData().count
+        return editVM.getData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountSettingTBCell", for: indexPath) as! AccountSettingTBCell
-        cell.obj = self.editVM.setTableData()[indexPath.row]
+        cell.obj = self.editVM.getData()[indexPath.row]
         return cell
     }
     

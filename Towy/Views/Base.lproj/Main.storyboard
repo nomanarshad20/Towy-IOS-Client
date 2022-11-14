@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Montserrat-SemiBold.ttf">
+        <array key="Montserrat-SemiBold.otf">
             <string>Montserrat-SemiBold</string>
         </array>
         <array key="Roboto-Medium.ttf">
@@ -2962,10 +2962,10 @@
             </objects>
             <point key="canvasLocation" x="10778" y="3458"/>
         </scene>
-        <!--View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="c5U-gz-r2H">
             <objects>
-                <viewController id="em3-Jo-NR2" sceneMemberID="viewController">
+                <viewController id="em3-Jo-NR2" customClass="ProfileVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gac-D9-YGU">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3003,9 +3003,6 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr2-Rp-YDd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
-                                                                <connections>
-                                                                    <action selector="btnChangeNameAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="nUg-Ir-GBP"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3048,9 +3045,6 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6K-GE-neb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
-                                                                <connections>
-                                                                    <action selector="btnChangeNumberAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="rrb-uO-McP"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3093,9 +3087,6 @@
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekx-QN-JMd">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
-                                                                <connections>
-                                                                    <action selector="btnChangeEmailAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="Yxt-mf-Evw"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3134,9 +3125,6 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81I-i7-vDp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <connections>
-                                                                    <action selector="btnChangePassAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="GlY-dM-tqo"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3178,9 +3166,6 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmL-XM-wFS">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <connections>
-                                                                    <action selector="btnGenderAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="1uQ-tC-XM9"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3225,9 +3210,6 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO6-ja-i12">
                                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <connections>
-                                                                    <action selector="btnCalenderAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="6Vc-V3-J3t"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3385,17 +3367,17 @@
                                                         <color key="textColor" name="ThemeBtnColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qK-Ff-Pa6">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4qK-Ff-Pa6">
                                                         <rect key="frame" x="15" y="103.33333333333337" width="350" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate the app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ8-5G-Cjh">
-                                                                <rect key="frame" x="35.000000000000007" y="8.3333333333332575" width="66.666666666666686" height="13.333333333333336"/>
+                                                                <rect key="frame" x="35.000000000000007" y="8.3333333333333144" width="66.666666666666686" height="13.333333333333336"/>
                                                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="11"/>
                                                                 <color key="textColor" red="0.2274509804" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rate" translatesAutoresizingMaskIntoConstraints="NO" id="WBf-pb-6WN">
-                                                                <rect key="frame" x="10" y="7.6666666666666288" width="15" height="15"/>
+                                                                <rect key="frame" x="10" y="7.6666666666666856" width="15" height="15"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="15" id="NSO-za-4hL"/>
                                                                     <constraint firstAttribute="width" constant="15" id="Ucy-3e-ugj"/>
@@ -3492,7 +3474,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App version 1.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WC8-YH-gtI">
-                                                        <rect key="frame" x="151" y="48.666666666666629" width="88" height="15.666666666666671"/>
+                                                        <rect key="frame" x="151" y="48.666666666666657" width="88" height="15.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -3532,6 +3514,14 @@
                                             <constraint firstItem="7mB-Ug-Y00" firstAttribute="trailing" secondItem="Dn3-fj-tZi" secondAttribute="trailing" id="pKP-Vs-K7A"/>
                                             <constraint firstItem="tz6-9i-0n1" firstAttribute="top" secondItem="2QS-le-h0T" secondAttribute="top" constant="10" id="t9T-RM-X7H"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="Dn3-fj-tZi"/>
+                                                <exclude reference="7mB-Ug-Y00"/>
+                                                <exclude reference="6CA-FU-stW"/>
+                                                <exclude reference="cPV-m4-fyM"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -3562,7 +3552,7 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" image="chevron.backward" catalog="system"/>
                                         <connections>
-                                            <action selector="btnBackAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="VdA-sT-Pwz"/>
+                                            <action selector="btnBackAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="zQE-7O-0JP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3589,17 +3579,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="imgProfile" destination="PY4-Jt-3wT" id="FJp-av-hGG"/>
+                        <outlet property="imgUser" destination="PY4-Jt-3wT" id="cvx-jN-AvB"/>
+                        <outlet property="tfDOB" destination="rnb-9M-p2v" id="b70-NT-v6y"/>
                         <outlet property="tfEmail" destination="Ov0-LY-hdf" id="P6D-Xa-nth"/>
                         <outlet property="tfGender" destination="dhH-Em-ky4" id="9Bs-1i-U3u"/>
+                        <outlet property="tfMobile" destination="sOc-XF-bS1" id="O4Q-NB-7Re"/>
                         <outlet property="tfName" destination="if0-H2-j7E" id="3N4-Yn-nY4"/>
-                        <outlet property="tfNumber" destination="sOc-XF-bS1" id="bRh-ff-Ljq"/>
-                        <outlet property="txtDatePicker" destination="rnb-9M-p2v" id="QD4-aj-15h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4AX-lv-scx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9202" y="5061"/>
+            <point key="canvasLocation" x="9202" y="5102"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

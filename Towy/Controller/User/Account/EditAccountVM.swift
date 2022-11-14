@@ -24,7 +24,7 @@ class EditAccountVM: BaseVM {
     
     // MARK: - DASHBOARD_HANDLING
 
-    func setTableData() -> [ProfileModel]{
+    func getData() -> [ProfileModel]{
         var arr = [ProfileModel]()
 //         let getUserData = UtilitiesManager.shared.retriveUserLoginData()
         if let social = UtilitiesManager.shared.retriveSocialUserData(){

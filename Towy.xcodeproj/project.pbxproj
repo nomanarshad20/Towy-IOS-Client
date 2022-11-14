@@ -42,6 +42,7 @@
 		3D318BD6286335B8002E4960 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D318BD5286335B8002E4960 /* CustomLabel.swift */; };
 		3D318BD8286341C0002E4960 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D318BD7286341C0002E4960 /* CustomButton.swift */; };
 		3D318BD928638C30002E4960 /* UberMoveTextBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3D318BCB28631B62002E4960 /* UberMoveTextBold.otf */; };
+		3D31FD66292148A400BCE4CB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31FD65292148A400BCE4CB /* ProfileVC.swift */; };
 		3D372F8E28CDE63A008BF1BA /* ReasonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D372F8D28CDE63A008BF1BA /* ReasonVC.swift */; };
 		3D372F9128CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D372F8F28CDE6D9008BF1BA /* TextWithCheckboxTableViewCell.swift */; };
 		3D372F9228CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D372F9028CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.xib */; };
@@ -178,6 +179,7 @@
 		3D318BD3286331D3002E4960 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		3D318BD5286335B8002E4960 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		3D318BD7286341C0002E4960 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		3D31FD65292148A400BCE4CB /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		3D372F8D28CDE63A008BF1BA /* ReasonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonVC.swift; sourceTree = "<group>"; };
 		3D372F8F28CDE6D9008BF1BA /* TextWithCheckboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextWithCheckboxTableViewCell.swift; sourceTree = "<group>"; };
 		3D372F9028CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextWithCheckboxTableViewCell.xib; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				3D4B116F289A77900034FEF8 /* AccountVM.swift */,
 				3DB2BCCD28949545007D0619 /* EditAccountVC.swift */,
 				CE9CE39B28A7B95900866884 /* EditAccountVM.swift */,
+				3D31FD65292148A400BCE4CB /* ProfileVC.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				3D2AE72228C7596E001B8254 /* ReceiverTableViewCell.swift in Sources */,
 				3DB569E42861AEB900391001 /* Enums.swift in Sources */,
 				CE7CA17B28A6E2A100F96152 /* WalletVC.swift in Sources */,
+				3D31FD66292148A400BCE4CB /* ProfileVC.swift in Sources */,
 				3D5981BC2860DB7D0034AB47 /* EnterOTPVC.swift in Sources */,
 				3D2AE71A28C73345001B8254 /* ChatModel.swift in Sources */,
 				3D4E2B7D28CD096F00287206 /* BookingStatusModel.swift in Sources */,
