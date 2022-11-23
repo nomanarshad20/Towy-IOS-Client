@@ -66,7 +66,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     var getLocation = false
     
 //    var strDestination = ""
-    private let manager = CLLocationManager()
+    //private let manager = CLLocationManager()
     
     var objTowList :TowListModel? = nil
     //    var objBooking : BookingStatusCheckModel? = nil
@@ -1090,8 +1090,6 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         myMarker.map = self.mapView
         myMarker.icon = UIImage(named: markerImg)
         myMarker.setIconSize(scaledToSize: .init(width: 30, height: 30))
-        // print ("Your GMSMarker")
-        
     }
     func addDriverMarker(location:CLLocationCoordinate2D,markerImg:String){
         carMarker.position = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)

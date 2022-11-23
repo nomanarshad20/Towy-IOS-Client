@@ -2115,7 +2115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5c-7U-dCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9203" y="4283"/>
+            <point key="canvasLocation" x="9202" y="4223"/>
         </scene>
         <!--Edit AccountVC-->
         <scene sceneID="tFA-tA-oY8">
@@ -2965,7 +2965,7 @@
         <!--ProfileVC-->
         <scene sceneID="c5U-gz-r2H">
             <objects>
-                <viewController id="em3-Jo-NR2" customClass="ProfileVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="em3-Jo-NR2" customClass="ProfileVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gac-D9-YGU">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3550,7 +3550,7 @@
                                             <constraint firstAttribute="width" constant="25" id="wjc-a5-lHw"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="chevron.backward" catalog="system"/>
+                                        <state key="normal" image="multiply" catalog="system"/>
                                         <connections>
                                             <action selector="btnBackAction:" destination="em3-Jo-NR2" eventType="touchUpInside" id="zQE-7O-0JP"/>
                                         </connections>
@@ -3589,7 +3589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4AX-lv-scx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9202" y="5102"/>
+            <point key="canvasLocation" x="9202" y="5037"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -3600,14 +3600,13 @@
         <image name="archivebox.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrow.forward.square.fill" catalog="system" width="128" height="114"/>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="arrow.right" catalog="system" width="32" height="32"/>
         <image name="arrow_LeftBlack" width="24" height="16"/>
         <image name="arrow_RightGray" width="24" height="16"/>
         <image name="arrow_down" width="16.666666030883789" height="9"/>
         <image name="box" width="128" height="128"/>
         <image name="briefcase" width="15.5" height="14.5"/>
         <image name="calendar-week" width="16" height="16"/>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="circle.circle.fill" catalog="system" width="128" height="121"/>
         <image name="clock.fill" catalog="system" width="128" height="121"/>
@@ -3618,13 +3617,13 @@
         <image name="google" width="48" height="48"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="language" width="16" height="16"/>
-        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="list.bullet.rectangle" catalog="system" width="32" height="32"/>
         <image name="lock" width="33.333332061767578" height="33.333332061767578"/>
         <image name="loyal" width="15.333333015441895" height="15.333333015441895"/>
         <image name="map" width="540" height="202"/>
         <image name="md-transgender" width="16" height="16"/>
         <image name="mobile" width="12.333333015441895" height="18.666666030883789"/>
-        <image name="multiply" catalog="system" width="128" height="111"/>
+        <image name="multiply" catalog="system" width="32" height="32"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>

@@ -10,7 +10,15 @@ import UIKit
 class BookingConfirmationVC: UIViewController {
     
     
+    enum BookingFor{
+        case services
+        case tow
+    }
+    
     @IBOutlet weak var viewMain:UIView!
+    
+    var type = BookingFor.tow
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +35,14 @@ class BookingConfirmationVC: UIViewController {
     
     
     @IBAction func btnConfirmAction(_ sender:Any){
-        let nc = NotificationCenter.default
-        nc.post(name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)
+        switch type {
+        case .services:
+            print("services")
+        case .tow:
+            let nc = NotificationCenter.default
+            nc.post(name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)
+
+        }
         self.dismiss(animated: false)
     }
     @IBAction func btnCancelAction(_ sender:Any){

@@ -75,7 +75,7 @@ enum SViewController {
         case .helpVC:
             return "HelpVC"
         case .editAccountVC:
-            return "EditAccountVC"
+            return "ProfileVC"
         case .homeVC:
             return "HomeVC"
         case .paymentVC:

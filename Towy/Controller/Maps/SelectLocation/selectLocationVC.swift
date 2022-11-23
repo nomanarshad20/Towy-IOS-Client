@@ -32,11 +32,14 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setCurrentLocation()
         if currentTFTag == 0{
             confirmBtnOutlet.setTitle("Confirm Pickup", for: .normal)
-        }else{
+        }else if currentTFTag == 1 {
             confirmBtnOutlet.setTitle("Confirm Destination", for: .normal)
+        }else{
+            confirmBtnOutlet.setTitle("Confirm Pickup", for: .normal)
         }
     }
  
@@ -129,14 +132,22 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     }
     
     @IBAction func confirmBtnAction(_ sender: Any) {
+        
         if currentTFTag == 0{
             delegate.OnUpdate(Lat: selectedLat, Long: selectedLong , tag:currentTFTag)
             self.navigationController?.popViewController(animated: true)
-        }else {
+        }else if currentTFTag == 1{
             let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
             vc.sourceLocation = sourceLocation
             vc.destinationLocation = destinationLocation
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else{
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ServicesMapVC") as! ServicesMapVC
+            
+            vc.sourceLocation = sourceLocation
+            self.navigationController?.pushViewController(vc, animated: true)
+
         }
         
     }
@@ -270,8 +281,10 @@ extension selectLocationVC: CLLocationManagerDelegate {
         getAddressFromlatLong(lat: selectedLat, long: selectedLong)
         if currentTFTag == 0{
             sourceLocation = centerMapCoordinate
-        }else{
+        }else if  currentTFTag == 1{
             destinationLocation = centerMapCoordinate
+        }else{
+            sourceLocation = centerMapCoordinate
         }
  //       self.placeMarkerOnCenter(centerMapCoordinate:centerMapCoordinate)
     }

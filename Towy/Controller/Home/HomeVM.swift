@@ -50,7 +50,9 @@ class HomeVM: BaseVM {
         let obj_3 = AccountDataModel(title: "Fuel", img: "fuel")
         let obj_4 = AccountDataModel(title: "Battery Send", img: "battery")
         let obj_5 = AccountDataModel(title: "Lock", img: "lock")
-        let obj_6 = AccountDataModel(title: "others", img: "other")
+        let obj_6 = AccountDataModel(title: "Break Down", img: "breakdown")
+        let obj_7 = AccountDataModel(title: "Engine Heat", img: "heat")
+        let obj_8 = AccountDataModel(title: "others", img: "other")
 
         arr.append(obj_1)
         arr.append(obj_2)
@@ -58,6 +60,8 @@ class HomeVM: BaseVM {
         arr.append(obj_4)
         arr.append(obj_5)
         arr.append(obj_6)
+        arr.append(obj_7)
+        arr.append(obj_8)
 
         return arr
 //        let images: [UIImage] = [UIImage(named: "image1")!,

@@ -7,69 +7,69 @@
 
 import Foundation
 class BookingInfo{
-
+    
     /*
      {
-       "id" : 221,
-       "vehicle_tax" : 12,
-       "booking_type" : "book_now",
-       "waiting_price_per_min" : 2,
-       "vehicle_per_min_rate" : 8,
-       "driver_image" : "upload\/driver\/43\/1662400561-5212.jpg",
-       "driver_id" : 43,
-       "created_ago" : "19 minutes ago",
-       "pick_up_time" : null,
-       "passenger_id" : 40,
-       "actual_fare" : 1199,
-       "estimated_fare" : "518.00",
-       "passenger_mobile_no" : "+923127310357",
-       "initial_time_rate" : "5",
-       "p2p_after_pick_up_distance" : 0,
-       "passenger_comment_from_driver" : null,
-       "pick_up_longitude" : "74.26787574990702",
-       "driver_mobile_no" : "1234567890",
-       "pick_up_area" : "Lahore",
-       "is_passenger_rating_given" : 0,
-       "is_driver_rating_given" : 0,
-       "passenger_image" : null,
-       "vehicle_per_km_rate" : 10,
-       "driver_rating" : 0,
-       "passenger_rating_from_driver" : null,
-       "drop_off_area" : "Lahore",
-       "driver_last_name" : "driver",
-       "peak_factor_rate" : null,
-       "created_at" : "2022-09-16T23:39:01.000000Z",
-       "initial_distance_rate" : "8",
-       "passenger_last_name" : "iOS",
-       "total_ride_minutes" : 4,
-       "vehicle_type_id" : 1,
-       "vehicle_registration_number" : null,
-       "total_minutes_to_reach_pick_up_point" : "10",
-       "ride_pick_up_time" : "2022-09-16 23:50:16",
-       "ride_end_time" : "2022-09-16 23:58:52",
-       "ride_start_time" : "2022-09-16 23:54:27",
-       "min_vehicle_fare" : 500,
-       "driver_comment_from_passenger" : null,
-       "pick_up_latitude" : "31.497707979142376",
-       "total_calculated_distance" : "50",
-       "passenger_first_name" : "usman",
-       "booking_unique_id" : "TOWY-63250915a6fa2",
-       "p2p_before_pick_up_distance" : 0,
-       "total_distance" : "1",
-       "payment_type" : "payment_gateway",
-       "driver_status" : 3,
-       "passenger_rating" : 0,
-       "drop_off_latitude" : "31.5084705",
-       "franchise_id" : null,
-       "booking_detail_id" : 221,
-       "drop_off_longitude" : "74.26787574990702",
-       "driver_rating_from_passenger" : null,
-       "driver_waiting_time" : "4",
-       "otp" : "3731",
-       "pick_up_date" : null,
-       "vehicle_name" : null,
-       "driver_first_name" : "testing",
-       "ride_status" : 1
+     "id" : 221,
+     "vehicle_tax" : 12,
+     "booking_type" : "book_now",
+     "waiting_price_per_min" : 2,
+     "vehicle_per_min_rate" : 8,
+     "driver_image" : "upload\/driver\/43\/1662400561-5212.jpg",
+     "driver_id" : 43,
+     "created_ago" : "19 minutes ago",
+     "pick_up_time" : null,
+     "passenger_id" : 40,
+     "actual_fare" : 1199,
+     "estimated_fare" : "518.00",
+     "passenger_mobile_no" : "+923127310357",
+     "initial_time_rate" : "5",
+     "p2p_after_pick_up_distance" : 0,
+     "passenger_comment_from_driver" : null,
+     "pick_up_longitude" : "74.26787574990702",
+     "driver_mobile_no" : "1234567890",
+     "pick_up_area" : "Lahore",
+     "is_passenger_rating_given" : 0,
+     "is_driver_rating_given" : 0,
+     "passenger_image" : null,
+     "vehicle_per_km_rate" : 10,
+     "driver_rating" : 0,
+     "passenger_rating_from_driver" : null,
+     "drop_off_area" : "Lahore",
+     "driver_last_name" : "driver",
+     "peak_factor_rate" : null,
+     "created_at" : "2022-09-16T23:39:01.000000Z",
+     "initial_distance_rate" : "8",
+     "passenger_last_name" : "iOS",
+     "total_ride_minutes" : 4,
+     "vehicle_type_id" : 1,
+     "vehicle_registration_number" : null,
+     "total_minutes_to_reach_pick_up_point" : "10",
+     "ride_pick_up_time" : "2022-09-16 23:50:16",
+     "ride_end_time" : "2022-09-16 23:58:52",
+     "ride_start_time" : "2022-09-16 23:54:27",
+     "min_vehicle_fare" : 500,
+     "driver_comment_from_passenger" : null,
+     "pick_up_latitude" : "31.497707979142376",
+     "total_calculated_distance" : "50",
+     "passenger_first_name" : "usman",
+     "booking_unique_id" : "TOWY-63250915a6fa2",
+     "p2p_before_pick_up_distance" : 0,
+     "total_distance" : "1",
+     "payment_type" : "payment_gateway",
+     "driver_status" : 3,
+     "passenger_rating" : 0,
+     "drop_off_latitude" : "31.5084705",
+     "franchise_id" : null,
+     "booking_detail_id" : 221,
+     "drop_off_longitude" : "74.26787574990702",
+     "driver_rating_from_passenger" : null,
+     "driver_waiting_time" : "4",
+     "otp" : "3731",
+     "pick_up_date" : null,
+     "vehicle_name" : null,
+     "driver_first_name" : "testing",
+     "ride_status" : 1
      }
      */
     
@@ -200,7 +200,7 @@ class BookingInfo{
         self.otp = nil
     }
     
-     init(id: Int, booking_unique_id: String, passenger_id: Int? = nil, franchise_id: Int? = nil, vehicle_type_id: Int? = nil, booking_type: String? = nil, pick_up_area: String? = nil, pick_up_latitude: String? = nil, pick_up_longitude: String? = nil, pick_up_date: String? = nil, pick_up_time: String? = nil, drop_off_area: String, drop_off_latitude: String? = nil, drop_off_longitude: String? = nil, total_distance: String? = nil, payment_type: String? = nil, estimated_fare: String? = nil, actual_fare: String? = nil, ride_status: Int? = nil, created_at: String, created_ago: String, booking_detail_id: Int? = nil, waiting_price_per_min: Int? = nil, vehicle_tax: Int? = nil, vehicle_per_km_rate: Int? = nil, vehicle_per_min_rate: Int? = nil, min_vehicle_fare: Int? = nil, passenger_first_name: String? = nil, passenger_last_name: String? = nil, driver_first_name: String? = nil, driver_last_name: String? = nil, driver_status: Int? = nil, driver_id: Int? = nil, peak_factor_rate: String? = nil, driver_waiting_time: String? = nil, ride_pick_up_time: String? = nil, ride_start_time: String? = nil, ride_end_time: String? = nil, total_minutes_to_reach_pick_up_point: String? = nil, total_ride_minutes: String? = nil, initial_distance_rate: String? = nil, initial_time_rate: String? = nil, total_calculated_distance: String? = nil, p2p_before_pick_up_distance: String? = nil, p2p_after_pick_up_distance: String? = nil, is_passenger_rating_given: String? = nil, is_driver_rating_given: Int? = nil, passenger_image: String? = nil, passenger_mobile_no: String? = nil, passenger_rating: String? = nil, driver_image: String? = nil, driver_mobile_no: String? = nil, driver_rating: String? = nil, vehicle_name: String? = nil, vehicle_registration_number: String? = nil, driver_rating_from_passenger: String? = nil, driver_comment_from_passenger: String? = nil, passenger_rating_from_driver: String? = nil, passenger_comment_from_driver: String? = nil, otp: String? = nil) {
+    init(id: Int, booking_unique_id: String, passenger_id: Int? = nil, franchise_id: Int? = nil, vehicle_type_id: Int? = nil, booking_type: String? = nil, pick_up_area: String? = nil, pick_up_latitude: String? = nil, pick_up_longitude: String? = nil, pick_up_date: String? = nil, pick_up_time: String? = nil, drop_off_area: String, drop_off_latitude: String? = nil, drop_off_longitude: String? = nil, total_distance: String? = nil, payment_type: String? = nil, estimated_fare: String? = nil, actual_fare: String? = nil, ride_status: Int? = nil, created_at: String, created_ago: String, booking_detail_id: Int? = nil, waiting_price_per_min: Int? = nil, vehicle_tax: Int? = nil, vehicle_per_km_rate: Int? = nil, vehicle_per_min_rate: Int? = nil, min_vehicle_fare: Int? = nil, passenger_first_name: String? = nil, passenger_last_name: String? = nil, driver_first_name: String? = nil, driver_last_name: String? = nil, driver_status: Int? = nil, driver_id: Int? = nil, peak_factor_rate: String? = nil, driver_waiting_time: String? = nil, ride_pick_up_time: String? = nil, ride_start_time: String? = nil, ride_end_time: String? = nil, total_minutes_to_reach_pick_up_point: String? = nil, total_ride_minutes: String? = nil, initial_distance_rate: String? = nil, initial_time_rate: String? = nil, total_calculated_distance: String? = nil, p2p_before_pick_up_distance: String? = nil, p2p_after_pick_up_distance: String? = nil, is_passenger_rating_given: String? = nil, is_driver_rating_given: Int? = nil, passenger_image: String? = nil, passenger_mobile_no: String? = nil, passenger_rating: String? = nil, driver_image: String? = nil, driver_mobile_no: String? = nil, driver_rating: String? = nil, vehicle_name: String? = nil, vehicle_registration_number: String? = nil, driver_rating_from_passenger: String? = nil, driver_comment_from_passenger: String? = nil, passenger_rating_from_driver: String? = nil, passenger_comment_from_driver: String? = nil, otp: String? = nil) {
         self.id = id
         self.booking_unique_id = booking_unique_id
         self.passenger_id = passenger_id
@@ -262,11 +262,11 @@ class BookingInfo{
         self.passenger_comment_from_driver = passenger_comment_from_driver
         self.otp = otp
     }
-
+    
     
     class func getRideInfo(dict:[String: Any])->BookingInfo{
         let r = BookingInfo()
-
+        
         r.id = dict["id"] as? Int ?? nil
         r.booking_unique_id = dict["booking_unique_id"] as? String ?? nil
         r.passenger_id = dict["passenger_id"] as? Int ?? nil
@@ -286,7 +286,7 @@ class BookingInfo{
         r.estimated_fare = dict["estimated_fare"] as? String ?? nil
         //r.actual_fare = dict["actual_fare"] as? String ?? nil
         r.actual_fare = "\(dict["actual_fare"]!)"
-
+        
         r.ride_status = dict["ride_status"] as? Int ?? nil
         r.created_at = dict["created_at"] as? String ?? nil
         r.created_ago = dict["created_ago"] as? String ?? nil
@@ -400,4 +400,4 @@ class BookingInfo{
     }
     
     
-    }
+}

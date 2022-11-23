@@ -53,7 +53,15 @@ struct APPURL {
         case createStrip = "passenger-create-stripe-customer"//
         case getCancelReason = "get-cancel-reason"//
 
-//passenger-create-booking
+        
+        
+        case servicesList = "passenger-service-list"
+        case createServiceBooking = "passenger-create-service-booking"
+
+        //
+
+        
+//passenger-create-booking passenger-create-service-booking
         ///passenger-calculating-distance-and-fare
         
     }

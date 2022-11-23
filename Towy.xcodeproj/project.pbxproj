@@ -128,6 +128,14 @@
 		3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */; };
 		3DEDC0F8288043610051FAA0 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */; };
 		3DEDC0FA288044E70051FAA0 /* EnterDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */; };
+		3DEF5E412922961600AD16C6 /* SearchLocationForServiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5E402922961600AD16C6 /* SearchLocationForServiceVC.swift */; };
+		3DEF5E432922A9AE00AD16C6 /* ServicesMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5E422922A9AE00AD16C6 /* ServicesMapVC.swift */; };
+		3DEF5E452922A9C300AD16C6 /* ServicesMapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5E442922A9C300AD16C6 /* ServicesMapVM.swift */; };
+		3DEF5E47292379D700AD16C6 /* ServicesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5E46292379D700AD16C6 /* ServicesListModel.swift */; };
+		3DEF5E4A292381E300AD16C6 /* ServicesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5E48292381E300AD16C6 /* ServicesListTableViewCell.swift */; };
+		3DEF5E4B292381E300AD16C6 /* ServicesListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEF5E49292381E300AD16C6 /* ServicesListTableViewCell.xib */; };
+		3DEF5E4E292381FC00AD16C6 /* DriverListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5E4C292381FC00AD16C6 /* DriverListTableViewCell.swift */; };
+		3DEF5E4F292381FC00AD16C6 /* DriverListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEF5E4D292381FC00AD16C6 /* DriverListTableViewCell.xib */; };
 		3DFB6DF928C8971600C21B3F /* BookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6DF828C8971600C21B3F /* BookingInfo.swift */; };
 		3DFB6DFC28C89C5A00C21B3F /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6DFB28C89C5A00C21B3F /* PushNotificationSender.swift */; };
 		CE23215F28B531DE00041CEC /* selectLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23215E28B531DE00041CEC /* selectLocationVC.swift */; };
@@ -267,6 +275,14 @@
 		3DEDC0F5288029F90051FAA0 /* ResendCodePopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendCodePopUpVC.swift; sourceTree = "<group>"; };
 		3DEDC0F7288043610051FAA0 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		3DEDC0F9288044E70051FAA0 /* EnterDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterDetailVM.swift; sourceTree = "<group>"; };
+		3DEF5E402922961600AD16C6 /* SearchLocationForServiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationForServiceVC.swift; sourceTree = "<group>"; };
+		3DEF5E422922A9AE00AD16C6 /* ServicesMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesMapVC.swift; sourceTree = "<group>"; };
+		3DEF5E442922A9C300AD16C6 /* ServicesMapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesMapVM.swift; sourceTree = "<group>"; };
+		3DEF5E46292379D700AD16C6 /* ServicesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListModel.swift; sourceTree = "<group>"; };
+		3DEF5E48292381E300AD16C6 /* ServicesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListTableViewCell.swift; sourceTree = "<group>"; };
+		3DEF5E49292381E300AD16C6 /* ServicesListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesListTableViewCell.xib; sourceTree = "<group>"; };
+		3DEF5E4C292381FC00AD16C6 /* DriverListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverListTableViewCell.swift; sourceTree = "<group>"; };
+		3DEF5E4D292381FC00AD16C6 /* DriverListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverListTableViewCell.xib; sourceTree = "<group>"; };
 		3DFB6DF828C8971600C21B3F /* BookingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingInfo.swift; sourceTree = "<group>"; };
 		3DFB6DFB28C89C5A00C21B3F /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,6 +370,10 @@
 				3DBA5AA728D0FB2B00E6036E /* TripTotalTableViewCell.xib */,
 				3D79B89328E3640B002A2C71 /* ActivityTableViewCell.swift */,
 				3D79B89428E3640B002A2C71 /* ActivityTableViewCell.xib */,
+				3DEF5E48292381E300AD16C6 /* ServicesListTableViewCell.swift */,
+				3DEF5E49292381E300AD16C6 /* ServicesListTableViewCell.xib */,
+				3DEF5E4C292381FC00AD16C6 /* DriverListTableViewCell.swift */,
+				3DEF5E4D292381FC00AD16C6 /* DriverListTableViewCell.xib */,
 			);
 			path = UITableViewCell;
 			sourceTree = "<group>";
@@ -383,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				3D10AF8828994491005EE541 /* SearchLocationVC.swift */,
+				3DEF5E402922961600AD16C6 /* SearchLocationForServiceVC.swift */,
 			);
 			path = SearchLocation;
 			sourceTree = "<group>";
@@ -635,6 +656,7 @@
 				3DD65CDA28D5683500BE7380 /* cancelRideModel.swift */,
 				3D73B2C128D9995A000CDB4D /* UserTripLocationModel.swift */,
 				3D7D097328EDCA6700DBEE4E /* TripHistoryModel.swift */,
+				3DEF5E46292379D700AD16C6 /* ServicesListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -709,6 +731,8 @@
 			children = (
 				3DA2828A28C655D400A2933F /* MainMapVC.swift */,
 				3DB7236828C6C4B600503802 /* MainMapVM.swift */,
+				3DEF5E422922A9AE00AD16C6 /* ServicesMapVC.swift */,
+				3DEF5E442922A9C300AD16C6 /* ServicesMapVM.swift */,
 			);
 			path = MainMap;
 			sourceTree = "<group>";
@@ -894,6 +918,8 @@
 				3D318BCD28631B62002E4960 /* UberMoveTextLight.otf in Resources */,
 				3D5981AB286087810034AB47 /* Roboto-Medium.ttf in Resources */,
 				3D318BD028631B62002E4960 /* UberMoveTextMedium.otf in Resources */,
+				3DEF5E4B292381E300AD16C6 /* ServicesListTableViewCell.xib in Resources */,
+				3DEF5E4F292381FC00AD16C6 /* DriverListTableViewCell.xib in Resources */,
 				3DE9B5EE288829BD00FDC9A2 /* GoogleService-Info.plist in Resources */,
 				3DB2BCD2289497D9007D0619 /* HelpTBCell.xib in Resources */,
 			);
@@ -976,16 +1002,19 @@
 				3D5981C02860DBB40034AB47 /* EnterDetailVC.swift in Sources */,
 				3DA2828F28C685D800A2933F /* NearestDriverModel.swift in Sources */,
 				3DDF653228F1FCE6009777F4 /* ReceiptVC.swift in Sources */,
+				3DEF5E4E292381FC00AD16C6 /* DriverListTableViewCell.swift in Sources */,
 				3DACB6A4287450E90003E87A /* LoginModel.swift in Sources */,
 				3DEDC0F4287FE8E80051FAA0 /* NameConfirmationPopUpVC.swift in Sources */,
 				3D21667C2884A89C005A108B /* RegisterModel.swift in Sources */,
 				3D0649712893F36100720F69 /* HomeVM.swift in Sources */,
+				3DEF5E412922961600AD16C6 /* SearchLocationForServiceVC.swift in Sources */,
 				CE23215F28B531DE00041CEC /* selectLocationVC.swift in Sources */,
 				CED6116928C792420047DEBC /* SocketManager.swift in Sources */,
 				3D79B89228E363CE002A2C71 /* ActivityVM.swift in Sources */,
 				3D21667A2884A295005A108B /* EnterPasswordVM.swift in Sources */,
 				3DDF653028F1FCB9009777F4 /* TripDetailsVC.swift in Sources */,
 				3D5981B82860D4A00034AB47 /* LoginVM.swift in Sources */,
+				3DEF5E452922A9C300AD16C6 /* ServicesMapVM.swift in Sources */,
 				3D2A638228757246007F7E29 /* CustomLoader.swift in Sources */,
 				3DACB6A7287481820003E87A /* URLConstants.swift in Sources */,
 				CE81FB962890620200D60649 /* HomeVC.swift in Sources */,
@@ -1019,6 +1048,7 @@
 				3D7D097428EDCA6700DBEE4E /* TripHistoryModel.swift in Sources */,
 				3D59818428607ADA0034AB47 /* AppDelegate.swift in Sources */,
 				3DBA5AA828D0FB2B00E6036E /* TripTotalTableViewCell.swift in Sources */,
+				3DEF5E432922A9AE00AD16C6 /* ServicesMapVC.swift in Sources */,
 				3D2AE72428C7596E001B8254 /* SenderTableViewCell.swift in Sources */,
 				3DB0C00528CF17D700312FD7 /* Precaution.swift in Sources */,
 				3D10AF90289952AA005EE541 /* GoogleApiHelper.swift in Sources */,
@@ -1054,6 +1084,7 @@
 				3D4B1170289A77900034FEF8 /* AccountVM.swift in Sources */,
 				CE9CE39728A7B53200866884 /* TowListTableViewCell.swift in Sources */,
 				3DBA5AAE28D21C1200E6036E /* TripDetailVC.swift in Sources */,
+				3DEF5E4A292381E300AD16C6 /* ServicesListTableViewCell.swift in Sources */,
 				3D76837C28CF13DE00D100AD /* RatingModel.swift in Sources */,
 				3D2AE70F28C719F7001B8254 /* StripeModel.swift in Sources */,
 				3DA2828D28C669D200A2933F /* DashboardModel.swift in Sources */,
@@ -1061,6 +1092,7 @@
 				CE81FB982890621A00D60649 /* AccountVC.swift in Sources */,
 				3D4B116C289A77000034FEF8 /* AccountModel.swift in Sources */,
 				3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */,
+				3DEF5E47292379D700AD16C6 /* ServicesListModel.swift in Sources */,
 				3D4B1169289A53530034FEF8 /* NewDashBoardCVCell.swift in Sources */,
 				3D76837528CF082000D100AD /* BookingConfirmationVC.swift in Sources */,
 				3D06497328940B5A00720F69 /* AccountTBCell.swift in Sources */,
@@ -1214,7 +1246,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Towy/Towy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4769DJ9MMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Towy/Info.plist;
@@ -1248,7 +1280,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Towy/Towy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 4769DJ9MMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Towy/Info.plist;

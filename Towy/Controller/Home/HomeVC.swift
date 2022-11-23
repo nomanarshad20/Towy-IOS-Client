@@ -244,12 +244,12 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
             
             
             //guard let _ = self.bookingData?.data?.passenger?.stripe_customer_id
-
+            
             guard let _ = self.bookingData?.data?.passenger?.stripe_customer_id else {
                 UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "Please add payment method for using tow services")
                 return}
-//            guard let id = passengerDetail.stripeCustomerID else
-           // guard let data = self.objBooking else{return}
+            //            guard let id = passengerDetail.stripeCustomerID else
+            // guard let data = self.objBooking else{return}
             guard let data = self.objBooking else{
                 let vc = ControllerNavigation.shared.getVC(of: .searchLocationVC) as! SearchLocationVC
                 vc.CurrentLat   = lat
@@ -265,11 +265,20 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
             
         }
         else{
-            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ComingSoonVC") as! ComingSoonVC
+            /*
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "SearchLocationForServiceVC") as! SearchLocationForServiceVC
+            vc.CurrentLat   = lat
+            vc.CurrentLong = long
             self.navigationController?.pushViewController(vc, animated: true)
-
+            */
+            
+             let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ComingSoonVC") as! ComingSoonVC
+             self.navigationController?.pushViewController(vc, animated: true)
+             
+            
+            
         }
-
+        
     }
     
 }
