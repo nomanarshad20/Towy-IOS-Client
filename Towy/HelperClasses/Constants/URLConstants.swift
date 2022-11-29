@@ -8,12 +8,21 @@
 import Foundation
 struct APPURL {
 
+    /*
+     http://52.52.244.89
+     http://52.52.244.89:8081
+     */
     private struct Domains {
+        
+        static let Dev = "http://52.52.244.89"
+        static var socketURL = "http://52.52.244.89:8081"
+        /*
         static let Dev = "http://54.183.143.65"
         static var socketURL = "http://54.183.143.65:8081"
 //        static let UAT = "http://test-UAT.com"
 //        static let Local = "192.145.1.1"
 //        static let QA = "testAddress.qa.com"
+         */
     }
 
     private  struct Routes {

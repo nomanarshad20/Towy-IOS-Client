@@ -71,6 +71,8 @@ class TermAndCondtionVC: UIViewController {
 //            ControllerNavigation.shared.pushVC(of: .welcomeVC)
         guard let usr = data else{return}
         UtilitiesManager.shared.saveUserData(user: usr)
+        UtilitiesManager.shared.saveUserLoginState(isLogin: true)
+
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.moveToTabbarVC()
 

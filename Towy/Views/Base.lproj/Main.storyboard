@@ -3296,6 +3296,19 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aL4-eA-AWn">
+                                                <rect key="frame" x="15" y="425" width="360" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Nv4-Wf-nJX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="17"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Update">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dn3-fj-tZi">
                                                 <rect key="frame" x="0.0" y="405" width="390" height="0.0"/>
                                                 <subviews>
@@ -3506,13 +3519,16 @@
                                             <constraint firstItem="cPV-m4-fyM" firstAttribute="leading" secondItem="2QS-le-h0T" secondAttribute="leading" id="bxt-L4-0sg"/>
                                             <constraint firstItem="Dn3-fj-tZi" firstAttribute="top" secondItem="Dpb-qq-aXn" secondAttribute="bottom" constant="25" id="e8I-0A-2Bf"/>
                                             <constraint firstAttribute="height" constant="900" id="esm-g5-9jU"/>
+                                            <constraint firstItem="aL4-eA-AWn" firstAttribute="top" secondItem="Dpb-qq-aXn" secondAttribute="bottom" constant="45" id="fbP-ie-4yA"/>
                                             <constraint firstAttribute="trailing" secondItem="tz6-9i-0n1" secondAttribute="trailing" id="h92-Wx-nt9"/>
                                             <constraint firstAttribute="trailing" secondItem="6CA-FU-stW" secondAttribute="trailing" constant="25" id="jXV-4h-goS"/>
                                             <constraint firstAttribute="trailing" secondItem="PY4-Jt-3wT" secondAttribute="trailing" constant="15" id="juY-y4-p7a"/>
                                             <constraint firstItem="4qK-Ff-Pa6" firstAttribute="top" secondItem="6CA-FU-stW" secondAttribute="bottom" id="lnX-ub-Tiu"/>
                                             <constraint firstItem="6CA-FU-stW" firstAttribute="top" secondItem="OjA-Z6-TnF" secondAttribute="bottom" constant="10" id="ntR-Co-vqt"/>
                                             <constraint firstItem="7mB-Ug-Y00" firstAttribute="trailing" secondItem="Dn3-fj-tZi" secondAttribute="trailing" id="pKP-Vs-K7A"/>
+                                            <constraint firstItem="aL4-eA-AWn" firstAttribute="leading" secondItem="2QS-le-h0T" secondAttribute="leading" constant="15" id="rKs-cg-89C"/>
                                             <constraint firstItem="tz6-9i-0n1" firstAttribute="top" secondItem="2QS-le-h0T" secondAttribute="top" constant="10" id="t9T-RM-X7H"/>
+                                            <constraint firstAttribute="trailing" secondItem="aL4-eA-AWn" secondAttribute="trailing" constant="15" id="zwf-Vo-nBq"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="subviews">
@@ -3600,7 +3616,7 @@
         <image name="archivebox.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrow.forward.square.fill" catalog="system" width="128" height="114"/>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="arrow.right" catalog="system" width="32" height="32"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrow_LeftBlack" width="24" height="16"/>
         <image name="arrow_RightGray" width="24" height="16"/>
         <image name="arrow_down" width="16.666666030883789" height="9"/>
@@ -3617,13 +3633,13 @@
         <image name="google" width="48" height="48"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="language" width="16" height="16"/>
-        <image name="list.bullet.rectangle" catalog="system" width="32" height="32"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="lock" width="33.333332061767578" height="33.333332061767578"/>
         <image name="loyal" width="15.333333015441895" height="15.333333015441895"/>
         <image name="map" width="540" height="202"/>
         <image name="md-transgender" width="16" height="16"/>
         <image name="mobile" width="12.333333015441895" height="18.666666030883789"/>
-        <image name="multiply" catalog="system" width="32" height="32"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>

@@ -69,7 +69,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     //private let manager = CLLocationManager()
     
     var objTowList :TowListModel? = nil
-    //    var objBooking : BookingStatusCheckModel? = nil
+    var bookingStatus : BookingStatusCheckModel? = nil
     var objSocket:BookingInfo? = nil
     
     
@@ -112,7 +112,9 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         if let source = self.sourceLocation,let destination = self.destinationLocation{
             mainMapVm.sourceLocation = source
             mainMapVm.destinationLocation = destination
-            mainMapVm.getAddress(userLocation: CLLocation(latitude: destination.latitude, longitude: destination.longitude))
+            mainMapVm.getDropAddress(userLocation: CLLocation(latitude: destination.latitude, longitude: destination.longitude))
+            mainMapVm.getPickAddress(userLocation: CLLocation(latitude: source.latitude, longitude: source.longitude))
+
             let obj = UserTripLocationModel(sourceLat: source.latitude, sourceLng: source.longitude, destinationLat: destination.latitude, destinationLng: destination.longitude)
             UtilitiesManager.shared.saveUserTripLocation(user: obj)
         }
@@ -150,7 +152,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         
         mainMapVm.getBookingStatus { bookingData,error  in
             guard error == nil else{return}
-            
+            self.bookingStatus = bookingData
             let dictionary = try! DictionaryEncoder().encode(bookingData)
             let dict = JSON(dictionary).dictionaryObject
             print("jsonData",dict)
@@ -557,7 +559,6 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     }
 
     func checkDriverStatus(driverStatus:Int){
-        
         switch driverStatus{
         case 0:
             print("0")
@@ -604,6 +605,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     
     func checkRideStatus(status:rideStatus){
+        stopTimer()
 
         
         switch status {
@@ -622,13 +624,13 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             
             //self.viewTowList.isHidden = true
             self.viewLoaderInFindingTow.isHidden = false
-
+            
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
                 self.bottomViewTowConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }completion: { _ in
                 self.timerForRideRequest = Timer.scheduledTimer(timeInterval: 90, target: self, selector: #selector(self.updateViewTimer), userInfo: nil, repeats: true)
-
+                
                 //                delay(seconds: 5) {
                 //                    //self.checkRideStatus(status:.requestAccept)
                 //                }
@@ -647,7 +649,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             print("resetMap")
             self.drawLineStatus = 0
             self.btnBack.isHidden = true
-          
+            
             let fcm = UtilitiesManager.shared.getFcmToken()
             if let bookingId = self.objSocket?.id
             {
@@ -707,7 +709,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                         self.view.layoutIfNeeded()
                     }
                 }
-           
+                
                 
             }
             
@@ -817,14 +819,14 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                         self.view.layoutIfNeeded()
                     }
                 }
-           
+                
                 
             }
             
         case .rideRejectDuringRide:
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.moveToTabbarVC()
-
+            
         }
         
     }
@@ -846,6 +848,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         if self.timerForRideRequest != nil{
             timerForRideRequest?.invalidate()
             timerForRideRequest = nil
+
         }
     }
     @IBAction func btnBackAction(_ sender:Any){
@@ -854,6 +857,11 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     
     @IBAction func btnConfirmAction(_ sender:Any){
+        
+        guard let _ = self.bookingStatus?.data?.passenger?.stripe_customer_id else {
+            UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "Please add payment method for using tow services")
+            return}
+        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingConfirmationVC") as! BookingConfirmationVC
         self.present(vc, animated: false)
         
@@ -897,7 +905,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     }
     
     func cancelRide(){
-        //stopTimer()
+        stopTimer()
         self.reasonVm.bookingId = self.objSocket?.id ?? 0
         self.reasonVm.reasonId = 9
         self.reasonVm.reason = "rider not picked"
@@ -914,6 +922,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     @objc func popControllerObserver(){
         
         guard let obj = objTow else{return}
+        
         mainMapVm.sendRequestForBooking(obj: obj) { bookingData in
             print("sucess")
             self.drawLineStatus = 0

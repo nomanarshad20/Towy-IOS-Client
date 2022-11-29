@@ -136,6 +136,7 @@
 		3DEF5E4B292381E300AD16C6 /* ServicesListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEF5E49292381E300AD16C6 /* ServicesListTableViewCell.xib */; };
 		3DEF5E4E292381FC00AD16C6 /* DriverListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DEF5E4C292381FC00AD16C6 /* DriverListTableViewCell.swift */; };
 		3DEF5E4F292381FC00AD16C6 /* DriverListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DEF5E4D292381FC00AD16C6 /* DriverListTableViewCell.xib */; };
+		3DF9031829352CBE0043438C /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9031729352CBE0043438C /* ProfileVM.swift */; };
 		3DFB6DF928C8971600C21B3F /* BookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6DF828C8971600C21B3F /* BookingInfo.swift */; };
 		3DFB6DFC28C89C5A00C21B3F /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6DFB28C89C5A00C21B3F /* PushNotificationSender.swift */; };
 		CE23215F28B531DE00041CEC /* selectLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23215E28B531DE00041CEC /* selectLocationVC.swift */; };
@@ -283,6 +284,7 @@
 		3DEF5E49292381E300AD16C6 /* ServicesListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServicesListTableViewCell.xib; sourceTree = "<group>"; };
 		3DEF5E4C292381FC00AD16C6 /* DriverListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverListTableViewCell.swift; sourceTree = "<group>"; };
 		3DEF5E4D292381FC00AD16C6 /* DriverListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverListTableViewCell.xib; sourceTree = "<group>"; };
+		3DF9031729352CBE0043438C /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		3DFB6DF828C8971600C21B3F /* BookingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingInfo.swift; sourceTree = "<group>"; };
 		3DFB6DFB28C89C5A00C21B3F /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -515,6 +517,7 @@
 				3DB2BCCD28949545007D0619 /* EditAccountVC.swift */,
 				CE9CE39B28A7B95900866884 /* EditAccountVM.swift */,
 				3D31FD65292148A400BCE4CB /* ProfileVC.swift */,
+				3DF9031729352CBE0043438C /* ProfileVM.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1028,6 +1031,7 @@
 				3DBA5AB028D21C2B00E6036E /* TripDetailVM.swift in Sources */,
 				3DB2BCCE28949545007D0619 /* EditAccountVC.swift in Sources */,
 				3D79CBC228C8B1710092BF95 /* PaymentVM.swift in Sources */,
+				3DF9031829352CBE0043438C /* ProfileVM.swift in Sources */,
 				3D76837A28CF130C00D100AD /* RateAndReviewVM.swift in Sources */,
 				3DD65CD928D5372100BE7380 /* SocketBookingModel.swift in Sources */,
 				3D5981BE2860DB900034AB47 /* EnterPasswordVC.swift in Sources */,
@@ -1246,7 +1250,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Towy/Towy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 4769DJ9MMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Towy/Info.plist;
@@ -1280,7 +1284,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Towy/Towy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 4769DJ9MMA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Towy/Info.plist;

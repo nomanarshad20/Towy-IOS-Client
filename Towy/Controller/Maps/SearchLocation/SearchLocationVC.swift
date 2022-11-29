@@ -66,6 +66,9 @@ class SearchLocationVC: UIViewController ,LocationDelagates{
     // MARK: - Navigation
 
     @IBAction func btnBack(_ sender:Any){
+        self.tfDestination?.resignFirstResponder()
+        self.tfPickup?.resignFirstResponder()
+
         self.navigationController?.popToSpecificController(ofClass: HomeVC.self, animated: true)
     }
     
@@ -194,6 +197,8 @@ extension SearchLocationVC:UITableViewDelegate,UITableViewDataSource{
                                     let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
                                     vc.destinationLocation = CLLocationCoordinate2D(latitude: center.latitude, longitude: center.longitude)
                                     vc.sourceLocation = self.sourceLocation
+                                    self.tfDestination?.resignFirstResponder()
+                                    self.tfPickup?.resignFirstResponder()
 //                                    vc.strDestination = self.autocompleteResults[indexPath.row].formattedAddress
                                     self.navigationController?.pushViewController(vc, animated: true)
                                 }

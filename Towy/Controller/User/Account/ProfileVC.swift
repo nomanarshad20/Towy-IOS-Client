@@ -56,5 +56,8 @@ class ProfileVC: UIViewController {
     @IBAction func btnBackAction(_ sender:Any){
         self.dismiss(animated: false)
     }
+    @IBAction func btnUpdateAction(_ sender:Any){
+        
+    }
 
 }

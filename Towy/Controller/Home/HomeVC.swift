@@ -245,9 +245,12 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
             
             //guard let _ = self.bookingData?.data?.passenger?.stripe_customer_id
             
+            /*
             guard let _ = self.bookingData?.data?.passenger?.stripe_customer_id else {
                 UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "Please add payment method for using tow services")
                 return}
+            */
+            
             //            guard let id = passengerDetail.stripeCustomerID else
             // guard let data = self.objBooking else{return}
             guard let data = self.objBooking else{

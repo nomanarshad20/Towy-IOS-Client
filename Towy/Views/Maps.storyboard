@@ -598,14 +598,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kug-vs-MNY" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="332.5" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhi-mZ-7zU">
-                                <rect key="frame" x="0.0" y="735" width="332.5" height="161"/>
+                                <rect key="frame" x="0.0" y="735" width="414" height="161"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-Fo-Jvp">
-                                        <rect key="frame" x="49" y="29" width="128" height="30"/>
+                                        <rect key="frame" x="49" y="29" width="159" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="uOA-A6-E3c"/>
                                         </constraints>
@@ -614,7 +614,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8B-Ch-LlR">
-                                        <rect key="frame" x="45" y="88" width="260.5" height="50"/>
+                                        <rect key="frame" x="45" y="88" width="316.5" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Lr6-kU-Kw7"/>
@@ -629,7 +629,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdk-0h-bDi">
-                                        <rect key="frame" x="219" y="29" width="73" height="31"/>
+                                        <rect key="frame" x="282.5" y="29" width="91" height="31"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="31" id="e9R-Gi-gYp"/>
@@ -675,7 +675,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-02-YxJ">
-                                <rect key="frame" x="141" y="398" width="50" height="50"/>
+                                <rect key="frame" x="182" y="398" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="6xn-vB-lOl"/>
                                     <constraint firstAttribute="height" constant="50" id="uhA-pB-PYk"/>
@@ -1092,7 +1092,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" backgroundImage="multiply" catalog="system"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKR 000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv7-5q-hSr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 000  $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xv7-5q-hSr">
                                         <rect key="frame" x="15" y="149" width="384" height="36"/>
                                         <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2936,7 +2936,7 @@
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
         <image name="callRe" width="32" height="32"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="multiply" catalog="system" width="32" height="32"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="noMessage" width="40" height="40"/>
         <image name="pin" width="512" height="512"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>

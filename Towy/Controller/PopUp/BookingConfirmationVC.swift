@@ -35,6 +35,7 @@ class BookingConfirmationVC: UIViewController {
     
     
     @IBAction func btnConfirmAction(_ sender:Any){
+        
         switch type {
         case .services:
             print("services")

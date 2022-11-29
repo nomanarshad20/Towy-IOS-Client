@@ -22,7 +22,7 @@ class AmountToPayVC: UIViewController {
         // Do any additional setup after loading the view.
         registerTableXib()
         guard let obj = self.booking else{return}
-        self.lblTitle.text = "PKR \(obj.actual_fare ?? "0.0")"
+        self.lblTitle.text = "\(obj.actual_fare ?? "0.0")  $"
 //        let arrAmount = ["Trip fare":"\(obj.actual_fare ?? "0.0")","Waiting time":"0.0","tolls":"0.0","Credit":"0.0","Grand Total":"\(obj.actual_fare ?? "0.0")"]
         
         self.arrAmount.append(["title":"Trip fare","amount":"\(obj.actual_fare ?? "0.0")"])
@@ -63,7 +63,7 @@ extension AmountToPayVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TripTotalTableViewCell", for: indexPath) as! TripTotalTableViewCell
-        cell.lblAmount.text = "PKR \(self.arrAmount[indexPath.row]["amount"] ?? "")"
+        cell.lblAmount.text = "\(self.arrAmount[indexPath.row]["amount"] ?? "")  $"
         cell.lblTitle.text = self.arrAmount[indexPath.row]["title"]
 
        // cell.lblAmount.text = obj.
