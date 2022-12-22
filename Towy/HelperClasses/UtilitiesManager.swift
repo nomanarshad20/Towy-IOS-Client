@@ -180,6 +180,11 @@ class UtilitiesManager{
 //        return result ?? "0"
     }
     
+//    func getAuthToken() -> String
+//    {
+//            return UtilitiesManager.shared.retriveUserData()?.data.accessToken ?? ""
+//
+//    }
     func getAuthHeader() -> [String:String]
     {
         let headers = [

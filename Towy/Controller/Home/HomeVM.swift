@@ -78,8 +78,9 @@ class HomeVM: BaseVM {
     
     
     func fetchDashBoardData(completion:@escaping (DashBoardModel) -> ()){
-        //let h = UtilitiesManager.shared.getAuthHeader()
         
+        let h = UtilitiesManager.shared.getAuthHeader()
+        print("HeaderToken",h)
         //let body = ["mobile_no":"actualNumber","user_type":"1"] as [String:Any]
         NetworkCall(data: [:], headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.PassengerDashboard, method: .get,isJSONRequest: false).executeQuery(){
             (result: Result<DashBoardModel,Error>)  in

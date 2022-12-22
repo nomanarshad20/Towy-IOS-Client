@@ -39,6 +39,9 @@ class BookingConfirmationVC: UIViewController {
         switch type {
         case .services:
             print("services")
+            let nc = NotificationCenter.default
+            nc.post(name: Notification.Name(Key.notificationKey.CALLAPIFORSERVICES), object: nil)
+
         case .tow:
             let nc = NotificationCenter.default
             nc.post(name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)

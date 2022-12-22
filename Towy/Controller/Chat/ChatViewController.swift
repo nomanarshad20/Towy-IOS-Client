@@ -136,7 +136,7 @@ class ChatViewController: UIViewController {
         txtMessage.text = removeSpace()
         if txtMessage.text != ""{
             if booking?.id != nil{
-//                \(UtilityManager.manager.getId())
+                //                \(UtilityManager.manager.getId())
                 let paramas = ["booking_id":"\(booking!.id!)","receiver_id":booking?.driver_id ?? 0,"sender_id":UtilitiesManager.shared.getId(),"message":txtMessage.text!,"messageTime":Date.init().timeIntervalSince1970,"type":"1"] as [String : Any]
                 
                 let refToSend =  ref.child("\(booking!.id!)").child("messages").childByAutoId()
@@ -144,9 +144,9 @@ class ChatViewController: UIViewController {
                     if err == nil{
                         if self.driverFcm != nil{
                             PushNotificationSender().sendPushNotification(to: self.driverFcm!, title: "New message by" + " \(UtilitiesManager.shared.getUserName())", body: self.txtMessage.text!)
-//                            Database.database().reference().child("\(self.booking!.id!)").child("fcm").child("fcm1").setValue(self.pasengerFcm)
-
-                           // let ref = Database.database().reference()
+                            //                            Database.database().reference().child("\(self.booking!.id!)").child("fcm").child("fcm1").setValue(self.pasengerFcm)
+                            
+                            // let ref = Database.database().reference()
                             //user name abhi get krna hai
                         }
                     }
@@ -198,8 +198,14 @@ class ChatViewController: UIViewController {
     
     
     func getdata(){
+        
+        
         if booking?.id != nil{
+            
+            
             ref.child("\(booking!.id!)").child("messages").observe(.childAdded) { dataSnap in
+                
+                
                 if dataSnap.exists(){
                     self.messages.append(Message.init(dict: dataSnap.value as? [String:Any] ?? [:]))
                     self.tblView.reloadData()

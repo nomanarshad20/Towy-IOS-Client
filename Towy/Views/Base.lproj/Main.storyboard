@@ -1681,7 +1681,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your trip with testing driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWl-WK-XgU">
-                                <rect key="frame" x="60" y="484.66666666666669" width="315" height="21.666666666666686"/>
+                                <rect key="frame" x="60" y="485" width="315" height="21"/>
                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2752,37 +2752,8 @@
                                             <constraint firstAttribute="bottom" secondItem="9t3-HB-X5K" secondAttribute="bottom" id="cgf-J9-vCG"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z78-1d-vTM">
-                                        <rect key="frame" x="0.0" y="195" width="360" height="50"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter card expiry month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LLU-r8-e9G">
-                                                <rect key="frame" x="15" y="0.0" width="330" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e8-V1-gHJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="360" height="50"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <connections>
-                                                    <action selector="btnMonthAction:" destination="f6e-N9-d2m" eventType="touchUpInside" id="TLj-9F-gDh"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.83137254900000002" green="0.83529411760000005" blue="0.83529411760000005" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="1e8-V1-gHJ" secondAttribute="bottom" id="44k-jL-ELA"/>
-                                            <constraint firstItem="1e8-V1-gHJ" firstAttribute="leading" secondItem="Z78-1d-vTM" secondAttribute="leading" id="5CI-Uq-ktM"/>
-                                            <constraint firstItem="LLU-r8-e9G" firstAttribute="top" secondItem="Z78-1d-vTM" secondAttribute="top" id="8Ng-zH-FSm"/>
-                                            <constraint firstAttribute="trailing" secondItem="LLU-r8-e9G" secondAttribute="trailing" constant="15" id="8rx-IZ-dcY"/>
-                                            <constraint firstAttribute="bottom" secondItem="LLU-r8-e9G" secondAttribute="bottom" id="EOI-H6-fmc"/>
-                                            <constraint firstItem="1e8-V1-gHJ" firstAttribute="top" secondItem="Z78-1d-vTM" secondAttribute="top" id="G61-C1-DNA"/>
-                                            <constraint firstAttribute="height" constant="50" id="IOO-Jb-hv2"/>
-                                            <constraint firstItem="LLU-r8-e9G" firstAttribute="leading" secondItem="Z78-1d-vTM" secondAttribute="leading" constant="15" id="t0O-1w-KQ2"/>
-                                            <constraint firstAttribute="trailing" secondItem="1e8-V1-gHJ" secondAttribute="trailing" id="yQe-jH-ARF"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-W7-vjT">
-                                        <rect key="frame" x="0.0" y="260" width="360" height="50"/>
+                                        <rect key="frame" x="0.0" y="195" width="360" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter card expiry year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfh-qW-mW8">
                                                 <rect key="frame" x="15" y="0.0" width="330" height="50"/>
@@ -2808,6 +2779,35 @@
                                             <constraint firstAttribute="bottom" secondItem="gfh-qW-mW8" secondAttribute="bottom" id="vXR-5p-Ogc"/>
                                             <constraint firstAttribute="height" constant="50" id="xHw-9h-0Fj"/>
                                             <constraint firstItem="Jd9-Fi-grI" firstAttribute="leading" secondItem="Usk-W7-vjT" secondAttribute="leading" id="yPK-hd-jle"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z78-1d-vTM">
+                                        <rect key="frame" x="0.0" y="260" width="360" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter card expiry month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LLU-r8-e9G">
+                                                <rect key="frame" x="15" y="0.0" width="330" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1e8-V1-gHJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="360" height="50"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <connections>
+                                                    <action selector="btnMonthAction:" destination="f6e-N9-d2m" eventType="touchUpInside" id="TLj-9F-gDh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.83137254900000002" green="0.83529411760000005" blue="0.83529411760000005" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="1e8-V1-gHJ" secondAttribute="bottom" id="44k-jL-ELA"/>
+                                            <constraint firstItem="1e8-V1-gHJ" firstAttribute="leading" secondItem="Z78-1d-vTM" secondAttribute="leading" id="5CI-Uq-ktM"/>
+                                            <constraint firstItem="LLU-r8-e9G" firstAttribute="top" secondItem="Z78-1d-vTM" secondAttribute="top" id="8Ng-zH-FSm"/>
+                                            <constraint firstAttribute="trailing" secondItem="LLU-r8-e9G" secondAttribute="trailing" constant="15" id="8rx-IZ-dcY"/>
+                                            <constraint firstAttribute="bottom" secondItem="LLU-r8-e9G" secondAttribute="bottom" id="EOI-H6-fmc"/>
+                                            <constraint firstItem="1e8-V1-gHJ" firstAttribute="top" secondItem="Z78-1d-vTM" secondAttribute="top" id="G61-C1-DNA"/>
+                                            <constraint firstAttribute="height" constant="50" id="IOO-Jb-hv2"/>
+                                            <constraint firstItem="LLU-r8-e9G" firstAttribute="leading" secondItem="Z78-1d-vTM" secondAttribute="leading" constant="15" id="t0O-1w-KQ2"/>
+                                            <constraint firstAttribute="trailing" secondItem="1e8-V1-gHJ" secondAttribute="trailing" id="yQe-jH-ARF"/>
                                         </constraints>
                                     </view>
                                 </subviews>

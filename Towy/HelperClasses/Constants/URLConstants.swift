@@ -7,38 +7,46 @@
 
 import Foundation
 struct APPURL {
-
+    
     /*
      http://52.52.244.89
      http://52.52.244.89:8081
      */
     private struct Domains {
-        
-        static let Dev = "http://52.52.244.89"
-        static var socketURL = "http://52.52.244.89:8081"
+        //Client
+
         /*
+         static let Dev = "http://52.52.244.89"
+         static var socketURL = "http://52.52.244.89:8081"
+         */
+        //Public
+
         static let Dev = "http://54.183.143.65"
         static var socketURL = "http://54.183.143.65:8081"
-//        static let UAT = "http://test-UAT.com"
-//        static let Local = "192.145.1.1"
-//        static let QA = "testAddress.qa.com"
+        
+        
+        
+        /*
+         //        static let UAT = "http://test-UAT.com"
+         //        static let Local = "192.145.1.1"
+         //        static let QA = "testAddress.qa.com"
          */
     }
-
+    
     private  struct Routes {
         static let Api = "/api/"
     }
-
+    
     static let Domain = Domains.Dev
     static let SocketUrl = Domains.socketURL
-
+    
     private  static let Route = Routes.Api
     static let BaseURL = Domain + Route
-
+    
     enum services :String{
         
         // MARK: - USERAUTHENTICATION_ENDPOINT
-
+        
         case checkPhoneNumber = "passenger-check-phone-number"
         case passengerLogin = "passenger-login" // mobile_no,user_type,fcm_token
         case passengerRegister = "passenger-register" // mobile_no,user_type,fcm_token,first_name,email,password,last_name
@@ -53,7 +61,7 @@ struct APPURL {
         case saveRating = "passenger-save-rating"//
         case tripHistory = "passenger-trip-history"//
         case passengerStatus = "get-passenger-status"//
-
+        
         case getNotification = "passenger/get-notifications"//
         case cancelRide = "passenger-cancel-ride"//
         case findDriver = "passenger-find-near-drivers"//
@@ -61,17 +69,19 @@ struct APPURL {
         case calculateDistanceAndFare = "passenger-calculating-distance-and-fare"//
         case createStrip = "passenger-create-stripe-customer"//
         case getCancelReason = "get-cancel-reason"//
-
+        
         
         
         case servicesList = "passenger-service-list"
         case createServiceBooking = "passenger-create-service-booking"
-
-        //
+        case sendServiceRideRequest = "send-ride-request-to-driver"
 
         
-//passenger-create-booking passenger-create-service-booking
-        ///passenger-calculating-distance-and-fare
+        //
+        
+        
+        //passenger-create-booking passenger-create-service-booking
+        //passenger-calculating-distance-and-fare
         
     }
     

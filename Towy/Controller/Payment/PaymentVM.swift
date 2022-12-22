@@ -70,7 +70,7 @@ class PaymentVM : BaseVM{
             }
         }
     }
-    
+    /*
     func getDateAndMonth(completion:([String],[String]) -> ()){
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
         let year = components.year
@@ -85,7 +85,36 @@ class PaymentVM : BaseVM{
         
         completion(expiryMonth, expiryYear)
     }
+    */
+    func getDateAndMonth(completion:([String],[String]) -> ()){
+       // let nextYear = Calendar.current.date(byAdding: .year, value: 1, to: Date()) ?? Date()
+
+        
+        let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
+//        let componentsForNextYear = (Calendar.current as NSCalendar).components([.day, .month, .year], from: nextYear)
+
+        let year = components.year
+        let expiryMonth = (components.month!...12).compactMap { return "\($0)"}
+        //let allMonths = (componentsForNextYear.month!...12).compactMap { return "\($0)"}
+
+        var expiryYear :[String] = [String]()
+        var i = year! - 1
+        while i <= year! + 20 {
+            i = i + 1
+            let yearString = String(i)
+            expiryYear.append(yearString)
+        }
+        
+        completion(expiryMonth,expiryYear)
+   
+    }
     
+    func getNextYearsDate(){
+        
+        //let nextTwentyYear = Calendar.current.date(byAdding: .year, value: 20, to: Date())
+
+        
+    }
     
     
     // MARK: - Alert

@@ -42,6 +42,7 @@ class MainMapVM: BaseVM {
     
     func fetchTowList(completion:@escaping (TowListModel?,Error?) -> ()){
         let h = UtilitiesManager.shared.getAuthHeader()
+        
         let body = ["pick_up_area":PickAddress,"pick_up_latitude":"\(self.sourceLocation.latitude)","pick_up_longitude":"\(self.sourceLocation.longitude)","drop_off_area":DropAddress,"drop_off_latitude":"\(self.destinationLocation.latitude)","drop_off_longitude":"\(self.destinationLocation.longitude)"] as [String:Any]
         
         NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.calculateDistanceAndFare, method: .post,showLoader: true).executeQuery(){
@@ -134,7 +135,8 @@ class MainMapVM: BaseVM {
     
     func getBookingStatus(completion:@escaping (BookingStatusCheckModel?,Error?) -> ()){
         let h = UtilitiesManager.shared.getAuthHeader()
-        
+        print("HeaderToken",h)
+
         //let body = ["mobile_no":"actualNumber","user_type":"1"] as [String:Any]
         NetworkCall(data: [:], headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.passengerStatus, method: .get,isJSONRequest: false,showAlert: false).executeQuery(){
             (result: Result<BookingStatusCheckModel,Error>) in

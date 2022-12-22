@@ -268,17 +268,29 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
             
         }
         else{
-            /*
-            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "SearchLocationForServiceVC") as! SearchLocationForServiceVC
-            vc.CurrentLat   = lat
-            vc.CurrentLong = long
-            self.navigationController?.pushViewController(vc, animated: true)
-            */
+           
+            //            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "SearchLocationForServiceVC") as! SearchLocationForServiceVC
+            //            vc.CurrentLat   = lat
+            //            vc.CurrentLong = long
+            //            self.navigationController?.pushViewController(vc, animated: true)
+            guard let _ = self.objBooking else{
+                let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "SearchLocationForServiceVC") as! SearchLocationForServiceVC
+                vc.CurrentLat   = lat
+                vc.CurrentLong = long
+                self.navigationController?.pushViewController(vc, animated: true)
+                return
+            }
             
+            let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ServicesMapVC") as! ServicesMapVC
+            //vc.objBooking = data
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+            
+            /*
              let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ComingSoonVC") as! ComingSoonVC
              self.navigationController?.pushViewController(vc, animated: true)
+             */
              
-            
             
         }
         

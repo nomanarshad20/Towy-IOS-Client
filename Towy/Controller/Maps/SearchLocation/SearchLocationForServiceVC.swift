@@ -132,11 +132,12 @@ extension SearchLocationForServiceVC:UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.tfPickup.resignFirstResponder()
+
         //        tfLocation?.text = autocompleteResults[indexPath.row].formattedAddress
         //        tfLocation?.resignFirstResponder()
         if indexPath.row == autocompleteResults.count + 1{
-            
+
             let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "selectLocationVC") as! selectLocationVC
             vc.currentTFTag = 2
 //            if currentTFTag == 0{
@@ -151,7 +152,11 @@ extension SearchLocationForServiceVC:UITableViewDelegate,UITableViewDataSource{
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else if indexPath.row == autocompleteResults.count{
+            
+            //self.tfPickup.resignFirstResponder()
             let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ServicesMapVC") as! ServicesMapVC
+            
+            
             let current = CLLocationCoordinate2D(latitude: CurrentLat, longitude: CurrentLong)
             vc.sourceLocation = current
             self.navigationController?.pushViewController(vc, animated: true)

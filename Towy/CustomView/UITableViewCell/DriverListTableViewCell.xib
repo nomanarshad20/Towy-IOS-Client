@@ -48,7 +48,7 @@
                                 <color key="textColor" red="0.3921568627" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKR 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zl-7a-Wip">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKR 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zl-7a-Wip">
                                 <rect key="frame" x="258" y="10" width="60" height="13.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="HAK-Dh-rDv"/>
@@ -57,7 +57,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 min" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="OB9-CZ-avB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 min" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="OB9-CZ-avB">
                                 <rect key="frame" x="258" y="28.5" width="60" height="11"/>
                                 <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="9"/>
                                 <color key="textColor" red="0.3921568627" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,7 +75,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-Lh-I4J">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1L-Lh-I4J">
                                 <rect key="frame" x="15" y="55" width="50" height="20"/>
                                 <color key="backgroundColor" name="TextfieldBackGround"/>
                                 <constraints>
@@ -124,6 +124,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgDriver" destination="MNj-Tv-Sj1" id="5Pp-a3-j5e"/>
+                <outlet property="lblName" destination="5NW-Tx-Zgn" id="eX6-or-hwj"/>
+                <outlet property="lblPrice" destination="2Zl-7a-Wip" id="7Rj-7D-MAg"/>
+                <outlet property="lblService" destination="FPv-fc-3Sy" id="zuf-fE-8CD"/>
+                <outlet property="lblTime" destination="OB9-CZ-avB" id="ecf-Z3-r7M"/>
+            </connections>
             <point key="canvasLocation" x="155.07246376811597" y="106.80803571428571"/>
         </tableViewCell>
     </objects>

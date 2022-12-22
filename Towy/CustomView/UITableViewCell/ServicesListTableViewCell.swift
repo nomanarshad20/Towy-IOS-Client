@@ -25,7 +25,7 @@ class ServicesListTableViewCell: UITableViewCell {
         didSet{
             
             //5,2
-            if obj?.id ?? 0 == 2 || obj?.id ?? 0 == 5{
+            if obj?.is_quantity_allowed ?? 0  == 1{
                 self.stackBtn.isHidden = false
             }else{
                 self.stackBtn.isHidden = true
@@ -36,15 +36,6 @@ class ServicesListTableViewCell: UITableViewCell {
             self.lblPrice.text = "PKR \(obj?.base_rate ?? "")"
             self.lblQuantity.text = "\(obj?.quantity ?? 1)"
             
-            
-//            //UtilitiesManager.shared.setImage(url: obj., img: <#T##UIImageView#>)
-//            self.lblTitle.text = obj?.name ?? ""
-//            self.lblTime.text = "\("\(obj?.driver_reach_time_in_minutes ?? 0)") min"
-////            self.lblTitle.text = obj?.name ?? ""
-////            self.lblTitle.text = obj?.name ?? ""
-//            self.lblPrice.text = "PKR \(obj?.estimated_fare ?? 0)"
-//            //self.lblTime.text = "\(obj?. ?? 0)"
-
         }
     }
     override func awakeFromNib() {

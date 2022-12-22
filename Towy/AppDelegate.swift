@@ -73,16 +73,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         }
         else if UtilitiesManager.shared.isLogin(){
             
-                moveToTabbarVC()
+            moveToTabbarVC()
             
         }
         /*
-        else if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) //|| (UtilitiesManager.shared.retriveAppleLoginData() != nil)
-        {
-            //let data = UtilitiesManager.shared.retriveSocialUserData() 
-            moveToTabbarVC()
-        }
-        */
+         else if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) //|| (UtilitiesManager.shared.retriveAppleLoginData() != nil)
+         {
+         //let data = UtilitiesManager.shared.retriveSocialUserData()
+         moveToTabbarVC()
+         }
+         */
         return true
     }
     func moveToTabbarVC(){
@@ -102,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         self.navigationontroller?.navigationBar.isHidden = true
         self.window?.rootViewController = self.navigationontroller
         self.window?.makeKeyAndVisible()
-
+        
     }
     func moveToTermsVC(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -111,51 +111,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         self.navigationontroller?.navigationBar.isHidden = true
         self.window?.rootViewController = self.navigationontroller
         self.window?.makeKeyAndVisible()
-
+        
     }
     
     func application(
-           _ app: UIApplication,
-           open url: URL,
-           options: [UIApplication.OpenURLOptionsKey : Any] = [:]
-       ) -> Bool {
-           ApplicationDelegate.shared.application(
-               app,
-               open: url,
-               sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-               annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-           )
-       }
-  /*
-    func handleNotification(){
-        Messaging.messaging().token { token, error in
-          if let error = error {
-            print("Error fetching FCM registration token: \(error)")
-          } else if let token = token {
-            print("FCM registration token: \(token)")
-            print("Remote FCM registration token: \(token)")
-          }
-        }
-    }
-    */
-   /*
-    func application(
         _ app: UIApplication,
-        open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
     ) -> Bool {
-        var handled: Bool
-        
-        handled = GIDSignIn.sharedInstance.handle(url)
-        if handled {
-            return true
-        }
-        
-        // Handle other custom URL types.
-        
-        // If not handled by this app, return false.
-        return false
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
- */
+    /*
+     func handleNotification(){
+     Messaging.messaging().token { token, error in
+     if let error = error {
+     print("Error fetching FCM registration token: \(error)")
+     } else if let token = token {
+     print("FCM registration token: \(token)")
+     print("Remote FCM registration token: \(token)")
+     }
+     }
+     }
+     */
+    /*
+     func application(
+     _ app: UIApplication,
+     open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+     ) -> Bool {
+     var handled: Bool
+     
+     handled = GIDSignIn.sharedInstance.handle(url)
+     if handled {
+     return true
+     }
+     
+     // Handle other custom URL types.
+     
+     // If not handled by this app, return false.
+     return false
+     }
+     */
 }
 
 
@@ -198,14 +198,14 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
         _ application: UIApplication,
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler:
-            @escaping (UIBackgroundFetchResult) -> Void
+        @escaping (UIBackgroundFetchResult) -> Void
     ) {
-
         
         
         
-//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        
+        //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        //        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UIApplication.shared.applicationIconBadgeNumber += 1
         if UtilitiesManager.shared.isLogin(){
             if let _ = userInfo["aps"] as? [String: AnyObject],
@@ -221,7 +221,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
     
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                    willPresent notification: UNNotification,
+                                willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         //        center.removeAllPendingNotificationRequests()
@@ -249,16 +249,16 @@ extension AppDelegate:UNUserNotificationCenterDelegate,MessagingDelegate{
     }
     
     /*
-
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        print("willPresent")
-
-    }
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        print("didReceive")
-    }
-    */
+     
+     
+     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+     print("willPresent")
+     
+     }
+     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+     print("didReceive")
+     }
+     */
     /*
      func registerForRemoteNotifications(){
      if #available(iOS 10.0, *) {
@@ -305,138 +305,138 @@ extension AppDelegate{
         switch noti.type {
         case .NEW_RIDE_REQUEST:
             print("NEW_RIDE_REQUEST")
-/*
-            if UserDefaults.standard.bool(forKey: Constants.IS_HAPTIC_FEEDBACK){
-                if #available(iOS 13.0, *) {
-                    UtilityManager.manager.addHapticFeedback(.rigid)
-                } else {
-                    if #available(iOS 13.0, *) {
-                        UtilityManager.manager.addHapticFeedback(.soft)
-                    } else {
-                        // Fallback on earlier versions
-                    }
-                }
-            }
-            
-            if !Constants.IS_RIDE_POPUP_VISIBLE{
-//                navigateToVC(identifier: "NewRideRequestViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
-            }else{
-//                let params = ["temp_id":noti.newRide?.temp_id ?? "","user_id":UtilityManager.manager.getId(),"driver_action":2,"pre_book":false] as [String : Any]
-//                cancelRide(params: params)
-            }
-            
-        case .SCHEDULE_RIDE:
-            if UserDefaults.standard.bool(forKey: Constants.IS_HAPTIC_FEEDBACK){
-                if #available(iOS 13.0, *) {
-//                    UtilityManager.manager.addHapticFeedback(.rigid)
-                } else {
-                    // Fallback on earlier versions
-                }
-            }
-//            guard let ride = UtilityManager.manager.getModelFromUserDefalts(key: Constants.CURRENT_RIDE)else{return}
-//            if UtilityManager.manager.getDriverStatus() == 2 && ride["driver_status"] as? Int ?? 1 >= 2{
-//                navigateToVC(identifier: "NewRideRequestViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
-            }
-        */
+            /*
+             if UserDefaults.standard.bool(forKey: Constants.IS_HAPTIC_FEEDBACK){
+             if #available(iOS 13.0, *) {
+             UtilityManager.manager.addHapticFeedback(.rigid)
+             } else {
+             if #available(iOS 13.0, *) {
+             UtilityManager.manager.addHapticFeedback(.soft)
+             } else {
+             // Fallback on earlier versions
+             }
+             }
+             }
+             
+             if !Constants.IS_RIDE_POPUP_VISIBLE{
+             //                navigateToVC(identifier: "NewRideRequestViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+             }else{
+             //                let params = ["temp_id":noti.newRide?.temp_id ?? "","user_id":UtilityManager.manager.getId(),"driver_action":2,"pre_book":false] as [String : Any]
+             //                cancelRide(params: params)
+             }
+             
+             case .SCHEDULE_RIDE:
+             if UserDefaults.standard.bool(forKey: Constants.IS_HAPTIC_FEEDBACK){
+             if #available(iOS 13.0, *) {
+             //                    UtilityManager.manager.addHapticFeedback(.rigid)
+             } else {
+             // Fallback on earlier versions
+             }
+             }
+             //            guard let ride = UtilityManager.manager.getModelFromUserDefalts(key: Constants.CURRENT_RIDE)else{return}
+             //            if UtilityManager.manager.getDriverStatus() == 2 && ride["driver_status"] as? Int ?? 1 >= 2{
+             //                navigateToVC(identifier: "NewRideRequestViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+             }
+             */
         case .RIDE_LOCATION_CHANGED:
-        print("RIDE_LOCATION_CHANGED")
-
-//            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+            print("RIDE_LOCATION_CHANGED")
+            
+            //            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
         case .RIDE_CANCELED:
-        print("RIDE_CANCELED")
+            print("RIDE_CANCELED")
             NotificationCenter.default.post(name: NSNotification.Name(Key.notificationKey.RIDE_CANCEL_BY_DRIVER), object: noti)
-
-//            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+            
+            //            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
         case .LOGOUT_USER:
-        print("LOGOUT_USER")
-
-//            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
+            print("LOGOUT_USER")
+            
+            //            navigateToVC(identifier: "RideCancelledByUserViewController", storyBoard: UtilityManager.manager.getMainStoryboard(), noti: noti)
         case .OFFLINE_PARTNER:
-        print("OFFLINE_PARTNER")
-
-//            NotificationCenter.default.post(name: NSNotification.Name(Constants.NotificationObservers.OFFLINE_USER.rawValue), object: noti)
+            print("OFFLINE_PARTNER")
+            
+            //            NotificationCenter.default.post(name: NSNotification.Name(Constants.NotificationObservers.OFFLINE_USER.rawValue), object: noti)
         case .RIDE_CANCEL_ON_RECEIVE:
-        print("RIDE_CANCEL_ON_RECEIVE")
-
-//                NotificationCenter.default.post(name: NSNotification.Name(Constants.NotificationObservers.RIDE_CANCEL_BY_USER_ON_RECEIVE.rawValue), object: noti)
+            print("RIDE_CANCEL_ON_RECEIVE")
+            
+            //                NotificationCenter.default.post(name: NSNotification.Name(Constants.NotificationObservers.RIDE_CANCEL_BY_USER_ON_RECEIVE.rawValue), object: noti)
             
         case .MESSAGE_RECEIVE:
-        print("MESSAGE_RECEIVE")
-
-//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
-//            let banner = FloatingNotificationBanner(title: "New Message", subtitle: noti.message?.message,rightView: rightView, style: .success)
-//            banner.backgroundColor = UIColor.init(named: Constants.AssetsColor.ThemeBtnColor.rawValue)
-//            banner.clipsToBounds = true
-//            banner.autoDismiss = true
-//            banner.haptic = .medium
-//            banner.dismissOnSwipeUp = true
-//            self.addBadge()
-//            banner.onTap = {
-//                self.moveToChat()
-//            }
-//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
+            print("MESSAGE_RECEIVE")
+            
+            //            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+            //            let banner = FloatingNotificationBanner(title: "New Message", subtitle: noti.message?.message,rightView: rightView, style: .success)
+            //            banner.backgroundColor = UIColor.init(named: Constants.AssetsColor.ThemeBtnColor.rawValue)
+            //            banner.clipsToBounds = true
+            //            banner.autoDismiss = true
+            //            banner.haptic = .medium
+            //            banner.dismissOnSwipeUp = true
+            //            self.addBadge()
+            //            banner.onTap = {
+            //                self.moveToChat()
+            //            }
+            //            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
         case .BOUNS :
-        print("BOUNS")
-
-//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
-//            let banner = FloatingNotificationBanner(title: "Got Bouns", subtitle: noti.message?.message,rightView: rightView, style: .success)
-//            banner.backgroundColor = UIColor.systemGreen
-//            banner.clipsToBounds = true
-//            banner.autoDismiss = true
-//            banner.haptic = .medium
-//            banner.dismissOnSwipeUp = true
-//            banner.onTap = {
-//
-//            }
-//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
+            print("BOUNS")
+            
+            //            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+            //            let banner = FloatingNotificationBanner(title: "Got Bouns", subtitle: noti.message?.message,rightView: rightView, style: .success)
+            //            banner.backgroundColor = UIColor.systemGreen
+            //            banner.clipsToBounds = true
+            //            banner.autoDismiss = true
+            //            banner.haptic = .medium
+            //            banner.dismissOnSwipeUp = true
+            //            banner.onTap = {
+            //
+            //            }
+            //            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
         case .WARNING :
-        print("WARNING")
-
-//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
-//            let banner = FloatingNotificationBanner(title: "Warning", subtitle: noti.message?.message,rightView: rightView, style: .success)
-//            banner.backgroundColor = UIColor.init(named: Constants.AssetsColor.ThemeBtnColor.rawValue)
-//            banner.clipsToBounds = true
-//            banner.autoDismiss = true
-//            banner.haptic = .medium
-//            banner.dismissOnSwipeUp = true
-//            banner.onTap = {
-//
-//            }
-//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
+            print("WARNING")
+            
+            //            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+            //            let banner = FloatingNotificationBanner(title: "Warning", subtitle: noti.message?.message,rightView: rightView, style: .success)
+            //            banner.backgroundColor = UIColor.init(named: Constants.AssetsColor.ThemeBtnColor.rawValue)
+            //            banner.clipsToBounds = true
+            //            banner.autoDismiss = true
+            //            banner.haptic = .medium
+            //            banner.dismissOnSwipeUp = true
+            //            banner.onTap = {
+            //
+            //            }
+            //            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
         case .LOCATION_ERROR_NOTIFICATION :
-        print("LOCATION_ERROR_NOTIFICATION")
-
-//            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
-//            let banner = FloatingNotificationBanner(title: "Location Error", subtitle: noti.message?.message,rightView: rightView, style: .success)
-//            banner.backgroundColor = UIColor.systemRed
-//            banner.clipsToBounds = true
-//            banner.autoDismiss = true
-//            banner.haptic = .medium
-//            banner.dismissOnSwipeUp = true
-//            banner.onTap = {
-//
-//            }
-//            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
+            print("LOCATION_ERROR_NOTIFICATION")
+            
+            //            let rightView = UIImageView.init(image: #imageLiteral(resourceName: "Mask Group 59"))
+            //            let banner = FloatingNotificationBanner(title: "Location Error", subtitle: noti.message?.message,rightView: rightView, style: .success)
+            //            banner.backgroundColor = UIColor.systemRed
+            //            banner.clipsToBounds = true
+            //            banner.autoDismiss = true
+            //            banner.haptic = .medium
+            //            banner.dismissOnSwipeUp = true
+            //            banner.onTap = {
+            //
+            //            }
+            //            banner.show(queuePosition: .front, bannerPosition: .top, queue: NotificationBannerQueue.default, on: UIApplication.getTopMostViewController())
         default:
             print("")
         }
         
     }
-   
+    
     
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         //SocketIOManager.sharedInstance.closeConnection()
         SocketHelper.shared.disconnectSocket()
     }
-
-//    func applicationDidBecomeActive(_ application: UIApplication) {
-//       // SocketIOManager.sharedInstance.establishConnection()
-//
-//    }
+    
+    //    func applicationDidBecomeActive(_ application: UIApplication) {
+    //       // SocketIOManager.sharedInstance.establishConnection()
+    //
+    //    }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-
+        
         NotificationCenter.default.post(name: NSNotification.Name(Key.notificationKey.APP_BECOME_ACTIVE), object: nil)
         UIApplication.shared.applicationIconBadgeNumber = 0
         SocketIOManager.sharedInstance.establishConnection()

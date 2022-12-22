@@ -146,6 +146,8 @@ struct Key {
     struct notificationKey{
         static let DISMISS_CONTROLLER = "dismiss"
         static let CALLAPIFORBOOKING = "bookingApiCall"
+        static let CALLAPIFORSERVICES = "bookingApiCall"
+
         static let UPDATE_UI_FOR_CANCEL = "cancelRequest"
         static let APP_BECOME_ACTIVE          = "applicationBecomeActive"
         static let RIDE_CANCEL_BY_DRIVER          = "rideCancel"

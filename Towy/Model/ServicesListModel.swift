@@ -33,7 +33,8 @@ struct Services : Codable {
     let base_rate : String?
     let description : String?
     let image : String?
-    var quantity = 1
+    let is_quantity_allowed : Int?
+    var quantity : Int = 1
     enum CodingKeys: String, CodingKey {
 
         case id = "id"
@@ -41,6 +42,7 @@ struct Services : Codable {
         case base_rate = "base_rate"
         case description = "description"
         case image = "image"
+        case is_quantity_allowed = "is_quantity_allowed"
     }
 
     init(from decoder: Decoder) throws {
@@ -50,6 +52,7 @@ struct Services : Codable {
         base_rate = try values.decodeIfPresent(String.self, forKey: .base_rate)
         description = try values.decodeIfPresent(String.self, forKey: .description)
         image = try values.decodeIfPresent(String.self, forKey: .image)
+        is_quantity_allowed = try values.decodeIfPresent(Int.self, forKey: .is_quantity_allowed)
     }
 
 }

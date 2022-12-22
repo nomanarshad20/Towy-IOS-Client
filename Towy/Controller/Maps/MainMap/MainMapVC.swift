@@ -108,7 +108,11 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         // Do any additional setup after loading the view.
         registerTableXib()
         self.tabBarController?.tabBar.isHidden = true
+        
+        
         notificationSetup()
+        
+        
         if let source = self.sourceLocation,let destination = self.destinationLocation{
             mainMapVm.sourceLocation = source
             mainMapVm.destinationLocation = destination
@@ -653,7 +657,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             let fcm = UtilitiesManager.shared.getFcmToken()
             if let bookingId = self.objSocket?.id
             {
-                Database.database().reference().child("\(bookingId)").child("fcm").setValue(["fcm1":"\(fcm)"])
+                Database.database().reference().child("\(bookingId)").child("fcm").child("fcm1").setValue(fcm)
             }
             UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut) {
                 self.bottomViewTowConstraint.constant = -400
@@ -1139,12 +1143,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                 add =  (arrAddress[0])
             }
               lbl.text = add
-             // self.currentAddressLbl.text = add
-              
           }
         }
-        //return add
-
       }
     
 }

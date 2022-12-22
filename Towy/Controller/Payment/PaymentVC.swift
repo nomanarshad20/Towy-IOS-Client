@@ -21,6 +21,9 @@ class PaymentVC: UIViewController {
     var dropDown = DropDown()
     var arrMonth = [String]()
     var arrYears = [String]()
+    var arrOldMonth = [String]()
+    var arrDefaultMonth = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+
     var datasource = [String]()
 
 //    @IBOutlet weak fileprivate var viewExpiryMonth: LBZSpinner!
@@ -42,9 +45,10 @@ class PaymentVC: UIViewController {
     
     
     func setUI(){
-        paymentVm.getDateAndMonth { month, year in
+        paymentVm.getDateAndMonth(){ month, year in
             self.arrMonth = month
             self.arrYears = year
+            self.arrOldMonth = month
         }
     }
     
@@ -69,6 +73,12 @@ class PaymentVC: UIViewController {
         
         dropDown.selectionAction = { [unowned self] (index: Int, type: String) in
             setLable(index: index,status: status)
+            if index > 0{
+                self.arrMonth = arrDefaultMonth
+            }else{
+                self.arrMonth = self.arrOldMonth
+            }
+  
         }
     }
     
