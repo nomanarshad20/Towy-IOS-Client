@@ -10,6 +10,12 @@ import GoogleMaps
 import CoreLocation
 import SwiftyJSON
 
+
+enum requestType : String{
+    case service = "service"
+    case towing = "tow"
+}
+
 class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegate{
     // MARK: Outlets
     @IBOutlet weak var mainView: UIView!
@@ -260,7 +266,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
                 self.navigationController?.pushViewController(vc, animated: true)
                 return
             }
-            
+            guard data.request_type == requestType.towing.rawValue else{
+                let vc = ControllerNavigation.shared.getVC(of: .searchLocationVC) as! SearchLocationVC
+                vc.CurrentLat   = lat
+                vc.CurrentLong = long
+                self.navigationController?.pushViewController(vc, animated: true)
+                return
+                
+            }
             let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "MainMapVC") as! MainMapVC
             vc.objSocket = data
             self.navigationController?.pushViewController(vc, animated: true)
@@ -273,7 +286,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
             //            vc.CurrentLat   = lat
             //            vc.CurrentLong = long
             //            self.navigationController?.pushViewController(vc, animated: true)
-            guard let _ = self.objBooking else{
+            guard let data = self.objBooking else{
                 let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "SearchLocationForServiceVC") as! SearchLocationForServiceVC
                 vc.CurrentLat   = lat
                 vc.CurrentLong = long
@@ -281,6 +294,14 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource,UICollect
                 return
             }
             
+            guard data.request_type == requestType.service.rawValue else{
+                let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "SearchLocationForServiceVC") as! SearchLocationForServiceVC
+                vc.CurrentLat   = lat
+                vc.CurrentLong = long
+                self.navigationController?.pushViewController(vc, animated: true)
+                return
+                
+            }
             let vc = UtilitiesManager.shared.getMapStoryboard().instantiateViewController(withIdentifier: "ServicesMapVC") as! ServicesMapVC
             //vc.objBooking = data
             self.navigationController?.pushViewController(vc, animated: true)

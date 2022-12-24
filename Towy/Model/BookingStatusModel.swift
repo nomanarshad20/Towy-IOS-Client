@@ -422,6 +422,7 @@ struct Booking : Codable {
     let passenger_rating_from_driver : String?
     let passenger_comment_from_driver : String?
     let otp : String?
+    let request_type : String?
 
     enum CodingKeys: String, CodingKey {
 
@@ -484,6 +485,8 @@ struct Booking : Codable {
         case driver_comment_from_passenger = "driver_comment_from_passenger"
         case passenger_rating_from_driver = "passenger_rating_from_driver"
         case passenger_comment_from_driver = "passenger_comment_from_driver"
+        case request_type = "request_type"
+
         case otp = "otp"
     }
 
@@ -548,6 +551,8 @@ struct Booking : Codable {
         driver_comment_from_passenger = try values.decodeIfPresent(String.self, forKey: .driver_comment_from_passenger)
         passenger_rating_from_driver = try values.decodeIfPresent(String.self, forKey: .passenger_rating_from_driver)
         passenger_comment_from_driver = try values.decodeIfPresent(String.self, forKey: .passenger_comment_from_driver)
+        request_type = try values.decodeIfPresent(String.self, forKey: .request_type)
+
         otp = try values.decodeIfPresent(String.self, forKey: .otp)
     }
 

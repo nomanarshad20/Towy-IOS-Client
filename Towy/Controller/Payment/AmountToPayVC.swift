@@ -22,12 +22,14 @@ class AmountToPayVC: UIViewController {
         // Do any additional setup after loading the view.
         registerTableXib()
         guard let obj = self.booking else{return}
+        SocketIOManager.sharedInstance.closeConnection()
+
         self.lblTitle.text = "\(obj.actual_fare ?? "0.0")  $"
 //        let arrAmount = ["Trip fare":"\(obj.actual_fare ?? "0.0")","Waiting time":"0.0","tolls":"0.0","Credit":"0.0","Grand Total":"\(obj.actual_fare ?? "0.0")"]
         
         self.arrAmount.append(["title":"Trip fare","amount":"\(obj.actual_fare ?? "0.0")"])
-        self.arrAmount.append(["title":"Waiting time","amount":"0.0"])
-        self.arrAmount.append(["title":"tolls","amount":"0.0"])
+//        self.arrAmount.append(["title":"Waiting time","amount":"0.0"])
+//        self.arrAmount.append(["title":"tolls","amount":"0.0"])
         self.arrAmount.append(["title":"Credit","amount":"0.0"])
         self.arrAmount.append(["title":"Grand Total","amount":"\(obj.actual_fare ?? "0.0")"])
 

@@ -11,6 +11,9 @@ class ReasonVC: UIViewController {
 
     @IBOutlet weak var tblReasons:UITableView!
     @IBOutlet weak var viewMain:UIView!
+    @IBOutlet weak var btnCancel:UIButton!
+    @IBOutlet weak var cancelHeight:NSLayoutConstraint!
+
     //var dataSource = [Precaution]()
     var reasonVm = ReasonVM()
     var selectedIndex = -1
@@ -23,6 +26,7 @@ class ReasonVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        registerXib()
         setUI()
     }
  
@@ -31,33 +35,28 @@ class ReasonVC: UIViewController {
     
     // MARK: - Navigation
 
-  
+    func registerXib(){
+        tblReasons.register(UINib.init(nibName: "TextWithCheckboxTableViewCell", bundle: .main), forCellReuseIdentifier: "TextWithCheckboxTableViewCell")
+
+    }
     
     
     func setUI(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         self.viewMain.addGestureRecognizer(tap)
-        tblReasons.delegate = self
-        tblReasons.dataSource = self
-        tblReasons.register(UINib.init(nibName: "TextWithCheckboxTableViewCell", bundle: .main), forCellReuseIdentifier: "TextWithCheckboxTableViewCell")
+//        tblReasons.delegate = self
+//        tblReasons.dataSource = self
         
         reasonVm.getReasonsData { data in
-//            self.dataSource = data
-            //            if let data = mainDict?["data"].arrayObject
             let dictionary = try! DictionaryEncoder().encode(data)
             let dict = JSON(dictionary).dictionaryObject
             
             guard let arrObj = dict?["data"] as? [[String:Any]] else{return}
             let dataObj = Precaution.getReasons(data: arrObj)
             self.dataSource = dataObj
-//            guard let booking = data["booking"] as? [String:Any] else{
-//
-//                return
-//
-//            }
-
             self.tblReasons.reloadData()
         }
+        
 
     }
     
@@ -104,6 +103,7 @@ extension ReasonVC:UITableViewDataSource,UITableViewDelegate{
         guard let obj = self.dataSource else {return }
         self.reasonDict = obj[indexPath.row]
         self.selectedIndex = indexPath.row
+        self.btnCancel.setTitleColor(UIColor(named: "redText"), for: .normal)
         self.tblReasons.reloadData()
         /*
 //        let cel = tableView.cellForRow(at: indexPath) as! TextWithCheckboxTableViewCell

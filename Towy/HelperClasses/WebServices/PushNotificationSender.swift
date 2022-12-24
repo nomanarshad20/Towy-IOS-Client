@@ -19,7 +19,6 @@ class PushNotificationSender {
                                            "data" : ["title" : title,  "badge":"1",
                                                      "sound":"default",
                                                      "body" : body,"message" : body,"driver_id" : "\(UtilitiesManager.shared.getId())","notification_type":"20"]
-                                           //user ID save krwani hai abhi
         ]
         let request = NSMutableURLRequest(url: url as URL)
         request.httpMethod = "POST"

@@ -10,9 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Montserrat-SemiBold.otf">
-            <string>Montserrat-SemiBold</string>
-        </array>
         <array key="UberMoveTextBold.otf">
             <string>UberMoveText-Bold</string>
         </array>
@@ -553,24 +550,105 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fYx-Er-MvR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.67000000000000004" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8eK-hF-lyD">
+                                <rect key="frame" x="25" y="300.5" width="364" height="295"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DIF-ZL-NPs">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="235"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="235" id="DO7-TO-ZY6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Fd9-p4-k6H" id="vtC-nS-wTB"/>
+                                            <outlet property="delegate" destination="Fd9-p4-k6H" id="nFC-wE-DZE"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wx-1X-Dq5">
+                                        <rect key="frame" x="0.0" y="235" width="364" height="60"/>
+                                        <color key="backgroundColor" name="gray142"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="17V-e3-h10"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="16"/>
+                                        <state key="normal" title="Cancel the Ride">
+                                            <color key="titleColor" name="ThemeTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.29999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="themeYellow"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnCancelRideAction:" destination="Fd9-p4-k6H" eventType="touchUpInside" id="Y0m-Lh-rKY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="DIF-ZL-NPs" firstAttribute="leading" secondItem="8eK-hF-lyD" secondAttribute="leading" id="6jO-iX-oAh"/>
+                                    <constraint firstAttribute="trailing" secondItem="3wx-1X-Dq5" secondAttribute="trailing" id="9HZ-jb-TiR"/>
+                                    <constraint firstItem="3wx-1X-Dq5" firstAttribute="top" secondItem="DIF-ZL-NPs" secondAttribute="bottom" id="ISG-wZ-f5g"/>
+                                    <constraint firstItem="3wx-1X-Dq5" firstAttribute="leading" secondItem="8eK-hF-lyD" secondAttribute="leading" id="QJ4-L5-0gI"/>
+                                    <constraint firstAttribute="bottom" secondItem="3wx-1X-Dq5" secondAttribute="bottom" id="U3w-dr-wtG"/>
+                                    <constraint firstAttribute="trailing" secondItem="DIF-ZL-NPs" secondAttribute="trailing" id="UYl-Mz-mwe"/>
+                                    <constraint firstItem="DIF-ZL-NPs" firstAttribute="top" secondItem="8eK-hF-lyD" secondAttribute="top" id="uO6-MX-Gke"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KCM-Y9-KZB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wnL-A7-8nv" secondAttribute="bottom" constant="-400" id="2bK-hF-t9y"/>
+                            <constraint firstItem="fYx-Er-MvR" firstAttribute="top" secondItem="6ym-qu-9rG" secondAttribute="top" id="2cX-N8-Qqp"/>
+                            <constraint firstItem="KCM-Y9-KZB" firstAttribute="trailing" secondItem="fYx-Er-MvR" secondAttribute="trailing" id="6bg-50-lcE"/>
                             <constraint firstItem="udw-6E-Pag" firstAttribute="leading" secondItem="KCM-Y9-KZB" secondAttribute="leading" constant="15" id="CuH-Qj-e2e"/>
+                            <constraint firstItem="8eK-hF-lyD" firstAttribute="leading" secondItem="KCM-Y9-KZB" secondAttribute="leading" constant="25" id="I9z-bv-IWX"/>
                             <constraint firstItem="YFU-qj-328" firstAttribute="top" secondItem="6ym-qu-9rG" secondAttribute="top" id="IRK-Rt-Ij4"/>
+                            <constraint firstItem="8eK-hF-lyD" firstAttribute="centerX" secondItem="fYx-Er-MvR" secondAttribute="centerX" id="M9G-3K-8Pz"/>
                             <constraint firstItem="wnL-A7-8nv" firstAttribute="leading" secondItem="KCM-Y9-KZB" secondAttribute="leading" id="NPH-9T-dFm"/>
                             <constraint firstItem="KCM-Y9-KZB" firstAttribute="trailing" secondItem="wnL-A7-8nv" secondAttribute="trailing" id="Skx-oC-mHc"/>
                             <constraint firstItem="wnL-A7-8nv" firstAttribute="top" secondItem="YFU-qj-328" secondAttribute="bottom" id="W2P-Mc-sCi"/>
                             <constraint firstItem="YFU-qj-328" firstAttribute="leading" secondItem="KCM-Y9-KZB" secondAttribute="leading" id="drC-LK-9mO"/>
                             <constraint firstItem="udw-6E-Pag" firstAttribute="top" secondItem="KCM-Y9-KZB" secondAttribute="top" constant="15" id="hWT-D1-WUV"/>
+                            <constraint firstItem="KCM-Y9-KZB" firstAttribute="trailing" secondItem="8eK-hF-lyD" secondAttribute="trailing" constant="25" id="ibV-4o-9Y3"/>
                             <constraint firstItem="KCM-Y9-KZB" firstAttribute="trailing" secondItem="YFU-qj-328" secondAttribute="trailing" id="j8i-be-bTa"/>
+                            <constraint firstItem="fYx-Er-MvR" firstAttribute="leading" secondItem="KCM-Y9-KZB" secondAttribute="leading" id="l8Q-TA-lqX"/>
+                            <constraint firstAttribute="bottom" secondItem="fYx-Er-MvR" secondAttribute="bottom" id="qZv-at-qVb"/>
+                            <constraint firstItem="8eK-hF-lyD" firstAttribute="centerY" secondItem="fYx-Er-MvR" secondAttribute="centerY" id="xWE-lX-fUl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomViewTowConstraint" destination="2bK-hF-t9y" id="lkA-Jh-jBA"/>
                         <outlet property="btnBack" destination="udw-6E-Pag" id="CiE-JA-xac"/>
+                        <outlet property="btnCancelReason" destination="3wx-1X-Dq5" id="hzx-08-FRw"/>
                         <outlet property="btnConfirm" destination="uOI-8I-xo6" id="LJn-gA-EkK"/>
                         <outlet property="imgDriver" destination="Ogp-SD-Djc" id="1qs-Mx-ueh"/>
                         <outlet property="lblDestination" destination="1yH-KP-mlm" id="ywY-q8-sSP"/>
@@ -579,9 +657,12 @@
                         <outlet property="lblDriverTowType" destination="Tcp-Xf-7KA" id="42H-nT-jja"/>
                         <outlet property="lblSource" destination="bQF-mQ-0w6" id="Rom-zU-UsP"/>
                         <outlet property="mapView" destination="YFU-qj-328" id="Evp-PF-XNg"/>
+                        <outlet property="tblReasons" destination="DIF-ZL-NPs" id="opc-Sk-eAY"/>
                         <outlet property="tblTowList" destination="Vr3-AR-0bs" id="Mfx-Es-nBV"/>
                         <outlet property="viewDriverDetailTow" destination="egS-Uw-cTG" id="Nah-6Z-qMA"/>
                         <outlet property="viewLoaderInFindingTow" destination="E74-LB-TR9" id="8ZU-tM-HoH"/>
+                        <outlet property="viewMain" destination="fYx-Er-MvR" id="74X-1v-zPV"/>
+                        <outlet property="viewReason" destination="8eK-hF-lyD" id="VE9-Sv-3uC"/>
                         <outlet property="viewTowList" destination="wnL-A7-8nv" id="teq-jp-Zlk"/>
                     </connections>
                 </viewController>
@@ -1082,7 +1163,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOx-bU-74E">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUR-xG-ay7">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUR-xG-ay7">
                                         <rect key="frame" x="15" y="53" width="45" height="38.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="5e1-ag-ihg"/>
@@ -1995,13 +2076,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVm-cn-FZR">
-                                <rect key="frame" x="25" y="268" width="364" height="360"/>
+                                <rect key="frame" x="25" y="300.5" width="364" height="295"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Uv-gb-Eem">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="235"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="7yZ-XK-X6x"/>
+                                            <constraint firstAttribute="height" constant="235" id="7yZ-XK-X6x"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="oYM-Rx-dbS" id="aR2-xA-Klx"/>
@@ -2009,14 +2090,14 @@
                                         </connections>
                                     </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8A-Ic-e8j">
-                                        <rect key="frame" x="0.0" y="300" width="364" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="235" width="364" height="60"/>
+                                        <color key="backgroundColor" name="redText"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="JTt-J9-2rH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="16"/>
                                         <state key="normal" title="Cancel the Ride">
-                                            <color key="titleColor" name="gray142"/>
+                                            <color key="titleColor" name="ThemeTextColor"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -2077,6 +2158,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnCancel" destination="g8A-Ic-e8j" id="Zww-fe-ISK"/>
                         <outlet property="tblReasons" destination="8Uv-gb-Eem" id="G1D-RF-peG"/>
                         <outlet property="viewMain" destination="jkx-lG-ohR" id="Tqe-ce-fo5"/>
                     </connections>
@@ -3064,17 +3146,17 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoS-ey-nQw">
-                                                <rect key="frame" x="309" y="15" width="90" height="90"/>
+                                                <rect key="frame" x="339" y="15" width="60" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVa-fw-ATo">
-                                                        <rect key="frame" x="35" y="8" width="20.5" height="48"/>
-                                                        <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="40"/>
+                                                        <rect key="frame" x="22.5" y="8" width="15.5" height="36"/>
+                                                        <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                                         <color key="textColor" red="0.97254901959999995" green="0.96470588239999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isO-1Y-Hy2">
-                                                        <rect key="frame" x="2" y="52" width="86" height="30"/>
-                                                        <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="25"/>
+                                                        <rect key="frame" x="2" y="34" width="56" height="18"/>
+                                                        <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="15"/>
                                                         <color key="textColor" red="0.97254901959999995" green="0.96470588239999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -3083,21 +3165,21 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="isO-1Y-Hy2" secondAttribute="trailing" constant="2" id="7ac-sO-HcH"/>
                                                     <constraint firstItem="isO-1Y-Hy2" firstAttribute="leading" secondItem="FoS-ey-nQw" secondAttribute="leading" constant="2" id="Dbx-sJ-soO"/>
-                                                    <constraint firstAttribute="height" constant="90" id="EFW-m2-swC"/>
-                                                    <constraint firstAttribute="width" constant="90" id="OJv-Wj-DFv"/>
+                                                    <constraint firstAttribute="height" constant="60" id="EFW-m2-swC"/>
+                                                    <constraint firstAttribute="width" constant="60" id="OJv-Wj-DFv"/>
                                                     <constraint firstItem="fVa-fw-ATo" firstAttribute="top" secondItem="FoS-ey-nQw" secondAttribute="top" constant="8" id="o7q-zM-MAZ"/>
                                                     <constraint firstAttribute="bottom" secondItem="isO-1Y-Hy2" secondAttribute="bottom" constant="8" id="o9v-JM-yNs"/>
                                                     <constraint firstItem="fVa-fw-ATo" firstAttribute="centerX" secondItem="FoS-ey-nQw" secondAttribute="centerX" id="y3J-5m-Osw"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet at the pickup point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYT-Jx-Vej">
-                                                <rect key="frame" x="15" y="47" width="279" height="26.5"/>
+                                                <rect key="frame" x="15" y="32" width="309" height="26.5"/>
                                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userImg" translatesAutoresizingMaskIntoConstraints="NO" id="AvX-Ao-tdU">
-                                                <rect key="frame" x="15" y="105" width="96" height="96"/>
+                                                <rect key="frame" x="15" y="75" width="96" height="96"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="96" id="rJw-H1-1fS"/>
                                                     <constraint firstAttribute="width" constant="96" id="wLU-k2-mWK"/>
@@ -3109,7 +3191,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ9-WH-12u">
-                                                <rect key="frame" x="27" y="180" width="72" height="40"/>
+                                                <rect key="frame" x="27" y="150" width="72" height="40"/>
                                                 <color key="backgroundColor" name="TextfieldBackGround"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="7os-WP-pze"/>
@@ -3127,19 +3209,19 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEH-9100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYA-Y0-sg6">
-                                                <rect key="frame" x="146" y="140" width="253" height="26.5"/>
+                                                <rect key="frame" x="146" y="110" width="253" height="26.5"/>
                                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="testing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZe-oZ-hKw">
-                                                <rect key="frame" x="15" y="230" width="384" height="18"/>
+                                                <rect key="frame" x="15" y="200" width="384" height="18"/>
                                                 <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="15"/>
                                                 <color key="textColor" name="ThemeBlueColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wo-Ll-zUd">
-                                                <rect key="frame" x="15" y="265" width="319" height="50"/>
+                                                <rect key="frame" x="15" y="235" width="319" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgH-Hk-wKh">
                                                         <rect key="frame" x="15" y="16.5" width="289" height="17"/>
@@ -3173,7 +3255,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggN-qY-Q28">
-                                                <rect key="frame" x="349" y="265" width="50" height="50"/>
+                                                <rect key="frame" x="349" y="235" width="50" height="50"/>
                                                 <color key="backgroundColor" name="OTPBGUnactive"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="YFP-QK-GwQ"/>
@@ -3192,14 +3274,14 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YZh-R6-eU6">
-                                                <rect key="frame" x="0.0" y="340" width="414" height="1"/>
+                                                <rect key="frame" x="0.0" y="310" width="414" height="1"/>
                                                 <color key="backgroundColor" name="Gray200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="9TG-Ze-cca"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RpL-cr-d1f">
-                                                <rect key="frame" x="0.0" y="341" width="414" height="59"/>
+                                                <rect key="frame" x="0.0" y="311" width="414" height="89"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" name="redText"/>
                                                 <state key="normal" title="Button"/>
@@ -3281,23 +3363,106 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMZ-xh-Mhn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.67000000000000004" alpha="0.34999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nRx-fS-zqs">
+                                <rect key="frame" x="25" y="300.5" width="364" height="295"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aW2-7A-bLu">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="235"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="235" id="mik-oX-Hc5"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="3xA-yL-XkX" id="gdv-HT-OwS"/>
+                                            <outlet property="delegate" destination="3xA-yL-XkX" id="vSL-rG-RZT"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhc-vp-WxZ">
+                                        <rect key="frame" x="0.0" y="235" width="364" height="60"/>
+                                        <color key="backgroundColor" name="gray142"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="eDC-QC-ekN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="16"/>
+                                        <state key="normal" title="Cancel the Ride">
+                                            <color key="titleColor" name="ThemeTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="6"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.29999999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="themeYellow"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.69999999999999996"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnCancelRideAction:" destination="Fd9-p4-k6H" eventType="touchUpInside" id="f0W-mf-Sdh"/>
+                                            <action selector="btnConfirmCancelRideAction:" destination="3xA-yL-XkX" eventType="touchUpInside" id="2M7-iq-L3n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="aW2-7A-bLu" firstAttribute="top" secondItem="nRx-fS-zqs" secondAttribute="top" id="20I-aG-Xhm"/>
+                                    <constraint firstItem="mhc-vp-WxZ" firstAttribute="top" secondItem="aW2-7A-bLu" secondAttribute="bottom" id="72B-iA-yBz"/>
+                                    <constraint firstAttribute="trailing" secondItem="aW2-7A-bLu" secondAttribute="trailing" id="O93-0d-edu"/>
+                                    <constraint firstItem="mhc-vp-WxZ" firstAttribute="leading" secondItem="nRx-fS-zqs" secondAttribute="leading" id="far-8v-C6b"/>
+                                    <constraint firstAttribute="trailing" secondItem="mhc-vp-WxZ" secondAttribute="trailing" id="krq-bB-i4A"/>
+                                    <constraint firstAttribute="bottom" secondItem="mhc-vp-WxZ" secondAttribute="bottom" id="ngX-nF-Bgp"/>
+                                    <constraint firstItem="aW2-7A-bLu" firstAttribute="leading" secondItem="nRx-fS-zqs" secondAttribute="leading" id="vak-F8-xdg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pF9-Nf-u59"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pF9-Nf-u59" firstAttribute="trailing" secondItem="Qp3-Jf-awg" secondAttribute="trailing" id="1zo-hy-4RB"/>
                             <constraint firstItem="Qp3-Jf-awg" firstAttribute="top" secondItem="vU4-5d-8S4" secondAttribute="top" id="4s1-G7-wke"/>
+                            <constraint firstItem="pF9-Nf-u59" firstAttribute="trailing" secondItem="RMZ-xh-Mhn" secondAttribute="trailing" id="7G2-YJ-gCR"/>
                             <constraint firstItem="b9v-oH-rzR" firstAttribute="top" secondItem="Qp3-Jf-awg" secondAttribute="bottom" id="9d0-Yq-b1F"/>
                             <constraint firstAttribute="bottom" secondItem="b9v-oH-rzR" secondAttribute="bottom" constant="-400" id="Gtv-C6-EYM"/>
+                            <constraint firstItem="nRx-fS-zqs" firstAttribute="leading" secondItem="pF9-Nf-u59" secondAttribute="leading" constant="25" id="Muw-gZ-MaM"/>
                             <constraint firstItem="Qp3-Jf-awg" firstAttribute="leading" secondItem="pF9-Nf-u59" secondAttribute="leading" id="Ohi-Kp-Sbs"/>
+                            <constraint firstItem="nRx-fS-zqs" firstAttribute="centerX" secondItem="RMZ-xh-Mhn" secondAttribute="centerX" id="QfB-DE-BWz"/>
                             <constraint firstItem="b9v-oH-rzR" firstAttribute="leading" secondItem="pF9-Nf-u59" secondAttribute="leading" id="Uys-dt-Ty8"/>
                             <constraint firstItem="yDq-9J-gp1" firstAttribute="leading" secondItem="pF9-Nf-u59" secondAttribute="leading" constant="15" id="VOF-pt-uGI"/>
+                            <constraint firstItem="pF9-Nf-u59" firstAttribute="trailing" secondItem="nRx-fS-zqs" secondAttribute="trailing" constant="25" id="coW-or-HHC"/>
+                            <constraint firstItem="RMZ-xh-Mhn" firstAttribute="bottom" secondItem="vU4-5d-8S4" secondAttribute="bottom" id="d9a-77-qgD"/>
                             <constraint firstItem="yDq-9J-gp1" firstAttribute="top" secondItem="pF9-Nf-u59" secondAttribute="top" constant="15" id="fIM-Rc-FQF"/>
+                            <constraint firstAttribute="top" secondItem="RMZ-xh-Mhn" secondAttribute="top" id="oUh-cp-6YG"/>
                             <constraint firstItem="pF9-Nf-u59" firstAttribute="trailing" secondItem="b9v-oH-rzR" secondAttribute="trailing" id="rbi-It-BN6"/>
+                            <constraint firstItem="nRx-fS-zqs" firstAttribute="centerY" secondItem="RMZ-xh-Mhn" secondAttribute="centerY" id="tDE-1n-SmH"/>
+                            <constraint firstItem="RMZ-xh-Mhn" firstAttribute="leading" secondItem="pF9-Nf-u59" secondAttribute="leading" id="zg8-aa-eRN"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomViewTowConstraint" destination="Gtv-C6-EYM" id="pmb-7R-ey6"/>
+                        <outlet property="btnBack" destination="yDq-9J-gp1" id="alZ-wN-48h"/>
+                        <outlet property="btnCancelReason" destination="mhc-vp-WxZ" id="8Gd-ZV-bxN"/>
                         <outlet property="imgDriver" destination="AvX-Ao-tdU" id="Bsb-6G-0aT"/>
                         <outlet property="lblDriverName" destination="LZe-oZ-hKw" id="OkN-vz-7NF"/>
                         <outlet property="lblDriverRideStatus" destination="tYT-Jx-Vej" id="lAN-UR-yfJ"/>
@@ -3309,10 +3474,13 @@
                         <outlet property="lblTime" destination="poB-OB-OGd" id="BaF-t7-nmm"/>
                         <outlet property="mapView" destination="Qp3-Jf-awg" id="GWd-CC-hPG"/>
                         <outlet property="tblDriverList" destination="5Pc-lS-qoB" id="iux-zr-TDi"/>
+                        <outlet property="tblReasons" destination="aW2-7A-bLu" id="8os-bD-Ecu"/>
                         <outlet property="tblServicesList" destination="c9Z-96-Wi9" id="5bX-PG-NVZ"/>
                         <outlet property="viewDetail" destination="5gO-Rc-EGm" id="1YO-sO-A1A"/>
                         <outlet property="viewDriver" destination="iNu-wu-BQo" id="ua2-cz-GxG"/>
                         <outlet property="viewDriverList" destination="pWT-5y-7zJ" id="ay3-hA-2S1"/>
+                        <outlet property="viewMain" destination="RMZ-xh-Mhn" id="1bP-qR-kCM"/>
+                        <outlet property="viewReason" destination="nRx-fS-zqs" id="vFn-FE-Zo1"/>
                         <outlet property="viewServiceList" destination="arb-l1-8bo" id="hdq-HC-H90"/>
                         <outlet property="viewWaiting" destination="E0A-KY-1R2" id="L4Q-hC-0R2"/>
                     </connections>
@@ -3593,10 +3761,10 @@
             </objects>
             <point key="canvasLocation" x="5088" y="2442"/>
         </scene>
-        <!--View Controller-->
+        <!--Ride Cancel Pop UpVC-->
         <scene sceneID="qHL-QB-R2s">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="aPp-xo-UBr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RideCancelPopUpVC" modalPresentationStyle="overFullScreen" id="aPp-xo-UBr" customClass="RideCancelPopUpVC" customModule="Towy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cqh-1r-t6I">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3605,16 +3773,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AmG-hd-dde">
-                                        <rect key="frame" x="20" y="343" width="374" height="210"/>
+                                        <rect key="frame" x="20" y="363" width="374" height="170"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Booking cancel by driver" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX1-y4-4iS">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride cancel by driver" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sX1-y4-4iS">
                                                 <rect key="frame" x="20" y="25" width="334" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egu-NA-UmP">
-                                                <rect key="frame" x="20" y="144" width="334" height="46"/>
+                                                <rect key="frame" x="20" y="104" width="334" height="46"/>
                                                 <color key="backgroundColor" name="ThemeBtnColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="FbI-MF-gso"/>
@@ -3629,7 +3797,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="btnCancelAction:" destination="aPp-xo-UBr" eventType="touchUpInside" id="07D-Wm-MCv"/>
+                                                    <action selector="btnOkAction:" destination="aPp-xo-UBr" eventType="touchUpInside" id="6xL-bf-fMW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -3639,7 +3807,7 @@
                                             <constraint firstItem="sX1-y4-4iS" firstAttribute="top" secondItem="AmG-hd-dde" secondAttribute="top" constant="25" id="6Jb-rF-SHX"/>
                                             <constraint firstAttribute="trailing" secondItem="sX1-y4-4iS" secondAttribute="trailing" constant="20" id="ICj-Lh-oms"/>
                                             <constraint firstItem="sX1-y4-4iS" firstAttribute="leading" secondItem="AmG-hd-dde" secondAttribute="leading" constant="20" id="KNF-kL-jO7"/>
-                                            <constraint firstAttribute="height" constant="210" id="TX6-aa-jcn"/>
+                                            <constraint firstAttribute="height" constant="170" id="TX6-aa-jcn"/>
                                             <constraint firstAttribute="bottom" secondItem="egu-NA-UmP" secondAttribute="bottom" constant="20" id="efL-6X-WQ0"/>
                                             <constraint firstItem="egu-NA-UmP" firstAttribute="leading" secondItem="AmG-hd-dde" secondAttribute="leading" constant="20" id="wyt-im-NC4"/>
                                         </constraints>
@@ -3680,9 +3848,6 @@
                             <constraint firstItem="GRl-Cn-2Yh" firstAttribute="trailing" secondItem="2VF-zB-ylC" secondAttribute="trailing" id="zOj-vW-XQq"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="viewMain" destination="2VF-zB-ylC" id="60b-5I-TKT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u3N-gT-rec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

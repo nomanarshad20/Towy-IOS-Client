@@ -133,6 +133,8 @@ struct Key {
         static let SERVER_USER_SID = "id";
         static let SERVER_USER_NAME = "first_name";
         static let USER_TRIP_LOCATION = "tripLocation"
+        static let USER_SERVICE_LOCATION = "serviceLocation"
+
         static let IS_USER_LOGIN = "isLogin"
 
 

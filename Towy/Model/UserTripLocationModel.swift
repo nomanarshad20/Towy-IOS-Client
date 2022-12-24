@@ -14,3 +14,7 @@ struct UserTripLocationModel:Codable{
     var destinationLat : Double
     var destinationLng : Double
 }
+struct ServiceLocationModel:Codable{
+    var sourceLat : Double
+    var sourceLng : Double
+}

@@ -33,7 +33,7 @@ class ServicesListTableViewCell: UITableViewCell {
             UtilitiesManager.shared.setImage(url: obj?.image ?? "", img: imgService)
             self.lblName.text = obj?.name ?? ""
             self.lblDes.text = obj?.description ?? ""
-            self.lblPrice.text = "PKR \(obj?.base_rate ?? "")"
+            self.lblPrice.text = "\(obj?.base_rate ?? "") $"
             self.lblQuantity.text = "\(obj?.quantity ?? 1)"
             
         }

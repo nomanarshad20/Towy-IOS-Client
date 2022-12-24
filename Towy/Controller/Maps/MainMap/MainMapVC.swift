@@ -28,6 +28,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     
     @IBOutlet weak var tblTowList:UITableView!
+    @IBOutlet weak var tblReasons:UITableView!
+
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var btnBack: UIButton!
     
@@ -38,10 +40,15 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     @IBOutlet weak var viewTowList: UIView!
     
+    @IBOutlet weak var viewMain: UIView!
+    @IBOutlet weak var viewReason: UIView!
+
+    
     //  @IBOutlet weak var bottomViewConfirmingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var btnConfirm:UIButton!
-    
+    @IBOutlet weak var btnCancelReason:UIButton!
+
     
     @IBOutlet weak var imgDriver:UIImageView!
     @IBOutlet weak var lblDriverName:UILabel!
@@ -50,7 +57,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     @IBOutlet weak var lblDestination:UILabel!
     @IBOutlet weak var lblSource:UILabel!
-
+    
     
     var currentLocation = CLLocationCoordinate2D()
     
@@ -65,7 +72,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     var getLocation = false
     
-//    var strDestination = ""
+    //    var strDestination = ""
     //private let manager = CLLocationManager()
     
     var objTowList :TowListModel? = nil
@@ -91,15 +98,19 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     var driverStatus = 0
     var drawLineStatus = 0
     //var driverMaker = GMSMarker()
-
+    
     
     var timerForRideRequest:Timer!
     var reasonVm = ReasonVM()
+    var reasonDict :  Precaution? = nil
+    var dataSource : [Precaution]? = nil
+    var selectedIndex = -1
 
     //    @IBOutlet weak var tblTowList:UITableView!
     //    @IBOutlet weak var tblTowList:UITableView!
     //    @IBOutlet weak var tblTowList:UITableView!
     
+    // MARK: - VIEWCONTROLLER_LIFECYCLE
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +129,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             mainMapVm.destinationLocation = destination
             mainMapVm.getDropAddress(userLocation: CLLocation(latitude: destination.latitude, longitude: destination.longitude))
             mainMapVm.getPickAddress(userLocation: CLLocation(latitude: source.latitude, longitude: source.longitude))
-
+            
             let obj = UserTripLocationModel(sourceLat: source.latitude, sourceLng: source.longitude, destinationLat: destination.latitude, destinationLng: destination.longitude)
             UtilitiesManager.shared.saveUserTripLocation(user: obj)
         }
@@ -133,6 +144,18 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         addSocketListerForRide()
         // addSocketListnerForLocation()
         addSocketListnerRideAcceptReject()
+        
+        
+        
+        reasonVm.getReasonsData { data in
+            let dictionary = try! DictionaryEncoder().encode(data)
+            let dict = JSON(dictionary).dictionaryObject
+            
+            guard let arrObj = dict?["data"] as? [[String:Any]] else{return}
+            let dataObj = Precaution.getReasons(data: arrObj)
+            self.dataSource = dataObj
+            self.tblReasons.reloadData()
+        }
         //addSocketListerForDriverLastLocation()
         
         // self.checkRideStatus(status: .notFound)
@@ -151,7 +174,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
          */
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         
         mainMapVm.getBookingStatus { bookingData,error  in
@@ -185,10 +208,33 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeNotificationSetup()
+        
+    }
+    @objc func appBecomeActive(){
+        viewWillAppear(false)
+    }
+    
+    
+    // MARK: - TIMER
+    
     @objc func updateViewTimer() {
         self.stopTimer()
         self.cancelRide()
     }
+    func stopTimer(){
+        if self.timerForRideRequest != nil{
+            timerForRideRequest?.invalidate()
+            timerForRideRequest = nil
+            
+        }
+    }
+    
+    // MARK: - UI SETUP
+    
     func setUI(){
         guard let obj = self.objSocket else{return}
         self.lblDriverName.text = obj.driver_first_name ?? ""
@@ -199,11 +245,39 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     func setUIForTowFinder(){
         guard let source = self.sourceLocation else{return}
         guard let destination = self.destinationLocation else{return}
-
+        
         self.getAddressFromlatLong(lat: source.latitude, long: source.longitude, lbl: self.lblSource)
         self.getAddressFromlatLong(lat: destination.latitude, long: destination.longitude, lbl: self.lblDestination)
+        
+    }
+    
+    func setupMap(){
+        
+        
+        mapView.isMyLocationEnabled = false
+        mapView.settings.myLocationButton = true
+        mapView.delegate = self
+        guard let sourceLat = self.objSocket?.pick_up_latitude else{return}
+        guard let sourceLng = self.objSocket?.pick_up_longitude else{return}
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+            let camera = GMSCameraPosition.camera(withLatitude: Double(sourceLat) ?? 0.0, longitude: Double(sourceLng) ?? 0.0, zoom: 17.0)
+            self.mapView.animate(to: camera)
+        })
+        
+    }
+    
+    func registerTableXib(){
+        
+//        self.tblTowList.register(UINib(nibName: "TowListTableViewCell", bundle: nil), forCellReuseIdentifier: "TowListTableViewCell")
+        self.tblTowList.register(UINib.init(nibName: "TowListTableViewCell", bundle: .main), forCellReuseIdentifier: "TowListTableViewCell")
+
+        self.tblReasons.register(UINib.init(nibName: "TextWithCheckboxTableViewCell", bundle: .main), forCellReuseIdentifier: "TextWithCheckboxTableViewCell")
 
     }
+    
+    // MARK: - SOCKETS
+    
     func addSocketListerForDriverLastLocation(){
         //listener: passeger_id-driverLastLocation
         
@@ -291,10 +365,13 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                     self.driverStatus = self.objSocket?.driver_status ?? 0
                     
                     self.drawLineStatus = 0
-                    self.lblDriverName.text = self.objSocket?.driver_first_name ?? "testing"
-                    UtilitiesManager.shared.setImage(url: self.objSocket?.driver_image ?? "", img: self.imgDriver)
-//                    self.lblDriverName.text = self.objSocket?.driver_first_name ?? "testing"
 
+                    self.lblDriverName.text = self.objSocket?.driver_first_name ?? "testing"
+                    self.lblDriverTowType.text = self.objSocket?.vehicle_name ?? ""
+
+                    UtilitiesManager.shared.setImage(url: self.objSocket?.driver_image ?? "", img: self.imgDriver)
+                    //                    self.lblDriverName.text = self.objSocket?.driver_first_name ?? "testing"
+                    
                     self.getDriverLastLocation()
                 }
             }else{
@@ -363,7 +440,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         socket!.on("\(UtilitiesManager.shared.getId())-finalRideStatus") { (data, ack) in
             print("getIdFinal",(UtilitiesManager.shared.getId()))
             self.stopTimer()
-
+            
             self.drawLineStatus = 0
             guard let dataInfo = data.first as? [String:Any] else { return }
             
@@ -374,14 +451,14 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                 if self.objSocket?.driver_status ?? 0 == 0 && self.objSocket?.ride_status ?? 0 == 6{
                     self.checkRideStatus(status: .requestReject)
                 }else{
-//                    if let bookingId = self.objSocket?.id
-//                    {
-//                        Database.database().reference().child("\(bookingId)").child("fcm").child("fcm1").setValue(UtilitiesManager.shared.getFcmToken)
-//                    }
+                    //                    if let bookingId = self.objSocket?.id
+                    //                    {
+                    //                        Database.database().reference().child("\(bookingId)").child("fcm").child("fcm1").setValue(UtilitiesManager.shared.getFcmToken)
+                    //                    }
                     self.checkDriverStatus(driverStatus: self.objSocket?.driver_status ?? 0)
                     self.getDriverLastLocation()
-
-
+                    
+                    
                     
                 }
             }else{
@@ -428,17 +505,10 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         }
         
     }
-    func registerTableXib(){
-        self.tblTowList.register(UINib(nibName: "TowListTableViewCell", bundle: nil), forCellReuseIdentifier: "TowListTableViewCell")
-        
-    }
     
-    // MARK: - NOTIFICATION_OBSERVER
-    //    func notificationSetup(){
-    //
-    //
-    //    }
     
+    
+    // MARK: - RIDE STATUS
     
     func checkDriverStatusForPolyLine(driverStatus:Int){
         
@@ -561,7 +631,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         }
         
     }
-
+    
     func checkDriverStatus(driverStatus:Int){
         switch driverStatus{
         case 0:
@@ -591,26 +661,29 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         
     }
     
-    func setupMap(){
-        
-        
-        mapView.isMyLocationEnabled = false
-        mapView.settings.myLocationButton = true
-        mapView.delegate = self
-        guard let sourceLat = self.objSocket?.pick_up_latitude else{return}
-        guard let sourceLng = self.objSocket?.pick_up_longitude else{return}
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
-            let camera = GMSCameraPosition.camera(withLatitude: Double(sourceLat) ?? 0.0, longitude: Double(sourceLng) ?? 0.0, zoom: 17.0)
-            self.mapView.animate(to: camera)
-        })
-        
+    
+    
+    func cancelRide(){
+        stopTimer()
+        self.reasonVm.bookingId = self.objSocket?.id ?? 0
+        self.reasonVm.reasonId = 9
+        self.reasonVm.reason = "rider not picked"
+        self.reasonVm.callCancelRideApi {
+            self.drawLineStatus = 0
+            guard self.objSocket != nil else{
+                self.checkRideStatus(status: .notFound)
+                return
+            }
+            self.checkRideStatus(status: .requestReject)
+            
+        }
     }
+    
     
     
     func checkRideStatus(status:rideStatus){
         stopTimer()
-
+        
         
         switch status {
         case .findingTow:
@@ -669,6 +742,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
                     self.bottomViewTowConstraint.constant = 0
                     self.view.layoutIfNeeded()
                 }completion: { _ in
+                    self.setUI()
                     self.viewLoaderInFindingTow.isHidden = true
                     self.viewDriverDetailTow.isHidden = false
                     self.lblDriverRideStatus.text = "Meet at the pickup point"
@@ -723,7 +797,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             let fcm = UtilitiesManager.shared.getFcmToken()
             if let bookingId = self.objSocket?.id
             {
-                Database.database().reference().child("\(bookingId)").child("fcm").setValue(["fcm1":"\(fcm)"])
+                Database.database().reference().child("\(bookingId)").child("fcm").child("fcm1").setValue(fcm)
             }
             self.btnBack.isHidden = true
             self.lblDriverRideStatus.text = "Reached at pickup point"
@@ -756,7 +830,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             let fcm = UtilitiesManager.shared.getFcmToken()
             if let bookingId = self.objSocket?.id
             {
-                Database.database().reference().child("\(bookingId)").child("fcm").setValue(["fcm1":"\(fcm)"])
+                Database.database().reference().child("\(bookingId)").child("fcm").child("fcm1").setValue(fcm)
             }
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
                 self.bottomViewTowConstraint.constant = -400
@@ -843,86 +917,42 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         CATransaction.begin()
         CATransaction.setAnimationDuration(1.0)
         carMarker.position =  coordinates
-//        carMarker.rotation = bearing
+        //        carMarker.rotation = bearing
         CATransaction.commit()
     }
     
     
-    func stopTimer(){
-        if self.timerForRideRequest != nil{
-            timerForRideRequest?.invalidate()
-            timerForRideRequest = nil
-
-        }
-    }
-    @IBAction func btnBackAction(_ sender:Any){
-        self.navigationController?.popViewController(animated: true)
-    }
     
-    
-    @IBAction func btnConfirmAction(_ sender:Any){
-        
-        guard let _ = self.bookingStatus?.data?.passenger?.stripe_customer_id else {
-            UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "Please add payment method for using tow services")
-            return}
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingConfirmationVC") as! BookingConfirmationVC
-        self.present(vc, animated: false)
-        
-    }
-    
-    @IBAction func btnCancelAction(_ sender:Any){
-        
-        print("button Cancel click")
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReasonVC") as! ReasonVC
-        vc.booking = self.objSocket
-        self.present(vc, animated: false)
-        
-    }
-    
-    @IBAction func btnChatAction(_ sender:Any){
-        let vc = UtilitiesManager.shared.getMainStoryboard().instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        vc.booking = self.objSocket
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    @IBAction func btnCancelServiceAction(_ sender:Any){
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReasonVC") as! ReasonVC
-        vc.booking = self.objSocket
-        self.present(vc, animated: false)
-    }
-    @IBAction func btnCallAction(_ sender:Any){
-        
-        guard let data = self.objSocket else{return}
-        self.mainMapVm.dialNumber(number: data.driver_mobile_no ?? "")
-        
-    }
     // MARK: - NOTIFICATION_OBSERVER
     
     func notificationSetup(){
         NotificationCenter.default.addObserver(self, selector: #selector(popControllerObserver), name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(bookingCancelObserver), name: Notification.Name(Key.notificationKey.UPDATE_UI_FOR_CANCEL), object: nil)
+      //  NotificationCenter.default.addObserver(self, selector: #selector(bookingCancelObserver), name: Notification.Name(Key.notificationKey.UPDATE_UI_FOR_CANCEL), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.appBecomeActive), name:NSNotification.Name(Key.notificationKey.APP_BECOME_ACTIVE) , object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.bookingCancelObserver), name:NSNotification.Name(Key.notificationKey.RIDE_CANCEL_BY_DRIVER) , object: nil)
-
+    }
+    
+    func removeNotificationSetup(){
+        //        NotificationCenter.default.removeObserver(self, selector: #selector(popControllerObserver), name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(Key.notificationKey.CALLAPIFORBOOKING), object: nil)
+        
+        //        NotificationCenter.default.addObserver(self, selector: #selector(bookingCancelObserver), name: Notification.Name(Key.notificationKey.UPDATE_UI_FOR_CANCEL), object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(Key.notificationKey.UPDATE_UI_FOR_CANCEL), object: nil)
+        
+        //        NotificationCenter.default.addObserver(self, selector: #selector(self.appBecomeActive), name:NSNotification.Name(Key.notificationKey.APP_BECOME_ACTIVE) , object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(Key.notificationKey.APP_BECOME_ACTIVE), object: nil)
+        
+        
+        //        NotificationCenter.default.addObserver(self, selector: #selector(self.bookingCancelObserver), name:NSNotification.Name(Key.notificationKey.RIDE_CANCEL_BY_DRIVER) , object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(Key.notificationKey.RIDE_CANCEL_BY_DRIVER), object: nil)
         
     }
     
-    func cancelRide(){
-        stopTimer()
-        self.reasonVm.bookingId = self.objSocket?.id ?? 0
-        self.reasonVm.reasonId = 9
-        self.reasonVm.reason = "rider not picked"
-        self.reasonVm.callCancelRideApi {
-            self.drawLineStatus = 0
-            guard self.objSocket != nil else{
-                self.checkRideStatus(status: .notFound)
-                return
-            }
-            self.checkRideStatus(status: .requestReject)
-            
-        }
-    }
+    
+    
     @objc func popControllerObserver(){
         
         guard let obj = objTow else{return}
@@ -936,11 +966,6 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             
             guard let data = dict?["data"] as? [String:Any] else{return}
             
-            //            guard let booking = data["booking"] as? [String:Any] else{
-            //                return
-            //            }
-            
-            
             let b = BookingInfo.getRideInfo(dict: data)
             
             
@@ -950,6 +975,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             self.checkRideStatus(status: .findingTow)
         }
     }
+    
+    
     @objc func bookingCancelObserver(){
         stopTimer()
         self.drawLineStatus = 0
@@ -957,7 +984,9 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             self.checkRideStatus(status: .notFound)
             return
         }
-        self.checkRideStatus(status: .rideRejectDuringRide)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "RideCancelPopUpVC") as! RideCancelPopUpVC
+        self.present(vc, animated: false)
+       // self.checkRideStatus(status: .rideRejectDuringRide)
     }
     
     
@@ -972,14 +1001,11 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     }
     
     
-    @objc func appBecomeActive(){
-        
-        viewWillAppear(false)
-    }
     
-    @objc func rideCancelByUser(){
-        
-    }
+    
+    //    @objc func rideCancelByUser(){
+    //
+    //    }
     // MARK: - MAPS_SETTING
     
     
@@ -1114,6 +1140,24 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     }
     
     
+    func getAddressFromlatLong(lat: Double, long: Double ,lbl:UILabel){
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        let geocoder = GMSGeocoder()
+        var add = ""
+        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
+            if let address = response?.firstResult() {
+                
+                guard let arrAddress = address.lines else {return}
+                if arrAddress.count > 1 {
+                    add =  (arrAddress[1])
+                    
+                }else if arrAddress.count == 1 {
+                    add =  (arrAddress[0])
+                }
+                lbl.text = add
+            }
+        }
+    }
     
     
     
@@ -1126,36 +1170,107 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         }
     }
     
+    @IBAction func btnBackAction(_ sender:Any){
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
-    func getAddressFromlatLong(lat: Double, long: Double ,lbl:UILabel){
-        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        let geocoder = GMSGeocoder()
-        var add = ""
-        geocoder.reverseGeocodeCoordinate(coordinate) { (response, error) in
-          if let address = response?.firstResult() {
-            
-            guard let arrAddress = address.lines else {return}
-            if arrAddress.count > 1 {
-                add =  (arrAddress[1])
+    @IBAction func btnConfirmAction(_ sender:Any){
         
-            }else if arrAddress.count == 1 {
-                add =  (arrAddress[0])
+        guard let _ = self.bookingStatus?.data?.passenger?.stripe_customer_id else {
+            UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: "Please add payment method for using tow services")
+            return}
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "BookingConfirmationVC") as! BookingConfirmationVC
+        self.present(vc, animated: false)
+        
+    }
+    
+    @IBAction func btnCancelAction(_ sender:Any){
+        
+        print("button Cancel click")
+        /*
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReasonVC") as! ReasonVC
+        vc.booking = self.objSocket
+        self.present(vc, animated: false)
+        */
+        self.viewMain.isHidden = false
+        self.viewReason.isHidden = false
+
+        
+    }
+    
+    @IBAction func btnChatAction(_ sender:Any){
+        let vc = UtilitiesManager.shared.getMainStoryboard().instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        vc.booking = self.objSocket
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func btnCancelServiceAction(_ sender:Any){
+        /*
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ReasonVC") as! ReasonVC
+        vc.booking = self.objSocket
+        self.present(vc, animated: false)
+        */
+        self.viewMain.isHidden = false
+        self.viewReason.isHidden = false
+
+    }
+    @IBAction func btnCallAction(_ sender:Any){
+        
+        guard let data = self.objSocket else{return}
+        self.mainMapVm.dialNumber(number: data.driver_mobile_no ?? "")
+        
+    }
+    
+    @IBAction func btnCancelRideAction(_ sender : Any){
+//        self.dismiss(animated: false)
+        guard let _ = reasonDict else{return}
+        self.reasonVm.bookingId = self.objSocket?.id ?? 0
+        self.reasonVm.reasonId = reasonDict?.id ?? 0
+        self.reasonVm.reason = reasonDict?.text ?? ""
+        self.reasonVm.callCancelRideApi {
+            self.viewMain.isHidden = true
+            self.viewReason.isHidden = true
+            self.stopTimer()
+            self.drawLineStatus = 0
+            guard self.objSocket != nil else{
+                self.checkRideStatus(status: .notFound)
+                return
             }
-              lbl.text = add
-          }
+            self.checkRideStatus(status: .rideRejectDuringRide)
+
         }
-      }
+
+    }
+    
     
 }
 
 extension MainMapVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        guard tableView == self.tblTowList else{
+            return dataSource?.count ?? 0
+        }
         return self.objTowList?.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard tableView == self.tblTowList else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TextWithCheckboxTableViewCell", for: indexPath) as! TextWithCheckboxTableViewCell
+            guard let obj = self.dataSource else {return cell}
+            if selectedIndex == indexPath.row{
+                cell.imgStatus.image = UIImage.init(named: "check")
+            }
+            else{
+                cell.imgStatus.image = UIImage.init(named: "unCheck")
+            }
+            cell.setData(data: obj[indexPath.row])
+            return cell
+
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "TowListTableViewCell", for: indexPath) as! TowListTableViewCell
+
         guard let obj = self.objTowList?.data else{return cell}
         cell.obj = obj[indexPath.row]
         return cell
@@ -1163,6 +1278,16 @@ extension MainMapVC:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelect")
+        
+        guard tableView == self.tblTowList else{
+            guard let obj = self.dataSource else {return }
+            self.reasonDict = obj[indexPath.row]
+            self.selectedIndex = indexPath.row
+//            self.btnCancelReason.setTitleColor(UIColor(named: "redText"), for: .normal)
+            self.btnCancelReason.backgroundColor = UIColor(named: "redText")
+            self.tblReasons.reloadData()
+            return
+        }
         guard let obj = self.objTowList?.data else{return}
         self.objTow = obj[indexPath.row]
         self.btnConfirm.setTitle("Confirm \(obj[indexPath.row].name ?? "")", for: .normal)

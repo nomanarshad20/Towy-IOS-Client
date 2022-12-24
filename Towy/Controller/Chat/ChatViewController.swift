@@ -62,8 +62,11 @@ class ChatViewController: UIViewController {
 //        txtMessage.addSubview(leftView)
         
         getDriverFcm{ fcm in
+            
             if fcm != nil{
+                
                 self.driverFcm = fcm
+                
             }else{
                 
             }
@@ -143,6 +146,8 @@ class ChatViewController: UIViewController {
                 refToSend.setValue(paramas) { err, refer in
                     if err == nil{
                         if self.driverFcm != nil{
+                            
+                            
                             PushNotificationSender().sendPushNotification(to: self.driverFcm!, title: "New message by" + " \(UtilitiesManager.shared.getUserName())", body: self.txtMessage.text!)
                             //                            Database.database().reference().child("\(self.booking!.id!)").child("fcm").child("fcm1").setValue(self.pasengerFcm)
                             

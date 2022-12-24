@@ -48,6 +48,7 @@
 		3D372F8E28CDE63A008BF1BA /* ReasonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D372F8D28CDE63A008BF1BA /* ReasonVC.swift */; };
 		3D372F9128CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D372F8F28CDE6D9008BF1BA /* TextWithCheckboxTableViewCell.swift */; };
 		3D372F9228CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D372F9028CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.xib */; };
+		3D4073E92956C13000A3C1E2 /* RideCancelPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4073E82956C12F00A3C1E2 /* RideCancelPopUpVC.swift */; };
 		3D4B1169289A53530034FEF8 /* NewDashBoardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B1167289A53530034FEF8 /* NewDashBoardCVCell.swift */; };
 		3D4B116A289A53530034FEF8 /* NewDashBoardCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D4B1168289A53530034FEF8 /* NewDashBoardCVCell.xib */; };
 		3D4B116C289A77000034FEF8 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4B116B289A77000034FEF8 /* AccountModel.swift */; };
@@ -196,6 +197,7 @@
 		3D372F8D28CDE63A008BF1BA /* ReasonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonVC.swift; sourceTree = "<group>"; };
 		3D372F8F28CDE6D9008BF1BA /* TextWithCheckboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextWithCheckboxTableViewCell.swift; sourceTree = "<group>"; };
 		3D372F9028CDE6DA008BF1BA /* TextWithCheckboxTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextWithCheckboxTableViewCell.xib; sourceTree = "<group>"; };
+		3D4073E82956C12F00A3C1E2 /* RideCancelPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideCancelPopUpVC.swift; sourceTree = "<group>"; };
 		3D4B1167289A53530034FEF8 /* NewDashBoardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDashBoardCVCell.swift; sourceTree = "<group>"; };
 		3D4B1168289A53530034FEF8 /* NewDashBoardCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewDashBoardCVCell.xib; sourceTree = "<group>"; };
 		3D4B116B289A77000034FEF8 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
@@ -795,6 +797,7 @@
 				3D76837428CF082000D100AD /* BookingConfirmationVC.swift */,
 				3D372F8D28CDE63A008BF1BA /* ReasonVC.swift */,
 				3DB0C00828CF1A2000312FD7 /* ReasonVM.swift */,
+				3D4073E82956C12F00A3C1E2 /* RideCancelPopUpVC.swift */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				CED6116928C792420047DEBC /* SocketManager.swift in Sources */,
 				3D79B89228E363CE002A2C71 /* ActivityVM.swift in Sources */,
 				3D21667A2884A295005A108B /* EnterPasswordVM.swift in Sources */,
+				3D4073E92956C13000A3C1E2 /* RideCancelPopUpVC.swift in Sources */,
 				3DDF653028F1FCB9009777F4 /* TripDetailsVC.swift in Sources */,
 				3D5981B82860D4A00034AB47 /* LoginVM.swift in Sources */,
 				3D07A6CD2942763C00C040F8 /* ServiceBookingModel.swift in Sources */,
