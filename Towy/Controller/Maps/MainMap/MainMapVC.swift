@@ -183,7 +183,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
             self.bookingStatus = bookingData
             let dictionary = try! DictionaryEncoder().encode(bookingData)
             let dict = JSON(dictionary).dictionaryObject
-            print("jsonData",dict)
+//            print("jsonData",dict)
             guard let data = dict?["data"] as? [String:Any] else{return}
             
             guard let booking = data["booking"] as? [String:Any] else{
