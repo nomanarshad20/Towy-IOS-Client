@@ -158,7 +158,7 @@ class UtilitiesManager{
     {
 //        if (UtilitiesManager.shared.retriveSocialUserData() != nil) || (UtilitiesManager.shared.retriveUserLoginData() != nil) || (UtilitiesManager.shared.retriveUserData() != nil) || (UtilitiesManager.shared.retriveAppleLoginData() != nil){
         if (UtilitiesManager.shared.retriveSocialUserData() != nil){
-            return UtilitiesManager.shared.retriveSocialUserData()?.data.accessToken ?? ""
+            return UtilitiesManager.shared.retriveSocialUserData()?.data?.access_token ?? ""
         }
         else if (UtilitiesManager.shared.retriveUserLoginData() != nil){
             return UtilitiesManager.shared.retriveUserLoginData()?.data.accessToken ?? ""

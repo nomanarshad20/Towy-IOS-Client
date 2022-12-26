@@ -97,8 +97,8 @@ class LoginVM: BaseVM {
             case .success(let response):
                 
                 UtilitiesManager.shared.saveSocialUserData(user: response)
-                UtilitiesManager.shared.saveUserId(id: response.data.userID)
-                UtilitiesManager.shared.saveUserName(name: response.data.firstName)
+                UtilitiesManager.shared.saveUserId(id: response.data?.user_id ?? 0)
+                UtilitiesManager.shared.saveUserName(name: response.data?.first_name ?? "")
                 UtilitiesManager.shared.saveUserLoginState(isLogin: true)
 
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate

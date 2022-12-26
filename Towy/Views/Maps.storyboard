@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -650,6 +650,7 @@
                         <outlet property="btnBack" destination="udw-6E-Pag" id="CiE-JA-xac"/>
                         <outlet property="btnCancelReason" destination="3wx-1X-Dq5" id="hzx-08-FRw"/>
                         <outlet property="btnConfirm" destination="uOI-8I-xo6" id="LJn-gA-EkK"/>
+                        <outlet property="driverRating" destination="NZT-yL-uxH" id="9tb-Q8-T70"/>
                         <outlet property="imgDriver" destination="Ogp-SD-Djc" id="1qs-Mx-ueh"/>
                         <outlet property="lblDestination" destination="1yH-KP-mlm" id="ywY-q8-sSP"/>
                         <outlet property="lblDriverName" destination="nK2-ab-qrx" id="zst-Nm-iai"/>
@@ -3463,6 +3464,7 @@
                         <outlet property="bottomViewTowConstraint" destination="Gtv-C6-EYM" id="pmb-7R-ey6"/>
                         <outlet property="btnBack" destination="yDq-9J-gp1" id="alZ-wN-48h"/>
                         <outlet property="btnCancelReason" destination="mhc-vp-WxZ" id="8Gd-ZV-bxN"/>
+                        <outlet property="driverRating" destination="wQ9-WH-12u" id="DyD-pa-YDP"/>
                         <outlet property="imgDriver" destination="AvX-Ao-tdU" id="Bsb-6G-0aT"/>
                         <outlet property="lblDriverName" destination="LZe-oZ-hKw" id="OkN-vz-7NF"/>
                         <outlet property="lblDriverRideStatus" destination="tYT-Jx-Vej" id="lAN-UR-yfJ"/>
@@ -3854,6 +3856,11 @@
             <point key="canvasLocation" x="1838" y="836"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="A97-dp-cid">
+            <size key="intrinsicContentSize" width="220" height="40"/>
+        </designable>
+    </designables>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>

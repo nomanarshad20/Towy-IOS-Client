@@ -74,6 +74,7 @@ struct SocialUser : Codable{
 
 
 // MARK: - SocialUser
+/*
 struct SocialUser: Codable {
     let result, message: String
     let data: SocialDataClass
@@ -111,3 +112,95 @@ struct SocialDataClass: Codable {
     }
 }
 
+*/
+
+struct SocialUser: Codable{
+    let result : String?
+    let message : String?
+    let data : SocialDataClass?
+
+    enum CodingKeys: String, CodingKey {
+
+        case result = "result"
+        case message = "message"
+        case data = "data"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        result = try values.decodeIfPresent(String.self, forKey: .result)
+        message = try values.decodeIfPresent(String.self, forKey: .message)
+        data = try values.decodeIfPresent(SocialDataClass.self, forKey: .data)
+    }
+
+}
+struct SocialDataClass: Codable {
+    let user_id : Int?
+    let email : String?
+    let mobile_no : String?
+    let fcm_token : String?
+    let user_type : Int?
+    let is_verified : Int?
+    let referral_code : String?
+    let steps : Int?
+    let provider : String?
+    let image : String?
+    let first_name : String?
+    let last_name : String?
+    let wallet_balance : Int?
+    let rating : Int?
+    let stripe_customer_id : String?
+    let access_token : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case user_id = "user_id"
+        case email = "email"
+        case mobile_no = "mobile_no"
+        case fcm_token = "fcm_token"
+        case user_type = "user_type"
+        case is_verified = "is_verified"
+        case referral_code = "referral_code"
+        case steps = "steps"
+        case provider = "provider"
+        case image = "image"
+        case first_name = "first_name"
+        case last_name = "last_name"
+        case wallet_balance = "wallet_balance"
+        case rating = "rating"
+        case stripe_customer_id = "stripe_customer_id"
+        case access_token = "access_token"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        user_id = try values.decodeIfPresent(Int.self, forKey: .user_id)
+        email = try values.decodeIfPresent(String.self, forKey: .email)
+        mobile_no = try values.decodeIfPresent(String.self, forKey: .mobile_no)
+        fcm_token = try values.decodeIfPresent(String.self, forKey: .fcm_token)
+        user_type = try values.decodeIfPresent(Int.self, forKey: .user_type)
+
+//        if let userTypeString = try values.decodeIfPresent(String.self, forKey: .user_type){
+//            user_type = Int(userTypeString)
+//
+//        }else{
+//
+//            user_type = try values.decodeIfPresent(Int.self, forKey: .user_type)
+//            //user_type = "\(v ?? 1)"
+//        }
+        
+        
+        is_verified = try values.decodeIfPresent(Int.self, forKey: .is_verified)
+        referral_code = try values.decodeIfPresent(String.self, forKey: .referral_code)
+        steps = try values.decodeIfPresent(Int.self, forKey: .steps)
+        provider = try values.decodeIfPresent(String.self, forKey: .provider)
+        image = try values.decodeIfPresent(String.self, forKey: .image)
+        first_name = try values.decodeIfPresent(String.self, forKey: .first_name)
+        last_name = try values.decodeIfPresent(String.self, forKey: .last_name)
+        wallet_balance = try values.decodeIfPresent(Int.self, forKey: .wallet_balance)
+        rating = try values.decodeIfPresent(Int.self, forKey: .rating)
+        stripe_customer_id = try values.decodeIfPresent(String.self, forKey: .stripe_customer_id)
+        access_token = try values.decodeIfPresent(String.self, forKey: .access_token)
+    }
+
+}

@@ -22,7 +22,13 @@ class DriverListTableViewCell: UITableViewCell {
             //UtilitiesManager.shared.setImage(url: obj. ?? "", img: imgDriver)
             self.lblName.text = obj?.first_name ?? ""
             self.lblPrice.text = "\(obj?.total_fare ?? 0)$"
-            self.lblTime.text = "\(obj?.distance ?? 0.0)KM"
+            //self.lblTime.text = "\(obj?.distance ?? 0.0)KM"
+            if let distance = obj?.distance {
+                self.lblTime.text = "\(distance.rounded(digits: 1))KM"
+
+            }else{
+                self.lblTime.text = "\(0.0)KM"
+            }
             guard let services = obj?.service else{return}
             self.lblService.text = getServices(arr: services)
             

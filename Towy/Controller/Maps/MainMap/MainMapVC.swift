@@ -48,6 +48,7 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     
     @IBOutlet weak var btnConfirm:UIButton!
     @IBOutlet weak var btnCancelReason:UIButton!
+    @IBOutlet weak var driverRating: UIButton!
 
     
     @IBOutlet weak var imgDriver:UIImageView!
@@ -239,6 +240,8 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
         guard let obj = self.objSocket else{return}
         self.lblDriverName.text = obj.driver_first_name ?? ""
         self.lblDriverTowType.text = obj.vehicle_name ?? ""
+        self.driverRating.setTitle(obj.driver_rating ?? "0.0", for: .normal)
+
         UtilitiesManager.shared.setImage(url: obj.driver_image ?? "", img: self.imgDriver)
         
     }
