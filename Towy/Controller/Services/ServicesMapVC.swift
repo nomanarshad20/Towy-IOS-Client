@@ -56,6 +56,7 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var tblServicesList:UITableView!
     @IBOutlet weak var tblDriverList:UITableView!
     @IBOutlet weak var tblReasons:UITableView!
+    @IBOutlet weak var clcTags : UICollectionView!
 
     //    @IBOutlet weak var tblDetailList:UITableView!
     
@@ -76,6 +77,7 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
     @IBOutlet weak var btnBack:UIButton!
     @IBOutlet weak var btnCancelReason:UIButton!
     @IBOutlet weak var driverRating: UIButton!
+    @IBOutlet weak var btnCancelServices: UIButton!
 
     
     
@@ -232,7 +234,7 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
         self.tblServicesList.register(UINib(nibName: "ServicesListTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesListTableViewCell")
         self.tblDriverList.register(UINib(nibName: "DriverListTableViewCell", bundle: nil), forCellReuseIdentifier: "DriverListTableViewCell")
         self.tblReasons.register(UINib(nibName: "TextWithCheckboxTableViewCell", bundle: nil), forCellReuseIdentifier: "TextWithCheckboxTableViewCell")
-
+        self.clcTags.register(UINib(nibName: "TagsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TagsCollectionViewCell")
 //        self.tblReasons.register(UINib.init(nibName: "TextWithCheckboxTableViewCell", bundle: nil), forCellReuseIdentifier: "TextWithCheckboxTableViewCell")
 
         // self.tblDetailList.register(UINib(nibName: "ServicesListTableViewCell", bundle: nil), forCellReuseIdentifier: "ServicesListTableViewCell")
@@ -792,7 +794,8 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
             
             self.viewWaiting.isHidden = true
             self.viewDriver.isHidden = false
-            
+//            self.btnCancelServices.isHidden = false
+
             // if self.bottomViewTowConstraint.constant == 0{
             
             UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
@@ -815,7 +818,7 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
             self.lblDriverRideStatus.text = "Providing services"
             self.viewWaiting.isHidden = true
             self.viewDriver.isHidden = false
-            
+            self.btnCancelServices.isHidden = true
             //            self.viewTowList.isHidden = false
             
             let fcm = UtilitiesManager.shared.getFcmToken()
@@ -1353,7 +1356,13 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
         guard let obj = self.selectedDriver else{return}
         self.lblName.text = obj.first_name ?? ""
         self.lblPrice.text = "\(obj.total_fare ?? 0)$"
-        self.lblTime.text = "\(obj.distance ?? 0.0)KM"
+        if let distance = obj.distance {
+            self.lblTime.text = "\(distance.rounded(digits: 1))KM"
+
+        }else{
+            self.lblTime.text = "\(0.0)KM"
+        }
+//        self.lblTime.text = "\(obj.distance?.rounded(digits: 1) ?? 0.0)KM"
         
         
         //        guard let services = obj.service else{return}
@@ -1619,4 +1628,34 @@ extension ServicesMapVC:UITableViewDelegate,UITableViewDataSource{
         }
         return name
     }
+}
+
+// MARK: - COLLECTIONVIEW_DELEGATES
+
+
+
+extension ServicesMapVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.arrSelectedSerivces.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagsCollectionViewCell", for: indexPath) as! TagsCollectionViewCell
+        let obj = self.arrSelectedSerivces[indexPath.row]
+        cell.lblTitle.text = obj.name
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+    {
+        
+        //        let item =  searching ? self.filterArray[indexPath.row].caption : self.arrTags[indexPath.row].caption
+        guard let item =  self.arrSelectedSerivces[indexPath.row].name else{return CGSize(width: 10, height: 10)}
+        
+        // return CGSize(width: label.frame.width, height: 30)
+        return CGSize(width: item.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)]).width + 25, height: 30)
+        
+        //return collectionViewSize
+        
+    }
+    
 }

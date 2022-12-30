@@ -142,6 +142,8 @@
 		3DF9031829352CBE0043438C /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF9031729352CBE0043438C /* ProfileVM.swift */; };
 		3DFB6DF928C8971600C21B3F /* BookingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6DF828C8971600C21B3F /* BookingInfo.swift */; };
 		3DFB6DFC28C89C5A00C21B3F /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB6DFB28C89C5A00C21B3F /* PushNotificationSender.swift */; };
+		3F123FD7295E2C6200FEEFF8 /* TagsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F123FD5295E2C6200FEEFF8 /* TagsCollectionViewCell.xib */; };
+		3F123FD8295E2C6200FEEFF8 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F123FD6295E2C6200FEEFF8 /* TagsCollectionViewCell.swift */; };
 		CE23215F28B531DE00041CEC /* selectLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE23215E28B531DE00041CEC /* selectLocationVC.swift */; };
 		CE7CA17B28A6E2A100F96152 /* WalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CA17A28A6E2A100F96152 /* WalletVC.swift */; };
 		CE8123112896B2BF0042B1D6 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8123102896B2BF0042B1D6 /* LocationVC.swift */; };
@@ -293,6 +295,8 @@
 		3DF9031729352CBE0043438C /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		3DFB6DF828C8971600C21B3F /* BookingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingInfo.swift; sourceTree = "<group>"; };
 		3DFB6DFB28C89C5A00C21B3F /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
+		3F123FD5295E2C6200FEEFF8 /* TagsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagsCollectionViewCell.xib; sourceTree = "<group>"; };
+		3F123FD6295E2C6200FEEFF8 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A9E83E5C11D2ECDCC748606 /* Pods_Towy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Towy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9161166AB4061C9CBAA74C52 /* Pods-Towy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.release.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.release.xcconfig"; sourceTree = "<group>"; };
 		B14A20478E0A0B8C72F8A2B2 /* Pods-Towy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Towy.debug.xcconfig"; path = "Target Support Files/Pods-Towy/Pods-Towy.debug.xcconfig"; sourceTree = "<group>"; };
@@ -348,6 +352,8 @@
 		3D0649692893F2A200720F69 /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				3F123FD6295E2C6200FEEFF8 /* TagsCollectionViewCell.swift */,
+				3F123FD5295E2C6200FEEFF8 /* TagsCollectionViewCell.xib */,
 				3D06496B2893F2F900720F69 /* DashboardCVCell.swift */,
 				3D06496C2893F2F900720F69 /* DashboardCVCell.xib */,
 				3D4B1167289A53530034FEF8 /* NewDashBoardCVCell.swift */,
@@ -908,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D2AE72328C7596E001B8254 /* ReceiverTableViewCell.xib in Resources */,
+				3F123FD7295E2C6200FEEFF8 /* TagsCollectionViewCell.xib in Resources */,
 				3D5981A6286087810034AB47 /* Roboto-ThinItalic.ttf in Resources */,
 				3D5981A8286087810034AB47 /* Roboto-Italic.ttf in Resources */,
 				CE9CE39828A7B53200866884 /* TowListTableViewCell.xib in Resources */,
@@ -1117,6 +1124,7 @@
 				3D4B116C289A77000034FEF8 /* AccountModel.swift in Sources */,
 				3DEDC0F6288029F90051FAA0 /* ResendCodePopUpVC.swift in Sources */,
 				3DEF5E47292379D700AD16C6 /* ServicesListModel.swift in Sources */,
+				3F123FD8295E2C6200FEEFF8 /* TagsCollectionViewCell.swift in Sources */,
 				3D4B1169289A53530034FEF8 /* NewDashBoardCVCell.swift in Sources */,
 				3D76837528CF082000D100AD /* BookingConfirmationVC.swift in Sources */,
 				3D06497328940B5A00720F69 /* AccountTBCell.swift in Sources */,
