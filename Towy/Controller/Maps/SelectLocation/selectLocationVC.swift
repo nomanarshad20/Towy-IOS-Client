@@ -67,7 +67,8 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     func setupUserCurrentLocation()
     {
         checkLocationPermission()
-        locationManagerInitilize()
+            self.locationManagerInitilize()
+        
         manager.startUpdatingLocation()
         manager.startUpdatingHeading()
         
@@ -108,16 +109,19 @@ class selectLocationVC: UIViewController ,GMSMapViewDelegate{
     
     
     func locationManagerInitilize(){
-        if CLLocationManager.locationServicesEnabled(){
-            manager.delegate = self
-            manager.allowsBackgroundLocationUpdates = false
-            manager.showsBackgroundLocationIndicator = true
-            manager.requestAlwaysAuthorization()
-            manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-            if #available(iOS 14.0, *) {
-                manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "Tracking")
-            } else {
-                // Fallback on earlier versions
+        DispatchQueue.global().async {
+
+            if CLLocationManager.locationServicesEnabled(){
+                self.manager.delegate = self
+                self.manager.allowsBackgroundLocationUpdates = false
+                self.manager.showsBackgroundLocationIndicator = true
+                self.manager.requestAlwaysAuthorization()
+                self.manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+                if #available(iOS 14.0, *) {
+                    self.manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "Tracking")
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         }
     }

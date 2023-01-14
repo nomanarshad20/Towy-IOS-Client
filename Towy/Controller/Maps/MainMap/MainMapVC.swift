@@ -179,7 +179,10 @@ class MainMapVC: UIViewController,GMSMapViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         mainMapVm.getBookingStatus { bookingData,error  in
-            guard error == nil else{return}
+            guard error == nil else{
+                self.checkRideStatus(status: .notFound)
+                return
+            }
             self.bookingStatus = bookingData
             let dictionary = try! DictionaryEncoder().encode(bookingData)
             let dict = JSON(dictionary).dictionaryObject
@@ -1293,7 +1296,15 @@ extension MainMapVC:UITableViewDelegate,UITableViewDataSource{
         }
         guard let obj = self.objTowList?.data else{return}
         self.objTow = obj[indexPath.row]
-        self.btnConfirm.setTitle("Confirm \(obj[indexPath.row].name ?? "")", for: .normal)
+        self.btnConfirm.setTitle("Confirm \(obj[indexPath.row].name?.stringValue ?? "")", for: .normal)
         
     }
 }
+
+
+
+
+
+
+
+

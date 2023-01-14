@@ -267,7 +267,7 @@ struct BookingRecord : Codable {
     let is_driver_rating_given : Int?
     let passenger_image : String?
     let passenger_mobile_no : String?
-    let passenger_rating : Int?
+    let passenger_rating : Double?
     let driver_image : String?
     let driver_mobile_no : String?
     let driver_rating : Int?
@@ -275,6 +275,7 @@ struct BookingRecord : Codable {
     let driver_comment_from_passenger : String?
     let passenger_rating_from_driver : String?
     let passenger_comment_from_driver : String?
+    let request_type : String?
     let services : [Services]?
 
     enum CodingKeys: String, CodingKey {
@@ -331,6 +332,7 @@ struct BookingRecord : Codable {
         case driver_comment_from_passenger = "driver_comment_from_passenger"
         case passenger_rating_from_driver = "passenger_rating_from_driver"
         case passenger_comment_from_driver = "passenger_comment_from_driver"
+        case request_type = "request_type"
         case services = "services"
     }
 
@@ -380,7 +382,7 @@ struct BookingRecord : Codable {
         is_driver_rating_given = try values.decodeIfPresent(Int.self, forKey: .is_driver_rating_given)
         passenger_image = try values.decodeIfPresent(String.self, forKey: .passenger_image)
         passenger_mobile_no = try values.decodeIfPresent(String.self, forKey: .passenger_mobile_no)
-        passenger_rating = try values.decodeIfPresent(Int.self, forKey: .passenger_rating)
+        passenger_rating = try values.decodeIfPresent(Double.self, forKey: .passenger_rating)
         driver_image = try values.decodeIfPresent(String.self, forKey: .driver_image)
         driver_mobile_no = try values.decodeIfPresent(String.self, forKey: .driver_mobile_no)
         driver_rating = try values.decodeIfPresent(Int.self, forKey: .driver_rating)
@@ -388,6 +390,7 @@ struct BookingRecord : Codable {
         driver_comment_from_passenger = try values.decodeIfPresent(String.self, forKey: .driver_comment_from_passenger)
         passenger_rating_from_driver = try values.decodeIfPresent(String.self, forKey: .passenger_rating_from_driver)
         passenger_comment_from_driver = try values.decodeIfPresent(String.self, forKey: .passenger_comment_from_driver)
+        request_type = try values.decodeIfPresent(String.self, forKey: .request_type)
         services = try values.decodeIfPresent([Services].self, forKey: .services)
     }
 

@@ -686,7 +686,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhi-mZ-7zU">
                                 <rect key="frame" x="0.0" y="735" width="414" height="161"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdasdadadsadadadsadsad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-Fo-Jvp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location ......" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcJ-Fo-Jvp">
                                         <rect key="frame" x="49" y="29.5" width="234.5" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="uOA-A6-E3c"/>
@@ -1294,7 +1294,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7x-I7-xWK">
-                                        <rect key="frame" x="138" y="79" width="68.5" height="40"/>
+                                        <rect key="frame" x="138" y="79" width="69" height="40"/>
                                         <color key="backgroundColor" name="ThemeBtnColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="PIx-vg-kq8"/>
@@ -1732,7 +1732,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKR 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63W-KY-2nr">
-                                                <rect key="frame" x="344" y="10" width="60" height="13.5"/>
+                                                <rect key="frame" x="344" y="10" width="60" height="13"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="LC2-JG-7op"/>
                                                 </constraints>
@@ -1741,7 +1741,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 min" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="85H-Vo-RqX">
-                                                <rect key="frame" x="344" y="28.5" width="60" height="11"/>
+                                                <rect key="frame" x="344" y="28" width="60" height="11"/>
                                                 <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="9"/>
                                                 <color key="textColor" red="0.3921568627" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>

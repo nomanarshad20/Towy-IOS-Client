@@ -81,6 +81,8 @@ public enum Type: Int {
 
 public struct JSON {
 
+    
+  
 	/**
 	 Creates a JSON using the data.
 	

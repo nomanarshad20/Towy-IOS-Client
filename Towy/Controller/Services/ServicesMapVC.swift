@@ -303,6 +303,7 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
     
     
     @objc func confirmRequestObserver(){
+        
         var services = [Service]()
         
         
@@ -327,7 +328,16 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
         
         
         servicesVM.sendServicesRequest(model: model) { data in
+            let dictionary = try! DictionaryEncoder().encode(data)
+            let dict = JSON(dictionary).dictionaryObject
             
+            guard let data = dict?["data"] as? [String:Any] else{return}
+            
+            let b = BookingInfo.getRideInfo(dict: data)
+            
+            
+            self.objBooking = b
+
             self.checkRideStatus(status: .findingTow)
             //self.servicesStatus(status: .waitingDriver)
         }
@@ -1426,6 +1436,7 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
         self.reasonVm.bookingId = self.objBooking?.id ?? 0
         self.reasonVm.reasonId = reasonDict?.id ?? 0
         self.reasonVm.reason = reasonDict?.text ?? ""
+        
         self.reasonVm.callCancelRideApi {
             self.viewMain.isHidden = true
             self.viewReason.isHidden = true

@@ -64,7 +64,7 @@ class MainMapVM: BaseVM {
     
     func sendRequestForBooking(obj:TowDatum,completion:@escaping (BookingCreatedModel) -> ()){
         // let h = UtilitiesManager.shared.getAuthHeader()
-        let body = ["pick_up_area":PickAddress,"pick_up_latitude":"\(self.sourceLocation.latitude)","pick_up_longitude":"\(self.sourceLocation.longitude)","drop_off_area":DropAddress,"drop_off_latitude":"\(self.destinationLocation.latitude)","drop_off_longitude":"\(self.destinationLocation.longitude)","vehicle_type_id":"\(obj.vehicle_type_id ?? 0)","payment_type":"cash","estimated_fare":"\(obj.estimated_fare ?? 0)","total_distance":"\(obj.total_distance ?? 0)","booking_type":"book_now"] as [String:Any]
+        let body = ["pick_up_area":PickAddress,"pick_up_latitude":"\(self.sourceLocation.latitude)","pick_up_longitude":"\(self.sourceLocation.longitude)","drop_off_area":DropAddress,"drop_off_latitude":"\(self.destinationLocation.latitude)","drop_off_longitude":"\(self.destinationLocation.longitude)","vehicle_type_id":"\(obj.vehicle_type_id?.intValue ?? 0)","payment_type":"cash","estimated_fare":"\(obj.estimated_fare?.intValue ?? 0)","total_distance":"\(obj.total_distance?.intValue ?? 0)","booking_type":"book_now"] as [String:Any]
         
         NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.createBookingWithAllParam, method: .post,showLoader: true).executeQuery(){
             (result: Result<BookingCreatedModel,Error>) in

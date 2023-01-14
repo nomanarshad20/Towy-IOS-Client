@@ -122,8 +122,57 @@ struct TowListModel : Codable {
     }
 
 }
+struct TowDatum : Codable{
+    let min_fare : AnyCodableValue?
+    let per_km_rate : AnyCodableValue?
+    let per_min_rate : AnyCodableValue?
+    let tax_rate : AnyCodableValue?
+    let waiting_price_per_min : AnyCodableValue?
+    let vehicle_type_id : AnyCodableValue?
+    let total_distance : AnyCodableValue?
+    let peak_factor_applied : AnyCodableValue?
+    let peak_factor_rate : AnyCodableValue?
+    let driver_reach_time_in_minutes : AnyCodableValue?
+    let driver_id : AnyCodableValue?
+    let estimated_fare : AnyCodableValue?
+    let name : AnyCodableValue?
 
+    enum CodingKeys: String, CodingKey {
 
+        case min_fare = "min_fare"
+        case per_km_rate = "per_km_rate"
+        case per_min_rate = "per_min_rate"
+        case tax_rate = "tax_rate"
+        case waiting_price_per_min = "waiting_price_per_min"
+        case vehicle_type_id = "vehicle_type_id"
+        case total_distance = "total_distance"
+        case peak_factor_applied = "peak_factor_applied"
+        case peak_factor_rate = "peak_factor_rate"
+        case driver_reach_time_in_minutes = "driver_reach_time_in_minutes"
+        case driver_id = "driver_id"
+        case estimated_fare = "estimated_fare"
+        case name = "name"
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        min_fare = try values.decodeIfPresent(AnyCodableValue.self, forKey: .min_fare)
+        per_km_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .per_km_rate)
+        per_min_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .per_min_rate)
+        tax_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .tax_rate)
+        waiting_price_per_min = try values.decodeIfPresent(AnyCodableValue.self, forKey: .waiting_price_per_min)
+        vehicle_type_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .vehicle_type_id)
+        total_distance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .total_distance)
+        peak_factor_applied = try values.decodeIfPresent(AnyCodableValue.self, forKey: .peak_factor_applied)
+        peak_factor_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .peak_factor_rate)
+        driver_reach_time_in_minutes = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_reach_time_in_minutes)
+        driver_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_id)
+        estimated_fare = try values.decodeIfPresent(AnyCodableValue.self, forKey: .estimated_fare)
+        name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .name)
+    }
+
+}
+/*
 struct TowDatum : Codable{
     let min_fare : Int?
     let per_km_rate : Int?
@@ -174,7 +223,7 @@ struct TowDatum : Codable{
     }
 
 }
-
+*/
 /*
 struct TowDatum : Codable {
     let min_fare : Int?

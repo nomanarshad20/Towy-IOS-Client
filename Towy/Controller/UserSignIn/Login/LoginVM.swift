@@ -78,6 +78,16 @@ class LoginVM: BaseVM {
                 self.phoneVerification()
                 
             case .failure(let error):
+                if error.errorCode == 401{
+                    let isValidUser = false
+                    UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser)
+                    let usrDict = ["mobile_no":self.actualNumber]
+                    UtilitiesManager.shared.saveUserInformation(usr: usrDict)
+                    self.phoneVerification()
+                }else{
+                    UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
+                }
+
                 print("errorzz",error)
             }
         }
@@ -97,10 +107,13 @@ class LoginVM: BaseVM {
             case .success(let response):
                 
                 UtilitiesManager.shared.saveSocialUserData(user: response)
-                UtilitiesManager.shared.saveUserId(id: response.data?.user_id ?? 0)
-                UtilitiesManager.shared.saveUserName(name: response.data?.first_name ?? "")
+                UtilitiesManager.shared.saveUserId(id: response.data?.user_id?.intValue ?? 0)
+                UtilitiesManager.shared.saveUserName(name: response.data?.first_name?.stringValue ?? "")
                 UtilitiesManager.shared.saveUserLoginState(isLogin: true)
 
+                
+                let usr = response.data?.user_type?.intValue
+                
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 appDelegate.moveToTabbarVC()
             case .failure(let error):

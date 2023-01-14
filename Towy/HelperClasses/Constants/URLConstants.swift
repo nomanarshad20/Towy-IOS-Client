@@ -23,7 +23,7 @@ struct APPURL {
 
 //        static let Dev = "http://54.183.143.65"
 //        static var socketURL = "http://54.183.143.65:8081"
-        
+//
         
         
         /*

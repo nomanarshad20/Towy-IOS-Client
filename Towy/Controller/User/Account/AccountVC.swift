@@ -26,13 +26,13 @@ class AccountVC: UIViewController {
 
     func setUI(){
         if let social = UtilitiesManager.shared.retriveSocialUserData(){
-            self.lblName.text = social.data?.first_name ?? ""
+            self.lblName.text = social.data?.first_name?.stringValue ?? ""
         }
         else if let login = UtilitiesManager.shared.retriveUserLoginData(){
-            self.lblName.text = login.data.firstName
+            self.lblName.text = login.data?.first_name?.stringValue ?? ""
         }
         else if let register = UtilitiesManager.shared.retriveUserData(){
-            self.lblName.text = register.data.firstName
+            self.lblName.text = register.data?.first_name?.stringValue ?? ""
         }
     }
     

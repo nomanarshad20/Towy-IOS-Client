@@ -135,22 +135,24 @@ struct SocialUser: Codable{
 
 }
 struct SocialDataClass: Codable {
-    let user_id : Int?
-    let email : String?
-    let mobile_no : String?
-    let fcm_token : String?
-    let user_type : Int?
-    let is_verified : Int?
-    let referral_code : String?
-    let steps : Int?
-    let provider : String?
-    let image : String?
-    let first_name : String?
-    let last_name : String?
-    let wallet_balance : Int?
-    let rating : Int?
-    let stripe_customer_id : String?
-    let access_token : String?
+    let user_id : AnyCodableValue?
+    let email : AnyCodableValue?
+    let mobile_no : AnyCodableValue?
+    let fcm_token : AnyCodableValue?
+//    let user_type : Int?
+    let user_type : AnyCodableValue?
+
+    let is_verified : AnyCodableValue?
+    let referral_code : AnyCodableValue?
+    let steps : AnyCodableValue?
+    let provider : AnyCodableValue?
+    let image : AnyCodableValue?
+    let first_name : AnyCodableValue?
+    let last_name : AnyCodableValue?
+    let wallet_balance : AnyCodableValue?
+    let rating : AnyCodableValue?
+    let stripe_customer_id : AnyCodableValue?
+    let access_token : AnyCodableValue?
 
     enum CodingKeys: String, CodingKey {
 
@@ -174,21 +176,21 @@ struct SocialDataClass: Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        /*
         user_id = try values.decodeIfPresent(Int.self, forKey: .user_id)
         email = try values.decodeIfPresent(String.self, forKey: .email)
         mobile_no = try values.decodeIfPresent(String.self, forKey: .mobile_no)
         fcm_token = try values.decodeIfPresent(String.self, forKey: .fcm_token)
-        user_type = try values.decodeIfPresent(Int.self, forKey: .user_type)
-
-//        if let userTypeString = try values.decodeIfPresent(String.self, forKey: .user_type){
-//            user_type = Int(userTypeString)
-//
-//        }else{
-//
-//            user_type = try values.decodeIfPresent(Int.self, forKey: .user_type)
-//            //user_type = "\(v ?? 1)"
-//        }
-        
+        user_type = try values.decodeIfPresent(AnyCodableValue.self, forKey: .user_type)
+        /*
+        do {
+            user_type = try values.decodeIfPresent(Int.self, forKey: .user_type)
+        }
+        catch DecodingError.typeMismatch{
+            let value = try values.decode(String.self, forKey: .user_type)
+            user_type = Int(value);
+        }
+        */
         
         is_verified = try values.decodeIfPresent(Int.self, forKey: .is_verified)
         referral_code = try values.decodeIfPresent(String.self, forKey: .referral_code)
@@ -201,6 +203,51 @@ struct SocialDataClass: Codable {
         rating = try values.decodeIfPresent(Int.self, forKey: .rating)
         stripe_customer_id = try values.decodeIfPresent(String.self, forKey: .stripe_customer_id)
         access_token = try values.decodeIfPresent(String.self, forKey: .access_token)
+        */
+        user_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .user_id)
+        email = try values.decodeIfPresent(AnyCodableValue.self, forKey: .email)
+        mobile_no = try values.decodeIfPresent(AnyCodableValue.self, forKey: .mobile_no)
+        fcm_token = try values.decodeIfPresent(AnyCodableValue.self, forKey: .fcm_token)
+        user_type = try values.decodeIfPresent(AnyCodableValue.self, forKey: .user_type)
+        is_verified = try values.decodeIfPresent(AnyCodableValue.self, forKey: .is_verified)
+        referral_code = try values.decodeIfPresent(AnyCodableValue.self, forKey: .referral_code)
+        steps = try values.decodeIfPresent(AnyCodableValue.self, forKey: .steps)
+        provider = try values.decodeIfPresent(AnyCodableValue.self, forKey: .provider)
+        image = try values.decodeIfPresent(AnyCodableValue.self, forKey: .image)
+        first_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .first_name)
+        last_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .last_name)
+        wallet_balance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .wallet_balance)
+        rating = try values.decodeIfPresent(AnyCodableValue.self, forKey: .rating)
+        stripe_customer_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .stripe_customer_id)
+        access_token = try values.decodeIfPresent(AnyCodableValue.self, forKey: .access_token)
     }
 
 }
+
+
+enum MultiType: Codable {
+
+    case string(String)
+    case int(Int)
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        do {
+            self = .int(try container.decode(Int.self))
+        } catch DecodingError.typeMismatch {
+            self = .string(try container.decode(String.self))
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .string(let value):
+            try container.encode(value)
+        case .int(let value):
+            try container.encode(value)
+        }
+    }
+}
+
+

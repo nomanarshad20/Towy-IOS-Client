@@ -57,13 +57,16 @@ class NetworkCall : NSObject{
                             completion(.success(try JSONDecoder().decode(T.self, from: res)))
                         } catch let error {
                             print("catch error",String(data: res, encoding: .utf8) ?? "nothing received")
+                            print("catch",error.localizedDescription)
                             completion(.failure(error))
                         }
                         
                     case 401:
-                        print("user not exist")
+                        //print("user not exist")
+                        let error = JSON(response.value)
+                        let err = error.dictionaryObject?["message"] as? String ?? ""
 //                        let error = JSON(response.value)
-
+/*
                         do {
                             completion(.success(try JSONDecoder().decode(T.self, from: res)))
                         } catch let error {
@@ -71,6 +74,11 @@ class NetworkCall : NSObject{
                             
                             completion(.failure(error))
                         }
+                        */
+                        //let rr = Error
+                        let Localerror = NSError(domain: "", code: 401, userInfo: [ NSLocalizedDescriptionKey: err])
+
+                        completion(.failure(Localerror))
                         
                     case 404:
                         

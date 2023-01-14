@@ -48,10 +48,10 @@ class HomeVM: BaseVM {
         let obj_1 = AccountDataModel(title: "Tow", img: "car")
         let obj_2 = AccountDataModel(title: "Tire", img: "tire")
         let obj_3 = AccountDataModel(title: "Fuel", img: "fuel")
-        let obj_4 = AccountDataModel(title: "Battery Send", img: "battery")
+        let obj_4 = AccountDataModel(title: "EV Charge", img: "EV")
         let obj_5 = AccountDataModel(title: "Lock", img: "lock")
-        let obj_6 = AccountDataModel(title: "Break Down", img: "breakdown")
-        let obj_7 = AccountDataModel(title: "Engine Heat", img: "heat")
+        let obj_6 = AccountDataModel(title: "Repair", img: "breakdown")
+        let obj_7 = AccountDataModel(title: "Jump start", img: "jump")
         let obj_8 = AccountDataModel(title: "others", img: "other")
 
         arr.append(obj_1)
@@ -111,7 +111,7 @@ class HomeVM: BaseVM {
                 completion(response)
             case .failure(let error):
                 //completion(nil,error)
-                UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
+               // UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
                 print("errorzz",error.localizedDescription)
             }
         }

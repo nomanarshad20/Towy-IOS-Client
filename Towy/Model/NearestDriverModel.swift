@@ -87,14 +87,14 @@ struct NearestDriverModel : Codable {
 
 }
 struct Datum : Codable {
-    let id : Int?
-    let first_name : String?
-    let last_name : String?
-    let distance : Double?
-    let booking_id : String?
-    let fcm_token : String?
-    let latitude : Double?
-    let longitude : Double?
+    let id : AnyCodableValue?
+    let first_name : AnyCodableValue?
+    let last_name : AnyCodableValue?
+    let distance : AnyCodableValue?
+    let booking_id : AnyCodableValue?
+    let fcm_token : AnyCodableValue?
+    let latitude : AnyCodableValue?
+    let longitude : AnyCodableValue?
 
     enum CodingKeys: String, CodingKey {
 
@@ -110,14 +110,14 @@ struct Datum : Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        first_name = try values.decodeIfPresent(String.self, forKey: .first_name)
-        last_name = try values.decodeIfPresent(String.self, forKey: .last_name)
-        distance = try values.decodeIfPresent(Double.self, forKey: .distance)
-        booking_id = try values.decodeIfPresent(String.self, forKey: .booking_id)
-        fcm_token = try values.decodeIfPresent(String.self, forKey: .fcm_token)
-        latitude = try values.decodeIfPresent(Double.self, forKey: .latitude)
-        longitude = try values.decodeIfPresent(Double.self, forKey: .longitude)
+        id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .id)
+        first_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .first_name)
+        last_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .last_name)
+        distance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .distance)
+        booking_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .booking_id)
+        fcm_token = try values.decodeIfPresent(AnyCodableValue.self, forKey: .fcm_token)
+        latitude = try values.decodeIfPresent(AnyCodableValue.self, forKey: .latitude)
+        longitude = try values.decodeIfPresent(AnyCodableValue.self, forKey: .longitude)
     }
 
 }

@@ -86,7 +86,10 @@ class LocationVC: UIViewController,GMSMapViewDelegate{
     func setupUserCurrentLocation()
     {
         checkLocationPermission()
-        locationManagerInitilize()
+        DispatchQueue.main.async {
+            self.locationManagerInitilize()
+
+        }
         manager.startUpdatingLocation()
         manager.startUpdatingHeading()
         

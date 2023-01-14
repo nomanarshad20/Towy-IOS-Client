@@ -50,6 +50,7 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+//        self.navigationController?.navigationBar.isHidden = true
         mainMapVm.getBookingStatus { bookingData,error  in
             guard error == nil else{return}
 
@@ -102,8 +103,10 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
             // 4
 //            mapView.isMyLocationEnabled = true
 //            mapView.settings.myLocationButton = true
+
             mapView.delegate = self
-            self.mapView.isMyLocationEnabled = false
+
+            self.mapView.isMyLocationEnabled = true
             mapView.settings.allowScrollGesturesDuringRotateOrZoom = false
             mapView.isUserInteractionEnabled  = true
             setupUserCurrentLocation()
@@ -136,7 +139,10 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     func setupUserCurrentLocation()
     {
         checkLocationPermission()
-        locationManagerInitilize()
+        DispatchQueue.main.async {
+            self.locationManagerInitilize()
+
+        }
         manager.startUpdatingLocation()
         manager.startUpdatingHeading()
         
@@ -177,16 +183,19 @@ class HomeVC: UIViewController , GMSMapViewDelegate , UIGestureRecognizerDelegat
     
     
     func locationManagerInitilize(){
-        if CLLocationManager.locationServicesEnabled(){
-            manager.delegate = self
-            manager.allowsBackgroundLocationUpdates = false
-            manager.showsBackgroundLocationIndicator = true
-            manager.requestAlwaysAuthorization()
-            manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
-            if #available(iOS 14.0, *) {
-                manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "Tracking")
-            } else {
-                // Fallback on earlier versions
+        DispatchQueue.global().async {
+
+            if CLLocationManager.locationServicesEnabled(){
+                self.manager.delegate = self
+                self.manager.allowsBackgroundLocationUpdates = false
+                self.manager.showsBackgroundLocationIndicator = true
+                self.manager.requestAlwaysAuthorization()
+                self.manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+                if #available(iOS 14.0, *) {
+                    self.manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "Tracking")
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         }
     }
@@ -399,7 +408,7 @@ extension HomeVC: CLLocationManagerDelegate {
             self.homeVM.fetchNearestDrivers(location: CLLocationCoordinate2D(latitude: self.lat, longitude: self.long)){ data in
                 guard let d = data.data else{return}
                 for marker in d{
-                    self.addDriverMarker(location: CLLocationCoordinate2D(latitude: marker.latitude ?? 0.0, longitude: marker.longitude ?? 0.0), markerImg: "car_map")
+                    self.addDriverMarker(location: CLLocationCoordinate2D(latitude: marker.latitude?.doubleValue ?? 0.0, longitude: marker.longitude?.doubleValue ?? 0.0), markerImg: "car_map")
                 }
             }
         

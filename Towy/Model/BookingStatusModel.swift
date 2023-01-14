@@ -289,22 +289,26 @@ struct BookingStatusCheckModel : Codable {
 
 }
 struct Passenger : Codable {
-    let user_id : Int?
-    let email : String?
-    let mobile_no : String?
-    let fcm_token : String?
-    let user_type : Int?
-    let is_verified : Int?
-    let referral_code : String?
-    let steps : Int?
-    let provider : String?
-    let image : String?
-    let first_name : String?
-    let last_name : String?
-    let wallet_balance : Int?
-    let rating : Int?
-    let stripe_customer_id : String?
+    let user_id : AnyCodableValue?
+    let email : AnyCodableValue?
+    let mobile_no : AnyCodableValue?
+    let fcm_token : AnyCodableValue?
+    let user_type : AnyCodableValue?
+    let is_verified : AnyCodableValue?
+    let referral_code : AnyCodableValue?
+    let steps : AnyCodableValue?
+    let provider : AnyCodableValue?
+    let image : AnyCodableValue?
+    let first_name : AnyCodableValue?
+    let last_name : AnyCodableValue?
+    let wallet_balance : AnyCodableValue?
+    let rating : AnyCodableValue?
+    let stripe_customer_id : AnyCodableValue?
+    let card_number : AnyCodableValue?
 
+/*
+ {"result":"success","message":"Record Found","data":{"booking":null,"passenger":{"user_id":40,"email":"userTowy@towy.com","mobile_no":"+923127310357","fcm_token":"dGbFdL1yO0NIujHLOzhoC0:APA91bFAVB_2aKfWlNAT1tjimVwGBxubzLUipsomN3ni4hmiVvds85cv5u44iqcthCD5spFc37oepKqmnAkn9CXB-uBrlgHOmbPBQHi-fEOvw4Tbqoe8k9tu--HsOUzL9cxliF9Qrr2x","user_type":1,"is_verified":1,"referral_code":"passenger-0040","steps":5,"provider":null,"image":null,"first_name":"usman","last_name":"iOS","wallet_balance":0,"rating":4.222222222222222,"stripe_customer_id":"cus_N9p8N7m7Ez6HgE","card_number":"xxxx-xxxx-xxxx-4242"}}}
+ */
     enum CodingKeys: String, CodingKey {
 
         case user_id = "user_id"
@@ -322,25 +326,28 @@ struct Passenger : Codable {
         case wallet_balance = "wallet_balance"
         case rating = "rating"
         case stripe_customer_id = "stripe_customer_id"
+        case card_number = "card_number"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        user_id = try values.decodeIfPresent(Int.self, forKey: .user_id)
-        email = try values.decodeIfPresent(String.self, forKey: .email)
-        mobile_no = try values.decodeIfPresent(String.self, forKey: .mobile_no)
-        fcm_token = try values.decodeIfPresent(String.self, forKey: .fcm_token)
-        user_type = try values.decodeIfPresent(Int.self, forKey: .user_type)
-        is_verified = try values.decodeIfPresent(Int.self, forKey: .is_verified)
-        referral_code = try values.decodeIfPresent(String.self, forKey: .referral_code)
-        steps = try values.decodeIfPresent(Int.self, forKey: .steps)
-        provider = try values.decodeIfPresent(String.self, forKey: .provider)
-        image = try values.decodeIfPresent(String.self, forKey: .image)
-        first_name = try values.decodeIfPresent(String.self, forKey: .first_name)
-        last_name = try values.decodeIfPresent(String.self, forKey: .last_name)
-        wallet_balance = try values.decodeIfPresent(Int.self, forKey: .wallet_balance)
-        rating = try values.decodeIfPresent(Int.self, forKey: .rating)
-        stripe_customer_id = try values.decodeIfPresent(String.self, forKey: .stripe_customer_id)
+        user_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .user_id)
+        email = try values.decodeIfPresent(AnyCodableValue.self, forKey: .email)
+        mobile_no = try values.decodeIfPresent(AnyCodableValue.self, forKey: .mobile_no)
+        fcm_token = try values.decodeIfPresent(AnyCodableValue.self, forKey: .fcm_token)
+        user_type = try values.decodeIfPresent(AnyCodableValue.self, forKey: .user_type)
+        is_verified = try values.decodeIfPresent(AnyCodableValue.self, forKey: .is_verified)
+        referral_code = try values.decodeIfPresent(AnyCodableValue.self, forKey: .referral_code)
+        steps = try values.decodeIfPresent(AnyCodableValue.self, forKey: .steps)
+        provider = try values.decodeIfPresent(AnyCodableValue.self, forKey: .provider)
+        image = try values.decodeIfPresent(AnyCodableValue.self, forKey: .image)
+        first_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .first_name)
+        last_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .last_name)
+        wallet_balance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .wallet_balance)
+        rating = try values.decodeIfPresent(AnyCodableValue.self, forKey: .rating)
+        stripe_customer_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .stripe_customer_id)
+        card_number = try values.decodeIfPresent(AnyCodableValue.self, forKey: .card_number)
+
     }
 
 }

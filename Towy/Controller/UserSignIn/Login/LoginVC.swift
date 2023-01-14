@@ -29,6 +29,10 @@ class LoginVC: UIViewController{
         setUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+
+    }
     
     // MARK: - SETUI
     
