@@ -29,37 +29,37 @@ class ActivityTableViewCell: UITableViewCell {
         
         //yyyy-MM-dd'T'HH:mm:ssZ
         //MMM d, h:mm a
-        self.lblTitle.text = obj.booking_unique_id ?? ""
-        self.lblDate.text = dateToShow(strDate: obj.created_at ?? "")
-        let status = obj.ride_status ?? 5
+        self.lblTitle.text = obj.booking_unique_id?.stringValue ?? ""
+        self.lblDate.text = dateToShow(strDate: obj.created_at?.stringValue ?? "")
+        let status = obj.ride_status?.intValue ?? 5
         switch status{
         case 0:
             print("")
-            self.lblStatus.text = "PKR\(obj.estimated_fare ?? "0") . Cancelled"
+            self.lblStatus.text = "PKR\(obj.estimated_fare?.stringValue ?? "0") . Cancelled"
 
         case 1:
             print("")
-            self.lblStatus.text = "PKR\(obj.estimated_fare ?? "0") . Cancelled"
+            self.lblStatus.text = "PKR\(obj.estimated_fare?.stringValue ?? "0") . Cancelled"
 
         case 2:
             print("")
-            self.lblStatus.text = "PKR\(obj.estimated_fare ?? "0") . Rejected"
+            self.lblStatus.text = "PKR\(obj.estimated_fare?.stringValue ?? "0") . Rejected"
 
         case 3:
             print("")
-            self.lblStatus.text = "PKR\(obj.estimated_fare ?? "0") . Cancelled"
+            self.lblStatus.text = "PKR\(obj.estimated_fare?.stringValue ?? "0") . Cancelled"
 
         case 4:
             print("")
-            self.lblStatus.text = "PKR\(obj.estimated_fare ?? "0") . Cancelled"
+            self.lblStatus.text = "PKR\(obj.estimated_fare?.stringValue ?? "0") . Cancelled"
 
         case 5:
             print("")
-            self.lblStatus.text = "PKR\(obj.estimated_fare ?? "0") . Completed"
+            self.lblStatus.text = "PKR\(obj.estimated_fare?.stringValue ?? "0") . Completed"
 
         default:
             print("default")
-            self.lblStatus.text = "PKR\(obj.estimated_fare ?? "0") . Cancelled"
+            self.lblStatus.text = "PKR\(obj.estimated_fare?.stringValue ?? "0") . Cancelled"
 
         }
         //PKR0 . Cancelled

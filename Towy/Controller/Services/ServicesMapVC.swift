@@ -318,15 +318,21 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
         }
         for service in service{
             
-            let obj = Service(id: service.id ?? 0, quantity: service.quantity)
+            //let obj = Service(id: service.id?.intValue ?? 0, quantity: service.quantity?.intValue ?? 0)
+            let obj = Service(id: service.id?.intValue ?? 0,quantity: service.quantity)
             services.append(obj)
         }
         
-        let driver = Driver(driverID: selectedDriver.driver_id ?? 0, firstName: "\(selectedDriver.first_name ?? "")", lastName: "\(selectedDriver.last_name ?? "")", email: "\(selectedDriver.email ?? "")", distance: Int(selectedDriver.distance ?? 0.0), distanceFare: selectedDriver.distanceFare ?? 0, serviceFare: selectedDriver.service_fare ?? 0, totalFare: selectedDriver.total_fare ?? 0)
-        
-        let model = ServiceBookingRequestModel(services: services, driver: driver, bookingID: objBooking.data?.bookingRecord?.id ?? 0)
-        
-        
+        let driver = Driver(driverID: selectedDriver.driver_id, firstName: selectedDriver.first_name, lastName: selectedDriver.last_name, email: selectedDriver.email, distance: selectedDriver.distance, distanceFare: selectedDriver.distanceFare, serviceFare: selectedDriver.service_fare, totalFare: selectedDriver.service_fare)
+/*
+ let driver = Driver(driverID: selectedDriver.driver_id?.intValue ?? 0, firstName: "\(selectedDriver.first_name?.stringValue ?? "")", lastName: "\(selectedDriver.last_name?.stringValue ?? "")", email: "\(selectedDriver.email?.stringValue ?? "")", distance: Int(selectedDriver.distance?.doubleValue ?? 0.0), distanceFare: selectedDriver.distanceFare?.intValue ?? 0, serviceFare: selectedDriver.service_fare?.intValue ?? 0, totalFare: selectedDriver.total_fare?.intValue ?? 0)
+
+ */
+        /*
+        let model = ServiceBookingRequestModel(services: services, driver: driver, bookingID: objBooking.data?.bookingRecord?.id?.intValue ?? 0)
+        */
+        let model = ServiceBookingRequestModel(services: services, driver: driver, bookingID: objBooking.data?.bookingRecord?.id)
+
         servicesVM.sendServicesRequest(model: model) { data in
             let dictionary = try! DictionaryEncoder().encode(data)
             let dict = JSON(dictionary).dictionaryObject
@@ -1338,16 +1344,19 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
         
         for service in arrSelectedSerivces{
             
-            let obj = SelectedServices(id: service.id, quantity: service.quantity)
+//            let obj = SelectedServices(id: service.id?.intValue, quantity: service.quantity?.intValue)
+            let q = AnyCodableValue.integer(service.quantity)
+            let obj = SelectedServices(id: service.id, quantity: q)
             services.append(obj)
         }
         
         let pickupLat = self.sourceLocation?.latitude ?? 0.0
         let pickupLng = self.sourceLocation?.longitude ?? 0.0
         
-        let model = ServiceBookingModel(services: services, pick_up_area: self.PickupArea, pick_up_lat: pickupLat, pick_up_lng: pickupLng)
+//        let model = ServiceBookingModel(services: services, pick_up_area: self.PickupArea, pick_up_lat: pickupLat, pick_up_lng: pickupLng.doubleValue)
         
         
+        let model = ServiceBookingModel(services: services, pick_up_area: AnyCodableValue.string(self.PickupArea), pick_up_lat: AnyCodableValue.double(pickupLat), pick_up_lng: AnyCodableValue.double(pickupLng))
         servicesVM.createServiceBooking(model: model) { data in
             
             self.objServiceBooking = data
@@ -1364,10 +1373,10 @@ class ServicesMapVC: UIViewController,GMSMapViewDelegate {
         
         
         guard let obj = self.selectedDriver else{return}
-        self.lblName.text = obj.first_name ?? ""
-        self.lblPrice.text = "\(obj.total_fare ?? 0)$"
+        self.lblName.text = obj.first_name?.stringValue ?? ""
+        self.lblPrice.text = "\(obj.total_fare?.intValue ?? 0)$"
         if let distance = obj.distance {
-            self.lblTime.text = "\(distance.rounded(digits: 1))KM"
+            self.lblTime.text = "\(distance.doubleValue.rounded(digits: 1))KM"
 
         }else{
             self.lblTime.text = "\(0.0)KM"
@@ -1545,7 +1554,7 @@ extension ServicesMapVC:UITableViewDelegate,UITableViewDataSource{
        // guard let obj = self.serviceList?.data else{return}
         let data = self.arrSerivces[indexPath.row]
         if tableView == self.tblServicesList{
-            let ind = self.arrSelectedSerivces.firstIndex(where: {$0.id == data.id})
+            let ind = self.arrSelectedSerivces.firstIndex(where: {$0.id?.intValue == data.id?.intValue})
             guard let indexx = ind else{return}
             self.arrSelectedSerivces.remove(at: indexx)
            // self.tblDetailList.reloadData()
@@ -1620,9 +1629,9 @@ extension ServicesMapVC:UITableViewDelegate,UITableViewDataSource{
         var name = ""
         for obj in arr{
             if name.isEmpty{
-                name = "\(obj.service_name ?? "")"
+                name = "\(obj.service_name?.stringValue ?? "")"
             }else{
-                name = name+","+"\(obj.service_name ?? "")"
+                name = name+","+"\(obj.service_name?.stringValue ?? "")"
             }
         }
         return name
@@ -1632,9 +1641,9 @@ extension ServicesMapVC:UITableViewDelegate,UITableViewDataSource{
         var name = ""
         for obj in arr{
             if name.isEmpty{
-                name = "\(obj.name ?? "")"
+                name = "\(obj.name?.stringValue ?? "")"
             }else{
-                name = name+","+"\(obj.name ?? "")"
+                name = name+","+"\(obj.name?.stringValue ?? "")"
             }
         }
         return name
@@ -1653,7 +1662,7 @@ extension ServicesMapVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagsCollectionViewCell", for: indexPath) as! TagsCollectionViewCell
         let obj = self.arrSelectedSerivces[indexPath.row]
-        cell.lblTitle.text = obj.name
+        cell.lblTitle.text = obj.name?.stringValue
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -1663,7 +1672,7 @@ extension ServicesMapVC:UICollectionViewDelegate,UICollectionViewDataSource,UICo
         guard let item =  self.arrSelectedSerivces[indexPath.row].name else{return CGSize(width: 10, height: 10)}
         
         // return CGSize(width: label.frame.width, height: 30)
-        return CGSize(width: item.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)]).width + 25, height: 30)
+        return CGSize(width: item.stringValue.size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 12)]).width + 25, height: 30)
         
         //return collectionViewSize
         

@@ -71,8 +71,8 @@ class LoginVM: BaseVM {
             (result: Result<LoginModel,Error>) in
             switch result{
             case .success(let response):
-                let isValidUser = response.data.userExist
-                UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser)
+                let isValidUser = response.data?.user_exist
+                UtilitiesManager.shared.saveNumberValidation(isValid: isValidUser ?? false)
                 let usrDict = ["mobile_no":self.actualNumber]
                 UtilitiesManager.shared.saveUserInformation(usr: usrDict)
                 self.phoneVerification()
