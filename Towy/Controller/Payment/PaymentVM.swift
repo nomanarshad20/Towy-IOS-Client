@@ -25,7 +25,7 @@ class PaymentVM : BaseVM{
     var month : String = ""
     var year : String = ""
     var cvc : String = ""
-    
+    var amount: String = ""
     
     var checkValidation = dataValidation.name
 
@@ -48,6 +48,18 @@ class PaymentVM : BaseVM{
             UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: msg)
         }
     }
+    func walletApiCall(completion:@escaping (StripeModel) -> ()){
+        
+        let isValid = self.checkValidationPayment()
+        switch isValid {
+        case .success:
+            callWalletApi{ data in
+                completion(data)
+            }
+        case .failure(let msg):
+            UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: msg)
+        }
+    }
 
     
     func callStripApi(completion:@escaping (StripeModel) -> ()){
@@ -57,6 +69,26 @@ class PaymentVM : BaseVM{
         let body = ["name":name,"number":number,"expiry_month":month,"expiry_year":year,"cvc":cvc] as [String:Any]
 
         NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.createStrip, method: .post, showLoader: true).executeQuery(){
+            (result: Result<StripeModel,Error>) in
+            switch result{
+            case .success(let response):
+                //completion(response)
+                print("response",response)
+                completion(response)
+            case .failure(let error):
+                //completion(nil,error)
+                UtilitiesManager.shared.showAlertView(title: Key.APP_NAME, message: error.localizedDescription)
+                print("errorzz",error.localizedDescription)
+            }
+        }
+    }
+    func callWalletApi(completion:@escaping (StripeModel) -> ()){
+        //let h = UtilitiesManager.shared.getAuthHeader()
+        
+        
+        let body = ["name":name,"card_number":number,"expiry_month":month,"expiry_year":year,"cvc":cvc, "amount":amount] as [String:Any]
+
+        NetworkCall(data: body, headers: UtilitiesManager.shared.getAuthHeader(), url: nil, service: APPURL.services.createWallet, method: .post, showLoader: true).executeQuery(){
             (result: Result<StripeModel,Error>) in
             switch result{
             case .success(let response):

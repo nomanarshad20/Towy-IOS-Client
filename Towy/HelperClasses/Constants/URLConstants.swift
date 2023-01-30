@@ -69,7 +69,7 @@ struct APPURL {
         case calculateDistanceAndFare = "passenger-calculating-distance-and-fare"//
         case createStrip = "passenger-create-stripe-customer"//
         case getCancelReason = "get-cancel-reason"//
-        
+        case createWallet = "passenger-amount-add-to-wallet"
         
         
         case servicesList = "passenger-service-list"

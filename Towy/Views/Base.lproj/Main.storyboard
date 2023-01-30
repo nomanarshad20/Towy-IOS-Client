@@ -2363,15 +2363,26 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fF-AB-9bp">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="200"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="btnAddWalletAct:" destination="zen-tn-jiV" eventType="touchUpInside" id="Mdo-cK-cJu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.83529411764705885" green="0.83137254901960778" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8fF-AB-9bp" secondAttribute="trailing" id="2CG-qZ-N8c"/>
                                     <constraint firstItem="Gya-ef-q3I" firstAttribute="leading" secondItem="Dho-Xq-SNu" secondAttribute="leading" constant="15" id="2ay-Td-r4m"/>
                                     <constraint firstAttribute="height" constant="200" id="745-Sy-W0a"/>
                                     <constraint firstItem="bv6-8P-SHm" firstAttribute="leading" secondItem="Dho-Xq-SNu" secondAttribute="leading" constant="15" id="7nf-Kl-yIa"/>
+                                    <constraint firstItem="8fF-AB-9bp" firstAttribute="top" secondItem="Dho-Xq-SNu" secondAttribute="top" id="BR5-sF-gmK"/>
                                     <constraint firstAttribute="trailing" secondItem="Gya-ef-q3I" secondAttribute="trailing" constant="15" id="Hgw-dZ-Hyf"/>
+                                    <constraint firstItem="8fF-AB-9bp" firstAttribute="leading" secondItem="Dho-Xq-SNu" secondAttribute="leading" id="JE9-du-auS"/>
                                     <constraint firstAttribute="trailing" secondItem="bv6-8P-SHm" secondAttribute="trailing" constant="15" id="VO8-r1-XcM"/>
                                     <constraint firstItem="Gya-ef-q3I" firstAttribute="top" secondItem="Dho-Xq-SNu" secondAttribute="top" constant="20" id="ZYi-Y6-dLA"/>
+                                    <constraint firstAttribute="bottom" secondItem="8fF-AB-9bp" secondAttribute="bottom" id="ym4-MN-Kjx"/>
                                     <constraint firstItem="bv6-8P-SHm" firstAttribute="top" secondItem="Gya-ef-q3I" secondAttribute="bottom" constant="25" id="zf5-wz-C01"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -2435,11 +2446,12 @@
                     <tabBarItem key="tabBarItem" title="Wallet" image="archivebox.circle.fill" catalog="system" id="Nox-YV-FBJ"/>
                     <connections>
                         <outlet property="cardNoLbl" destination="jul-GN-C8O" id="SP8-zI-PVb"/>
+                        <outlet property="walletBlncLbl" destination="bv6-8P-SHm" id="Xhn-Rp-QbK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVD-d5-9dU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7722" y="2603"/>
+            <point key="canvasLocation" x="7721.538461538461" y="2602.6066350710898"/>
         </scene>
         <!--Home-->
         <scene sceneID="l02-3B-gA6">
@@ -2710,7 +2722,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-Xa-PyJ">
-                                <rect key="frame" x="15" y="205" width="360" height="310"/>
+                                <rect key="frame" x="15" y="205" width="360" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpM-0d-oj3">
                                         <rect key="frame" x="0.0" y="0.0" width="360" height="50"/>
@@ -2824,10 +2836,28 @@
                                             <constraint firstAttribute="trailing" secondItem="1e8-V1-gHJ" secondAttribute="trailing" id="yQe-jH-ARF"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yZ-S3-ghM">
+                                        <rect key="frame" x="0.0" y="325" width="360" height="50"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fu0-1w-KS4">
+                                                <rect key="frame" x="15" y="0.0" width="330" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.83137254900000002" green="0.83529411760000005" blue="0.83529411760000005" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="fu0-1w-KS4" secondAttribute="trailing" constant="15" id="D8x-gb-S1z"/>
+                                            <constraint firstAttribute="bottom" secondItem="fu0-1w-KS4" secondAttribute="bottom" id="bq6-Nj-YeF"/>
+                                            <constraint firstAttribute="height" constant="50" id="dHp-Yb-N3E"/>
+                                            <constraint firstItem="fu0-1w-KS4" firstAttribute="leading" secondItem="6yZ-S3-ghM" secondAttribute="leading" constant="15" id="gH9-wL-2rh"/>
+                                            <constraint firstItem="fu0-1w-KS4" firstAttribute="top" secondItem="6yZ-S3-ghM" secondAttribute="top" id="l7Q-2w-wuh"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI6-Ke-cbb">
-                                <rect key="frame" x="15" y="540" width="360" height="50"/>
+                                <rect key="frame" x="15" y="605" width="360" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Lgj-a3-kzP"/>
@@ -2860,6 +2890,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="amountView" destination="6yZ-S3-ghM" id="JBs-MB-HDE"/>
+                        <outlet property="tfAmount" destination="fu0-1w-KS4" id="OE9-iI-UfP"/>
                         <outlet property="tfCVC" destination="9t3-HB-X5K" id="t1I-70-cT1"/>
                         <outlet property="tfCardNumber" destination="VII-qA-7lF" id="nh3-UG-Exf"/>
                         <outlet property="tfMonth" destination="LLU-r8-e9G" id="IGX-Zw-1MA"/>

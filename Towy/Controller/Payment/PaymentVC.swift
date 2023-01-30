@@ -7,7 +7,10 @@
 
 import UIKit
 import DropDown
-
+enum Payment {
+    case stripe
+    case wallet
+}
 class PaymentVC: UIViewController {
     
     
@@ -17,13 +20,15 @@ class PaymentVC: UIViewController {
     @IBOutlet weak var tfCVC:UITextField!
     @IBOutlet weak var tfMonth:UITextField!
     @IBOutlet weak var tfYear:UITextField!
+    @IBOutlet weak var tfAmount: UITextField!
+    @IBOutlet weak var amountView: UIView!
     
     var dropDown = DropDown()
     var arrMonth = [String]()
     var arrYears = [String]()
     var arrOldMonth = [String]()
     var arrDefaultMonth = ["1","2","3","4","5","6","7","8","9","10","11","12"]
-
+    var isType: Payment = .stripe
     var datasource = [String]()
 
 //    @IBOutlet weak fileprivate var viewExpiryMonth: LBZSpinner!
@@ -45,10 +50,18 @@ class PaymentVC: UIViewController {
     
     
     func setUI(){
+        
+        switch isType {
+        case .stripe:
+            amountView.isHidden = true
+        case .wallet:
+            amountView.isHidden = false
+        }
         paymentVm.getDateAndMonth(){ month, year in
             self.arrMonth = month
             self.arrYears = year
             self.arrOldMonth = month
+            
         }
     }
     
@@ -101,10 +114,20 @@ class PaymentVC: UIViewController {
         paymentVm.number = self.tfCardNumber.text ?? ""
         paymentVm.month = self.tfMonth.text ?? ""
         paymentVm.year = self.tfYear.text ?? ""
-
-        paymentVm.apiCall() { data in
-            UtilitiesManager.shared.showAlertWithAction(self, message: data.message, title: data.result, buttons: ["OK"]) { index in
-                self.navigationController?.popViewController(animated: true)
+        paymentVm.amount = self.tfAmount.text ?? "0"
+        switch isType {
+        case .stripe:
+            paymentVm.apiCall() { data in
+                UtilitiesManager.shared.showAlertWithAction(self, message: data.message, title: data.result, buttons: ["OK"]) { index in
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        
+        case .wallet:
+            paymentVm.walletApiCall() { data in
+                UtilitiesManager.shared.showAlertWithAction(self, message: data.message, title: data.result, buttons: ["OK"]) { index in
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
