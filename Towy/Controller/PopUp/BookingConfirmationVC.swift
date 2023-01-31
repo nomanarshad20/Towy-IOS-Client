@@ -62,4 +62,6 @@ class BookingConfirmationVC: UIViewController {
      }
      */
     
+    @IBAction func walletSwitch(_ sender: UISwitch) {
+    }
 }

@@ -1034,7 +1034,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diQ-2B-932">
-                                        <rect key="frame" x="20" y="342" width="374" height="212.5"/>
+                                        <rect key="frame" x="20" y="327" width="374" height="242.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm your booking  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTF-zt-LtA">
                                                 <rect key="frame" x="20" y="18" width="334" height="26.5"/>
@@ -1086,19 +1086,37 @@
                                                     <action selector="btnConfirmAction:" destination="DWi-fS-a5F" eventType="touchUpInside" id="Xfn-Ya-MOO"/>
                                                 </connections>
                                             </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMM-29-Ljm">
+                                                <rect key="frame" x="305" y="202.5" width="51" height="30"/>
+                                                <connections>
+                                                    <action selector="walletSwitch:" destination="DWi-fS-a5F" eventType="valueChanged" id="jKp-l5-XiI"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWz-e1-MK8">
+                                                <rect key="frame" x="20" y="207" width="49" height="21"/>
+                                                <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="XWz-e1-MK8" firstAttribute="leading" secondItem="diQ-2B-932" secondAttribute="leading" constant="20" id="3Rq-Mg-BIn"/>
                                             <constraint firstAttribute="trailing" secondItem="Iu7-uc-cH7" secondAttribute="trailing" constant="20" id="46y-K7-nWQ"/>
                                             <constraint firstItem="aTF-zt-LtA" firstAttribute="leading" secondItem="diQ-2B-932" secondAttribute="leading" constant="20" id="4Cf-Ep-BKF"/>
-                                            <constraint firstAttribute="bottom" secondItem="3fl-uc-eCC" secondAttribute="bottom" constant="20" id="4fD-bG-PTv"/>
+                                            <constraint firstAttribute="bottom" secondItem="3fl-uc-eCC" secondAttribute="bottom" constant="50" id="4fD-bG-PTv"/>
                                             <constraint firstItem="Gq1-QU-dio" firstAttribute="top" secondItem="Iu7-uc-cH7" secondAttribute="bottom" constant="30" id="7uS-Id-K4k"/>
                                             <constraint firstItem="aTF-zt-LtA" firstAttribute="top" secondItem="diQ-2B-932" secondAttribute="top" constant="18" id="A2o-7O-j37"/>
                                             <constraint firstAttribute="trailing" secondItem="aTF-zt-LtA" secondAttribute="trailing" constant="20" id="OgW-Sn-e9x"/>
                                             <constraint firstItem="3fl-uc-eCC" firstAttribute="top" secondItem="Gq1-QU-dio" secondAttribute="bottom" constant="14" id="SLQ-rg-q6G"/>
                                             <constraint firstItem="Iu7-uc-cH7" firstAttribute="top" secondItem="aTF-zt-LtA" secondAttribute="bottom" constant="12" id="T9A-kf-ft4"/>
+                                            <constraint firstItem="XWz-e1-MK8" firstAttribute="top" secondItem="3fl-uc-eCC" secondAttribute="bottom" constant="14.5" id="Tsa-eW-p5H"/>
                                             <constraint firstItem="Gq1-QU-dio" firstAttribute="leading" secondItem="3fl-uc-eCC" secondAttribute="leading" id="Uyl-Jm-DiL"/>
+                                            <constraint firstAttribute="bottom" secondItem="xMM-29-Ljm" secondAttribute="bottom" constant="10" id="ZrO-9m-O1k"/>
+                                            <constraint firstItem="xMM-29-Ljm" firstAttribute="top" secondItem="3fl-uc-eCC" secondAttribute="bottom" constant="10" id="aEZ-Up-EZj"/>
+                                            <constraint firstAttribute="bottom" secondItem="XWz-e1-MK8" secondAttribute="bottom" constant="14.5" id="bBd-qu-HIh"/>
                                             <constraint firstAttribute="trailing" secondItem="3fl-uc-eCC" secondAttribute="trailing" constant="20" id="hd1-JG-bbA"/>
+                                            <constraint firstAttribute="trailing" secondItem="xMM-29-Ljm" secondAttribute="trailing" constant="20" id="mXN-sd-WsD"/>
                                             <constraint firstItem="Gq1-QU-dio" firstAttribute="trailing" secondItem="3fl-uc-eCC" secondAttribute="trailing" id="nh4-5U-Fxa"/>
                                             <constraint firstItem="Iu7-uc-cH7" firstAttribute="leading" secondItem="diQ-2B-932" secondAttribute="leading" constant="20" id="nqj-pO-QXC"/>
                                             <constraint firstItem="3fl-uc-eCC" firstAttribute="leading" secondItem="diQ-2B-932" secondAttribute="leading" constant="20" id="qLG-83-Dfq"/>
@@ -3655,7 +3673,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlD-SX-uQ7">
-                                        <rect key="frame" x="20" y="342" width="374" height="212.5"/>
+                                        <rect key="frame" x="20" y="327" width="374" height="242.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm your booking  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hqv-Eq-Qkc">
                                                 <rect key="frame" x="20" y="18" width="334" height="26.5"/>
@@ -3707,21 +3725,36 @@
                                                     <action selector="btnConfirmAction:" destination="dDv-vB-oKa" eventType="touchUpInside" id="f0G-6g-oWa"/>
                                                 </connections>
                                             </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vgJ-8X-9eG">
+                                                <rect key="frame" x="303" y="202.5" width="51" height="30"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icK-0Y-qu1">
+                                                <rect key="frame" x="20" y="207" width="43" height="21"/>
+                                                <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="vgJ-8X-9eG" secondAttribute="trailing" constant="22" id="F2A-WS-XBD"/>
                                             <constraint firstItem="BMV-Jz-Ifd" firstAttribute="trailing" secondItem="DRR-jA-4UL" secondAttribute="trailing" id="I8K-cL-RB4"/>
                                             <constraint firstItem="Hqv-Eq-Qkc" firstAttribute="top" secondItem="BlD-SX-uQ7" secondAttribute="top" constant="18" id="YxD-3m-qfs"/>
                                             <constraint firstItem="DRR-jA-4UL" firstAttribute="top" secondItem="BMV-Jz-Ifd" secondAttribute="bottom" constant="14" id="ZXB-l4-ynA"/>
+                                            <constraint firstItem="icK-0Y-qu1" firstAttribute="leading" secondItem="BlD-SX-uQ7" secondAttribute="leading" constant="20" symbolic="YES" id="dvV-99-Ijv"/>
                                             <constraint firstItem="Hqv-Eq-Qkc" firstAttribute="leading" secondItem="BlD-SX-uQ7" secondAttribute="leading" constant="20" id="flT-No-WLx"/>
                                             <constraint firstItem="DRR-jA-4UL" firstAttribute="leading" secondItem="BlD-SX-uQ7" secondAttribute="leading" constant="20" id="fpS-4X-2Te"/>
                                             <constraint firstItem="zt9-38-YMx" firstAttribute="top" secondItem="Hqv-Eq-Qkc" secondAttribute="bottom" constant="12" id="hrm-42-y0A"/>
                                             <constraint firstItem="BMV-Jz-Ifd" firstAttribute="leading" secondItem="DRR-jA-4UL" secondAttribute="leading" id="j0d-Fb-VUl"/>
                                             <constraint firstItem="BMV-Jz-Ifd" firstAttribute="top" secondItem="zt9-38-YMx" secondAttribute="bottom" constant="30" id="mes-fc-U0A"/>
+                                            <constraint firstItem="icK-0Y-qu1" firstAttribute="top" secondItem="DRR-jA-4UL" secondAttribute="bottom" constant="14.5" id="qhV-Od-ram"/>
+                                            <constraint firstAttribute="bottom" secondItem="vgJ-8X-9eG" secondAttribute="bottom" constant="10" id="snq-UN-2aB"/>
+                                            <constraint firstItem="vgJ-8X-9eG" firstAttribute="top" secondItem="DRR-jA-4UL" secondAttribute="bottom" constant="10" id="tVz-ry-Ua4"/>
                                             <constraint firstAttribute="trailing" secondItem="zt9-38-YMx" secondAttribute="trailing" constant="20" id="uHY-06-Iat"/>
-                                            <constraint firstAttribute="bottom" secondItem="DRR-jA-4UL" secondAttribute="bottom" constant="20" id="ul8-5l-n4a"/>
+                                            <constraint firstAttribute="bottom" secondItem="DRR-jA-4UL" secondAttribute="bottom" constant="50" id="ul8-5l-n4a"/>
                                             <constraint firstAttribute="trailing" secondItem="DRR-jA-4UL" secondAttribute="trailing" constant="20" id="vKk-Ea-pwJ"/>
                                             <constraint firstAttribute="trailing" secondItem="Hqv-Eq-Qkc" secondAttribute="trailing" constant="20" id="xaO-0C-FbL"/>
+                                            <constraint firstAttribute="bottom" secondItem="icK-0Y-qu1" secondAttribute="bottom" constant="14.5" id="yq6-Ce-dBD"/>
                                             <constraint firstItem="zt9-38-YMx" firstAttribute="leading" secondItem="BlD-SX-uQ7" secondAttribute="leading" constant="20" id="zsl-e9-Mip"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
