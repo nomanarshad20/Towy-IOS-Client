@@ -46,10 +46,10 @@ class HomeVM: BaseVM {
     func setDashBoardData() -> [AccountDataModel]{
         var arr = [AccountDataModel]()
         let obj_1 = AccountDataModel(title: "Tow", img: "car")
-        let obj_2 = AccountDataModel(title: "Tire", img: "tire")
+        let obj_2 = AccountDataModel(title: "Tire", img: "changeTire")
         let obj_3 = AccountDataModel(title: "Fuel", img: "fuel")
         let obj_4 = AccountDataModel(title: "EV Charge", img: "EV")
-        let obj_5 = AccountDataModel(title: "Lock", img: "lock")
+        let obj_5 = AccountDataModel(title: "Lock", img: "changeLock")
         let obj_6 = AccountDataModel(title: "Repair", img: "breakdown")
         let obj_7 = AccountDataModel(title: "Jump start", img: "jump")
         let obj_8 = AccountDataModel(title: "others", img: "other")

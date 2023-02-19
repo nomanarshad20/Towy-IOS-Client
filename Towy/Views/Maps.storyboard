@@ -3862,11 +3862,6 @@
             <point key="canvasLocation" x="1838" y="836"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="A97-dp-cid">
-            <size key="intrinsicContentSize" width="220" height="40"/>
-        </designable>
-    </designables>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="123"/>
