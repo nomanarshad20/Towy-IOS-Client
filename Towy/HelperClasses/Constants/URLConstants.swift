@@ -16,13 +16,13 @@ struct APPURL {
         //Client
 
         
-         static let Dev = "http://52.52.244.89"
-         static var socketURL = "http://52.52.244.89:8081"
+//         static let Dev = "http://52.52.244.89"
+//         static var socketURL = "http://52.52.244.89:8081"
          
         //Public
 
-//        static let Dev = "http://54.183.143.65"
-//        static var socketURL = "http://54.183.143.65:8081"
+        static let Dev = "http://54.183.143.65"
+        static var socketURL = "http://54.183.143.65:8081"
 //
         
         

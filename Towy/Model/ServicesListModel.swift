@@ -28,12 +28,12 @@ struct ServicesListModel : Codable {
 
 }
 struct Services : Codable {
-    let id : Int?
-    let name : String?
-    let base_rate : String?
-    let description : String?
-    let image : String?
-    let is_quantity_allowed : Int?
+    let id : AnyCodableValue?
+    let name : AnyCodableValue?
+    let base_rate : AnyCodableValue?
+    let description : AnyCodableValue?
+    let image : AnyCodableValue?
+    let is_quantity_allowed : AnyCodableValue?
     var quantity : Int = 1
     enum CodingKeys: String, CodingKey {
 
@@ -47,12 +47,12 @@ struct Services : Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        name = try values.decodeIfPresent(String.self, forKey: .name)
-        base_rate = try values.decodeIfPresent(String.self, forKey: .base_rate)
-        description = try values.decodeIfPresent(String.self, forKey: .description)
-        image = try values.decodeIfPresent(String.self, forKey: .image)
-        is_quantity_allowed = try values.decodeIfPresent(Int.self, forKey: .is_quantity_allowed)
+        id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .id)
+        name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .name)
+        base_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .base_rate)
+        description = try values.decodeIfPresent(AnyCodableValue.self, forKey: .description)
+        image = try values.decodeIfPresent(AnyCodableValue.self, forKey: .image)
+        is_quantity_allowed = try values.decodeIfPresent(AnyCodableValue.self, forKey: .is_quantity_allowed)
     }
 
 }

@@ -20,11 +20,11 @@ class DriverListTableViewCell: UITableViewCell {
     var obj : DriverList?{
         didSet{
             //UtilitiesManager.shared.setImage(url: obj. ?? "", img: imgDriver)
-            self.lblName.text = obj?.first_name ?? ""
-            self.lblPrice.text = "\(obj?.total_fare ?? 0)$"
+            self.lblName.text = obj?.first_name?.stringValue ?? ""
+            self.lblPrice.text = "\(obj?.total_fare?.intValue ?? 0)$"
             //self.lblTime.text = "\(obj?.distance ?? 0.0)KM"
             if let distance = obj?.distance {
-                self.lblTime.text = "\(distance.rounded(digits: 1))KM"
+                self.lblTime.text = "\(distance.doubleValue.rounded(digits: 1))KM"
 
             }else{
                 self.lblTime.text = "\(0.0)KM"
@@ -63,9 +63,9 @@ class DriverListTableViewCell: UITableViewCell {
         var name = ""
         for obj in arr{
             if name.isEmpty{
-                name = "\(obj.service_name ?? "")"
+                name = "\(obj.service_name?.stringValue ?? "")"
             }else{
-                name = name+","+"\(obj.service_name ?? "")"
+                name = name+","+"\(obj.service_name?.stringValue ?? "")"
             }
         }
         return name

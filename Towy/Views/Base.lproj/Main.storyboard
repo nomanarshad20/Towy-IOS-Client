@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ANU-vM-PYW">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ANU-vM-PYW">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+>>>>>>> TOWY-2
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -42,20 +47,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the 6-digit code sent to you at +92******" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7c-87-DAO">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="35" width="290" height="41"/>
+=======
+                                <rect key="frame" x="15" y="79" width="360" height="20.333333333333329"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n64-6K-rtj" customClass="SVPinView" customModule="SVPinView">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="101" width="224" height="60"/>
+=======
+                                <rect key="frame" x="15" y="124.33333333333331" width="273" height="60"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="je8-sx-UXA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KB-1a-PxM">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="186" width="250" height="50"/>
+=======
+                                <rect key="frame" x="15" y="209.33333333333334" width="250" height="50.000000000000028"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="i don't receive a code (00:00)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UC-1S-cJI">
                                         <rect key="frame" x="15" y="14.5" width="220" height="21"/>
@@ -177,13 +194,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what's your email address?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXg-qj-wu3">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="35" width="290" height="20.5"/>
+=======
+                                <rect key="frame" x="15" y="79" width="360" height="20.333333333333329"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uzb-SD-Zyl">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="80.5" width="290" height="50"/>
+=======
+                                <rect key="frame" x="15" y="124.33333333333331" width="360" height="50"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="name@example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xcK-Xm-rY7">
                                         <rect key="frame" x="15" y="0.0" width="260" height="50"/>
@@ -275,19 +300,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your account password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JS2-Pv-INC">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="35" width="290" height="20.5"/>
+=======
+                                <rect key="frame" x="15" y="79" width="360" height="20.333333333333329"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your passwords must be at least 8 characters long, and contain at least one letter and one digit " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-RX-VBr">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="70.5" width="290" height="54"/>
+=======
+                                <rect key="frame" x="15" y="114.33333333333331" width="360" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Onn-u8-wb8">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="139.5" width="290" height="50"/>
+=======
+                                <rect key="frame" x="15" y="165.33333333333334" width="360" height="50"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GHU-b9-DiI">
                                         <rect key="frame" x="15" y="0.0" width="220" height="50"/>
@@ -394,19 +431,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your name?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6DB-Ae-7Uv">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="35" width="290" height="20.5"/>
+=======
+                                <rect key="frame" x="15" y="79" width="360" height="20.333333333333329"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let us know how to properly address you" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCA-Dz-Ymu">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="70.5" width="290" height="18"/>
+=======
+                                <rect key="frame" x="15" y="114.33333333333333" width="360" height="17.999999999999986"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dqE-XI-w8y">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="103.5" width="290" height="115"/>
+=======
+                                <rect key="frame" x="15" y="147.33333333333334" width="360" height="115.00000000000003"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eFW-aT-OXe">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
@@ -526,13 +575,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accept Towy's Terms &amp; Review Privacy Notice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAr-lP-EjT">
+<<<<<<< HEAD
                                 <rect key="frame" x="100" y="35" width="205" height="148"/>
+=======
+                                <rect key="frame" x="100" y="79" width="275" height="111"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy0-WH-bZx">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="198" width="290" height="72"/>
+=======
+                                <rect key="frame" x="15" y="205" width="360" height="54"/>
+>>>>>>> TOWY-2
                                 <string key="text">By selecting "I Agree" below, I have reviewed and agree to the Terms of Use and acknowledge the Privacy Notice . I am at least 18 years of age</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -627,7 +684,11 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terms" translatesAutoresizingMaskIntoConstraints="NO" id="0ld-Vo-sIU">
+<<<<<<< HEAD
                                 <rect key="frame" x="5" y="50" width="70" height="85"/>
+=======
+                                <rect key="frame" x="5" y="94" width="70" height="85"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="d8Y-FH-MVF"/>
                                     <constraint firstAttribute="width" constant="70" id="ePc-cF-8qS"/>
@@ -675,7 +736,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrC-Lc-5JK">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+=======
+                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74V-T2-yio">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="780"/>
@@ -886,17 +951,28 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78B-ck-PU0">
+<<<<<<< HEAD
                                                         <rect key="frame" x="0.0" y="56" width="290" height="46"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fb" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-Gd-mMS">
                                                                 <rect key="frame" x="20" y="10.5" width="25" height="25"/>
+=======
+                                                        <rect key="frame" x="0.0" y="56" width="360" height="46"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fb" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-Gd-mMS">
+                                                                <rect key="frame" x="20" y="10.666666666666686" width="25" height="25"/>
+>>>>>>> TOWY-2
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="a3b-kL-Sx7"/>
                                                                     <constraint firstAttribute="width" constant="25" id="sUw-jX-xUZ"/>
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue with Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoC-7V-Xc6" customClass="CustomLabel" customModule="Towy" customModuleProvider="target">
+<<<<<<< HEAD
                                                                 <rect key="frame" x="0.0" y="15" width="290" height="16.5"/>
+=======
+                                                                <rect key="frame" x="0.0" y="14.666666666666687" width="360" height="16.666666666666671"/>
+>>>>>>> TOWY-2
                                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -1363,7 +1439,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ykb-7d-vpV">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="-5" width="390" height="911"/>
+=======
+                                <rect key="frame" x="0.0" y="39" width="390" height="833"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ms0-C5-RSL">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="800"/>
@@ -1486,7 +1566,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mlg-Ct-mun">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="70" width="320" height="449"/>
+=======
+                                <rect key="frame" x="0.0" y="114" width="390" height="647"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8Hw-qK-M6H" id="Lfa-JD-hgk"/>
@@ -1494,7 +1578,11 @@
                                 </connections>
                             </tableView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u63-sY-Xmq">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="18" width="35" height="28.5"/>
+=======
+                                <rect key="frame" x="15" y="62.666666666666664" width="35" height="28.000000000000014"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="cN0-ms-fkj"/>
                                     <constraint firstAttribute="width" constant="35" id="hlh-Kn-ddb"/>
@@ -1507,13 +1595,21 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOG-gv-lO0">
+<<<<<<< HEAD
                                 <rect key="frame" x="65" y="14.5" width="113" height="36"/>
+=======
+                                <rect key="frame" x="65" y="58.666666666666657" width="112.66666666666669" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewO-yS-sCE">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="15" width="113" height="36"/>
+=======
+                                <rect key="frame" x="15.000000000000007" y="59" width="112.66666666666669" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1555,7 +1651,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUl-Pd-eRZ">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="18" width="35" height="28.5"/>
+=======
+                                <rect key="frame" x="15" y="62.666666666666664" width="35" height="28.000000000000014"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="2qg-Br-uM0"/>
                                     <constraint firstAttribute="width" constant="35" id="lTc-0B-Q6j"/>
@@ -1568,31 +1668,51 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzI-HM-jSX">
+<<<<<<< HEAD
                                 <rect key="frame" x="65" y="14.5" width="161.5" height="36"/>
+=======
+                                <rect key="frame" x="65.000000000000014" y="58.666666666666657" width="161.33333333333337" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" translatesAutoresizingMaskIntoConstraints="NO" id="kMt-k8-TNc">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="65" width="320" height="200"/>
+=======
+                                <rect key="frame" x="0.0" y="109" width="390" height="200"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="8kQ-Yc-fjy"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/10/22,5:36 pm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iD-fa-lS7">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="280" width="109" height="17"/>
+=======
+                                <rect key="frame" x="15" y="324" width="109" height="17"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Regular" family="Uber Move Text" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PKR454" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atd-gS-D3t">
+<<<<<<< HEAD
                                 <rect key="frame" x="253" y="280" width="52" height="17"/>
+=======
+                                <rect key="frame" x="323.33333333333331" y="324" width="51.666666666666686" height="17"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HR-AT-1s7">
+<<<<<<< HEAD
                                 <rect key="frame" x="235" y="337" width="70" height="40"/>
+=======
+                                <rect key="frame" x="305" y="381" width="70" height="40"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" name="Gray200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="U9m-Ww-Vqr"/>
@@ -1613,7 +1733,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a9b-95-NP6">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="312" width="224" height="90"/>
+=======
+                                <rect key="frame" x="0.0" y="356" width="273" height="90"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VwE-So-jww">
                                         <rect key="frame" x="15" y="15" width="10" height="10"/>
@@ -1665,14 +1789,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze7-Jc-0Ur">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="417" width="290" height="2"/>
+=======
+                                <rect key="frame" x="15" y="461" width="360" height="2"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" name="Gray200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="fLj-Vr-iLQ"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="glK-dc-B9r">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="435.5" width="35" height="32"/>
+=======
+                                <rect key="frame" x="15" y="480" width="35" height="31.666666666666686"/>
+>>>>>>> TOWY-2
                                 <color key="tintColor" name="Gray200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="S9K-hj-Okp"/>
@@ -1680,7 +1812,11 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your trip with testing driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hWl-WK-XgU">
+<<<<<<< HEAD
                                 <rect key="frame" x="60" y="441" width="245" height="21"/>
+=======
+                                <rect key="frame" x="60" y="485" width="315" height="21"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1736,7 +1872,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdq-c6-vrv">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+=======
+                                <rect key="frame" x="0.0" y="44" width="390" height="120"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9g-jw-dWw">
                                         <rect key="frame" x="10" y="15" width="84" height="30"/>
@@ -1816,7 +1956,11 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TCX-ZN-Tgh">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="120" width="320" height="448"/>
+=======
+                                <rect key="frame" x="0.0" y="164" width="390" height="680"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWq-54-5WN">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
@@ -1984,7 +2128,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AccountTBCell" rowHeight="50" id="3Gr-AV-ViR" customClass="AccountTBCell" customModule="Towy" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="50" width="390" height="50"/>
+                                                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Gr-AV-ViR" id="Ty1-hv-HaH">
                                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
@@ -2125,13 +2269,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cot-bz-003">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="75" width="290" height="36"/>
+=======
+                                <rect key="frame" x="15" y="119" width="360" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db5-hH-3fw">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="18" width="45" height="38.5"/>
+=======
+                                <rect key="frame" x="15" y="62.666666666666657" width="45" height="38"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="TFH-L2-30O"/>
                                     <constraint firstAttribute="height" constant="45" id="qT2-jh-raf"/>
@@ -2144,7 +2296,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQv-Ya-yLZ">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="121" width="320" height="100"/>
+=======
+                                <rect key="frame" x="0.0" y="165" width="390" height="100"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QiM-SB-AXk">
                                         <rect key="frame" x="15" y="16.5" width="70" height="67"/>
@@ -2187,7 +2343,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Kqm-Jv-Ibp">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="221" width="320" height="347"/>
+=======
+                                <rect key="frame" x="0.0" y="265" width="390" height="545"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="CYg-QY-bqm" id="SEv-FE-LU5"/>
@@ -2218,7 +2378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PF1-F9-kNd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9166" y="2603"/>
+            <point key="canvasLocation" x="9074" y="2603"/>
         </scene>
         <!--HelpVC-->
         <scene sceneID="ob0-Io-f1a">
@@ -2229,13 +2389,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWg-GU-NTR">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="75" width="290" height="36"/>
+=======
+                                <rect key="frame" x="15" y="119" width="360" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0N-wa-Joh">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="18" width="45" height="38.5"/>
+=======
+                                <rect key="frame" x="15" y="62.666666666666657" width="45" height="38"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="7jS-SW-7aE"/>
                                     <constraint firstAttribute="width" constant="45" id="B6x-O6-YGe"/>
@@ -2248,7 +2416,11 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQi-D1-hIt">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="121" width="320" height="50"/>
+=======
+                                <rect key="frame" x="0.0" y="165" width="390" height="50"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Topics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cv0-Ye-ERg">
                                         <rect key="frame" x="20" y="16" width="66" height="18"/>
@@ -2265,7 +2437,11 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zpf-bH-AbJ">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="171" width="320" height="397"/>
+=======
+                                <rect key="frame" x="0.0" y="215" width="390" height="595"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="xb8-k2-fDC" id="Bu8-rd-cCu"/>
@@ -2329,7 +2505,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oCu-LW-mOd">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="18" width="45" height="38.5"/>
+=======
+                                <rect key="frame" x="15" y="62.666666666666657" width="45" height="38"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="udh-dt-aD6"/>
                                     <constraint firstAttribute="height" constant="45" id="yBl-J2-tSU"/>
@@ -2342,13 +2522,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSN-aX-cTv">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="75" width="290" height="36"/>
+=======
+                                <rect key="frame" x="15" y="119" width="360" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dho-Xq-SNu">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="136" width="290" height="200"/>
+=======
+                                <rect key="frame" x="15" y="180" width="360" height="200"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Towy cash" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gya-ef-q3I">
                                         <rect key="frame" x="15" y="20" width="260" height="18"/>
@@ -2380,11 +2568,16 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIO-8f-rRt">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="351" width="290" height="24"/>
+=======
+                                <rect key="frame" x="15" y="395" width="360" height="24"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFx-MX-Psv">
                                 <rect key="frame" x="15" y="375" width="290" height="70"/>
                                 <constraints>
@@ -2400,6 +2593,34 @@
                                     <action selector="btnAddPaymentAction:" destination="zen-tn-jiV" eventType="touchUpInside" id="Fgl-Eu-8C8"/>
                                 </connections>
                             </button>
+=======
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="iT3-D7-SBd">
+                                <rect key="frame" x="15" y="419" width="360" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jul-GN-C8O">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="70"/>
+                                        <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yL4-d2-NpR" userLabel="Add payment method">
+                                        <rect key="frame" x="0.0" y="70" width="360" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="B2T-7t-qdc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="UberMoveText-Medium" family="Uber Move Text" pointSize="15"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="  Add payment method" image="plus" catalog="system">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnAddPaymentAction:" destination="zen-tn-jiV" eventType="touchUpInside" id="8on-Gq-OAM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+>>>>>>> TOWY-2
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HqO-yy-XoI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2407,20 +2628,23 @@
                             <constraint firstItem="RIO-8f-rRt" firstAttribute="top" secondItem="Dho-Xq-SNu" secondAttribute="bottom" constant="15" id="9LC-9h-yLg"/>
                             <constraint firstItem="SSN-aX-cTv" firstAttribute="top" secondItem="oCu-LW-mOd" secondAttribute="bottom" constant="15" id="9ba-HB-sB9"/>
                             <constraint firstItem="RIO-8f-rRt" firstAttribute="leading" secondItem="zAh-hc-EQx" secondAttribute="leading" constant="15" id="CvD-Zp-J4U"/>
+                            <constraint firstItem="iT3-D7-SBd" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="DKn-mt-CPm"/>
                             <constraint firstItem="oCu-LW-mOd" firstAttribute="top" secondItem="HqO-yy-XoI" secondAttribute="top" constant="15" id="Hc0-Eq-OgV"/>
-                            <constraint firstItem="mFx-MX-Psv" firstAttribute="top" secondItem="RIO-8f-rRt" secondAttribute="bottom" id="Jra-fr-IGB"/>
                             <constraint firstItem="SSN-aX-cTv" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="NGm-kO-e7p"/>
+                            <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="iT3-D7-SBd" secondAttribute="trailing" constant="15" id="Wz3-jV-ZVl"/>
+                            <constraint firstItem="iT3-D7-SBd" firstAttribute="top" secondItem="RIO-8f-rRt" secondAttribute="bottom" id="Zlx-Ru-QMb"/>
                             <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="Dho-Xq-SNu" secondAttribute="trailing" constant="15" id="bDZ-IF-MDX"/>
                             <constraint firstItem="Dho-Xq-SNu" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="cxz-7K-3UV"/>
                             <constraint firstAttribute="trailing" secondItem="SSN-aX-cTv" secondAttribute="trailing" constant="15" id="lQj-5F-SNv"/>
                             <constraint firstItem="Dho-Xq-SNu" firstAttribute="top" secondItem="SSN-aX-cTv" secondAttribute="bottom" constant="25" id="oPP-CI-2v9"/>
                             <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="RIO-8f-rRt" secondAttribute="trailing" constant="15" id="qHR-H6-8mh"/>
                             <constraint firstItem="oCu-LW-mOd" firstAttribute="leading" secondItem="zAh-hc-EQx" secondAttribute="leading" constant="15" id="utp-XA-lrt"/>
-                            <constraint firstItem="HqO-yy-XoI" firstAttribute="trailing" secondItem="mFx-MX-Psv" secondAttribute="trailing" constant="15" id="xbA-GK-11k"/>
-                            <constraint firstItem="mFx-MX-Psv" firstAttribute="leading" secondItem="HqO-yy-XoI" secondAttribute="leading" constant="15" id="zcZ-oS-lbx"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Wallet" image="archivebox.circle.fill" catalog="system" id="Nox-YV-FBJ"/>
+                    <connections>
+                        <outlet property="cardNoLbl" destination="jul-GN-C8O" id="SP8-zI-PVb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVD-d5-9dU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2522,10 +2746,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgp-0s-Oeq">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OI2-vS-G5E">
                                         <rect key="frame" x="0.0" y="52" width="320" height="444"/>
+=======
+                                <rect key="frame" x="0.0" y="44" width="390" height="800"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OI2-vS-G5E">
+                                        <rect key="frame" x="0.0" y="52" width="390" height="642"/>
+>>>>>>> TOWY-2
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="separatorColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -2584,7 +2815,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BY4-fg-Nbv">
+<<<<<<< HEAD
                                         <rect key="frame" x="0.0" y="496" width="320" height="60"/>
+=======
+                                        <rect key="frame" x="0.0" y="694" width="390" height="60"/>
+>>>>>>> TOWY-2
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zEP-OD-Tey">
                                                 <rect key="frame" x="12" y="10" width="248" height="50"/>
@@ -2676,13 +2911,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter card detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIL-J5-Qpx">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="75" width="290" height="36"/>
+=======
+                                <rect key="frame" x="15" y="119" width="360" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fc-TR-MfM">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="18" width="45" height="38.5"/>
+=======
+                                <rect key="frame" x="15" y="62.666666666666657" width="45" height="38"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="2xF-z8-aO8"/>
                                     <constraint firstAttribute="width" constant="45" id="qeP-gx-a8s"/>
@@ -2695,7 +2938,11 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-Xa-PyJ">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="161" width="290" height="310"/>
+=======
+                                <rect key="frame" x="15" y="205" width="360" height="310"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpM-0d-oj3">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="50"/>
@@ -2812,7 +3059,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dI6-Ke-cbb">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="496" width="290" height="50"/>
+=======
+                                <rect key="frame" x="15" y="540" width="360" height="50"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Lgj-a3-kzP"/>
@@ -2854,7 +3105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dg-lc-cxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7818" y="5037"/>
+            <point key="canvasLocation" x="7816.9230769230762" y="5036.7298578199052"/>
         </scene>
         <!--ReceiptVC-->
         <scene sceneID="26C-oG-EJL">
@@ -2865,7 +3116,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6k-5P-4AN">
+<<<<<<< HEAD
                                 <rect key="frame" x="15" y="18" width="35" height="28.5"/>
+=======
+                                <rect key="frame" x="15" y="62.666666666666664" width="35" height="28.000000000000014"/>
+>>>>>>> TOWY-2
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="K0h-0G-0P5"/>
                                     <constraint firstAttribute="height" constant="35" id="Qex-dh-zvS"/>
@@ -2878,13 +3133,21 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVA-Ly-ypZ">
+<<<<<<< HEAD
                                 <rect key="frame" x="65" y="14.5" width="109.5" height="36"/>
+=======
+                                <rect key="frame" x="65" y="58.666666666666657" width="109.33333333333331" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fQ-SR-vdQ">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="65" width="320" height="260"/>
+=======
+                                <rect key="frame" x="0.0" y="109" width="390" height="260"/>
+>>>>>>> TOWY-2
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Octobor 12,2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbb-jR-hun">
                                         <rect key="frame" x="25" y="70" width="103.5" height="17"/>
@@ -2912,19 +3175,31 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSb-Mv-lWh">
+<<<<<<< HEAD
                                 <rect key="frame" x="25" y="340" width="72" height="36"/>
+=======
+                                <rect key="frame" x="25" y="384" width="72" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="PKR 00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rht-qy-ejt">
+<<<<<<< HEAD
                                 <rect key="frame" x="107" y="340" width="188" height="36"/>
+=======
+                                <rect key="frame" x="107" y="384" width="258" height="36"/>
+>>>>>>> TOWY-2
                                 <fontDescription key="fontDescription" name="UberMoveText-Bold" family="Uber Move Text" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbj-Wu-4FF">
+<<<<<<< HEAD
                                 <rect key="frame" x="25" y="396" width="270" height="2"/>
+=======
+                                <rect key="frame" x="25" y="440" width="340" height="2"/>
+>>>>>>> TOWY-2
                                 <color key="backgroundColor" name="Gray200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="Oya-1b-EuJ"/>
@@ -3608,29 +3883,29 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xuR-bR-BqE"/>
+        <segue reference="rAv-XE-LuX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="apple" width="50" height="50"/>
-        <image name="archivebox.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="archivebox.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrow.forward.square.fill" catalog="system" width="128" height="114"/>
-        <image name="arrow.left.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="arrow.right" catalog="system" width="128" height="95"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="arrow_LeftBlack" width="24" height="16"/>
         <image name="arrow_RightGray" width="24" height="16"/>
         <image name="arrow_down" width="16.5" height="9"/>
         <image name="box" width="128" height="128"/>
         <image name="briefcase" width="15.5" height="14.5"/>
         <image name="calendar-week" width="16" height="16"/>
-        <image name="chevron.left" catalog="system" width="97" height="128"/>
-        <image name="circle.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="clock.fill" catalog="system" width="128" height="123"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="circle.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="clock.fill" catalog="system" width="128" height="121"/>
         <image name="email" width="14" height="10"/>
         <image name="eye_close" width="24" height="24"/>
         <image name="fb" width="50" height="50"/>
         <image name="flag" width="37" height="20"/>
         <image name="google" width="48" height="48"/>
-        <image name="homekit" catalog="system" width="128" height="104"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="language" width="16" height="16"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="lock" width="50" height="50"/>
@@ -3639,9 +3914,9 @@
         <image name="md-transgender" width="16" height="16"/>
         <image name="mobile" width="12.5" height="18.5"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="person" catalog="system" width="128" height="121"/>
-        <image name="person.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rate" width="14.5" height="14"/>

@@ -25,15 +25,15 @@ class ServicesListTableViewCell: UITableViewCell {
         didSet{
             
             //5,2
-            if obj?.is_quantity_allowed ?? 0  == 1{
+            if obj?.is_quantity_allowed?.intValue ?? 0  == 1{
                 self.stackBtn.isHidden = false
             }else{
                 self.stackBtn.isHidden = true
             }
-            UtilitiesManager.shared.setImage(url: obj?.image ?? "", img: imgService)
-            self.lblName.text = obj?.name ?? ""
-            self.lblDes.text = obj?.description ?? ""
-            self.lblPrice.text = "\(obj?.base_rate ?? "") $"
+            UtilitiesManager.shared.setImage(url: obj?.image?.stringValue ?? "", img: imgService)
+            self.lblName.text = obj?.name?.stringValue ?? ""
+            self.lblDes.text = obj?.description?.stringValue ?? ""
+            self.lblPrice.text = "\(obj?.base_rate?.stringValue ?? "") $"
             self.lblQuantity.text = "\(obj?.quantity ?? 1)"
             
         }

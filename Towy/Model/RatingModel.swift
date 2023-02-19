@@ -132,66 +132,66 @@ struct RatingModel : Codable {
 
 }
 struct RatingDataClass : Codable {
-    let id : Int?
-    let booking_unique_id : String?
-    let passenger_id : Int?
-    let franchise_id : String?
-    let vehicle_type_id : Int?
-    let booking_type : String?
-    let pick_up_area : String?
-    let pick_up_latitude : String?
-    let pick_up_longitude : String?
-    let pick_up_date : String?
-    let pick_up_time : String?
-    let drop_off_area : String?
-    let drop_off_latitude : String?
-    let drop_off_longitude : String?
-    let total_distance : String?
-    let payment_type : String?
-    let estimated_fare : String?
-    let actual_fare : String?
-    let ride_status : Int?
-    let created_at : String?
-    let created_ago : String?
-    let booking_detail_id : Int?
-    let waiting_price_per_min : Int?
-    let vehicle_tax : Int?
-    let vehicle_per_km_rate : Int?
-    let vehicle_per_min_rate : Int?
-    let min_vehicle_fare : Int?
-    let passenger_first_name : String?
-    let passenger_last_name : String?
-    let driver_first_name : String?
-    let driver_last_name : String?
-    let driver_status : Int?
-    let driver_id : Int?
-    let peak_factor_rate : String?
-    let driver_waiting_time : String?
-    let ride_pick_up_time : String?
-    let ride_start_time : String?
-    let ride_end_time : String?
-    let total_minutes_to_reach_pick_up_point : String?
-    let total_ride_minutes : String?
-    let initial_distance_rate : String?
-    let initial_time_rate : String?
-    let total_calculated_distance : String?
-    let p2p_before_pick_up_distance : String?
-    let p2p_after_pick_up_distance : String?
-    let is_passenger_rating_given : Int?
-    let is_driver_rating_given : Int?
-    let passenger_image : String?
-    let passenger_mobile_no : String?
-    let passenger_rating : Int?
-    let driver_image : String?
-    let driver_mobile_no : String?
-    let driver_rating : Int?
-    let vehicle_name : String?
-    let vehicle_registration_number : String?
-    let driver_rating_from_passenger : Int?
-    let driver_comment_from_passenger : String?
-    let passenger_rating_from_driver : Int?
-    let passenger_comment_from_driver : String?
-    let otp : String?
+    let id : AnyCodableValue?
+    let booking_unique_id : AnyCodableValue?
+    let passenger_id : AnyCodableValue?
+    let franchise_id : AnyCodableValue?
+    let vehicle_type_id : AnyCodableValue?
+    let booking_type : AnyCodableValue?
+    let pick_up_area : AnyCodableValue?
+    let pick_up_latitude : AnyCodableValue?
+    let pick_up_longitude : AnyCodableValue?
+    let pick_up_date : AnyCodableValue?
+    let pick_up_time : AnyCodableValue?
+    let drop_off_area : AnyCodableValue?
+    let drop_off_latitude : AnyCodableValue?
+    let drop_off_longitude : AnyCodableValue?
+    let total_distance : AnyCodableValue?
+    let payment_type : AnyCodableValue?
+    let estimated_fare : AnyCodableValue?
+    let actual_fare : AnyCodableValue?
+    let ride_status : AnyCodableValue?
+    let created_at : AnyCodableValue?
+    let created_ago : AnyCodableValue?
+    let booking_detail_id : AnyCodableValue?
+    let waiting_price_per_min : AnyCodableValue?
+    let vehicle_tax : AnyCodableValue?
+    let vehicle_per_km_rate : AnyCodableValue?
+    let vehicle_per_min_rate : AnyCodableValue?
+    let min_vehicle_fare : AnyCodableValue?
+    let passenger_first_name : AnyCodableValue?
+    let passenger_last_name : AnyCodableValue?
+    let driver_first_name : AnyCodableValue?
+    let driver_last_name : AnyCodableValue?
+    let driver_status : AnyCodableValue?
+    let driver_id : AnyCodableValue?
+    let peak_factor_rate : AnyCodableValue?
+    let driver_waiting_time : AnyCodableValue?
+    let ride_pick_up_time : AnyCodableValue?
+    let ride_start_time : AnyCodableValue?
+    let ride_end_time : AnyCodableValue?
+    let total_minutes_to_reach_pick_up_point : AnyCodableValue?
+    let total_ride_minutes : AnyCodableValue?
+    let initial_distance_rate : AnyCodableValue?
+    let initial_time_rate : AnyCodableValue?
+    let total_calculated_distance : AnyCodableValue?
+    let p2p_before_pick_up_distance : AnyCodableValue?
+    let p2p_after_pick_up_distance : AnyCodableValue?
+    let is_passenger_rating_given : AnyCodableValue?
+    let is_driver_rating_given : AnyCodableValue?
+    let passenger_image : AnyCodableValue?
+    let passenger_mobile_no : AnyCodableValue?
+    let passenger_rating : AnyCodableValue?
+    let driver_image : AnyCodableValue?
+    let driver_mobile_no : AnyCodableValue?
+    let driver_rating : AnyCodableValue?
+    let vehicle_name : AnyCodableValue?
+    let vehicle_registration_number : AnyCodableValue?
+    let driver_rating_from_passenger : AnyCodableValue?
+    let driver_comment_from_passenger : AnyCodableValue?
+    let passenger_rating_from_driver : AnyCodableValue?
+    let passenger_comment_from_driver : AnyCodableValue?
+    let otp : AnyCodableValue?
 
     enum CodingKeys: String, CodingKey {
 
@@ -259,66 +259,66 @@ struct RatingDataClass : Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        id = try values.decodeIfPresent(Int.self, forKey: .id)
-        booking_unique_id = try values.decodeIfPresent(String.self, forKey: .booking_unique_id)
-        passenger_id = try values.decodeIfPresent(Int.self, forKey: .passenger_id)
-        franchise_id = try values.decodeIfPresent(String.self, forKey: .franchise_id)
-        vehicle_type_id = try values.decodeIfPresent(Int.self, forKey: .vehicle_type_id)
-        booking_type = try values.decodeIfPresent(String.self, forKey: .booking_type)
-        pick_up_area = try values.decodeIfPresent(String.self, forKey: .pick_up_area)
-        pick_up_latitude = try values.decodeIfPresent(String.self, forKey: .pick_up_latitude)
-        pick_up_longitude = try values.decodeIfPresent(String.self, forKey: .pick_up_longitude)
-        pick_up_date = try values.decodeIfPresent(String.self, forKey: .pick_up_date)
-        pick_up_time = try values.decodeIfPresent(String.self, forKey: .pick_up_time)
-        drop_off_area = try values.decodeIfPresent(String.self, forKey: .drop_off_area)
-        drop_off_latitude = try values.decodeIfPresent(String.self, forKey: .drop_off_latitude)
-        drop_off_longitude = try values.decodeIfPresent(String.self, forKey: .drop_off_longitude)
-        total_distance = try values.decodeIfPresent(String.self, forKey: .total_distance)
-        payment_type = try values.decodeIfPresent(String.self, forKey: .payment_type)
-        estimated_fare = try values.decodeIfPresent(String.self, forKey: .estimated_fare)
-        actual_fare = try values.decodeIfPresent(String.self, forKey: .actual_fare)
-        ride_status = try values.decodeIfPresent(Int.self, forKey: .ride_status)
-        created_at = try values.decodeIfPresent(String.self, forKey: .created_at)
-        created_ago = try values.decodeIfPresent(String.self, forKey: .created_ago)
-        booking_detail_id = try values.decodeIfPresent(Int.self, forKey: .booking_detail_id)
-        waiting_price_per_min = try values.decodeIfPresent(Int.self, forKey: .waiting_price_per_min)
-        vehicle_tax = try values.decodeIfPresent(Int.self, forKey: .vehicle_tax)
-        vehicle_per_km_rate = try values.decodeIfPresent(Int.self, forKey: .vehicle_per_km_rate)
-        vehicle_per_min_rate = try values.decodeIfPresent(Int.self, forKey: .vehicle_per_min_rate)
-        min_vehicle_fare = try values.decodeIfPresent(Int.self, forKey: .min_vehicle_fare)
-        passenger_first_name = try values.decodeIfPresent(String.self, forKey: .passenger_first_name)
-        passenger_last_name = try values.decodeIfPresent(String.self, forKey: .passenger_last_name)
-        driver_first_name = try values.decodeIfPresent(String.self, forKey: .driver_first_name)
-        driver_last_name = try values.decodeIfPresent(String.self, forKey: .driver_last_name)
-        driver_status = try values.decodeIfPresent(Int.self, forKey: .driver_status)
-        driver_id = try values.decodeIfPresent(Int.self, forKey: .driver_id)
-        peak_factor_rate = try values.decodeIfPresent(String.self, forKey: .peak_factor_rate)
-        driver_waiting_time = try values.decodeIfPresent(String.self, forKey: .driver_waiting_time)
-        ride_pick_up_time = try values.decodeIfPresent(String.self, forKey: .ride_pick_up_time)
-        ride_start_time = try values.decodeIfPresent(String.self, forKey: .ride_start_time)
-        ride_end_time = try values.decodeIfPresent(String.self, forKey: .ride_end_time)
-        total_minutes_to_reach_pick_up_point = try values.decodeIfPresent(String.self, forKey: .total_minutes_to_reach_pick_up_point)
-        total_ride_minutes = try values.decodeIfPresent(String.self, forKey: .total_ride_minutes)
-        initial_distance_rate = try values.decodeIfPresent(String.self, forKey: .initial_distance_rate)
-        initial_time_rate = try values.decodeIfPresent(String.self, forKey: .initial_time_rate)
-        total_calculated_distance = try values.decodeIfPresent(String.self, forKey: .total_calculated_distance)
-        p2p_before_pick_up_distance = try values.decodeIfPresent(String.self, forKey: .p2p_before_pick_up_distance)
-        p2p_after_pick_up_distance = try values.decodeIfPresent(String.self, forKey: .p2p_after_pick_up_distance)
-        is_passenger_rating_given = try values.decodeIfPresent(Int.self, forKey: .is_passenger_rating_given)
-        is_driver_rating_given = try values.decodeIfPresent(Int.self, forKey: .is_driver_rating_given)
-        passenger_image = try values.decodeIfPresent(String.self, forKey: .passenger_image)
-        passenger_mobile_no = try values.decodeIfPresent(String.self, forKey: .passenger_mobile_no)
-        passenger_rating = try values.decodeIfPresent(Int.self, forKey: .passenger_rating)
-        driver_image = try values.decodeIfPresent(String.self, forKey: .driver_image)
-        driver_mobile_no = try values.decodeIfPresent(String.self, forKey: .driver_mobile_no)
-        driver_rating = try values.decodeIfPresent(Int.self, forKey: .driver_rating)
-        vehicle_name = try values.decodeIfPresent(String.self, forKey: .vehicle_name)
-        vehicle_registration_number = try values.decodeIfPresent(String.self, forKey: .vehicle_registration_number)
-        driver_rating_from_passenger = try values.decodeIfPresent(Int.self, forKey: .driver_rating_from_passenger)
-        driver_comment_from_passenger = try values.decodeIfPresent(String.self, forKey: .driver_comment_from_passenger)
-        passenger_rating_from_driver = try values.decodeIfPresent(Int.self, forKey: .passenger_rating_from_driver)
-        passenger_comment_from_driver = try values.decodeIfPresent(String.self, forKey: .passenger_comment_from_driver)
-        otp = try values.decodeIfPresent(String.self, forKey: .otp)
+        id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .id)
+        booking_unique_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .booking_unique_id)
+        passenger_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_id)
+        franchise_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .franchise_id)
+        vehicle_type_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .vehicle_type_id)
+        booking_type = try values.decodeIfPresent(AnyCodableValue.self, forKey: .booking_type)
+        pick_up_area = try values.decodeIfPresent(AnyCodableValue.self, forKey: .pick_up_area)
+        pick_up_latitude = try values.decodeIfPresent(AnyCodableValue.self, forKey: .pick_up_latitude)
+        pick_up_longitude = try values.decodeIfPresent(AnyCodableValue.self, forKey: .pick_up_longitude)
+        pick_up_date = try values.decodeIfPresent(AnyCodableValue.self, forKey: .pick_up_date)
+        pick_up_time = try values.decodeIfPresent(AnyCodableValue.self, forKey: .pick_up_time)
+        drop_off_area = try values.decodeIfPresent(AnyCodableValue.self, forKey: .drop_off_area)
+        drop_off_latitude = try values.decodeIfPresent(AnyCodableValue.self, forKey: .drop_off_latitude)
+        drop_off_longitude = try values.decodeIfPresent(AnyCodableValue.self, forKey: .drop_off_longitude)
+        total_distance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .total_distance)
+        payment_type = try values.decodeIfPresent(AnyCodableValue.self, forKey: .payment_type)
+        estimated_fare = try values.decodeIfPresent(AnyCodableValue.self, forKey: .estimated_fare)
+        actual_fare = try values.decodeIfPresent(AnyCodableValue.self, forKey: .actual_fare)
+        ride_status = try values.decodeIfPresent(AnyCodableValue.self, forKey: .ride_status)
+        created_at = try values.decodeIfPresent(AnyCodableValue.self, forKey: .created_at)
+        created_ago = try values.decodeIfPresent(AnyCodableValue.self, forKey: .created_ago)
+        booking_detail_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .booking_detail_id)
+        waiting_price_per_min = try values.decodeIfPresent(AnyCodableValue.self, forKey: .waiting_price_per_min)
+        vehicle_tax = try values.decodeIfPresent(AnyCodableValue.self, forKey: .vehicle_tax)
+        vehicle_per_km_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .vehicle_per_km_rate)
+        vehicle_per_min_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .vehicle_per_min_rate)
+        min_vehicle_fare = try values.decodeIfPresent(AnyCodableValue.self, forKey: .min_vehicle_fare)
+        passenger_first_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_first_name)
+        passenger_last_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_last_name)
+        driver_first_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_first_name)
+        driver_last_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_last_name)
+        driver_status = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_status)
+        driver_id = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_id)
+        peak_factor_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .peak_factor_rate)
+        driver_waiting_time = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_waiting_time)
+        ride_pick_up_time = try values.decodeIfPresent(AnyCodableValue.self, forKey: .ride_pick_up_time)
+        ride_start_time = try values.decodeIfPresent(AnyCodableValue.self, forKey: .ride_start_time)
+        ride_end_time = try values.decodeIfPresent(AnyCodableValue.self, forKey: .ride_end_time)
+        total_minutes_to_reach_pick_up_point = try values.decodeIfPresent(AnyCodableValue.self, forKey: .total_minutes_to_reach_pick_up_point)
+        total_ride_minutes = try values.decodeIfPresent(AnyCodableValue.self, forKey: .total_ride_minutes)
+        initial_distance_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .initial_distance_rate)
+        initial_time_rate = try values.decodeIfPresent(AnyCodableValue.self, forKey: .initial_time_rate)
+        total_calculated_distance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .total_calculated_distance)
+        p2p_before_pick_up_distance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .p2p_before_pick_up_distance)
+        p2p_after_pick_up_distance = try values.decodeIfPresent(AnyCodableValue.self, forKey: .p2p_after_pick_up_distance)
+        is_passenger_rating_given = try values.decodeIfPresent(AnyCodableValue.self, forKey: .is_passenger_rating_given)
+        is_driver_rating_given = try values.decodeIfPresent(AnyCodableValue.self, forKey: .is_driver_rating_given)
+        passenger_image = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_image)
+        passenger_mobile_no = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_mobile_no)
+        passenger_rating = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_rating)
+        driver_image = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_image)
+        driver_mobile_no = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_mobile_no)
+        driver_rating = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_rating)
+        vehicle_name = try values.decodeIfPresent(AnyCodableValue.self, forKey: .vehicle_name)
+        vehicle_registration_number = try values.decodeIfPresent(AnyCodableValue.self, forKey: .vehicle_registration_number)
+        driver_rating_from_passenger = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_rating_from_passenger)
+        driver_comment_from_passenger = try values.decodeIfPresent(AnyCodableValue.self, forKey: .driver_comment_from_passenger)
+        passenger_rating_from_driver = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_rating_from_driver)
+        passenger_comment_from_driver = try values.decodeIfPresent(AnyCodableValue.self, forKey: .passenger_comment_from_driver)
+        otp = try values.decodeIfPresent(AnyCodableValue.self, forKey: .otp)
     }
 
 }
